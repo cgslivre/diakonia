@@ -1,0 +1,21 @@
+{
+  "name": "diakonia",
+  "description": "Sistema Diakonia",
+  "main": "resources/assets/scripts/main.js",
+  "authors": [
+    "Marcos Freire <marcosdefontes@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/marcosdefontes/diakonia",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

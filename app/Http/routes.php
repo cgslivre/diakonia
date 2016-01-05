@@ -12,9 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome');    
 });
 
+Route::get('/retiros', function () {
+    return view('welcome');
+});
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -28,4 +31,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
+    Route::get('/retiros', function () {
+        return view('welcome');
+    });
 });
