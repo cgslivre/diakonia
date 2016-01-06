@@ -7,6 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
+        "laravelcollective/html": "5.2.*",
         "twitter/bootstrap": ">=3.3.6"
     },
     "require-dev": {
@@ -44,7 +45,8 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
-            "php artisan optimize"
+            "php artisan optimize",
+            "cp -R vendor/twitter/bootstrap/dist/. public/assets/bootstrap"
         ]
     },
     "config": {
