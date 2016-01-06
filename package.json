@@ -1,7 +1,9 @@
 {
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.8.8",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-minify-css": "^1.2.3"
   },
   "dependencies": {
     "laravel-elixir": "^4.0.0",

@@ -8,7 +8,8 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "5.2.*",
-        "twitter/bootstrap": ">=3.3.6"
+        "components/jquery": "1.11.3",
+        "twitter/bootstrap": "3.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -46,7 +47,8 @@
         ],
         "post-update-cmd": [
             "php artisan optimize",
-            "cp -R vendor/twitter/bootstrap/dist/. public/assets/bootstrap"
+            "cp -R vendor/twitter/bootstrap/dist/. public/assets/bootstrap",
+            "cp -R vendor/components/jquery/jquery.min.js public/assets/jquery"
         ]
     },
     "config": {
