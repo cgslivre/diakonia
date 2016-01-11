@@ -46,9 +46,7 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
-            "php artisan optimize",
-            "cp -R vendor/twitter/bootstrap/dist/. public/assets/bootstrap",
-            "cp -R vendor/components/jquery/jquery.min.js public/assets/jquery"
+            "php artisan optimize"            
         ]
     },
     "config": {

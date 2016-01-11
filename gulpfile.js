@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+//elixir.config.assetsDir = '/'; //trailing slash required.
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -16,8 +18,18 @@ elixir(function(mix) {
 });
 */
 
+var paths = {
+	'default' : '/resources/assets',
+	'bootstrap':'vendor/twitter/bootstrap/dist'
+}
+
+
 elixir(function(mix) {
+	// Copia as fontes do Bootstrap
+	mix.copy( paths.bootstrap + '/fonts', 'public/fonts')
+	// Junta e minimiza os arquivos de estilos
 	mix.styles([
-        "main.css"
-    ], 'public/css/all.css');
+				paths.bootstrap + "/css/bootstrap.css",
+        paths.default + "/css/main.css"
+    ], 'public/css/all.min.css', './');
 });

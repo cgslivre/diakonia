@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Diakonia - Discípulos em Brasília - @yield('titulo')</title>
 
-    {{Html::style('assets/bootstrap/css/bootstrap.min.css')}}
+    {{Html::style('css/all.min.css')}}
 
   </head>
 
