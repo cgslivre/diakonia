@@ -20,13 +20,18 @@ elixir(function(mix) {
 
 var paths = {
 	'default' : '/resources/assets',
-	'bootstrap':'vendor/twitter/bootstrap/dist'
+	'bootstrap':'vendor/twitter/bootstrap/dist',
+	'jquery':'vendor/components/jquery'
 }
 
 
 elixir(function(mix) {
 	// Copia as fontes do Bootstrap
 	mix.copy( paths.bootstrap + '/fonts', 'public/fonts')
+	mix.scripts([
+			paths.jquery + "/jquery.min.js" ,
+			paths.bootstrap + "/js/bootstrap.min.js"
+	], 'public/js/app.min.js', './')
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",

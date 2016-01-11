@@ -14,8 +14,7 @@
     <div class="wrapper">
     </div>
 
-    {{ HTML::script('assets/jquery/jquery.min.js') }}
-    {{ HTML::script('assets/bootstrap/js/bootstrap.min.js') }}
+    {{ HTML::script('js/app.min.js') }}    
 
   </body>
 </html>
