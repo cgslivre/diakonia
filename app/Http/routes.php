@@ -29,7 +29,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     //
-    Route::get('/retiros', function () {
+    Route::get('/retiros', array('as' => 'retiros', function () {
         return view('retiros/home');
-    });
+    }));
 });

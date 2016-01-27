@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10c8de2f91ff590cb3ae041acd96df5e",
-    "content-hash": "d7a1ee3c7e99e4bc4e3e75b73ef354c1",
+    "hash": "00a12f8d543aa429cf20e3023d6b2d75",
+    "content-hash": "7d213fee9ddc54e537909be1d39361e8",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,6 +60,40 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "components/font-awesome",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/font-awesome.git",
+                "reference": "069663a8419f9db90f9bec71e71ed4bb9d28d6ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/069663a8419f9db90f9bec71e71ed4bb9d28d6ee",
+                "reference": "069663a8419f9db90f9bec71e71ed4bb9d28d6ee",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "styles": [
+                        "css/font-awesome.css"
+                    ],
+                    "files": [
+                        "css/font-awesome.min.css",
+                        "fonts/*"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT",
+                "OFL-1.1"
+            ],
+            "description": "The iconic font designed for use with Twitter Bootstrap.",
+            "time": "2015-11-24 10:33:56"
         },
         {
             "name": "components/jquery",
@@ -350,16 +384,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.2.6",
+            "version": "v5.2.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0"
+                "reference": "867914788c2ec942967c3608ed54626228a5f916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b774c304ee81fcf5402fa06b261b364ba8f29cf0",
-                "reference": "b774c304ee81fcf5402fa06b261b364ba8f29cf0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/867914788c2ec942967c3608ed54626228a5f916",
+                "reference": "867914788c2ec942967c3608ed54626228a5f916",
                 "shasum": ""
             },
             "require": {
@@ -474,7 +508,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-12-31 17:41:58"
+            "time": "2016-01-12 22:45:00"
         },
         {
             "name": "laravelcollective/html",
@@ -835,16 +869,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47"
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/d762ee5b099a29044603cd4649851e81aa66cb47",
-                "reference": "d762ee5b099a29044603cd4649851e81aa66cb47",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
+                "reference": "dd8998b7c846f6909f4e7a5f67fabebfc412a4f7",
                 "shasum": ""
             },
             "require": {
@@ -879,7 +913,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2015-12-10 14:48:13"
+            "time": "2016-01-06 13:31:20"
         },
         {
             "name": "psr/log",
@@ -3150,7 +3184,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "components/font-awesome": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
