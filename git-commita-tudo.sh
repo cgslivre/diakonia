@@ -20,3 +20,5 @@ git commit -m "$MENSAGEM"
 
 echo "Enviando ao servidor"
 git push
+
+#final
