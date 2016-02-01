@@ -20,9 +20,9 @@
           <div id="dropdown-element" class="panel-collapse collapse">
             <div class="panel-body">
               <ul class="nav navbar-nav">
-                <li><a href="ui-kits/theming.html"><span class="icon fa fa-calendar"></span>Eventos</a></li>
-                <li><a href="ui-kits/grid.html"><span class="icon fa fa-user"></span>Inscritos</a></li>
-                <li><a href="ui-kits/button.html"><span class="icon fa fa-money"></span>Pagamento</a></li>
+                <li><a href="#"><span class="icon fa fa-calendar"></span>Eventos</a></li>
+                <li><a href="#"><span class="icon fa fa-user"></span>Inscritos</a></li>
+                <li><a href="#"><span class="icon fa fa-money"></span>Pagamento</a></li>
               </ul>
             </div>
           </div>
@@ -35,8 +35,8 @@
           <div id="dropdown-table" class="panel-collapse collapse">
             <div class="panel-body">
               <ul class="nav navbar-nav">
-                <li><a href="table/table.html">Calendário</a></li>
-                <li><a href="table/datatable.html">Equipe</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Equipe</a></li>
               </ul>
             </div>
           </div>
@@ -49,8 +49,8 @@
           <div id="dropdown-form" class="panel-collapse collapse">
             <div class="panel-body">
               <ul class="nav navbar-nav">
-                <li><a href="form/ui-kits.html">Calendário</a></li>
-                <li><a href="form/ui-kits.html">Equipe</a></li>
+                <li><a href="#">Calendário</a></li>
+                <li><a href="#">Equipe</a></li>
               </ul>
             </div>
           </div>
@@ -64,10 +64,8 @@
               <div id="component-example" class="panel-collapse collapse">
                   <div class="panel-body">
                       <ul class="nav navbar-nav">
-                          <li><a href="components/pricing-table.html">Agenda de Contatos</a>
-                          </li>
-                          <li><a href="components/chartjs.html">Vínculos</a>
-                          </li>
+                          <li><a href="#">Agenda de Contatos</a></li>
+                          <li><a href="#">Vínculos</a></li>
                       </ul>
                   </div>
               </div>

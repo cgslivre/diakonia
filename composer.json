@@ -10,7 +10,8 @@
         "laravelcollective/html": "5.2.*",
         "components/jquery": "1.11.3",
         "twitter/bootstrap": "3.3.*",
-        "components/font-awesome": "dev-master"
+        "components/font-awesome": "dev-master",
+        "doctrine/dbal" : "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
