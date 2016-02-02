@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             // rememberToken é utilizado para evitar ataques utilizando o token
             // do usuário.
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
