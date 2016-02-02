@@ -20,8 +20,11 @@
       {{-- Inclui o cabeçalho da página --}}
 @include('header')
 
-{{-- Inclui o Menu administração --}}
-@include('menu-admin')
+{{-- Inclui o Menu  --}}
+@if (Auth::guest())
+@else
+  @include('menu')
+@endif
 
         <div class="container-fluid">
           <div class="side-body">
