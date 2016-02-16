@@ -12,7 +12,7 @@ class CreateLocaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('locals', function (Blueprint $table) {
+        Schema::create('local', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
@@ -23,6 +23,7 @@ class CreateLocaisTable extends Migration
             $table->string('cidade');
 
             $table->string('imagem_path')->nullable();
+            $table->json('localizacao')->nullable();
 
         });
     }
@@ -34,6 +35,6 @@ class CreateLocaisTable extends Migration
      */
     public function down()
     {
-        Schema::drop('locals');
+        Schema::drop('local');
     }
 }
