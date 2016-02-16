@@ -15,7 +15,9 @@ class UsersTableSeeder extends Seeder
           'name' => 'Marcos Freire',
           'email' => 'marcosdefontes@gmail.com',
           'password' => bcrypt(env('PASS_USER_ONE')),
-          'isAdmin' => true
+          'isAdmin' => true,
+          'created_at' => \Carbon\Carbon::now(),
+          'updated_at' => \Carbon\Carbon::now()
       ]);
     }
 }
