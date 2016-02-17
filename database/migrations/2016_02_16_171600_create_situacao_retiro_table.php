@@ -13,7 +13,7 @@ class CreateSituacaoRetiroTable extends Migration
     public function up()
     {
       Schema::create('situacao_retiro', function (Blueprint $table) {
-          $table->smallInteger('id')->unique();
+          $table->smallInteger('id')->unsigned()->unique();
           $table->string('descricao')->unique();
 
       });

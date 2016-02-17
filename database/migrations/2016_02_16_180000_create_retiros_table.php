@@ -14,7 +14,7 @@ class CreateRetirosTable extends Migration
     {
         //
         Schema::create( 'retiros', function(Blueprint $table){
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('nome');
             $table->string('slug')->unique();
             $table->timestamps();
@@ -32,6 +32,12 @@ class CreateRetirosTable extends Migration
             $table->integer('limite_inscritos')->nullable();
 
             $table->string('ref_banner')->nullable();
+            
+
+            $table->smallInteger('situacao_retiro_id')->unsigned();
+            $table->foreign('situacao_retiro_id')
+              ->references('id')
+              ->on('situacao_retiro');
 
         });
     }

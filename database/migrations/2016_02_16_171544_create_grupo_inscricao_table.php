@@ -13,7 +13,7 @@ class CreateGrupoInscricaoTable extends Migration
     public function up()
     {
       Schema::create('grupo_inscricao', function (Blueprint $table) {
-          $table->increments('id');
+          $table->increments('id')->unsigned();
           $table->string('nome')->unique();
 
           $table->boolean('ativo')->default(true);
