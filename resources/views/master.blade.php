@@ -29,8 +29,9 @@
         <div class="container-fluid">
           <div class="side-body">
             <div class="page-title">
-              <span class="title">Título</span>
-              <div class="description">Subtítulo</div>
+              <span class="title">@yield('titulo')</span>
+              <div class="description">@yield('subtitulo')</div>
+              @yield('content')
             </div>
           </div>
         </div>
