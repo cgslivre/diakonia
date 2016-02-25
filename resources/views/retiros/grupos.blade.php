@@ -1,20 +1,41 @@
 @extends( 'retiros.layout')
 
-@section('titulo', 'Grupos de Inscritos')
+@section('subtitulo', 'Grupos de Inscritos')
 
 
 @section('content')
-<form class="form-inline">
-<div class="form-group">
-    <label for="nomeGrupo" class="control-label">Nome do Grupo:</label>
-    <input type="email" class="form-control" id="nomeGrupo" placeholder="Nome do Grupo">
-    <button type="submit" class="btn btn-primary">Adicionar</button>
-</div>
-</form>
+  {!! Form::open(array('url'=>'/retiros/grupos','class'=>'form-inline')) !!}
+
+    <div class="form-group">
+        {!! Form::label('nome', 'Nome do grupo:' , ['class'=>'control-label'])!!}
+
+        {!! Form::text('nome', null ,['class'=>'form-control','placeholder'=>'Nome do grupo'])!!}
+
+        {!! Form::submit('Adicionar',['class'=>'btn btn-primary']) !!}
+        <!--<button type="submit" class="btn btn-primary">Adicionar</button>-->
+    </div>
+  {!! Form::close() !!}
+<hr class="divider">
+@if( $errors->any())
+    <ul class="alert alert-danger">
+      @foreach( $errors->all() as $error)
+        <li> {{ $error }}
+        </li>
+      @endforeach
+    </ul>
+    <hr class="divider">
+@endif
+
+@if( Session::has('message') )
+  <div class="alert bg-success">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    {{Session::get('message')}}
+  </div>
+@endif
 
 @if (count($grupos) > 0 )
 
-  <table class="table">
+  <table class="table table-striped table-hover">
     <thead>
       <tr>
         <th>#</th>
@@ -24,14 +45,23 @@
     </thead>
     <tbody>
 
-      @foreach( $grupos as $grupo )
+      @foreachIndexed( $grupos as $grupo )
         <tr>
-          <th scope="row">{{ $grupo->id }}</th>
-          <th>{{ $grupo->nome }}</th>
-          <th>{{ $grupo->ativo }}</th>
+          <th scope="row" title="{{ $grupo->id }}">@index</th>
+          <td
+          @unless ($grupo->ativo)
+          class="text-muted"
+          @endunless
+          >{{ $grupo->nome }}</td>
+          <td class="{{ ($grupo->ativo) ? 'text-success' : 'text-danger'}}">
+            @if( $grupo->ativo)
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+            @else
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            @endif
+          </td>
         </tr>
-
-      @endforeach
+      @endforeachIndexed
 
     </tbody>
   </table>
@@ -39,5 +69,4 @@
 @else
   Nenhum registro.
 @endif
-
 @endsection

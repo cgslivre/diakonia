@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      /**
+       * Does not support nesting
+       */
+      Blade::directive('index', function($expression) {
+          return '<?php echo $index; ?>';
+      });
+      Blade::directive('foreachIndexed', function($expression) {
+          return '<?php $index = 1; foreach' . $expression . ': ?>';
+      });
+      Blade::directive('endforeachIndexed', function($expression) {
+          return '<?php $index++; endforeach; ?>';
+      });
     }
 
     /**

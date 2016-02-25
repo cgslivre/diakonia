@@ -40,5 +40,6 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::get('/retiros/grupos','GrupoInscricaoController@index');
+    Route::post('/retiros/grupos','GrupoInscricaoController@salvar');
 
 });
