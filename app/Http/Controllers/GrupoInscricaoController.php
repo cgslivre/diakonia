@@ -46,4 +46,17 @@ class GrupoInscricaoController extends Controller
 
     return redirect('/retiros/grupos')->with('message', 'Grupo adicionado!');
   }
+
+  public function ativacao( $id, Request $request ){
+    $grupo = GrupoInscricao::findOrFail($id);
+
+    $txt = $grupo->ativo ? 'desativado' : 'ativado';
+
+    $grupo->ativo ? $grupo->ativo = false : $grupo->ativo = true;
+    $grupo->save();
+
+
+    return redirect('/retiros/grupos')->with('message', 'Grupo ' . $txt .' com sucesso!');
+
+  }
 }
