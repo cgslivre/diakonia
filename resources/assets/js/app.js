@@ -37,5 +37,3 @@ $(function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });
 });
-
-$('div.alert').not('.alert-important').delay(3000).slideUp(300);

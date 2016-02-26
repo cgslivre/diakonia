@@ -40,6 +40,7 @@ elixir(function(mix) {
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
 				paths.fontawesome + "/css/font-awesome.min.css",
+				paths.default + "/css/checkbox3.css",
         paths.default + "/css/main.css",
 				paths.default + "/css/theme.css"
     ], 'public/css/all.min.css', './');

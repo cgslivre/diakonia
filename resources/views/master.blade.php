@@ -31,6 +31,7 @@
             <div class="page-title">
               <span class="title">@yield('titulo')  > </span><span class="title">@yield('subtitulo')</span>
               <div class="description">@yield('descricao')</div>
+              <hr class="divider">
               @yield('content')
             </div>
           </div>
@@ -46,6 +47,6 @@
     </footer>
 
     {{ HTML::script('js/app.min.js') }}
-
+    @yield('scripts')
   </body>
 </html>

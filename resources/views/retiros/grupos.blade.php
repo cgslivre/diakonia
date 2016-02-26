@@ -13,8 +13,13 @@
 
         {!! Form::submit('Adicionar',['class'=>'btn btn-primary']) !!}
         <!--<button type="submit" class="btn btn-primary">Adicionar</button>-->
+        <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
+          <input type="checkbox" id="radio-exibir-inativos" checked="">
+          <label for="radio-exibir-inativos">Exibir inativos</label>
+        </div>
     </div>
   {!! Form::close() !!}
+
 <hr class="divider">
 @if( $errors->any())
     <ul class="alert alert-danger">
@@ -46,7 +51,7 @@
     <tbody>
 
       @foreachIndexed( $grupos as $grupo )
-        <tr>
+        <tr class="{{ ($grupo->ativo) ? 'grupo-ativo' : 'grupo-inativo'}}">
           <th scope="row" title="{{ $grupo->id }}">@index</th>
           <td
           @unless ($grupo->ativo)
@@ -69,4 +74,18 @@
 @else
   Nenhum registro.
 @endif
+@endsection
+
+@section('scripts')
+<script>
+  $('div.alert').not('.alert-important').delay(3000).slideUp(300);
+
+  $('#radio-exibir-inativos').change( function() {
+    if( $(this).is(':checked')){
+      $('tr.grupo-inativo').show(200);
+    } else{
+      $('tr.grupo-inativo').hide(200);
+    }
+  });
+</script>
 @endsection
