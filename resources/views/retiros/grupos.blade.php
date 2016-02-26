@@ -45,7 +45,7 @@
       <tr>
         <th>#</th>
         <th>Nome</th>
-        <th>Ativo</th>
+        <th class="text-center">Ativo</th>
 
       </tr>
     </thead>
@@ -59,19 +59,22 @@
           class="text-muted"
           @endunless
           >{{ $grupo->nome }}</td>
-          <td class="{{ ($grupo->ativo) ? 'text-success' : 'text-danger'}}" grupo="{{ $grupo->nome }}">
+          <td class="{{ ($grupo->ativo) ? 'text-success' : 'text-danger'}} text-center" grupo="{{ $grupo->nome }}">
             {!! Form::open(['method' => 'PATCH',
                 'action' => ['GrupoInscricaoController@ativacao',$grupo->id],
                 'nomeGrupo' => $grupo->nome,
+                'grupoAtivo' => $grupo->ativo,
                 'id' => 'form-ativacao-id-' . $grupo->id,
                 'class'=>'button-link form-ativacao']) !!}
               {{ Form::hidden('id', $grupo->id ) }}
               @if( $grupo->ativo)
-                {!! Form::submit('1',['class'=>'button-link', 'data-toggle'=>'modal','data-target'=>'#modalWarning']) !!}
-                <!--<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>-->
+                <button type="submit" class="btn button-link" data-toggle="modal" data-target="#modalWarning">
+                    <i class="fa fa-check-circle"></i>
+                </button>
               @else
-                {!! Form::submit('0',['class'=>'button-link', 'data-toggle'=>'modal','data-target'=>'#modalWarning']) !!}
-                <!--<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>-->
+                  <button type="submit" class="btn button-link" data-toggle="modal" data-target="#modalWarning">
+                      <i class="fa fa-times"></i>
+                  </button>
               @endif
 
             {!! Form::close() !!}
@@ -87,11 +90,6 @@
   Nenhum registro.
 @endif
 
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary btn-warning" data-toggle="modal" data-target="#modalWarning">
-    Modal Warning
-</button>
--->
 <!-- Modal -->
 <div class="modal fade modal-warning bs-example-modal-sm" id="modalWarning" tabindex="-1"
       role="dialog" aria-labelledby="modal-ativacao" aria-hidden="true">
@@ -130,11 +128,12 @@
 
 var confirmacao = false;
 $('.form-ativacao').submit( function(e){
-  console.log( confirmacao);
+
   if( confirmacao){return;}
   e.preventDefault();
 
-  var isAtivo = $(this).find('.button-link').val();
+  var isAtivo = $(this).attr('grupoAtivo');
+  console.log(isAtivo);
   var txt = (isAtivo == 1) ? 'Deseja desativar o grupo ' : 'Deseja ativar o grupo ';
   var nome = $(this).attr('nomeGrupo') ;
   txt = txt + nome + '?';
