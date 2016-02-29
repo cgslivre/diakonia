@@ -32,6 +32,7 @@
               <span class="title">@yield('titulo')  > </span><span class="title">@yield('subtitulo')</span>
               <div class="description">@yield('descricao')</div>
               <hr class="divider">
+              @include('layouts.mensagens')
               @yield('content')
             </div>
           </div>
