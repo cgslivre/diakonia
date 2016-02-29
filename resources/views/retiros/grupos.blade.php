@@ -102,7 +102,6 @@
 
 @section('scripts')
 <script>
-  $('div.alert').not('.alert-important').delay(3000).slideUp(300);
 
   $('#radio-exibir-inativos').change( function() {
     if( $(this).is(':checked')){

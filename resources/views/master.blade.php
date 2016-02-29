@@ -48,6 +48,7 @@
     </footer>
 
     {{ HTML::script('js/app.min.js') }}
+    
     @yield('scripts')
   </body>
 </html>
