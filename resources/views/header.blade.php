@@ -3,15 +3,20 @@
     {{ HTML::image('img/diakonia-logo.png') }}
 --}}
 <nav class="navbar navbar-default navbar-fixed-top navbar-top">
-  <div class="container-fluid">
+  <div id="topo" class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-expand-toggle">
             <i class="fa fa-bars icon"></i>
         </button>
         {{-- Título da Página --}}
+
         <ol class="breadcrumb navbar-breadcrumb">
             <li class="active">Diakonia</li>
+            <li class="active">@yield('titulo')</li>
         </ol>
+
+        <h2 style="position: fixed;left: 50%; margin: 0 auto;">Titulo</h2>
+
         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
             <i class="fa fa-th icon"></i>
         </button>

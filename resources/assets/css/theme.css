@@ -1,10 +1,25 @@
-.side-menu, nav.navbar, ul.navbar-nav > li{
-  background-color: #ddd;
+body{background-color: #f9f9f9;}
+
+.navbar-top, #menu-lateral, #menu-lateral > nav, #menu-lateral > nav > div > ul > li{
+  background-color: #457B9D;
 }
+
+#menu-lateral .navbar-default .navbar-brand, #menu-lateral .navbar-default .navbar-nav>li>a, .navbar-default .navbar-text{
+  color: #f9f9f9;
+}
+
+#topo{background-color: #E63946;color: #f9f9f9;}
+/* Subarea selecionada */
+#menu-lateral > nav  > div > ul.nav > li > a[aria-expanded="true"]{background-color: #376c8c; }
+#menu-lateral > nav  > div > ul.nav > li > div[aria-expanded="true"]{background-color: #377194; }
+
+#topo > ul > li.dropdown{background-color: #f9f9f9;color: #171615;}
+
+#topo > div > ol.breadcrumb > li{color: #f9f9f9; }
 
 .button-link{
   border: 0;
   background: none;
   padding: 0;
-  margin: 0;  
+  margin: 0;
 }

@@ -23,13 +23,13 @@
 {{-- Inclui o Menu  --}}
 @if (Auth::guest())
 @else
-  @include('menu')
+  @include('layouts.menu')
 @endif
 
         <div class="container-fluid">
           <div class="side-body">
             <div class="page-title">
-              <span class="title">@yield('titulo')  > </span><span class="title">@yield('subtitulo')</span>
+              <span class="title">@yield('subtitulo')</span>
               <div class="description">@yield('descricao')</div>
               <hr class="divider">
               @include('layouts.mensagens')
@@ -48,7 +48,7 @@
     </footer>
 
     {{ HTML::script('js/app.min.js') }}
-    
+
     @yield('scripts')
   </body>
 </html>
