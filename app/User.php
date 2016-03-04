@@ -6,6 +6,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+
+  protected $defaultAvatarPath = "users/avatar/000-default-";
+
+
     /**
      * The attributes that are mass assignable.
      *

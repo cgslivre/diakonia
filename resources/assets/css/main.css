@@ -156,7 +156,7 @@ a:hover {
       .navbar .dropdown-menu .notifications.list-group a.list-group-item:hover {
         cursor: pointer; }
   .navbar .dropdown.profile .dropdown-menu {
-    width: 305px;
+    width: 250px;
     padding-bottom: 0px;
     text-align: center; }
     .navbar .dropdown.profile .dropdown-menu li.profile-img {

@@ -13,8 +13,16 @@ body{background-color: #f9f9f9;}
 #menu-lateral > nav  > div > ul.nav > li > a[aria-expanded="true"]{background-color: #376c8c; }
 #menu-lateral > nav  > div > ul.nav > li > div[aria-expanded="true"]{background-color: #377194; }
 
-#topo > ul > li.dropdown{background-color: #f9f9f9;color: #171615;}
+#topo {height: 80px;}
 
+#topo > ul > li.dropdown{background-color: none;}
+.navbar-default .navbar-nav>.open>a,
+ .navbar-default .navbar-nav>.open>a:focus,
+  .navbar-default .navbar-nav>.open>a:hover{background-color: none;}
+.navbar-default .navbar-nav>li>a.user-menu {color: #f9f9f9;}
+
+
+.profile-info{color:#333333;}
 #topo > div > ol.breadcrumb > li{color: #f9f9f9; }
 
 .button-link{
@@ -23,3 +31,5 @@ body{background-color: #f9f9f9;}
   padding: 0;
   margin: 0;
 }
+
+a.logo {position: fixed;left: 50%; margin: 0 auto;}

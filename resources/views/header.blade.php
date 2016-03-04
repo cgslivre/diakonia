@@ -15,7 +15,8 @@
             <li class="active">@yield('titulo')</li>
         </ol>
 
-        <h2 style="position: fixed;left: 50%; margin: 0 auto;">Titulo</h2>
+        <a class="logo" href="#"><img src="{{ url('img/logo-diakonia.png') }}" alt="Diakonia Logo" /></a>
+
 
         <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
             <i class="fa fa-th icon"></i>
@@ -29,11 +30,12 @@
         @if (Auth::guest())
           <li><a href="{{ url('/login') }}">Login</a></li>
         @else
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span>
+          <a href="#" class="dropdown-toggle user-menu" data-toggle="dropdown" role="button" aria-expanded="false">
+            <span class="icon fa fa-user"></span> {{ Auth::user()->name }} <span class="caret"></span>
           </a>
           <ul class="dropdown-menu animated fadeInDown">
             <li class="profile-img">
-                <img src="../img/profile/picjumbo.com_HNCK4153_resize.jpg" class="profile-img">
+                <img src="{{ url('users/avatar/000-default-250px.jpg') }}" class="profile-img">
             </li>
             <li>
               <div class="profile-info">
