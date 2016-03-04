@@ -38,6 +38,7 @@
     <tbody>
 
       @foreachIndexed( $grupos as $grupo )
+      
         <tr class="{{ ($grupo->ativo) ? 'grupo-ativo' : 'grupo-inativo'}}">
           <th scope="row" title="{{ $grupo->id }}">@index</th>
           <td

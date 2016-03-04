@@ -8,4 +8,6 @@ class GrupoInscricao extends Model
 {
     public $timestamps  = false;
     protected $table = 'grupo_inscricao';
+
+    
 }

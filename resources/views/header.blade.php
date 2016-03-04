@@ -35,7 +35,7 @@
           </a>
           <ul class="dropdown-menu animated fadeInDown">
             <li class="profile-img">
-                <img src="{{ url('users/avatar/000-default-250px.jpg') }}" class="profile-img">
+                <img src="{{ url(Auth::user()->avatarPath()) }}" class="profile-img">
             </li>
             <li>
               <div class="profile-info">

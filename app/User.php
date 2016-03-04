@@ -7,8 +7,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
 
-  protected $defaultAvatarPath = "users/avatar/000-default-";
-
+    const DEFAULT_AVATAR_PATH = 'users/avatar/000-default-';
+    const IMG_SIZE_DEFAULT = '250px.jpg';
 
     /**
      * The attributes that are mass assignable.
@@ -19,6 +19,8 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $appends = array('upper');
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -27,4 +29,17 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Retorna o avatar do usuário, caso ele não tenha, retorna um default.
+     */
+    public function avatarPath(){
+        if( is_null($this->avatar_path)){
+          return self::DEFAULT_AVATAR_PATH . self::IMG_SIZE_DEFAULT;
+        } else{
+          return $this->avatar_path;
+        }
+    }
+
+
 }
