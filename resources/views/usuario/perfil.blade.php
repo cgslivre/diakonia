@@ -9,7 +9,7 @@
         <div class="col-md-3">
           <img alt="Foto de Perfil" src="{{ url(Auth::user()->avatarPath()) }}" class="profile-img">
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 bottom-align-text">
           {{ Form::file('avatar') }}
         </div>
       </div>

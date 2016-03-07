@@ -48,26 +48,20 @@ class PerfilUsuarioController extends Controller
 
         $user = User::findOrFail($id);
 
-        if( is_null($novaSenha ) ){
-            $user->name = $input['nome'];
-            $user->save();
-
-            return redirect('/perfil')->with('message', 'Perfil atualizado com sucesso!');
-        } else{
+        if( !is_null($novaSenha ) ){
             // Verificação no caso de nova senha informada
             $oldPass = $input['password'];
-            if (Hash::check($oldPass, $user->password))
-            {
-                $user->name = $input['nome'];
+            if (Hash::check($oldPass, $user->password)){
                 $user->password = bcrypt($input['newPassword']);
-                $user->save();
             } else{
                 $validator->after(function($validator) {
                     $validator->errors()->add('password', 'Senha inválida!');
                 });
-
             }
         }
+
+        $user->name = $input['nome'];
+        $user->save();
 
         if( $validator->fails()){
             return redirect('/perfil')->withErrors($validator);

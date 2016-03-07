@@ -11,7 +11,8 @@
         "components/jquery": "1.11.3",
         "twitter/bootstrap": "3.3.*",
         "components/font-awesome": "dev-master",
-        "doctrine/dbal" : "dev-master"
+        "doctrine/dbal" : "dev-master",
+        "intervention/image": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
