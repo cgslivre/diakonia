@@ -6,9 +6,13 @@
 @section('content')
   {!! Form::open(array('url'=>'/retiros/grupos','class'=>'form-inline')) !!}
 
-    <div class="form-group">
+    <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
         {!! Form::label('nome', 'Nome do grupo:' , ['class'=>'control-label'])!!}
-
+        @if ($errors->has('nome'))
+            <span class="help-block">
+                <strong>{{ $errors->first('nome') }}</strong>
+            </span>
+        @endif
         {!! Form::text('nome', null ,['class'=>'form-control','placeholder'=>'Nome do grupo'])!!}
 
         {!! Form::submit('Adicionar',['class'=>'btn btn-primary']) !!}
