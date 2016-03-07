@@ -1,3 +1,4 @@
+{{--
 @if( $errors->any())
     <ul class="alert alert-danger">
       @foreach( $errors->all() as $error)
@@ -6,7 +7,7 @@
       @endforeach
     </ul>
     <hr class="divider">
-@endif
+@endif--}}
 
 @if( Session::has('message') )
   <div class="alert bg-success">

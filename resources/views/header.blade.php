@@ -9,12 +9,12 @@
             <i class="fa fa-bars icon"></i>
         </button>
         {{-- Título da Página --}}
-
+<!--
         <ol class="breadcrumb navbar-breadcrumb">
             <li class="active">Diakonia</li>
             <li class="active">@yield('titulo')</li>
         </ol>
-
+-->
         <a class="logo" href="#"><img src="{{ url('img/logo-diakonia.png') }}" alt="Diakonia Logo" /></a>
 
 
@@ -43,7 +43,7 @@
                 <h4 class="username">Usuário</h4>
                 <p>{{ Auth::user()->email }}</p>
                 <div class="btn-group margin-bottom-2x" role="group">
-                  <button type="button" class="btn btn-default"><i class="fa fa-user"></i> Perfil</button>
+                  <a href="{{ url('/perfil') }}"><button type="button" class="btn btn-default"><i class="fa fa-user"></i> Perfil</button></a>
                   <button type="button" class="btn btn-default">
                     <a href="{{ url('/logout') }}">
                       <i class="fa fa-btn fa-sign-out"></i>Logout

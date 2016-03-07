@@ -1,6 +1,6 @@
-@extends( 'retiros.layout')
+@extends( 'master')
 
-@section('subtitulo', 'Grupos de Inscritos')
+@section('titulo', 'Retiros :: Grupos de Inscritos')
 
 
 @section('content')
@@ -38,7 +38,7 @@
     <tbody>
 
       @foreachIndexed( $grupos as $grupo )
-      
+
         <tr class="{{ ($grupo->ativo) ? 'grupo-ativo' : 'grupo-inativo'}}">
           <th scope="row" title="{{ $grupo->id }}">@index</th>
           <td
