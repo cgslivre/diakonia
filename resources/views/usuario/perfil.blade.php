@@ -6,11 +6,16 @@
     <div class="container-fluid">
       {{ Form::open(array('url' => '/perfil/' . Auth::user()->id . '/editar' ,'files' => true, 'class'=> 'form-horizontal')) }}
       <div class="row">
-        <div class="col-md-3">
-          <img alt="Foto de Perfil" src="{{ url(Auth::user()->avatarPath()) }}" class="profile-img">
+        <div class="col-md-2 text-right">
+          <img alt="Foto de Perfil" src="{{ url(Auth::user()->avatarPathMedium()) }}" class="profile-img">
         </div>
-        <div class="col-md-9 bottom-align-text">
+        <div class="col-md-6 bottom-align-text{{ $errors->has('avatar') ? ' has-error' : '' }}">
           {{ Form::file('avatar') }}
+          @if ($errors->has('avatar'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('avatar') }}</strong>
+              </span>
+          @endif
         </div>
       </div>
       <div class="row">

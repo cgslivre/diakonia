@@ -8,9 +8,14 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\User;
 use Hash;
+use Input;
+use Image;
 
 class PerfilUsuarioController extends Controller
 {
+    const TEMP_FILE = 'avatar-temp-file.jpg';
+    const AVATAR_PATH = 'users/avatar';
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -35,6 +40,7 @@ class PerfilUsuarioController extends Controller
         $validator = Validator::make($request->all(), [
             'nome' => 'required|min:2',
             'password' => 'required_with:newPassword',
+            'avatar' => 'image',
             'newPassword' => 'min:6|same:newPassword2|required_with:password',
             'newPassword2' => 'min:6|same:newPassword|required_with:password'
         ],$messages);
@@ -60,12 +66,33 @@ class PerfilUsuarioController extends Controller
             }
         }
 
-        $user->name = $input['nome'];
-        $user->save();
-
         if( $validator->fails()){
             return redirect('/perfil')->withErrors($validator);
         } else{
+            if (Input::hasFile('avatar'))
+            {
+                $file = Input::file('avatar');
+                $tempFile = self::TEMP_FILE . $file->getExtension();
+
+                $file->move(self::AVATAR_PATH, $tempFile );
+                //$defaultAvatar = sprintf('%03d',$user->id) . '-avatar-' . User::IMG_SIZE_DEFAULT;
+                //$mediumAvatar = sprintf('%03d',$user->id) . '-avatar-' . User::IMG_SIZE_MED;
+                $avatarPath = self::AVATAR_PATH . '/' . sprintf('%03d',$user->id) . '-avatar-';
+                //dd($mediumAvatar);
+                $image = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                    ->widen(250)
+                    ->save($avatarPath . User::IMG_SIZE_DEFAULT);
+
+                $image2 = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                    ->widen(150)
+                    ->save($avatarPath . User::IMG_SIZE_MED);
+
+                $user->avatar_path = $avatarPath;
+                
+            }
+
+            $user->name = $input['nome'];
+            $user->save();
             return redirect('/perfil')->with('message', 'Perfil atualizado com sucesso!');
         }
 
