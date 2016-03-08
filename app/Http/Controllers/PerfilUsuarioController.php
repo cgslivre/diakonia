@@ -75,10 +75,9 @@ class PerfilUsuarioController extends Controller
                 $tempFile = self::TEMP_FILE . $file->getExtension();
 
                 $file->move(self::AVATAR_PATH, $tempFile );
-                //$defaultAvatar = sprintf('%03d',$user->id) . '-avatar-' . User::IMG_SIZE_DEFAULT;
-                //$mediumAvatar = sprintf('%03d',$user->id) . '-avatar-' . User::IMG_SIZE_MED;
+
                 $avatarPath = self::AVATAR_PATH . '/' . sprintf('%03d',$user->id) . '-avatar-';
-                //dd($mediumAvatar);
+
                 $image = Image::make(self::AVATAR_PATH . '/' . $tempFile )
                     ->widen(250)
                     ->save($avatarPath . User::IMG_SIZE_DEFAULT);
@@ -87,8 +86,12 @@ class PerfilUsuarioController extends Controller
                     ->widen(150)
                     ->save($avatarPath . User::IMG_SIZE_MED);
 
+                $image3 = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                    ->widen(70)
+                    ->save($avatarPath . User::IMG_SIZE_SMALL);
+
                 $user->avatar_path = $avatarPath;
-                
+
             }
 
             $user->name = $input['nome'];

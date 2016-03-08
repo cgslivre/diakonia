@@ -34,3 +34,5 @@ body{background-color: #f9f9f9;}
 }
 
 a.logo {position: fixed;left: 50%; margin: 0 auto;}
+
+.table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
