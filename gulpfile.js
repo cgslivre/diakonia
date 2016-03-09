@@ -22,9 +22,9 @@ var paths = {
 	'default' : '/resources/assets',
 	'bootstrap':'vendor/twitter/bootstrap/dist',
 	'jquery':'vendor/components/jquery',
-	'fontawesome':'vendor/components/font-awesome'
+	'fontawesome':'vendor/components/font-awesome'	
 }
-
+////node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css
 
 elixir(function(mix) {
 	// Copia as fontes do Bootstrap

@@ -5,6 +5,8 @@
 
 @section('content')
 
+    <a href="{{ url('/usuario/create') }}" class="btn btn-success">Criar novo usuário</a>
+
     <table class="table table-striped table-hover">
         <thead>
           <tr>
@@ -25,7 +27,7 @@
                     <td class="middle-align">{{ $usuario->email }}</td>
 
                 </tr>
-                {{ $usuario->name }}
+
 
             @endforeachIndexed
         </tbody>

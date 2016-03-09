@@ -21,8 +21,6 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
-    protected $appends = array('upper');
-
     /**
      * The attributes excluded from the model's JSON form.
      *
