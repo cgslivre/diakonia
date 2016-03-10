@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Image;
 
 class User extends Authenticatable
 {
@@ -11,6 +12,8 @@ class User extends Authenticatable
     const IMG_SIZE_DEFAULT = '250px.jpg';
     const IMG_SIZE_MED = '150px.jpg';
     const IMG_SIZE_SMALL = '70px.jpg';
+    const TEMP_FILE = 'avatar-temp-file.jpg';
+    const AVATAR_PATH = 'users/avatar';
 
     /**
      * The attributes that are mass assignable.
@@ -60,6 +63,53 @@ class User extends Authenticatable
           return self::DEFAULT_AVATAR_PATH . self::IMG_SIZE_SMALL;
         } else{
           return $this->avatar_path . self::IMG_SIZE_SMALL;
+        }
+    }
+
+    public function update(array $attributes = [], array $options = []){
+        parent::update($attributes,$options);
+
+        if( array_key_exists('avatar',$attributes ) ){
+            self::saveAvatar($attributes['avatar'], $this);
+        }
+
+        return $this;
+    }
+
+    public static function create( array $attributes = [] ){
+
+        $user = parent::create($attributes);
+
+        if( array_key_exists('avatar',$attributes ) ){
+            self::saveAvatar($attributes['avatar'], $user);
+        }
+
+        return $user;
+    }
+
+    private static function saveAvatar($avatar, User $user){
+        if( isset($avatar) ){
+            $file = $avatar;
+            $tempFile = self::TEMP_FILE . $file->getExtension();
+
+            $file->move(self::AVATAR_PATH, $tempFile );
+
+            $avatarPath = self::AVATAR_PATH . '/' . sprintf('%03d',$user->id) . '-avatar-';
+
+            $image = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                ->widen(250)
+                ->save($avatarPath . User::IMG_SIZE_DEFAULT);
+
+            $image2 = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                ->widen(150)
+                ->save($avatarPath . User::IMG_SIZE_MED);
+
+            $image3 = Image::make(self::AVATAR_PATH . '/' . $tempFile )
+                ->widen(70)
+                ->save($avatarPath . User::IMG_SIZE_SMALL);
+
+            $user->avatar_path = $avatarPath;
+            $user->save();
         }
     }
 

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\User;
-use App\Http\Requests\UsuarioRequest;
+use App\Http\Requests\UsuarioCreateRequest;
+use App\Http\Requests\UsuarioUpdateRequest;
 
 
 
@@ -30,13 +32,22 @@ class UsuarioController extends Controller
         return view('usuario.edit', compact('user'));
     }
 
-    public function store( UsuarioRequest $request){
-        dd($request);
+    public function store( UsuarioCreateRequest $request){
+        User::create( $request->all() );
+        return redirect('usuario')->with('message', 'Usuário adicionado!');
+    }
+
+    public function update($id, UsuarioUpdateRequest $request){
+
+        $user = User::findOrFail($id);
+
+        $user->update( $request->all());
+
+        return Redirect::back()->withInput()->with('message', 'Usuário atualizado!');
 
     }
 
-    public function update($id, UsuarioRequest $request){
-        $user = User::findOrFail($id);
+    private function saveAvatar( User $user , $avatar ){
 
     }
 }
