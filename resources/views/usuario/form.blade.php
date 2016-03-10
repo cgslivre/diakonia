@@ -1,4 +1,9 @@
 <div class="row">
+    @if ($errors->has('remove'))
+        <span class="help-block">
+            <strong>{{ $errors->first('remove') }}</strong>
+        </span>
+    @endif
   <div class="col-md-2 text-right">
     <img alt="Foto de Perfil" src="{{ url($userAvatar) }}" class="profile-img">
   </div>
@@ -67,7 +72,7 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default">
+        <button type="submit" class="btn btn-info">
           {{ $submitButton }}
         </button>
       </div>

@@ -16,3 +16,10 @@
   </div>
   <hr class="divider mensagem">
 @endif
+
+@if( Session::has('erro') )
+  <div class="alert bg-danger">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+    {{Session::get('erro')}}
+  </div>  
+@endif

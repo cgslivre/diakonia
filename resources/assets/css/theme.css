@@ -37,3 +37,10 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
 
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
 .table tbody{font-size: 15px;}
+
+.modal-header-danger {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #d9534f;    
+}

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Http\Requests\UsuarioCreateRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
-
+use Auth;
 
 
 class UsuarioController extends Controller
@@ -47,7 +47,13 @@ class UsuarioController extends Controller
 
     }
 
-    private function saveAvatar( User $user , $avatar ){
-
+    public function destroy($id){
+        if(Auth::user()->id == $id){
+            return Redirect::back()->with('erro', 'Não é possível remover seu próprio usuário!');
+        } else{
+            $user = User::findOrFail($id);
+            $user->delete();
+            return redirect('usuario')->with('message', 'Usuário removido!');
+        }
     }
 }
