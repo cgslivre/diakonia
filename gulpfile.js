@@ -22,7 +22,8 @@ var paths = {
 	'default' : '/resources/assets',
 	'bootstrap':'vendor/twitter/bootstrap/dist',
 	'jquery':'vendor/components/jquery',
-	'fontawesome':'vendor/components/font-awesome'	
+	'fontawesome':'vendor/components/font-awesome',
+	'bower':'bower_components'
 }
 ////node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.css
 
@@ -34,6 +35,9 @@ elixir(function(mix) {
 	mix.scripts([
 			paths.jquery + "/jquery.min.js" ,
 			paths.bootstrap + "/js/bootstrap.min.js" ,
+			paths.bower + "/angular/angular.min.js",
+			paths.bower + "/angular-messages/angular-messages.min.js",
+			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
 	// Junta e minimiza os arquivos de estilos

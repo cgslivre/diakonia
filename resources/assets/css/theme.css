@@ -42,5 +42,11 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
 	color:#fff;
     padding:9px 15px;
     border-bottom:1px solid #eee;
-    background-color: #d9534f;    
+    background-color: #d9534f;
 }
+
+.app-container .content-container .side-menu .navbar-header .navbar-brand .title{margin-left: 15px;}
+
+.name-title-1{font-size: 36px;font-weight: bold;}
+.name-title-2{font-size: 30px;}
+.name-title-3{font-size: 24px;}

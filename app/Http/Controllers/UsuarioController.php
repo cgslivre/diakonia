@@ -56,4 +56,9 @@ class UsuarioController extends Controller
             return redirect('usuario')->with('message', 'Usuário removido!');
         }
     }
+
+    public function show($id){
+        $user = User::findOrFail($id);        
+        return view('usuario.show', compact('user'));
+    }
 }

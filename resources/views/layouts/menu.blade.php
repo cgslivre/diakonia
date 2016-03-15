@@ -2,8 +2,7 @@
   <nav  class="navbar navbar-default" role="navigation">
     <div class="side-menu-container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <div class="icon fa fa-pencil-square-o"></div>
+        <a class="navbar-brand" href="#">          
           <div class="title">Menu</div>
         </a>
         <button type="button" class="navbar-expand-toggle pull-right visible-xs">

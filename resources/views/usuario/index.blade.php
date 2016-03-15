@@ -24,7 +24,7 @@
                 <tr>
                     <th class="col-md-1 text-center middle-align" scope="row" title="{{ $usuario->id }}">@index</th>
                     <td class="col-md-1 text-center"><img alt="Foto de Perfil" src="{{ url($usuario->avatarPathSmall()) }}" class="profile-img"></td>
-                    <td class="middle-align">{{ $usuario->name }}</td>
+                    <td class="middle-align"><a href="{{ url('/usuario/' . $usuario->id) }}">{{ $usuario->name }}</a></td>
                     <td class="middle-align">{{ $usuario->email }}</td>
                     <td class="col-md-1 text-center middle-align">
                         <a href="{{ url('/usuario/'. $usuario->id .'/edit') }}" title="Editar Usuário"><i class="fa fa-pencil-square fa-2x"></i></a>
