@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Image;
 
 class User extends Authenticatable
@@ -14,6 +15,9 @@ class User extends Authenticatable
     const IMG_SIZE_SMALL = '70px.jpg';
     const TEMP_FILE = 'avatar-temp-file.jpg';
     const AVATAR_PATH = 'users/avatar';
+
+    use SoftDeletes;
+    protected $softDelete = true;
 
     /**
      * The attributes that are mass assignable.
@@ -111,6 +115,10 @@ class User extends Authenticatable
             $user->avatar_path = $avatarPath;
             $user->save();
         }
+    }
+
+    public function scopeAtivos( $query ){
+        //$query->where
     }
 
 
