@@ -40,6 +40,11 @@ elixir(function(mix) {
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
+
+	mix.scripts([
+			"ajs/usermodule.js"
+	], 'public/js/ajs/app-users-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",

@@ -18,8 +18,14 @@ class UsuarioController extends Controller
     }
 
     public function index(){
-        $usuarios = User::orderBy('name','asc')->get();
+        //$usuarios = User::orderBy('name','asc')->get();
 
+        //return view('usuario.index' , compact( 'usuarios'));
+        return User::all();
+    }
+
+    public function lista(){
+        $usuarios = User::all();
         return view('usuario.index' , compact( 'usuarios'));
     }
 
@@ -58,7 +64,7 @@ class UsuarioController extends Controller
     }
 
     public function show($id){
-        $user = User::findOrFail($id);        
+        $user = User::findOrFail($id);
         return view('usuario.show', compact('user'));
     }
 }
