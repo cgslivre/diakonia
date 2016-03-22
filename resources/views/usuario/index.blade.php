@@ -10,13 +10,26 @@
     <div class="form-group input-group-lg">
         <input type="text" ng-model="criterioDeBusca" class="form-control"
             placeholder="Quem você está buscando..."/>
-        <a href="{{ url('/usuario/create') }}" class="btn btn-success">
-            <i class="fa fa-user-plus"></i> Criar novo usuário
-        </a>
     </div>
+    <a href="{{ url('/usuario/create') }}" class="btn btn-success">
+        <i class="fa fa-user-plus"></i> Criar novo usuário
+    </a>
+
+
 
     <hr/>
     <div ng-controller="usuariosController">
+        <div class="search-result">
+            <p ng-show="!usuariosFiltered.length">
+                <span class="counter">Nenhum</span> usuário encontrado.
+            </p>
+            <p ng-show="usuariosFiltered.length == 1">
+                <span class="counter">Um</span> usuário encontrado.
+            </p>
+            <p ng-show="usuariosFiltered.length >  1">
+                <span class="counter"><%usuariosFiltered.length%></span> usuários encontrados.
+            </p>
+        </div>
         <table ng-show="usuarios.length > 0" class="table table-striped table-hover">
             <thead>
               <tr>
@@ -28,7 +41,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="usuario in usuarios | filter:criterioDeBusca">
+                <tr ng-repeat="usuario in usuariosFiltered = ( usuarios | filter:criterioDeBusca )">
                     <th class="col-md-1 text-center middle-align" scope="row" title="<%usuario.id%>"><%($index+1)%></th>
                     <td class="col-md-1 text-center">
                         <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(usuario.avatar_path)%>" class="profile-img"/>
