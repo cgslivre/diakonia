@@ -28,5 +28,9 @@ app.controller('usuariosController', ['$scope', '$http',
         return window.location.origin + '/usuario/' + user;
 	};
 
-    }]
-);
+    $scope.ordenarPor = function( campo ){
+		$scope.criterioDeOrdenacao = campo;
+		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
+	};
+
+}]);
