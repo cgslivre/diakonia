@@ -24,7 +24,7 @@ body{background-color: #f9f9f9;}
 
 
 .profile-info{color:#333333;}
-#topo > div > ol.breadcrumb > li{color: #f9f9f9; } 
+#topo > div > ol.breadcrumb > li{color: #f9f9f9; }
 
 .button-link{
   border: 0;
@@ -50,3 +50,5 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
 .name-title-1{font-size: 36px;font-weight: bold;}
 .name-title-2{font-size: 30px;}
 .name-title-3{font-size: 24px;}
+
+.width-80{width: 80%;}

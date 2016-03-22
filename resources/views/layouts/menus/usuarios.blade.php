@@ -7,7 +7,7 @@
     <div id="component-usuarios" class="panel-collapse collapse">
         <div class="panel-body">
             <ul class="nav navbar-nav">
-              <li><a href="{{ URL::to('/usuario')}}"><span class="icon fa fa-th-list"></span>Lista</a></li>
+              <li><a href="{{ URL::to('/usuarios')}}"><span class="icon fa fa-th-list"></span>Lista</a></li>
               <li><a href="#"><span class="icon fa fa-thumbs-o-up"></span>Permissões</a></li>
             </ul>
         </div>

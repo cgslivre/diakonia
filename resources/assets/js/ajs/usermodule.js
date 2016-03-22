@@ -1,23 +1,8 @@
-/*var app = angular.module('usuariosRecord', [],
-    function($interpolateProvider){
-        $interpolateProvider.startSymbol('<%');
-        $interpolateProvider.endSymbol('%>');
-    }).constant('API_URL', 'http://' + window.location.hostname);
-*/
-
-    var app = angular.module('usuariosRecord', [])
-      .config(['$interpolateProvider', function ($interpolateProvider) {
-          $interpolateProvider.startSymbol('<%');
-          $interpolateProvider.endSymbol('%>');
-      }]);
-/*app.controller('usuariosController', function($scope, $http, API_URL) {
-    //retrieve employees listing from API
-    $http.get(API_URL + "/usuario").success(function(response) {
-        console.log(response);
-        $scope.usuarios = response;
-    });
-});
-*/
+var app = angular.module('usuariosRecord', [])
+  .config(['$interpolateProvider', function ($interpolateProvider) {
+      $interpolateProvider.startSymbol('<%');
+      $interpolateProvider.endSymbol('%>');
+}]);
 
 
 app.controller('usuariosController', ['$scope', '$http',
