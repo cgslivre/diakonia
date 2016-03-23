@@ -19,6 +19,11 @@ class CreateUsersTable extends Migration
             $table->string('password', 60);
             //$table->boolean('isAdmin');
             $table->string('avatar_path')->nullable();
+
+            // Informações de contato
+            $table->string('telefone',20);
+            $table->string('regiao',100)->nullable();
+
             // rememberToken é utilizado para evitar ataques utilizando o token
             // do usuário.
             $table->rememberToken();

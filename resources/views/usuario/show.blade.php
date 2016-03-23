@@ -15,10 +15,18 @@
                 <p class="name-title-3">{{ $user->email }}</p>
             </div>
         </div>
+
         <div class="row">
-            <div class="col-sm-offset-2 col-sm-5"></div>
+            <div class="col-sm-2 text-right lead">Telefone:</div>
+            <div class="col-sm-5 lead"><strong>{{$user->telefone}}</strong></div>
         </div>
-        <div class="row"></div>
+
+        <div class="row">
+            <div class="col-sm-2 text-right lead">Região:</div>
+            <div class="col-sm-5 lead"><strong>{{$user->regiao}}</strong></div>
+        </div>
+
+        <hr/>
     </div>
 
 @endsection

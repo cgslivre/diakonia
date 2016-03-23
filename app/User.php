@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','telefone','regiao',
     ];
 
     /**
@@ -117,9 +117,6 @@ class User extends Authenticatable
         }
     }
 
-    public function scopeAtivos( $query ){
-        //$query->where
-    }
 
 
 }
