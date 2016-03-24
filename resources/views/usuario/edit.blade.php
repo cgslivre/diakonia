@@ -12,6 +12,7 @@
         @include('usuario.form',['userAvatar'=>$user->avatarPathMedium()
             , 'submitButton'=>'Atualizar usuário'
             , 'readony'=>'readonly'
+            , 'regiao'=>$user->regiao
             , 'passwordForm'=>false])
     {{ Form::close() }}
 

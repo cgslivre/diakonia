@@ -62,7 +62,8 @@
         {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
         @include('layouts.select-regiao',[
-            'selectClass'=>'form-control',
+            'attr'=>['class'=>'form-control '.$regiao],
+            'selected'=>$regiao,
             'name'=>'regiao'])
       </div>
     </div>

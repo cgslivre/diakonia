@@ -10,6 +10,7 @@
         @include('usuario.form',['userAvatar'=>'users/avatar/000-default-150px.jpg'
             , 'submitButton'=>'Criar usuário'
             , 'readony'=>null
+            , 'regiao'=>null
             , 'passwordForm'=>true])
     {{ Form::close() }}
 </div>
