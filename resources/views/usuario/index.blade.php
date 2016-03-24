@@ -43,6 +43,8 @@
                     <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
                     <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
                 </a></th>
+                <th>Telefone</th>
+                <th>Região</th>
                 <th class="text-center col-md-1"><i class="fa fa-pencil-square-o"></i></th>
               </tr>
             </thead>
@@ -52,8 +54,10 @@
                     <td class="col-md-1 text-center">
                         <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(usuario.avatar_path)%>" class="profile-img"/>
                     </td>
-                    <td class="middle-align"><a href="<%userShowLink(usuario.id)%>"><%usuario.name%></a></td>
-                    <td class="middle-align"><%usuario.email%></td>
+                    <td class="middle-align"><a href="<%userShowLink(usuario.id)%>" ng-bind-html="usuario.name | highlight:criterioDeBusca"></a></td>
+                    <td class="middle-align" ng-bind-html="usuario.email | highlight:criterioDeBusca"></td>
+                    <td class="middle-align"><%usuario.telefone%></td>
+                    <td class="middle-align"><%usuario.regiao%></td>
                     <td class="col-md-1 text-center middle-align">
                         <a href="<% userEditLink(usuario.id) %>" title="Editar Usuário">
                             <i class="fa fa-pencil-square fa-2x"></i>

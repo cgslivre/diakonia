@@ -36,6 +36,7 @@ elixir(function(mix) {
 			paths.jquery + "/jquery.min.js" ,
 			paths.bootstrap + "/js/bootstrap.min.js" ,
 			paths.bower + "/angular/angular.min.js",
+			paths.bower + "/angular-sanitize/angular-sanitize.min.js",
 			paths.bower + "/angular-messages/angular-messages.min.js",
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
 			paths.default + "/js/app.js"

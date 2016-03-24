@@ -1,4 +1,4 @@
-var app = angular.module('usuariosRecord', [])
+var app = angular.module('usuariosRecord', ['ngSanitize'])
   .config(['$interpolateProvider', function ($interpolateProvider) {
       $interpolateProvider.startSymbol('<%');
       $interpolateProvider.endSymbol('%>');
@@ -33,4 +33,13 @@ app.controller('usuariosController', ['$scope', '$http',
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 
+}]);
+
+app.filter('highlight', ['$sce', function($sce) {
+    return function(text, phrase) {
+        if( phrase ){
+            text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
+        }
+        return $sce.trustAsHtml(text);
+    };
 }]);

@@ -39,8 +39,14 @@ class UsuarioController extends Controller
     }
 
     public function store( UsuarioCreateRequest $request){
-        User::create( $request->all() );
-        return redirect('usuario')->with('message', 'Usuário adicionado!');
+        User::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'telefone' => $request['telefone'],
+            'regiao' => $request['regiao'],
+            'password' => bcrypt($request['password']),
+        ]);
+        return redirect('usuarios')->with('message', 'Usuário adicionado!');
     }
 
     public function update($id, UsuarioUpdateRequest $request){

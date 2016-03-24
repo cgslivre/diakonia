@@ -54,3 +54,5 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
 .width-80{width: 80%;}
 
 span.counter{font-size: 120%;font-weight: bold;}
+
+.highlighted { background: yellow }

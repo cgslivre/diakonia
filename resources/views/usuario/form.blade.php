@@ -45,6 +45,28 @@
       </div>
     </div>
 
+    <div class="form-group {{ $errors->has('telefone') ? ' has-error' : '' }}">
+        {{ Form::label('telefone','Telefone:',['class'=>'col-sm-2 control-label'])}}
+      <div class="col-sm-4">
+        {!! Form::text('telefone', null ,
+          ['class'=>'form-control','placeholder'=>'(XX) #####-####'])!!}
+          @if ($errors->has('telefone'))
+              <span class="help-block">
+                  <strong>{{ $errors->first('telefone') }}</strong>
+              </span>
+          @endif
+      </div>
+    </div>
+
+    <div class="form-group {{ $errors->has('regiao') ? ' has-error' : '' }}">
+        {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
+      <div class="col-sm-4">
+        @include('layouts.select-regiao',[
+            'selectClass'=>'form-control',
+            'name'=>'regiao'])
+      </div>
+    </div>
+
     @if( $passwordForm )
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             {{ Form::label('password','Senha:',['class'=>'col-sm-2 control-label'])}}
