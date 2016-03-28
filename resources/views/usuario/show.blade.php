@@ -18,7 +18,7 @@
 
         <div class="row">
             <div class="col-sm-2 text-right lead">Telefone:</div>
-            <div class="col-sm-5 lead"><strong>{{$user->telefone}}</strong></div>
+            <div class="col-sm-5 lead phone"><strong>{{$user->telefone}}</strong></div>
         </div>
 
         <div class="row">
@@ -29,4 +29,12 @@
         <hr/>
     </div>
 
+@endsection
+
+
+@section('scripts')
+    <script type="text/javascript">
+        var tel = $('.phone').text();
+        $('.phone').text(formatPhone(tel));
+    </script>
 @endsection
