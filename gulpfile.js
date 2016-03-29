@@ -43,9 +43,14 @@ elixir(function(mix) {
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
 
+	// Scripts Usuários
 	mix.scripts([
-			"ajs/usermodule.js"
-	], 'public/js/ajs/app-users-module.min.js')
+			"users/UserModule.js"
+	], 'public/js/users/app-users-module.min.js')
+
+	mix.scripts([
+			"users/UserIndexCtrl.js"
+	], 'public/js/users/users-index-ctrl.min.js')
 
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
