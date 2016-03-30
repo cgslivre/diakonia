@@ -58,7 +58,7 @@ class PerfilUsuarioController extends Controller
             // Verificação no caso de nova senha informada
             $oldPass = $input['password'];
             if (Hash::check($oldPass, $user->password)){
-                $user->password = bcrypt($input['newPassword']);
+                $user->password = $input['newPassword'];
             } else{
                 $validator->after(function($validator) {
                     $validator->errors()->add('password', 'Senha inválida!');
