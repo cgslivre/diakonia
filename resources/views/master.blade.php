@@ -34,6 +34,7 @@
               <hr class="divider">
               @include('layouts.mensagens')
               @yield('content')
+              
             </div>
           </div>
         </div>
@@ -50,5 +51,6 @@
     {{ HTML::script('js/app.min.js') }}
 
     @yield('scripts')
+
   </body>
 </html>

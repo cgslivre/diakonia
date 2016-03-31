@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Http\Requests\UsuarioCreateRequest;
@@ -66,5 +67,21 @@ class UsuarioController extends Controller
     public function show($id){
         $user = User::findOrFail($id);
         return view('usuario.show', compact('user'));
+    }
+
+    public function verificaEmail(Request $request){
+        // Recebe o parametro email
+        $request = Request::instance();
+        $inputRequest = json_decode($request->getContent(), true);
+        $email = $inputRequest['value'];
+
+        $user = User::where('email',$email)->first();
+        if( $user === null ){
+            return response()->json(['isValid' => true, 'email' => $email]);
+        } else{
+            return response()->json(['isValid' => false, 'email' => $email]);
+        }
+
+
     }
 }

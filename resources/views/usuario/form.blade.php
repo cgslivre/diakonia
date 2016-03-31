@@ -20,28 +20,49 @@
 <div class="row">
   <div class="col-md-12">
 
-    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
+    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}"
+        ng-class="{'has-error' : usuarioForm.email.$invalid && !usuarioForm.email.$pristine}">
         {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
-        {{ Form::input('email','email', null, ['class'=>'form-control','placeholder'=>'Endereço de email',$readony])}}
+        <input class="form-control" placeholder="Endereço de email" name="email"
+                type="email" id="email" ng-model="usuario.email" ng-required="true"
+                ng-remote-validate="/api/usuarios/email" >
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
         @endif
+    </div>
+      <div ng-show="usuarioForm.email.$dirty" ng-messages="usuarioForm.email.$error">
+          <span ng-message="email" class="help-block">
+              <strong>O email é inválido.</strong>
+          </span>
+          <span ng-message="ngRemoteValidate" class="help-block">
+              <strong>O email está em uso.</strong>
+          </span>
+          <span ng-message="required" class="help-block">
+              <strong>O email é obrigatório.</strong>
+          </span>
       </div>
     </div>
 
-    <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}">
+    <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}"
+        ng-class="{'has-error' : usuarioForm.name.$invalid && !usuarioForm.name.$pristine}">
         {{ Form::label('name','Nome:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
-        {!! Form::text('name', null ,
-          ['class'=>'form-control','placeholder'=>'Nome do usuário'])!!}
+          <input class="form-control" placeholder="Nome do usuário" name="name" type="text"
+            ng-model="usuario.name" ng-minlength="2" id="name" ng-required="true">
           @if ($errors->has('name'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('name') }}</strong>
-              </span>
+              <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
           @endif
+      </div>
+      <div ng-show="usuarioForm.name.$dirty" ng-messages="usuarioForm.name.$error">
+          <span ng-message="minlength" class="help-block">
+              <strong>O nome deve ter no mínimo 2 caracteres.</strong>
+          </span>
+          <span ng-message="required" class="help-block">
+              <strong>O nome é obrigatório.</strong>
+          </span>
       </div>
     </div>
 
@@ -95,9 +116,12 @@
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-info">
-          {{ $submitButton }}
-        </button>
+        <!--<button type="submit" class="btn btn-info" ng-click="criarUsuario(usuario)">-->
+          {{-- $submitButton --}}
+        <!--</button>-->
+        <button class="btn btn-info"
+            ng-click="criarUsuario(usuario)"
+            ng-disabled="usuarioForm.$invalid"><% button %></button>
       </div>
     </div>
 

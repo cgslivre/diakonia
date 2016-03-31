@@ -39,6 +39,7 @@ elixir(function(mix) {
 			paths.bower + "/angular-sanitize/angular-sanitize.min.js",
 			paths.bower + "/angular-messages/angular-messages.min.js",
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
+			paths.bower + "/ng-remote-validate/release/ngRemoteValidate.js",
 			paths.bower + "/angular-ui-mask/dist/mask.min.js",
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
@@ -51,6 +52,10 @@ elixir(function(mix) {
 	mix.scripts([
 			"users/UserIndexCtrl.js"
 	], 'public/js/users/users-index-ctrl.min.js')
+
+	mix.scripts([
+			"users/UserCreateCtrl.js"
+	], 'public/js/users/users-create-ctrl.min.js')
 
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([

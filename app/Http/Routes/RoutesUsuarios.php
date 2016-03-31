@@ -9,5 +9,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('usuario','UsuarioController');
     Route::get('usuarios', 'UsuarioController@lista');
+    Route::post('api/usuarios/email', 'UsuarioController@verificaEmail');
 
 });
