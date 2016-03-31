@@ -79,7 +79,7 @@
                   <strong>{{ $errors->first('telefone') }}</strong>
               </span>
           @endif
-      </div><%usuario.telefone%>
+      </div>
       <div ng-show="usuarioForm.telefone.$dirty" ng-messages="usuarioForm.telefone.$error">
           <span ng-message="required" class="help-block">
               <strong>O telefone é obrigatório.</strong>
@@ -101,7 +101,8 @@
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             {{ Form::label('password','Senha:',['class'=>'col-sm-2 control-label'])}}
           <div class="col-sm-4">
-            {{ Form::password('password', array('class' => 'form-control', 'id'=> 'password')) }}
+              <input class="form-control" id="password" name="password"
+              type="password" value="" ng-model="usuario.password">
             @if ($errors->has('password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password') }}</strong>
@@ -109,15 +110,23 @@
             @endif
           </div>
         </div>
-        <div class="form-group{{ $errors->has('password_confirm') ? ' has-error' : '' }}">
+        <div class="form-group{{ $errors->has('password_confirm') ? ' has-error' : '' }}"
+            ng-class="{'has-error' : usuarioForm.password_confirm.$invalid && !usuarioForm.password_confirm.$pristine}">
             {{ Form::label('password_confirm','Confirmação da Senha:',['class'=>'col-sm-2 control-label'])}}
           <div class="col-sm-4">
-            {{ Form::password('password_confirm', array('class' => 'form-control', 'id'=> 'password_confirm')) }}
+            <input class="form-control" id="password_confirm" name="password_confirm"
+                type="password" value="" compare-to="usuario.password"
+                ng-model="usuario.password_confirm">
             @if ($errors->has('password_confirm'))
                 <span class="help-block">
                     <strong>{{ $errors->first('password_confirm') }}</strong>
                 </span>
             @endif
+        </div>
+          <div ng-show="usuarioForm.password_confirm.$dirty" ng-messages="usuarioForm.password_confirm.$error">
+              <span ng-message="compareTo" class="help-block">
+                  <strong>As senhas devem ser iguais.</strong>
+              </span>
           </div>
         </div>
     @endif
