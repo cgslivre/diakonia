@@ -66,16 +66,24 @@
       </div>
     </div>
 
-    <div class="form-group {{ $errors->has('telefone') ? ' has-error' : '' }}">
+    <div class="form-group {{ $errors->has('telefone') ? ' has-error' : '' }}"
+        ng-class="{'has-error' : usuarioForm.telefone.$invalid && !usuarioForm.telefone.$pristine}">
         {{ Form::label('telefone','Telefone:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
-        {!! Form::text('telefone', null ,
-          ['class'=>'form-control','placeholder'=>'(XX) #####-####'])!!}
+          <input class="form-control"
+          name="telefone" type="text" id="telefone" ng-model="usuario.telefone"
+          ui-mask="(99) 9999-?99999" ui-mask-placeholder-char="_"
+          ng-required="true">
           @if ($errors->has('telefone'))
               <span class="help-block">
                   <strong>{{ $errors->first('telefone') }}</strong>
               </span>
           @endif
+      </div><%usuario.telefone%>
+      <div ng-show="usuarioForm.telefone.$dirty" ng-messages="usuarioForm.telefone.$error">
+          <span ng-message="required" class="help-block">
+              <strong>O telefone é obrigatório.</strong>
+          </span>
       </div>
     </div>
 
