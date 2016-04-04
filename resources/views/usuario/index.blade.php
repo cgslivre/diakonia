@@ -57,7 +57,7 @@
                     <td class="middle-align"><a href="<%userShowLink(usuario.id)%>" ng-bind-html="usuario.name | highlight:criterioDeBusca"></a></td>
                     <td class="middle-align" ng-bind-html="usuario.email | highlight:criterioDeBusca"></td>
                     <td class="middle-align"
-                        ng-bind-html="usuario.telefone | highlight:criterioDeBusca | formatPhone"></td>
+                        ng-bind-html="usuario.telefone | formatPhone | highlight:criterioDeBusca "></td>
                     <td class="middle-align" ng-bind-html="usuario.regiao | highlight:criterioDeBusca"></td>
                     <td class="col-md-1 text-center middle-align">
                         <a href="<% userEditLink(usuario.id) %>" title="Editar Usuário">

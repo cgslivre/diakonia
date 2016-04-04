@@ -30,6 +30,7 @@ app.controller('usuariosController', ['$scope', '$http',
 
 app.filter('highlight', ['$sce', function($sce) {
     return function(text, phrase) {
+
         if( phrase ){
             text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
         }
@@ -39,6 +40,7 @@ app.filter('highlight', ['$sce', function($sce) {
 
 app.filter('formatPhone', ['$sce', function($sce) {
     return function(input) {
+        console.log('>> ' + input);
         if( input == null || input.length == 0 ){
             return '';
         } else{
