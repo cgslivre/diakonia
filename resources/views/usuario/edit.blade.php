@@ -5,9 +5,9 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid" ng-app="usuariosRecord" ng-controller="userEditCtrl">
     {{ Form::model($user, ['method' => 'PATCH' , 'action'=>['UsuarioController@update',$user->id]
-        ,'files' => true
+        ,'files' => true, 'name'=>'usuarioForm'
         , 'class'=> 'form-horizontal']) }}
         @include('usuario.form',['userAvatar'=>$user->avatarPathMedium()
             , 'submitButton'=>'Atualizar usuário'
@@ -51,25 +51,29 @@
 
 @section('scripts')
 <script>
-
-var confirmacao = false;
-$('#deleteForm').submit( function(e){
-
-  if( confirmacao){return;}
-  e.preventDefault();
-
-});
-
-$('#confirmAtivacao').click(function(){
-  confirmacao = true;
-  var formId = $(this).attr('formId');
-  console.log(formId);
-  $('#deleteForm').submit();
-
-});
-
-
+    var post = {!! $user !!};
 </script>
+
+<script>
+    var confirmacao = false;
+    $('#deleteForm').submit( function(e){
+
+      if( confirmacao){return;}
+      e.preventDefault();
+
+    });
+
+    $('#confirmAtivacao').click(function(){
+      confirmacao = true;
+      var formId = $(this).attr('formId');
+      console.log(formId);
+      $('#deleteForm').submit();
+
+    });
+</script>
+
+<script src="{{ url('js/users/app-users-module.min.js') }}"></script>
+
 @endsection
 
 @endsection

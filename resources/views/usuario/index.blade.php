@@ -74,6 +74,6 @@
 
 @section('scripts')
     <script src="{{ url('js/users/app-users-module.min.js') }}"></script>
-    <script src="{{ url('js/users/users-index-ctrl.min.js') }}"></script>
+
 @endsection
 </div>

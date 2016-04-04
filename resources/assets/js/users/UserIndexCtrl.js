@@ -57,3 +57,22 @@ app.filter('formatPhone', ['$sce', function($sce) {
         }
     };
 }]);
+
+function mascaraTelefone( input ){
+    if( input == null || input.length == 0 ){
+        return '';
+    } else{
+        switch (input.length) {
+            case 8:
+                return input.slice(0,4) + '-' + input.slice(4,8);
+            case 9:
+                return input.slice(0,5) + '-' + input.slice(5,9);
+            case 10:
+                return '(' + input.slice(0,2) + ') ' + input.slice(2,6) + '-' + input.slice(6,10);
+            case 11:
+                return '(' + input.slice(0,2) + ') ' + input.slice(2,7) + '-' + input.slice(7,11);
+            default:
+                return input;
+        }
+    }
+}

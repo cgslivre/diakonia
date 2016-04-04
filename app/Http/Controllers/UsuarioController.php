@@ -60,7 +60,7 @@ class UsuarioController extends Controller
         } else{
             $user = User::findOrFail($id);
             $user->delete();
-            return redirect('usuario')->with('message', 'Usuário removido!');
+            return redirect('usuarios')->with('message', 'Usuário removido!');
         }
     }
 

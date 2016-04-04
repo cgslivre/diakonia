@@ -40,4 +40,10 @@ class UsuarioUpdateRequest extends Request
             'avatar.image' => 'O arquivo deve ser uma imagem'
         ];
     }
+
+    public function all(){
+        $input = parent::all();
+        $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
+        return $input;
+    }
 }

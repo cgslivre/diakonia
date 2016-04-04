@@ -26,7 +26,7 @@
       <div class="col-sm-4">
         <input class="form-control" placeholder="Endereço de email" name="email"
                 type="email" id="email" ng-model="usuario.email" ng-required="true"
-                ng-remote-validate="/api/usuarios/email" >
+                ng-remote-validate="/api/usuarios/email" ng-readonly="!emailField">
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
@@ -50,6 +50,7 @@
         ng-class="{'has-error' : usuarioForm.name.$invalid && !usuarioForm.name.$pristine}">
         {{ Form::label('name','Nome:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
+
           <input class="form-control" placeholder="Nome do usuário" name="name" type="text"
             ng-model="usuario.name" ng-minlength="2" id="name" ng-required="true">
           @if ($errors->has('name'))

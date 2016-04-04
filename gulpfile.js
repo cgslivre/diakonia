@@ -46,9 +46,12 @@ elixir(function(mix) {
 
 	// Scripts Usuários
 	mix.scripts([
-			"users/UserModule.js"
+			"users/UserModule.js",
+			"users/UserIndexCtrl.js",
+			"users/UserCreateCtrl.js",
+			"users/UserEditCtrl.js"
 	], 'public/js/users/app-users-module.min.js')
-
+/*
 	mix.scripts([
 			"users/UserIndexCtrl.js"
 	], 'public/js/users/users-index-ctrl.min.js')
@@ -56,7 +59,7 @@ elixir(function(mix) {
 	mix.scripts([
 			"users/UserCreateCtrl.js"
 	], 'public/js/users/users-create-ctrl.min.js')
-
+*/
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
