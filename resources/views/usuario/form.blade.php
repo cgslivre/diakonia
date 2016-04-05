@@ -97,10 +97,31 @@
             'name'=>'regiao'])
       </div>
     </div>
-
-    @if( $passwordForm )
+    @if( $perfil)
+        <hr/>
+        <p>Caso deseje alterar a senha de acesso, digite a senha atual e a nova senha:</p>
+        <div class="form-group{{ $errors->has('old-password') ? ' has-error' : '' }}">
+          <label for="old-password" class="col-sm-2 control-label">
+            Senha atual
+          </label>
+          <div class="col-sm-4">
+            {{ Form::password('old-password', array('class' => 'form-control', 'id'=> 'old-password')) }}
+            @if ($errors->has('old-password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('old-password') }}</strong>
+                </span>
+            @endif
+          </div>
+        </div>
+    @endif
+    @if( $passwordForm || $perfil)
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            {{ Form::label('password','Senha:',['class'=>'col-sm-2 control-label'])}}
+            <label for="password" class="col-sm-2 control-label">
+                @if( $perfil)
+                    Nova 
+                @endif
+                Senha:
+            </label>
           <div class="col-sm-4">
               <input class="form-control" id="password" name="password"
               type="password" value="" ng-model="usuario.password">
@@ -139,7 +160,13 @@
         <!--</button>-->
         <button class="btn btn-info"
             ng-click="criarUsuario(usuario)"
-            ng-disabled="usuarioForm.$invalid"><% button %></button>
+            ng-disabled="usuarioForm.$invalid">
+            @if( $perfil)
+                Atualizar Perfil
+            @else
+                <% button %>
+            @endif
+        </button>
       </div>
     </div>
 

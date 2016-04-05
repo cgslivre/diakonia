@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 use App\User;
 use App\Http\Requests\UsuarioCreateRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
+use App\Http\Requests\UsuarioPerfilRequest;
 use Auth;
+use Hash;
+use Validator;
+use Input;
 
 
 class UsuarioController extends Controller
@@ -31,12 +35,17 @@ class UsuarioController extends Controller
     }
 
     public function create(){
-        return view('usuario.create');
+        return view('usuario.create')->with('perfil',false);
     }
 
     public function edit( $id ){
         $user = User::findOrFail($id);
-        return view('usuario.edit', compact('user'));
+        return view('usuario.edit', compact('user'))->with('perfil',false);
+    }
+
+    public function perfil(  ){
+        $user = Auth::user();
+        return view('usuario.edit', compact('user'))->with('perfil',true);
     }
 
     public function store( UsuarioCreateRequest $request){
@@ -45,12 +54,28 @@ class UsuarioController extends Controller
     }
 
     public function update($id, UsuarioUpdateRequest $request){
-
         $user = User::findOrFail($id);
-
         $user->update( $request->all());
-
         return Redirect::back()->withInput()->with('message', 'Usuário atualizado!');
+    }
+
+    public function atualizaPerfil( $id, UsuarioPerfilRequest $request ){
+        
+        $user = User::findOrFail($id);
+        $input = $request->all();
+        if(!empty($input['old-password'])){
+            if ( !Hash::check($input['old-password'], $user->password)){
+                $val = Validator::make($request->all(),[]);
+                $val->errors ()->add('old-password', 'Senha inválida');
+                return Redirect::back()->withErrors($val);
+            } else{
+                $data = Input::all();
+            }
+        } else{
+            $data = Input::except('password');
+        }
+        $user->update( $data );
+        return Redirect::back()->withInput()->with('message', 'Perfil atualizado!');
 
     }
 

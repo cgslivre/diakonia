@@ -1,12 +1,16 @@
 @extends( 'master')
+@if($perfil)
+    @section('titulo', 'Editar perfil')
+@else
+    @section('titulo', 'Editar usuário')
+@endif
 
-@section('titulo', 'Editar usuário')
 
 
 @section('content')
 
 <div class="container-fluid" ng-app="usuariosRecord" ng-controller="userEditCtrl">
-    {{ Form::model($user, ['method' => 'PATCH' , 'action'=>['UsuarioController@update',$user->id]
+    {{ Form::model($user, ['method' => 'PATCH' , 'action'=>[$perfil?'UsuarioController@atualizaPerfil':'UsuarioController@update',$user->id]
         ,'files' => true, 'name'=>'usuarioForm'
         , 'class'=> 'form-horizontal']) }}
         @include('usuario.form',['userAvatar'=>$user->avatarPathMedium()
@@ -16,36 +20,35 @@
             , 'passwordForm'=>false])
     {{ Form::close() }}
 
+    @unless($perfil)
+        {{ Form::model($user, ['method' => 'DELETE' , 'action'=>['UsuarioController@destroy',$user->id],
+            'id'=>'deleteForm']) }}
+            {{ Form::submit('Remover usuário', ['class' => 'btn btn-danger'
+                ,'data-toggle'=>'modal', 'data-target'=>'#modalWarning']) }}
 
-    {{ Form::model($user, ['method' => 'DELETE' , 'action'=>['UsuarioController@destroy',$user->id],
-        'id'=>'deleteForm']) }}
-        {{ Form::submit('Remover usuário', ['class' => 'btn btn-danger'
-            ,'data-toggle'=>'modal', 'data-target'=>'#modalWarning']) }}
-
-        <!-- Modal -->
-        <div class="modal fade modal-danger bs-example-modal-sm" id="modalWarning" tabindex="-1"
-              role="dialog" aria-labelledby="modal-ativacao" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header modal-header-danger">
-                        <button type="button" class="close"
-                          data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="modal-ativacao">Confirmação</h4>
-                    </div>
-                    <div class="modal-body">
-                        Deseja remover o usuário {{ $user->name }}?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-info" data-dismiss="modal">Não</button>
-                        <button type="button" class="btn btn-danger" id="confirmAtivacao">Sim</button>
+            <!-- Modal -->
+            <div class="modal fade modal-danger bs-example-modal-sm" id="modalWarning" tabindex="-1"
+                  role="dialog" aria-labelledby="modal-ativacao" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header modal-header-danger">
+                            <button type="button" class="close"
+                              data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title" id="modal-ativacao">Confirmação</h4>
+                        </div>
+                        <div class="modal-body">
+                            Deseja remover o usuário {{ $user->name }}?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Não</button>
+                            <button type="button" class="btn btn-danger" id="confirmAtivacao">Sim</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    {{ Form::close() }}
-
-
+        {{ Form::close() }}
+    @endunless
 
 </div>
 
