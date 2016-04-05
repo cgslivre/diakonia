@@ -1,6 +1,6 @@
-@extends( 'master')
+@extends( 'usuario.template-usuario')
 
-@section('titulo', 'Lista de Usuários')
+@section('nivel2', '<li class="active">Lista de Usuários</li>')
 
 
 @section('content')

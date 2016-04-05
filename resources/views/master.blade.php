@@ -28,9 +28,11 @@
 
         <div class="container-fluid">
           <div class="side-body">
-            <div class="page-title">
-              <span class="title">@yield('titulo')</span>
-             </div> 
+              <ol id="navegador" class="breadcrumb">
+                @yield('nivel1')
+                @yield('nivel2')
+                @yield('nivel3')
+              </ol>
 
               <hr class="divider">
               @include('layouts.mensagens')

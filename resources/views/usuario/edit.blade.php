@@ -1,8 +1,8 @@
-@extends( 'master')
+@extends( 'usuario.template-usuario')
 @if($perfil)
-    @section('titulo', 'Editar perfil')
+    @section('nivel2', '<li class="active">Editar perfil</li>')
 @else
-    @section('titulo', 'Editar usuário')
+    @section('nivel2', '<li class="active">Editar usuário</li>')    
 @endif
 
 
