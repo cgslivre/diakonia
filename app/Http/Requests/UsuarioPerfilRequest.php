@@ -27,6 +27,7 @@ class UsuarioPerfilRequest extends Request
             'name' => 'required|min:2',
             'old-password' => 'required_with:password',
             'avatar' => 'image',
+            'telefone' => 'required|integer',
             'password' => 'min:6|same:password_confirm|required_with:old-password',
             'password_confirm' => 'min:6|same:password|required_with:old-password'
         ];
@@ -46,5 +47,11 @@ class UsuarioPerfilRequest extends Request
             'password_confirm.required_with' => 'A senha não pode ser vazia',
             'password_confirm.same' => 'A senha deve ser igual nos campos "Senha" e "Confirmação da Senha"'
         ];
+    }
+
+    public function all(){
+        $input = parent::all();
+        $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
+        return $input;
     }
 }

@@ -42,6 +42,10 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
+    public function setTelefoneAttribute($value){
+        $this->attributes['telefone'] = preg_replace("/[^0-9]/","",$value);
+    }
+
     /**
      * Retorna o avatar do usuário, caso ele não tenha, retorna um default.
      */

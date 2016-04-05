@@ -30,12 +30,13 @@
           <div class="side-body">
             <div class="page-title">
               <span class="title">@yield('titulo')</span>
-              <div class="description">@yield('descricao')</div>
+             </div> 
+
               <hr class="divider">
               @include('layouts.mensagens')
               @yield('content')
-              
-            </div>
+
+
           </div>
         </div>
 
