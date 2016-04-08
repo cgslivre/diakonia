@@ -2,7 +2,7 @@
   <nav  class="navbar navbar-default" role="navigation">
     <div class="side-menu-container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">          
+        <a class="navbar-brand" href="#">
           <div class="title">Menu</div>
         </a>
         <button type="button" class="navbar-expand-toggle pull-right visible-xs">
@@ -11,7 +11,9 @@
       </div>
       <ul class="nav navbar-nav">
 
-        @include('layouts.menus.usuarios')
+        @can('user-list')
+            @include('layouts.menus.usuarios')
+        @endcan
 
         @include('layouts.menus.retiros')
 

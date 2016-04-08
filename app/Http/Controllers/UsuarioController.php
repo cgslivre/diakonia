@@ -13,6 +13,7 @@ use Auth;
 use Hash;
 use Validator;
 use Input;
+use Gate;
 
 
 class UsuarioController extends Controller
@@ -30,6 +31,9 @@ class UsuarioController extends Controller
     }
 
     public function lista(){
+        if( Gate::denies('user-list')){
+            abort(403);
+        }
         $usuarios = User::all();
         return view('usuario.index' , compact( 'usuarios'));
     }
@@ -60,7 +64,7 @@ class UsuarioController extends Controller
     }
 
     public function atualizaPerfil( $id, UsuarioPerfilRequest $request ){
-        
+
         $user = User::findOrFail($id);
         $input = $request->all();
         if(!empty($input['old-password'])){
