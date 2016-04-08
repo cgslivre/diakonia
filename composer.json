@@ -12,7 +12,8 @@
         "twitter/bootstrap": "3.3.*",
         "components/font-awesome": "dev-master",
         "doctrine/dbal" : "dev-master",
-        "intervention/image": "dev-master"        
+        "intervention/image": "dev-master",
+        "silber/bouncer": "^0.1.7"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

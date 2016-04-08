@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SituacaoRetiroSeeder::class);
         $this->call(LocalSeed::class);
         $this->call(GrupoInscricaoSeeder::class);
+        $this->call(BouncerSeederPermissoes::class);
         //Model::reguard();
     }
 }

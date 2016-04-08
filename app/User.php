@@ -6,10 +6,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Image;
 use Hash;
+use Silber\Bouncer\Database\HasRolesAndAbilities;
 
 class User extends Authenticatable
 {
-
+    use HasRolesAndAbilities;
     const DEFAULT_AVATAR_PATH = 'users/avatar/000-default-';
     const IMG_SIZE_DEFAULT = '250px.jpg';
     const IMG_SIZE_MED = '150px.jpg';
