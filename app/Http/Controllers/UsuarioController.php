@@ -24,10 +24,12 @@ class UsuarioController extends Controller
     }
 
     public function index(){
-        //$usuarios = User::orderBy('name','asc')->get();
-
-        //return view('usuario.index' , compact( 'usuarios'));
-        return User::all();
+        if( Gate::denies('user-list')){
+            abort(403);
+        }
+        $usuarios = User::orderBy('name','asc')->get();
+        return $usuarios;
+        //return User::all();
     }
 
     public function lista(){
@@ -53,11 +55,17 @@ class UsuarioController extends Controller
     }
 
     public function store( UsuarioCreateRequest $request){
+        if( Gate::denies('user-create')){
+            abort(403);
+        }
         User::create($request->all());
         return redirect('usuarios')->with('message', 'Usuário adicionado!');
     }
 
     public function update($id, UsuarioUpdateRequest $request){
+        if( Gate::denies('user-edit')){
+            abort(403);
+        }
         $user = User::findOrFail($id);
         $user->update( $request->all());
         return Redirect::back()->withInput()->with('message', 'Usuário atualizado!');
@@ -84,6 +92,9 @@ class UsuarioController extends Controller
     }
 
     public function destroy($id){
+        if( Gate::denies('user-remove')){
+            abort(403);
+        }
         if(Auth::user()->id == $id){
             return Redirect::back()->with('erro', 'Não é possível remover seu próprio usuário!');
         } else{
@@ -94,6 +105,9 @@ class UsuarioController extends Controller
     }
 
     public function show($id){
+        if( Gate::denies('user-view')){
+            abort(403);
+        }
         $user = User::findOrFail($id);
         return view('usuario.show', compact('user'));
     }

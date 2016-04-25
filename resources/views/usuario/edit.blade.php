@@ -2,7 +2,7 @@
 @if($perfil)
     @section('nivel2', '<li class="active">Editar perfil</li>')
 @else
-    @section('nivel2', '<li class="active">Editar usuário</li>')    
+    @section('nivel2', '<li class="active">Editar usuário</li>')
 @endif
 
 
@@ -26,6 +26,8 @@
     {{ Form::close() }}
 
     @unless($perfil)
+        @can('user-remove')
+
         {{ Form::model($user, ['method' => 'DELETE' , 'action'=>['UsuarioController@destroy',$user->id],
             'id'=>'deleteForm']) }}
             {{ Form::submit('Remover usuário', ['class' => 'btn btn-danger'
@@ -53,6 +55,7 @@
             </div>
 
         {{ Form::close() }}
+        @endcan
     @endunless
 
 </div>

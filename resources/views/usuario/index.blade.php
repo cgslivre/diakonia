@@ -11,9 +11,11 @@
         <input type="text" ng-model="criterioDeBusca" class="form-control"
             placeholder="Quem você está buscando..."/>
     </div>
+    @can('user-create')
     <a href="{{ url('/usuario/create') }}" class="btn btn-success">
         <i class="fa fa-user-plus"></i> Criar novo usuário
     </a>
+    @endcan
 
 
 
@@ -45,7 +47,9 @@
                 </a></th>
                 <th>Telefone</th>
                 <th>Região</th>
+                @can('user-edit')
                 <th class="text-center col-md-1"><i class="fa fa-pencil-square-o"></i></th>
+                @endcan
               </tr>
             </thead>
             <tbody>
@@ -54,16 +58,22 @@
                     <td class="col-md-1 text-center">
                         <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(usuario.avatar_path)%>" class="profile-img"/>
                     </td>
-                    <td class="middle-align"><a href="<%userShowLink(usuario.id)%>" ng-bind-html="usuario.name | highlight:criterioDeBusca"></a></td>
+                    <td class="middle-align"><a
+                        @can('user-view')
+                            href="<%userShowLink(usuario.id)%>"
+                        @endcan
+                        ng-bind-html="usuario.name | highlight:criterioDeBusca"></a></td>
                     <td class="middle-align" ng-bind-html="usuario.email | highlight:criterioDeBusca"></td>
                     <td class="middle-align"
                         ng-bind-html="usuario.telefone | formatPhone | highlight:criterioDeBusca "></td>
                     <td class="middle-align" ng-bind-html="usuario.regiao | highlight:criterioDeBusca"></td>
+                    @can('user-edit')
                     <td class="col-md-1 text-center middle-align">
                         <a href="<% userEditLink(usuario.id) %>" title="Editar Usuário">
                             <i class="fa fa-pencil-square fa-2x"></i>
                         </a>
                     </td>
+                    @endcan
                 </tr>
             </tbody>
         </table>
