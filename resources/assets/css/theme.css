@@ -58,3 +58,5 @@ span.counter{font-size: 120%;font-weight: bold;}
 .highlighted { background: yellow }
 
 #navegador{font-size:18px;margin-top: 15px;background: none;}
+
+.inline{display: inline}
