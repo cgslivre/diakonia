@@ -39,6 +39,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+        'usuario_roles'
+    ];
+
     public function setPasswordAttribute($value) {
         $this->attributes['password'] = Hash::make($value);
     }
@@ -125,6 +129,15 @@ class User extends Authenticatable
             $user->avatar_path = $avatarPath;
             $user->save();
         }
+    }
+
+    public function getUsuarioRolesAttribute(){
+        $roles = $this->roles()->get();
+        return $roles->pluck('name')->filter( function($role){
+            if( 0 === strpos($role, 'role-user')){
+                return true;
+            }            
+        });
     }
 
 

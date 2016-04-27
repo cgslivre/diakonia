@@ -16,12 +16,19 @@ class UsuarioPermissoesController extends Controller
         $this->middleware('auth');
     }
 
-    public function index( $id ){
+    public function index() {
+        if( Gate::denies('user-permissions')){
+            abort(403);
+        }        
+        return view('usuario.permissoes-index');
+    }
+
+    public function edit( $id ){
         if( Gate::denies('user-permissions')){
             abort(403);
         }
         $user = User::findOrFail($id);
-        return view('usuario.permissoes-index', compact('user'));
+        return view('usuario.permissoes-edit', compact('user'));
     }
 
     public function update( $id, Request $request ){

@@ -4,6 +4,7 @@ app.controller('usuariosController', ['$scope', '$http',
     $http.get("/usuario").success(function(data) {
 
         $scope.usuarios = data;
+        //console.log($scope.usuarios[1].usuario_roles.length);
     });
     $scope.avatarPathSmall = function( avatar ){
         if ( avatar === null ){
@@ -19,6 +20,10 @@ app.controller('usuariosController', ['$scope', '$http',
 
     $scope.userShowLink = function( user ){
         return window.location.origin + '/usuario/' + user;
+	};
+
+    $scope.userShowPermissionLink = function( user ){
+        return window.location.origin + '/usuario/' + user + '/permissoes';
 	};
 
     $scope.ordenarPor = function( campo ){
@@ -59,6 +64,16 @@ app.filter('formatPhone', ['$sce', function($sce) {
         }
     };
 }]);
+
+app.filter('roleuserfilter', ['$sce', function($sce) {
+    return function(input) {
+        if( input === 'role-user-admin') return 'Administrador';
+        else if( input === 'role-user-manage') return 'Gerente';
+        else if( input === 'role-user-users') return 'Padrão';
+        else return input;
+    };
+}]);
+
 
 function mascaraTelefone( input ){
     if( input == null || input.length == 0 ){

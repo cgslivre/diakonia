@@ -60,3 +60,10 @@ span.counter{font-size: 120%;font-weight: bold;}
 #navegador{font-size:18px;margin-top: 15px;background: none;}
 
 .inline{display: inline}
+
+ul.rolebox{list-style-type: none;margin:0;-webkit-margin-before:0em;-webkit-margin-after:0em;-webkit-padding-start:0;}
+ul.rolebox > li{font-size:12px;font-weight: bold;}
+ul.rolebox > li > span{padding: 4px;margin: 3px;float:left;}
+ul.rolebox > li > span.role-user-admin{background-color: #e72828;color:#ffffff;}
+ul.rolebox > li > span.role-user-manage{background-color: #eed064;color:#5d5017;}
+ul.rolebox > li > span.role-user-users{background-color: #284de7;color:#ffffff;}

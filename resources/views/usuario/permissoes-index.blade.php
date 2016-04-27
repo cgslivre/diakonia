@@ -1,70 +1,69 @@
 @extends( 'usuario.template-usuario')
 
-@section('nivel2', '<li class="active">Permissões do usuário</li>')
+@section('nivel2', '<li class="active">Permissões dos usuários</li>')
 
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 text-right">
-                <img alt="Foto de Perfil" src="{{ url($user->avatarPathMedium()) }}" class="profile-img">
-            </div>
-            <div class="col-md-8">
-                <h3>{{$user->name}}</h3>
-                <p>{{ $user->email}}</p>
-            </div>
+    <div ng-app="usuariosRecord">
+        <div class="form-group input-group-lg">
+            <input type="text" ng-model="criterioDeBusca" class="form-control"
+                placeholder="Quem você está buscando..."/>
         </div>
 
+        <hr/>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><span class="icon fa fa-user"></span> Perfis para administração de Usuário</h3>
+        <div ng-controller="usuariosController">
+            <div class="search-result">
+                <p ng-show="!usuariosFiltered.length">
+                    <span class="counter">Nenhum</span> usuário encontrado.
+                </p>
+                <p ng-show="usuariosFiltered.length == 1">
+                    <span class="counter">Um</span> usuário encontrado.
+                </p>
+                <p ng-show="usuariosFiltered.length >  1">
+                    <span class="counter"><%usuariosFiltered.length%></span> usuários encontrados.
+                </p>
             </div>
-            <div class="panel-body">
-                <dl class="dl-horizontal">
-                    <dt>Perfil Padrão</dt>
-                    <dd>Pode visualizar lista de usuários, visualizar perfil de um usuário específico</dd>
+            <table ng-show="usuarios.length > 0" class="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th class="text-center col-md-1">#</th>
+                    <th class="text-center col-md-1"><i class="fa fa-user"></i></th>
+                    <th><a href="" ng-click="ordenarPor('name')">Nome
+                        <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='name' && direcaoDaOrdenacao"></span>
+                        <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='name' && !direcaoDaOrdenacao"></span>
+                    </a></th>
+                    <th><a href="" ng-click="ordenarPor('email')">Email
+                        <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
+                        <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
+                    </a></th>
+                    <th class="text-center">Usuários</th>
 
-                    <dt>Perfil Gerente</dt>
-                    <dd>Pode editar usuários, criar novo usuário. <mark>(inclui permissões do perfil Usuário: Padrão)</mark></dd>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="usuario in usuariosFiltered = ( usuarios | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao)">
+                        <th class="col-md-1 text-center middle-align" scope="row" title="<%usuario.id%>"><%($index+1)%></th>
+                        <td class="col-md-1 text-center">
+                            <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(usuario.avatar_path)%>" class="profile-img"/>
+                        </td>
+                        <td class="middle-align"><a href="<%userShowPermissionLink(usuario.id)%>"
+                            ng-bind-html="usuario.name | highlight:criterioDeBusca"></a></td>
+                        <td class="middle-align" ng-bind-html="usuario.email | highlight:criterioDeBusca"></td>
+                        <td class="middle-align text-center">
+                            <ul ng-show="usuario.usuario_roles.length > 0" class="rolebox">
+                                <li ng-repeat="userrole in usuario.usuario_roles">
+                                    <span class="<%userrole%>"><%userrole | roleuserfilter%></span>
+                                </li>
+                            </ul>
+                            <i ng-show="!usuario.usuario_roles.length" class="fa fa-ban" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
 
-                    <dt>Perfil Administrador</dt>
-                    <dd>Pode remover usuários e alterar permissões de outros usuários. <mark>(inclui permissões do perfil Usuário: Gerente)</mark></dd>
-                </dl>
-
-                <div class="">
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-padrao-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-users')  }}
-                        {{ Form::submit('Padrão',['class'=>$user->is('role-user-users')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-gerente-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-manage')  }}
-                        {{ Form::submit('Gerente',['class'=>$user->is('role-user-manage')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-admin-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-admin')  }}
-                        {{ Form::submit('Administrador',['class'=>$user->is('role-user-admin')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-
-                </div>
-
-            </div>
         </div>
-
-        {{--
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><span class="icon fa fa-home"></span> Perfis para administração de Retiros</h3>
-            </div>
-            <div class="panel-body">
-                ...
-            </div>
-        </div>
-        --}}
 
     </div>
 
@@ -72,5 +71,5 @@
 
 
 @section('scripts')
-
+    <script src="{{ url('js/users/app-users-module.min.js') }}"></script>
 @endsection
