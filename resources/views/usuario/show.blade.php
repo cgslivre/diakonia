@@ -27,6 +27,15 @@
         </div>
 
         <hr/>
+
+        <div class="row"><div class="col-sm-2 text-right lead">Permissões:</div></div>
+
+        <div class="row">
+            <div class="col-sm-offset-2 col-sm-5 lead">
+                @include('usuario.permissons-labels')
+            </div>
+        </div>
+
     </div>
 
 @endsection

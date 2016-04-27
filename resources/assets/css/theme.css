@@ -67,3 +67,5 @@ ul.rolebox > li > span{padding: 4px;margin: 3px;float:left;}
 ul.rolebox > li > span.role-user-admin{background-color: #e72828;color:#ffffff;}
 ul.rolebox > li > span.role-user-manage{background-color: #eed064;color:#5d5017;}
 ul.rolebox > li > span.role-user-users{background-color: #284de7;color:#ffffff;}
+span.notrole{color:#5e5d5d;background-color: #e3dddd;}
+label.permissons-label{text-align: right;}

@@ -19,7 +19,7 @@ class UsuarioPermissoesController extends Controller
     public function index() {
         if( Gate::denies('user-permissions')){
             abort(403);
-        }        
+        }
         return view('usuario.permissoes-index');
     }
 
@@ -49,6 +49,6 @@ class UsuarioPermissoesController extends Controller
 
         Bouncer::refreshFor($user);
 
-        return redirect()->action('UsuarioPermissoesController@index',$id)->with('message', 'Perfil atualizado!');
+        return redirect()->action('UsuarioPermissoesController@edit',$id)->with('message', 'Perfil atualizado!');
     }
 }

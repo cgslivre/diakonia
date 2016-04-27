@@ -24,6 +24,29 @@
             , 'regiao'=>$user->regiao
             , 'passwordForm'=>false])
     {{ Form::close() }}
+    @can('user-permissions')
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group ">
+                    <label class="col-sm-2 control-label permissons-label">Permissões:</label>
+                  <div class="col-sm-4">
+                    @include('usuario.permissons-labels')
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-offset-2">
+                        <a class="btn btn-info"
+                        href="{{action('UsuarioPermissoesController@edit', ['id' => $user->id])}}"
+                        role="button">Alterar Permissões do Usuário</a>
+                </div>
+            </div>
+        </div>
+    @endcan
+
+
 
     @unless($perfil)
         @can('user-remove')
@@ -57,6 +80,8 @@
         {{ Form::close() }}
         @endcan
     @endunless
+
+
 
 </div>
 
