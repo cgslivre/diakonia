@@ -41,6 +41,9 @@ elixir(function(mix) {
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
 			paths.bower + "/ng-remote-validate/release/ngRemoteValidate.js",
 			paths.bower + "/angular-ui-mask/dist/mask.min.js",
+			paths.bower + "/moment/min/moment-with-locales.min.js",
+			paths.bower + "/php-date-formatter/js/php-date-formatter.js",
+			paths.bower + "/datetimepicker/jquery.datetimepicker.js",
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
 
@@ -51,21 +54,20 @@ elixir(function(mix) {
 			"users/UserCreateCtrl.js",
 			"users/UserEditCtrl.js"
 	], 'public/js/users/app-users-module.min.js')
-/*
-	mix.scripts([
-			"users/UserIndexCtrl.js"
-	], 'public/js/users/users-index-ctrl.min.js')
 
+	// Scripts Música
 	mix.scripts([
-			"users/UserCreateCtrl.js"
-	], 'public/js/users/users-create-ctrl.min.js')
-*/
+			"musica/MusicaEventoModule.js",
+			"musica/MusicaEventoCreateCtrl.js",
+	], 'public/js/musica/app-musica-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
 				paths.fontawesome + "/css/font-awesome.min.css",
 				paths.default + "/css/checkbox3.css",
-        paths.default + "/css/main.css",
+				paths.bower + "/datetimepicker/jquery.datetimepicker.css",
+        		paths.default + "/css/main.css",
 				paths.default + "/css/theme.css"
     ], 'public/css/all.min.css', './');
 });
