@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\MusicaEventoRequest;
 use App\MusicaEvento;
 use Auth;
+use Carbon\Carbon;
 
 //use App\Http\Requests;
 
@@ -32,9 +33,8 @@ class MusicaEventoController extends Controller
         $input = $request->all();
         $input['modified_by'] = Auth::user()->id;
         $input['created_by'] = Auth::user()->id;
-        //dd($input);
-        $id = MusicaEvento::create($input)->id;
 
+        $id = MusicaEvento::create($input)->id;
         return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento adicionado!');
     }
 

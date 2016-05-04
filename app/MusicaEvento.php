@@ -27,9 +27,9 @@ class MusicaEvento extends Model
     public function modifiedBy(){
         return $this->hasOne('App\User', 'id', 'modified_by');
     }
-
+    /*
     public function setHoraAttribute($date){
         $this->attributes['hora'] = Carbon::createFromFormat('j/n/Y G:i', $date)->format('Y-m-d H:i:s');
     }
-
+    */
 }

@@ -19,6 +19,7 @@
         $.datetimepicker.setLocale('pt-BR');
         $('#hora').datetimepicker({
             format: 'j/n/Y G:i',
+            //format: 'Y-n-j G:i',
             minDate: 0,
             defaultTime:'10:00',
             closeOnDateSelect:true
