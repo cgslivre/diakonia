@@ -23,18 +23,23 @@ class MusicaEventoController extends Controller
         return view('musica.evento.create');
     }
 
-    public function store( MusicaEventoRequest $request){
+    public function edit( $id ){
+        $evento = MusicaEvento::findOrFail( $id );
+        return view('musica.evento.edit', compact('evento'));
+    }
 
+    public function store( MusicaEventoRequest $request){
         $input = $request->all();
+        //dd($input);
         $id = MusicaEvento::create($input)->id;
 
-        //return redirect('musica/calendario')->with('message', 'Evento adicionado!');
         return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento adicionado!');
     }
 
-    public function edit( $id ){
+    public function update( $id, MusicaEventoRequest $request ){
         $evento = MusicaEvento::findOrFail( $id );
-        return view('musica.evento.edit', compact('user'));
-
+        $evento->update($request->all());
+        return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento alterado!');
     }
+
 }

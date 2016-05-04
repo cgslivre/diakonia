@@ -15,7 +15,7 @@ class MusicaEvento extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo', 'hora',
+        'titulo', 'hora','created_by','modified_by'
     ];
 
     protected $dates = ['hora'];

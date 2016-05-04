@@ -59,6 +59,7 @@ elixir(function(mix) {
 	mix.scripts([
 			"musica/MusicaEventoModule.js",
 			"musica/MusicaEventoCreateCtrl.js",
+			"musica/MusicaEventoEditCtrl.js",
 	], 'public/js/musica/app-musica-module.min.js')
 
 	// Junta e minimiza os arquivos de estilos
