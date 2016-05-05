@@ -15,11 +15,18 @@ use Carbon\Carbon;
 
 class MusicaEventoController extends Controller
 {
+    /**
+     * Método construtor para submeter controlador a ambiente autenticado.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
+    /**
+     * Método para criar um Evento de Música
+     * @return Uma visão para criação do evento de música.
+     */
     public function create(){
         return view('musica.evento.create');
     }
@@ -46,6 +53,21 @@ class MusicaEventoController extends Controller
 
         $evento->update($input);
         return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento alterado!');
+    }
+
+    public function removerEvento( $id ){
+        $evento = MusicaEvento::findOrFail( $id );
+        return view('musica.evento.remove', compact('evento'));
+    }
+
+    public function destroy($id){
+        $evento = MusicaEvento::findOrFail( $id );
+        $evento->delete();
+        return Redirect::route('musica.evento.index')->with('message', 'Evento removido!');
+    }
+
+    public function index(){
+        return view('musica.evento.index' , compact( 'usuarios'));
     }
 
 }

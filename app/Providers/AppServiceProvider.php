@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Blade;
+use Carbon\Carbon;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,8 @@ class AppServiceProvider extends ServiceProvider
       Blade::directive('endforeachIndexed', function($expression) {
           return '<?php $index++; endforeach; ?>';
       });
+
+      Carbon::setLocale('pt_BR');
     }
 
     /**

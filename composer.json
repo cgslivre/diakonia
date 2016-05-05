@@ -13,7 +13,8 @@
         "components/font-awesome": "dev-master",
         "doctrine/dbal" : "dev-master",
         "intervention/image": "dev-master",
-        "silber/bouncer": "^0.1.7"
+        "silber/bouncer": "^0.1.7",
+        "jenssegers/date": "^3.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

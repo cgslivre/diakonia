@@ -46,11 +46,21 @@
         </div>
 
         <div class="form-group">
+
           <div class="col-sm-offset-2 col-sm-10">
-            <button class="btn btn-info" ng-disabled="musicaEventoForm.$invalid">
-                {{ $submitButton}}
-            </button>
+              <div class="btn-group">
+                  <button class="btn btn-info" ng-disabled="musicaEventoForm.$invalid">
+                      {{ $submitButton}}
+                  </button>
+                  @if( isset( $evento ))
+                  <a href="{{ URL::route('musica.evento.remover', $evento->id) }}"
+                     class="btn btn-danger">
+                      Remover evento
+                  </a>
+                @endif
+              </div>
           </div>
+
         </div>
     </div>
 </div>

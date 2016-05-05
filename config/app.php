@@ -150,6 +150,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Silber\Bouncer\BouncerServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -208,7 +209,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Bouncer' => Silber\Bouncer\BouncerFacade::class,
+        'Bouncer'   => Silber\Bouncer\BouncerFacade::class,
+        'Date'      => Jenssegers\Date\Date::class,
 
     ],
 

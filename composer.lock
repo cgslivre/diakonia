@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8330bcf3e10cf7dc83ea2ac66c6d456c",
-    "content-hash": "86d9eba0d704f7172aea57eca8f2b0e1",
+    "hash": "7e3db7d7d4a6842254544cfa3f45435f",
+    "content-hash": "9e72715428e68018af0b7154d0567fc6",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -71,7 +71,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/components/font-awesome/zipball/4ca866112d59c14fbbad0e99456bcf4b7d7ac38e",
+                "url": "https://api.github.com/repos/components/font-awesome/zipball/41891b80da2ee0a328c93d465bd3699edec2ca6c",
                 "reference": "4ca866112d59c14fbbad0e99456bcf4b7d7ac38e",
                 "shasum": ""
             },
@@ -707,7 +707,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/e368d262887dbb2fdfaf710880571ede51e9c0e6",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/22088b04728a039bd1fc32f7e79a89a118b78698",
                 "reference": "e368d262887dbb2fdfaf710880571ede51e9c0e6",
                 "shasum": ""
             },
@@ -845,6 +845,63 @@
                 }
             ],
             "time": "2015-04-20 18:58:01"
+        },
+        {
+            "name": "jenssegers/date",
+            "version": "v3.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jenssegers/date.git",
+                "reference": "000caf2e52c5029a746c244390e304413abbbd28"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jenssegers/date/zipball/000caf2e52c5029a746c244390e304413abbbd28",
+                "reference": "000caf2e52c5029a746c244390e304413abbbd28",
+                "shasum": ""
+            },
+            "require": {
+                "nesbot/carbon": "^1.0",
+                "php": ">=5.4",
+                "symfony/translation": "^2.0|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0",
+                "satooshi/php-coveralls": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jenssegers\\Date\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens Segers",
+                    "homepage": "https://jenssegers.com"
+                }
+            ],
+            "description": "A date library to help you work with dates in different languages",
+            "homepage": "https://github.com/jenssegers/date",
+            "keywords": [
+                "carbon",
+                "date",
+                "datetime",
+                "i18n",
+                "laravel",
+                "time",
+                "translation"
+            ],
+            "time": "2016-04-07 12:00:23"
         },
         {
             "name": "jeremeamia/SuperClosure",
