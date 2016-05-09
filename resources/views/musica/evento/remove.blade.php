@@ -37,7 +37,7 @@
 
               {{ Form::model($evento, ['method' => 'DELETE' , 'route'=>['musica.evento.destroy',$evento->id],
                   'id'=>'deleteForm']) }}
-              <a class="btn btn-success" href="{{ URL::route('musica.evento.edit', $evento->id) }}">
+              <a class="btn btn-success" href="{{URL::previous()}}">
                   <i class="fa fa-undo" aria-hidden="true"></i> Não quero remover
               </a>
               <button

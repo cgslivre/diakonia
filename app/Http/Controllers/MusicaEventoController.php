@@ -36,6 +36,11 @@ class MusicaEventoController extends Controller
         return view('musica.evento.edit', compact('evento'));
     }
 
+    public function show( $id ){
+        $evento = MusicaEvento::findOrFail( $id );
+        return view('musica.evento.show', compact('evento'));
+    }
+
     public function store( MusicaEventoRequest $request){
         $input = $request->all();
         $input['modified_by'] = Auth::user()->id;

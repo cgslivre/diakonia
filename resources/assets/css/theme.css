@@ -86,7 +86,12 @@ label.permissons-label{text-align: right;}
     -moz-border-radius: 7px 7px 7px 7px;
     -webkit-border-radius: 7px 7px 7px 7px;
 }
-.card-evento .titulo{font-weight: bold;display: block;border-bottom: 1px solid #dddddd;}
+.card-evento .titulo{
+    font-weight: bold;
+    display: block;
+    border-bottom: 1px solid #dddddd;
+    margin-right: 50px;
+}
 .card-evento .dias-restando{}
 
 .eventos-card{table-layout: fixed;width: 100%;}

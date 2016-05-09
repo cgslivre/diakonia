@@ -9,7 +9,7 @@
     {{ Form::model($evento, ['method' => 'PATCH', 'action' => ['MusicaEventoController@update',$evento->id], 'class'=> 'form-horizontal',
         'name'=>'musicaEventoForm']) }}
         @include('musica.evento.form',[
-            'submitButton'=>'Editar evento'
+            'submitButton'=>'Atualizar evento'
             ])
     {{ Form::close() }}
 </div>
