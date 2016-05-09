@@ -5,6 +5,13 @@
 
 
 @section('content')
+
+    <div class="btn-group pull-right" role="group" aria-label="Default button group">
+        <a type="button" href="{{URL::action('MusicaEventoController@create')}}"
+            class="btn btn-success"><i class="fa fa-pencil" aria-hidden="true"></i> Criar Evento de Música</a>
+    </div>
+    <div class="clearfix"></div>
+
     <h2>Eventos cadastrados nos próximos 30 dias</h2>
     <div class="eventos-card">
         @forelse( $eventos30 as $evento )

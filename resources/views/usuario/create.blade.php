@@ -1,6 +1,6 @@
 @extends( 'usuario.template-usuario')
 
-@section('nivel2', '<li class="active">Criar novo usuário</li>')
+@section('nivel3', '<li class="active">Criar novo usuário</li>')
 
 @section('content')
 <div class="container-fluid" ng-app="usuariosRecord" ng-controller="userCreateCtrl">

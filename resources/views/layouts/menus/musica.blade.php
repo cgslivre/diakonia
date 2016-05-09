@@ -6,8 +6,8 @@
   <div id="dropdown-musica" class="panel-collapse collapse">
     <div class="panel-body">
       <ul class="nav navbar-nav">
-        <li><a href="#">Calendário</a></li>
-        <li><a href="#">Equipe</a></li>
+        <li><a href="{{ URL::route('musica.calendario') }}"><span class="icon fa fa-calendar"></span> Calendário</a></li>
+        <li><a href="{{ URL::route('musica.evento.index') }}"><span class="icon fa fa-calendar-o"></span> Eventos</a></li>
       </ul>
     </div>
   </div>

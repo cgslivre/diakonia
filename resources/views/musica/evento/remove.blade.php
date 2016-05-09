@@ -1,7 +1,8 @@
 
 @extends( 'musica.template-musica')
 
-@section('nivel2', '<li class="active">Remover Evento</li>')
+@section('nivel2', '<li class="active"><a href="/musica/evento">Eventos</a></li>')
+@section('nivel3', '<li class="active">Remover Evento</li>')
 
     <?php
         use Jenssegers\Date\Date;

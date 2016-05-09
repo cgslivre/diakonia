@@ -15,13 +15,13 @@
             @include('layouts.menus.usuarios')
         @endcan
 
-        @include('layouts.menus.retiros')
+        {{-- @include('layouts.menus.retiros') --}}
 
         @include('layouts.menus.musica')
 
-        @include('layouts.menus.criancas')
+        {{-- @include('layouts.menus.criancas') --}}
 
-        @include('layouts.menus.contatos')
+        {{-- @include('layouts.menus.contatos') --}}
 
       </ul>
     </div>
