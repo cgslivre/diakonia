@@ -27,9 +27,24 @@ class MusicaEvento extends Model
     public function modifiedBy(){
         return $this->hasOne('App\User', 'id', 'modified_by');
     }
-    /*
-    public function setHoraAttribute($date){
-        $this->attributes['hora'] = Carbon::createFromFormat('j/n/Y G:i', $date)->format('Y-m-d H:i:s');
+
+    /**
+     * Escopo para limitar pesquisa apenas aos eventos dos próximos 30 dias
+     * @param  Consulta
+     * @return Eventos dos próximos 30 dias.
+     */
+    public function scopeProximos30Dias($query){
+        return $query->where('hora', '>=', Carbon::now())
+            ->where('hora', '<=', Carbon::now()->addMonth());
     }
-    */
+
+    /**
+     * Escopo para limitar pesquisa aos eventos posteriores a 30 dias, contados
+     * a partir de hoje
+     * @param  Consulta
+     * @return Eventos futuros.
+     */
+    public function scopeApos30Dias($query){
+        return $query->where('hora', '>', Carbon::now()->addMonth());
+    }
 }

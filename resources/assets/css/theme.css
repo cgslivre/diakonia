@@ -1,4 +1,5 @@
 body{background-color: #f9f9f9;}
+h2{color:#376c8c;}
 
 .navbar-top, #menu-lateral, #menu-lateral > nav, #menu-lateral > nav > div > ul > li{
   background-color: #457B9D;
@@ -73,3 +74,30 @@ label.permissons-label{text-align: right;}
 
 .btn-group >button, .btn-group >a {margin-right: 10px;}
 .destaque{font-weight: bold; color: #376c8c; }
+
+.card-evento{
+    margin: 10px;
+    display: inline-block;
+    border: 1px solid #a7bbb1;
+    width: 300px;
+    padding: 6px;
+    position: relative;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+}
+.card-evento .titulo{font-weight: bold;display: block;border-bottom: 1px solid #dddddd;}
+.card-evento .dias-restando{}
+
+.eventos-card{table-layout: fixed;width: 100%;}
+.data{
+    position: absolute;
+    top: 8px; right:5px;
+    background-color: #ffffff;
+    width: 50px; height: 50px;
+    border-top: 2px solid #E63946;
+    border-right: 1px solid #b0b0b0;
+    border-bottom: 1px solid #b0b0b0;
+}
+.data p.dia{font-size:22px;font-weight: bold;margin:0;color: #E63946;}
+.data p.mes{font-size: 12px;font-style: italic;margin:0;}

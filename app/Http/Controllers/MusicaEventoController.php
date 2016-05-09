@@ -67,7 +67,9 @@ class MusicaEventoController extends Controller
     }
 
     public function index(){
-        return view('musica.evento.index' , compact( 'usuarios'));
+        $eventos30 = MusicaEvento::proximos30Dias()->orderBy('hora')->get();
+        $eventosFuturos = MusicaEvento::apos30Dias()->orderBy('hora')->get();
+        return view('musica.evento.index' , compact( 'eventos30', 'eventosFuturos'));
     }
 
 }
