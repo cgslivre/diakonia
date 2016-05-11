@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LocalSeed::class);
         $this->call(GrupoInscricaoSeeder::class);
         $this->call(BouncerSeederPermissoes::class);
+        $this->call(MusicaStaffSeeder::class);
         //Model::reguard();
     }
 }
