@@ -44,6 +44,9 @@ elixir(function(mix) {
 			paths.bower + "/moment/min/moment-with-locales.min.js",
 			paths.bower + "/php-date-formatter/js/php-date-formatter.js",
 			paths.bower + "/datetimepicker/jquery.datetimepicker.js",
+			paths.bower + "/select2/dist/js/select2.full.min.js",
+			paths.bower + "/select2/dist/js/i18n/pt-BR.js",
+			paths.bower + "/image-picker/image-picker/image-picker.min.js",
 			paths.default + "/js/app.js"
 	], 'public/js/app.min.js', './')
 
@@ -62,12 +65,20 @@ elixir(function(mix) {
 			"musica/MusicaEventoEditCtrl.js",
 	], 'public/js/musica/app-musica-module.min.js')
 
+	mix.scripts([
+			"musica/MusicaStaffModule.js",
+			"musica/MusicaStaffCreateCtrl.js",
+	], 'public/js/musica/app-musica-staff-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
 				paths.fontawesome + "/css/font-awesome.min.css",
 				paths.default + "/css/checkbox3.css",
 				paths.bower + "/datetimepicker/jquery.datetimepicker.css",
+				paths.bower + "/select2/dist/css/select2.min.css",
+				paths.bower + "/checkbox3/dist/checkbox3.min.css",
+				paths.bower + "/image-picker/image-picker/image-picker.css",
         		paths.default + "/css/main.css",
 				paths.default + "/css/theme.css"
     ], 'public/css/all.min.css', './');

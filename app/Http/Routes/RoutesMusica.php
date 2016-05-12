@@ -12,6 +12,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::resource('musica/evento','MusicaEventoController');
     Route::get('musica/evento/{evento}/remove','MusicaEventoController@removerEvento')->name('musica.evento.remover');
 
+    Route::resource('musica/staff','MusicaStaffController');
 
 
 });

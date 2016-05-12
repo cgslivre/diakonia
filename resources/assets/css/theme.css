@@ -106,3 +106,8 @@ label.permissons-label{text-align: right;}
 }
 .data p.dia{font-size:22px;font-weight: bold;margin:0;color: #E63946;}
 .data p.mes{font-size: 12px;font-style: italic;margin:0;}
+
+.thumbnail p {
+    text-align: center;
+    margin: 10px 0 0 0;
+}
