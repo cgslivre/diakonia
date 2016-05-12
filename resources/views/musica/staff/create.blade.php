@@ -48,7 +48,7 @@
             <div class="form-group {{ $errors->has('servicos') ? ' has-error' : '' }}">
                 {{ Form::label('servicos','Serviços:',['class'=>'col-sm-2 control-label'])}}
               <div class="col-sm-6">
-                  <select multiple="multiple" class="image-picker show-html show-labels" name="">
+                  <select multiple="multiple" class="image-picker show-html show-labels" name="servico">
                       @foreach($servicos as $servico)
                           <option data-img-src="{{url($servico->iconeSmall)}}" value="{{$servico->id}}">
                               {{$servico->descricao}}</option>

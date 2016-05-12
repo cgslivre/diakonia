@@ -107,7 +107,39 @@ label.permissons-label{text-align: right;}
 .data p.dia{font-size:22px;font-weight: bold;margin:0;color: #E63946;}
 .data p.mes{font-size: 12px;font-style: italic;margin:0;}
 
+.thumbnail{
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border-radius: 7px 7px 7px 7px;
+}
+
+.thumbnail img{
+    filter: gray; /* IE6-9 */
+    filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+    -webkit-filter: grayscale(1);
+}
+
+.thumbnail img:hover{
+    filter: none;
+  -webkit-filter: grayscale(0);
+}
+.thumbnail:hover{
+    cursor: pointer;
+}
+
 .thumbnail p {
     text-align: center;
     margin: 10px 0 0 0;
+    font-weight: bold;
+}
+
+ul.thumbnails.image_picker_selector li .thumbnail.selected {
+    background-color: #1288c3;
+    color: white;
+
+}
+
+ul.thumbnails.image_picker_selector li .thumbnail.selected img{
+    filter: none;
+    -webkit-filter: grayscale(0);
 }
