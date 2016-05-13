@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\User;
-use App\MusicaServico;
+use App\Model\musica\MusicaServico;
 use App\Http\Requests\musica\MusicaStaffRequest;
 
 class MusicaStaffController extends Controller
