@@ -136,7 +136,7 @@ class User extends Authenticatable
         return $roles->pluck('name')->filter( function($role){
             if( 0 === strpos($role, 'role-user')){
                 return true;
-            }            
+            }
         });
     }
 

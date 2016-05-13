@@ -16,7 +16,11 @@
                   <select class="select-usuario-staff" name="usuario">
                       <option value=""></option>
                       @foreach($usuarios as $usuario)
-                          <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
+                          @if($usuariosCadastrados->contains($usuario->id))
+                              <option disabled="disabled" value="{{ $usuario->id}}">{{ $usuario->name}} (Usuário já cadastrado)</option>
+                          @else
+                              <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
+                          @endif
                       @endforeach
                   </select>
                 @if ($errors->has('usuario'))
