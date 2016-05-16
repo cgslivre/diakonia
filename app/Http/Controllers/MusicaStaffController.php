@@ -36,12 +36,13 @@ class MusicaStaffController extends Controller
 
         $staff = new MusicaStaff;
         $staff->user_id = $input['usuario'];
-        $staff->lideranca = $input['lider'];
+        $staff->lideranca = $input['lideranca'];
         $staff->save();
 
         $staff->servicos()->attach($input['servico']);
 
-        return Redirect::route('musica.staff.index')->with('message', 'Evento adicionado!');
+        return Redirect::route('musica.staff.index')
+            ->with('message', 'Membro da equipe de música adicionado!');
 
     }
 
@@ -50,6 +51,14 @@ class MusicaStaffController extends Controller
     }
 
     public function update($id, MusicaStaffRequest $request){
+        $staff = MusicaStaff::findOrFail($id);
+        $input = $request->all();        
+        $staff->lideranca = $input['lideranca'];
+        $staff->save();
+        $staff->servicos()->sync($input['servico']);
+
+        return Redirect::route('musica.staff.index')
+            ->with('message', 'Membro da equipe de música atualizado!');
 
     }
 
@@ -58,6 +67,9 @@ class MusicaStaffController extends Controller
     }
 
     public function edit($id){
+        $staff = MusicaStaff::findOrFail($id);
+        $servicos = MusicaServico::all();
+        return view('musica.staff.edit', compact('staff','servicos'));
 
     }
 }

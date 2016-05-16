@@ -3,7 +3,9 @@
         <img src="{{ URL($staff->user->avatarPathSmall()) }}" alt="" />
     </div>
     <div class="dados">
-        <p class="nome">{{ $staff->user->name }}</p>
+        <p class="nome">
+            <a href="{{ URL::route('musica.staff.edit', $staff->id) }}">{{ $staff->user->name }}</a>
+        </p>
         <p class="email">{{ $staff->user->email }}</p>
         @if($staff->lideranca)
             <p class="lider">

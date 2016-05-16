@@ -23,10 +23,29 @@ class MusicaStaffRequest extends Request
      */
     public function rules()
     {
-        return [
-            'usuario' => 'integer|required|unique:musica_staff,user_id',
-            'servico' => 'array|required',
-        ];
+        switch($this->method()){
+            case 'GET':
+            case 'DELETE':
+            {
+                return [];
+            }
+            case 'POST':
+            {
+                return [
+                    'usuario' => 'integer|required|unique:musica_staff,user_id',
+                    'servico' => 'array|required',
+                ];
+            }
+            case 'PUT':
+            case 'PATCH':
+            {
+                return [
+                    'servico' => 'array|required',
+                ];
+            }
+            default:break;
+
+        }
     }
 
 
@@ -40,13 +59,13 @@ class MusicaStaffRequest extends Request
 
     public function all(){
         $input = parent::all();
-
-        if( $input['lider'] == 'on'){
-            $input['lider'] = true;
+        
+        if( array_key_exists('lideranca', $input)
+            && ($input['lideranca'] == 'on') ){
+                $input['lideranca'] = true;
         } else{
-            $input['lider'] = false;
+                $input['lideranca'] = false;
         }
-
         return $input;
     }
 }
