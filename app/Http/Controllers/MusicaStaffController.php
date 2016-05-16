@@ -52,7 +52,7 @@ class MusicaStaffController extends Controller
 
     public function update($id, MusicaStaffRequest $request){
         $staff = MusicaStaff::findOrFail($id);
-        $input = $request->all();        
+        $input = $request->all();
         $staff->lideranca = $input['lideranca'];
         $staff->save();
         $staff->servicos()->sync($input['servico']);
@@ -63,7 +63,9 @@ class MusicaStaffController extends Controller
     }
 
     public function destroy($id){
-
+        $staff = MusicaStaff::findOrFail( $id );
+        $staff->delete();
+        return Redirect::route('musica.staff.index')->with('message', 'Usuário removido da equipe de música!');
     }
 
     public function edit($id){
@@ -71,5 +73,10 @@ class MusicaStaffController extends Controller
         $servicos = MusicaServico::all();
         return view('musica.staff.edit', compact('staff','servicos'));
 
+    }
+
+    public function removerStaff( $id ){
+        $staff = MusicaStaff::findOrFail( $id );
+        return view('musica.staff.remove', compact('staff'));
     }
 }

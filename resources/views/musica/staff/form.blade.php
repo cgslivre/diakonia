@@ -52,8 +52,15 @@
   <div class="col-sm-offset-2 col-sm-10">
       <div class="btn-group">
           <button class="btn btn-info">
-              {{  $submitButton }}
+              <i class="fa fa-check" aria-hidden="true"></i> {{  $submitButton }}
           </button>
+          @if(!empty($staff))
+              <a href="{{ URL::route('musica.staff.remover', $staff->id) }}"
+                 class="btn btn-danger">
+                 <i class="fa fa-trash" aria-hidden="true"></i> Remover evento
+              </a>
+
+          @endif
       </div>
   </div>
 </div>
