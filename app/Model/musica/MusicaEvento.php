@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model\musica;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;

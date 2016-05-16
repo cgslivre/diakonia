@@ -7,7 +7,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\MusicaEventoRequest;
-use App\MusicaEvento;
+use App\Model\musica\MusicaEvento;
 use Auth;
 use Carbon\Carbon;
 
