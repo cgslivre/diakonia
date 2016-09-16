@@ -20,12 +20,30 @@ class MusicaEvento extends Model
 
     protected $dates = ['hora'];
 
+    protected $appends = [
+        'escala_status'
+    ];
+
     public function createBy(){
         return $this->hasOne('App\User', 'id', 'created_by');
     }
 
     public function modifiedBy(){
         return $this->hasOne('App\User', 'id', 'modified_by');
+    }
+
+    public function escala(){
+        return $this->hasOne('App\Model\musica\MusicaEscala','id','musica_escala_id');
+    }
+
+    public function getEscalaStatusAttribute(){
+        $arr = [];
+        $escala = $this->escala;
+        if( !isset($escala)){
+            $arr = ['status'=>'sem-escala','descricao'=>'Sem escala cadastrada!'];
+        }
+
+        return $arr;
     }
 
     /**

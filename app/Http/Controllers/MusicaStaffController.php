@@ -10,6 +10,7 @@ use App\Model\musica\MusicaServico;
 use App\Model\musica\MusicaStaff;
 use App\Http\Requests\musica\MusicaStaffRequest;
 use Illuminate\Support\Facades\Redirect;
+use DB;
 
 class MusicaStaffController extends Controller
 {
@@ -31,6 +32,11 @@ class MusicaStaffController extends Controller
         return view('musica.staff.index' , compact( 'equipe','servicos'));
     }
 
+    public function equipe(){
+        $equipe = MusicaStaff::all();
+        return $equipe;
+    }
+
     public function store(MusicaStaffRequest $request){
         $input = $request->all();
 
@@ -47,6 +53,26 @@ class MusicaStaffController extends Controller
     }
 
     public function show($id){
+
+    }
+
+    public function staffByServico($servico_id){
+
+        $staff = DB::table('musica_staff_servico')
+            ->join('musica_staff', 'musica_staff_servico.musica_staff_id','=','musica_staff.id')
+            ->join('users','musica_staff.user_id','=','users.id')
+            ->select(['musica_staff_servico.*',
+                'musica_staff.*',
+                'users.name',
+                'users.email',
+                'users.avatar_path',
+                'users.telefone',
+                'users.regiao']);
+        $id = intval($servico_id);
+        if( $id > 0){
+            $staff = $staff->where('musica_servico_id','=',$id);
+        }
+        return $staff->orderBy('users.name', 'asc')->get();
 
     }
 

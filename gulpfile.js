@@ -41,6 +41,7 @@ elixir(function(mix) {
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
 			paths.bower + "/ng-remote-validate/release/ngRemoteValidate.js",
 			paths.bower + "/angular-ui-mask/dist/mask.min.js",
+			paths.bower + "/angular-ui-select/dist/select.min.js",
 			paths.bower + "/moment/min/moment-with-locales.min.js",
 			paths.bower + "/php-date-formatter/js/php-date-formatter.js",
 			paths.bower + "/datetimepicker/jquery.datetimepicker.js",
@@ -70,6 +71,11 @@ elixir(function(mix) {
 			"musica/MusicaStaffCreateCtrl.js",
 	], 'public/js/musica/app-musica-staff-module.min.js')
 
+	mix.scripts([
+			"musica/MusicaEscalaModule.js",
+			"musica/MusicaEscalaCreateCtrl.js",
+	], 'public/js/musica/app-musica-escala-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
@@ -77,6 +83,7 @@ elixir(function(mix) {
 				paths.default + "/css/checkbox3.css",
 				paths.bower + "/datetimepicker/jquery.datetimepicker.css",
 				paths.bower + "/select2/dist/css/select2.min.css",
+				paths.bower + "/angular-ui-select/dist/select.min.css",				
 				paths.bower + "/checkbox3/dist/checkbox3.min.css",
 				paths.bower + "/image-picker/image-picker/image-picker.css",
         		paths.default + "/css/main.css",

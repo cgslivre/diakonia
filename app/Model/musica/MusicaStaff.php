@@ -35,4 +35,15 @@ class MusicaStaff extends Model
         }
         return $arr;
     }
+
+    /**
+     * Escopo consultar apenas os líderes da equipe de música
+     * @param  Consulta
+     * @return Líderes
+     */
+    public function scopeLideres($query, $order = 'asc'){
+        return $query->where('lideranca', '=', true );
+    }
+
+    
 }

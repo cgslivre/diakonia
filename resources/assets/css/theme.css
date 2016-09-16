@@ -157,18 +157,74 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected img{
     float:left;
 }
 
-.card-staff .avatar{
+.escala-staff{
+    margin: 4px;
+    display: inline-block;
+    padding: 4px 14px 4px 3px;
+    border: 1px solid #a7bbb1;
+    position: relative;
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    background: url("../img/FFFFFF-0.5.png") repeat;
+    float: left;
+}
+
+.escala-staff:hover{cursor: pointer;}
+
+.option-selected{ border: 2px solid #1288c3; background: url("../img/yellow-0.5.png") repeat; }
+
+.add-staff{
+    border: 1px solid #a7bbb1;
+    padding: 10px;
+    float:left;
+}
+
+.add-servico{
+    border-radius: 7px;
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    margin-bottom: 12px;
+    padding: 6px;
+}
+
+.sem-usuario{vertical-align: middle;display: inline-block;}
+.staff-selecionados{line-height: 96px;}
+
+.servico-odd{background-color: #e0e9ed;}
+.servico-even{background-color: #e2f0f6;}
+
+.card-staff .avatar, .escala-staff .avatar{
     width: 70px;
     float: left;
 }
-.card-staff .avatar img{
+.card-staff .avatar img, .escala-staff .avatar img{
     border-radius: 50px;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
 }
-.card-staff .dados{margin-left: 76px;}
-.card-staff .dados p{margin: 0;}
-.card-staff .dados .nome{font-weight: bold;}
+.card-staff .dados, .escala-staff .dados{margin-left: 76px;}
+.card-staff .dados p, .escala-staff .dados p{margin: 0;}
+.card-staff .dados .nome,.escala-staff .dados .nome{font-weight: bold;}
 .card-staff .dados .lider{font-weight: bold;color: #E63946; }
 
 .img-servico-index{width: 48px;height:48px;}
+
+.status-escala{
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    padding: 4px;
+    font-weight: bold;
+    float: left;
+}
+
+.sem-escala{
+    border: 1px solid #E63946;
+    color: #E63946;
+    background-color: #eed3d5;
+}
+.no-margin, .row > .margin{margin: 0 !important;}
+.descricao-servico{font-weight: bold;}
+
+.loading{font-weight: bold;color:#1288c3;}

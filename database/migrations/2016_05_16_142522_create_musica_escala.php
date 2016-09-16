@@ -28,23 +28,25 @@ class CreateMusicaEscala extends Migration
               ->on('musica_evento');
 
             $table->integer('modified_by')->unsigned()->nullable();
-
             $table->foreign('modified_by')
                 ->references('id')
                 ->on('users');
         });
 
-        Schema::create('musica_escala_staff', function (Blueprint $table) {
-            $table->integer('musica_escala_id')->unsigned()->index();
+        Schema::create('musica_escala_servico', function (Blueprint $table) {
+            $table->increments('id');
+
+            $table->integer('escala_id')->unsigned()->index();
+            $table->foreign('escala_id')
+                ->references('id')
+                ->on('musica_escala');
+
             $table->integer('musica_staff_id')->unsigned()->index();
+            $table->integer('musica_servico_id')->unsigned()->index();
 
-            $table->primary(['musica_escala_id', 'musica_staff_id']);
+            $table->foreign('musica_staff_id')->references('id')->on('musica_staff');
+            $table->foreign('musica_servico_id')->references('id')->on('musica_servicos');
 
-            $table->foreign('musica_escala_id')->references('id')->on('musica_escala')
-                  ->onUpdate('cascade')->onDelete('cascade');
-
-            $table->foreign('musica_staff_id')->references('id')->on('musica_staff')
-                  ->onUpdate('cascade')->onDelete('cascade');
         });
 
 
@@ -57,7 +59,7 @@ class CreateMusicaEscala extends Migration
      */
     public function down()
     {
-        Schema::drop('musica_escala_staff');
+        Schema::drop('musica_escala_servico');
         Schema::drop('musica_escala');
     }
 }

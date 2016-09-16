@@ -16,4 +16,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('musica/staff/{staff}/remove','MusicaStaffController@removerStaff')->name('musica.staff.remover');
 
 
+    Route::get('musica/escala/{evento}/create','MusicaEscalaController@create')->name('musica.escala.create');
+    Route::match(['post','put','patch'],'musica/escala/{evento}/create','MusicaEscalaController@analiseEscala')
+        ->name('musica.escala.analise');
+
+
+    Route::get('musica/servicos','MusicaServicoController@index')->name('musica.servico.index');
+    Route::get('musica/servicos/{servico}/staff','MusicaStaffController@staffByServico')
+        ->name('musica.servico.staffByServico');
+    Route::get('musica/equipe','MusicaStaffController@equipe')
+        ->name('musica.staff.equipe');
+
+
 });

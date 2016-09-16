@@ -4,7 +4,7 @@
       {{-- Form::checkbox('lider', 'isLider', false) --}}
       <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
             @if(empty($staff))
-                {{ Form::checkbox('lideranca', false , null ,['id'=>'lideranca']) }}
+                <input type="checkbox" id="lideranca" name="lideranca">
             @elseif($staff->lideranca)
                 {{ Form::checkbox('lideranca', 'on',null,['id'=>'lideranca']) }}
             @else
@@ -57,7 +57,7 @@
           @if(!empty($staff))
               <a href="{{ URL::route('musica.staff.remover', $staff->id) }}"
                  class="btn btn-danger">
-                 <i class="fa fa-trash" aria-hidden="true"></i> Remover evento
+                 <i class="fa fa-trash" aria-hidden="true"></i> Remover
               </a>
 
           @endif

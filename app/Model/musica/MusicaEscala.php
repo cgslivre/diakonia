@@ -20,9 +20,8 @@ class MusicaEscala extends Model
         return $this->hasOne('App\Model\musica\MusicaEvento','id','evento_id');
     }
 
-    public function equipe(){
-        return $this->belongsToMany('App\Model\musica\MusicaStaff'
-            ,'musica_escala_staff','musica_escala_id','musica_staff_id');
+    public function servicos(){
+        return $this->hasMany('App\Model\musica\MusicaEscalaServico','escala_id');
     }
 
 }

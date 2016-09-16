@@ -6,7 +6,10 @@
     </div>
     <p class="titulo"><a href="{{URL::action('MusicaEventoController@show',$evento->id)}}">{{$evento->titulo}}</a></p>
     <p class="dias-restando">{{ $evento->hora->diffForHumans() }}</p>
-    <!--<p class="">
-        <i class="fa fa-check-square-o" aria-hidden="true"></i> Escala confirmada
-    </p>-->
+    <p class="status-escala {{ $evento->escala_status['status']}}">
+        @if($evento->escala_status['status'] == 'sem-escala')
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        @endif
+        {{ $evento->escala_status['descricao']}}
+    </p>    
 </div>
