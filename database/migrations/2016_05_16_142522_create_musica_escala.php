@@ -15,7 +15,7 @@ class CreateMusicaEscala extends Migration
         Schema::create('musica_escala', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->dateTime('confirmacao')->nullable();
+            $table->dateTime('confirmacao_lider')->nullable();
 
             $table->integer('lider_id')->unsigned()->index()->nullable();
             $table->foreign('lider_id')

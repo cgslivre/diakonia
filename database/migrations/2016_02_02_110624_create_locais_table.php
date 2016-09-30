@@ -23,7 +23,7 @@ class CreateLocaisTable extends Migration
             $table->string('cidade');
 
             $table->string('imagem_path')->nullable();
-            $table->json('localizacao')->nullable();
+            $table->string('localizacao')->nullable();
 
         });
     }

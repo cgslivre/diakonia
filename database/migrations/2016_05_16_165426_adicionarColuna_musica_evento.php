@@ -28,6 +28,7 @@ class AdicionarColunaMusicaEvento extends Migration
     public function down()
     {
         Schema::table('musica_evento', function ($table) {
+            $table->dropForeign('musica_evento_musica_escala_id_foreign');
             $table->dropColumn('musica_escala_id');
         });
     }
