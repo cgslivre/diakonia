@@ -20,7 +20,8 @@ class CreateMembros extends Migration
             $table->string('regiao');
 
             $table->string('endereco')->nullable();
-            $table->json('telefones')->nullable();
+            $table->string('email')->nullable();
+            $table->string('telefones')->nullable();
             $table->string('avatar_path')->nullable();
 
             $table->softDeletes();

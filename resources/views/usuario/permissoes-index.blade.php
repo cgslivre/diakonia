@@ -38,7 +38,7 @@
                         <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
                         <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
                     </a></th>
-                    <th class="text-center">Usuários</th>
+                    <th class="text-center">Perfis</th>
 
                   </tr>
                 </thead>

@@ -13,7 +13,7 @@ class CreateRefMembrosGrupoCaseiro extends Migration
     public function up()
     {
         Schema::table('membros', function (Blueprint $table) {
-            $table->integer('grupo_caseiro_id')->unsigned()->index();
+            $table->integer('grupo_caseiro_id')->unsigned()->index()->nullable();
             $table->foreign('grupo_caseiro_id')
                 ->references('id')
                 ->on('grupo_caseiro');

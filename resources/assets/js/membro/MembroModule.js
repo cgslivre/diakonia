@@ -1,11 +1,26 @@
-app.controller('usuariosController', ['$scope', '$http',
-  function ($scope, $http) {
-    $scope.usuarios = [];
-    $http.get("/usuario").success(function(data) {
+var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'comum'])
+  .config(['$interpolateProvider', function ($interpolateProvider) {
+      $interpolateProvider.startSymbol('<%');
+      $interpolateProvider.endSymbol('%>');
+}]);
 
-        $scope.usuarios = data;
-        
+app.controller('membrosIndexController', ['$scope', '$http',
+  function ($scope, $http) {
+    $scope.membros = [];
+    $http.get("/membro").success(function(data) {
+
+        $scope.membros = data;
+
     });
+
+    $scope.avatarPathSmall = function( avatar ){
+        if ( avatar === null ){
+            return window.location.origin + '/img/membro/000-default-70px.jpg';
+        } else{
+            return window.location.origin  + '/' + avatar + '70px.jpg';
+        }
+	};
+    /*
     $scope.avatarPathSmall = function( avatar ){
         if ( avatar === null ){
             return window.location.origin + '/users/avatar/000-default-70px.jpg';
@@ -25,19 +40,10 @@ app.controller('usuariosController', ['$scope', '$http',
     $scope.userShowPermissionLink = function( user ){
         return window.location.origin + '/usuario/' + user + '/permissoes';
 	};
-
+    */
     $scope.ordenarPor = function( campo ){
 		$scope.criterioDeOrdenacao = campo;
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 
-}]);
-
-app.filter('roleuserfilter', ['$sce', function($sce) {
-    return function(input) {
-        if( input === 'role-user-admin') return 'Administrador';
-        else if( input === 'role-user-manage') return 'Gerente';
-        else if( input === 'role-user-users') return 'Padrão';
-        else return input;
-    };
 }]);

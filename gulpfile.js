@@ -76,6 +76,11 @@ elixir(function(mix) {
 			"musica/MusicaEscalaCreateCtrl.js",
 	], 'public/js/musica/app-musica-escala-module.min.js')
 
+	// Scripts Membros
+	mix.scripts([
+			"membro/MembroModule.js",
+	], 'public/js/membro/app-membro-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
@@ -83,7 +88,7 @@ elixir(function(mix) {
 				paths.default + "/css/checkbox3.css",
 				paths.bower + "/datetimepicker/jquery.datetimepicker.css",
 				paths.bower + "/select2/dist/css/select2.min.css",
-				paths.bower + "/angular-ui-select/dist/select.min.css",				
+				paths.bower + "/angular-ui-select/dist/select.min.css",
 				paths.bower + "/checkbox3/dist/checkbox3.min.css",
 				paths.bower + "/image-picker/image-picker/image-picker.css",
         		paths.default + "/css/main.css",
