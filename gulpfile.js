@@ -92,6 +92,7 @@ elixir(function(mix) {
 				paths.bower + "/checkbox3/dist/checkbox3.min.css",
 				paths.bower + "/image-picker/image-picker/image-picker.css",
         		paths.default + "/css/main.css",
+				paths.default + "/css/forms.css",
 				paths.default + "/css/theme.css"
     ], 'public/css/all.min.css', './');
 });

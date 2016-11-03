@@ -11,10 +11,17 @@
         <input type="text" ng-model="criterioDeBusca" class="form-control"
             placeholder="Quem você está buscando..."/>
     </div>
-
+    {{--
     <a href="{{ url('/membro/create') }}" class="btn btn-success">
         <i class="fa fa-user-plus"></i> Cadastrar novo membro
     </a>
+    --}}
+    <div class="fixed-action-btn">
+        <a href="{{ url('/membro/create') }}" title="Cadastrar novo membro"
+        class="btn-floating btn-largbtn-floating btn-large">
+            <i class="fa fa-user-plus fa-2x"></i>
+        </a>
+    </div>
 
     <hr/>
     <div ng-controller="membrosIndexController">
