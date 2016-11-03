@@ -18,6 +18,7 @@
         {{-- @include('layouts.menus.retiros') --}}
 
         @include('layouts.menus.musica')
+        @include('layouts.menus.membros')
 
         {{-- @include('layouts.menus.criancas') --}}
 

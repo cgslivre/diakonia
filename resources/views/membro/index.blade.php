@@ -38,26 +38,41 @@
                     <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='nome' && direcaoDaOrdenacao"></span>
                     <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='nome' && !direcaoDaOrdenacao"></span>
                 </a></th>
+                <th><a href="" ng-click="ordenarPor('grupo.nome')">Grupo Caseiro
+                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='grupo.nome' && direcaoDaOrdenacao"></span>
+                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='grupo.nome' && !direcaoDaOrdenacao"></span>
+                </a></th>
                 <th><a href="" ng-click="ordenarPor('email')">Email
                     <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
                     <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
                 </a></th>
-                <th>Região</th>
+                <th>Telefone</th>
+                <th><a href="" ng-click="ordenarPor('regiao')">Região
+                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='regiao' && direcaoDaOrdenacao"></span>
+                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='regiao' && !direcaoDaOrdenacao"></span>
+                </a></th>
               </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao)">
                     <th class="col-md-1 text-center middle-align" scope="row" title="<%membro.id%>"><%($index+1)%></th>
                     <td class="col-md-1 text-center">
-                        <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(membro.avatar_path)%>" class="profile-img"/>
+                        <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(membro.avatar_path,membro.sexo)%>" class="profile-img"/>
                     </td>
                     <td class="middle-align"><a
                         @can('user-view')
                             href="<%userShowLink(membro.id)%>"
                         @endcan
                         ng-bind-html="membro.nome | highlight:criterioDeBusca"></a></td>
+                    <td class="middle-align" ng-bind-html="membro.grupo.nome | highlight:criterioDeBusca"></td>
                     <td class="middle-align" ng-bind-html="membro.email | highlight:criterioDeBusca"></td>
+                    <td class="middle-align" >
+                        <p ng-repeat="tel in membro.telefones_json">
+                        <span class="glyphicon glyphicon-earphone" title="<%tel.tipo%>" >&nbsp;
+                        </span><span ng-bind-html="tel.numero | formatPhone"></span>
+                        </p>
 
+                    </td>
                     <td class="middle-align" ng-bind-html="membro.regiao | highlight:criterioDeBusca"></td>
 
                 </tr>

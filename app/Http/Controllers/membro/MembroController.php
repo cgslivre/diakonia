@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\membro;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use App\Model\membro\Membro;
@@ -19,7 +20,7 @@ class MembroController extends Controller
 
     public function index(){
 
-        $membros = Membro::orderBy('nome','asc')->get();
+        $membros = Membro::with('grupo')->orderBy('nome','asc')->get();
         return $membros;
     }
 

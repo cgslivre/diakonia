@@ -24,6 +24,10 @@ class Membro extends Model
     ];
 
     public function getTelefonesJsonAttribute(){
-        return json_decode($this->telefones);
+        return json_decode($this->telefones,TRUE);
+    }
+
+    public function grupo(){
+        return $this->hasOne('App\Model\membro\GrupoCaseiro','id','grupo_caseiro_id');
     }
 }
