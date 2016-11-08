@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Log;
 
 class UsuarioCreateRequest extends Request
 {
@@ -23,11 +24,14 @@ class UsuarioCreateRequest extends Request
      */
     public function rules()
     {
+        $input = $this->all();
+
+        //dd($input);
         return [
             'name' => 'required|min:2',
             'avatar' => 'image',
             'email' => 'required|min:3|unique:users|email',
-            'telefone' => 'required|integer',
+            'telefone' => 'required|numeric',
             'password' => 'required|min:6|same:password_confirm',
             'password_confirm' => 'same:password'
         ];
@@ -50,7 +54,23 @@ class UsuarioCreateRequest extends Request
 
     public function all(){
         $input = parent::all();
-        $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);        
+
+        $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
+
         return $input;
+    }
+
+    protected function getValidatorInstance()
+    {
+
+        // Add new data field before it gets sent to the validator
+        //$this->merge(array('date_of_birth' => 'test'));
+        $input = parent::all();
+        // OR: Replace ALL data fields before they're sent to the validator
+        $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
+        $this->replace($input);
+        // Fire the parent getValidatorInstance method
+        return parent::getValidatorInstance();
+
     }
 }
