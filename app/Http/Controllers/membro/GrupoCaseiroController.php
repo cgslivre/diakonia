@@ -26,6 +26,11 @@ class GrupoCaseiroController extends Controller
       return view('membro.grupo-caseiro' , compact( 'grupos'));
     }
 
+    public function lista(){
+        $grupos = GrupoCaseiro::orderBy('nome','asc')->get();
+        return $grupos;
+    }
+
     public function salvar(Request $request){
       //$input = Request::all();
 

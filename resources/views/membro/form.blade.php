@@ -1,3 +1,9 @@
+{{--@if($errors->has())
+    @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+    @endforeach
+@endif
+--}}
 <div class="row">
     @if ($errors->has('remove'))
         <span class="help-block">
@@ -20,152 +26,158 @@
 <div class="row">
   <div class="col-md-12">
 
+   {{-- Nome --}}
+    <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}"
+      ng-class="{'has-error' : membroForm.nome.$invalid && !membroForm.nome.$pristine}">
+      {{ Form::label('nome','Nome:',['class'=>'col-sm-2 control-label'])}}
+        <div class="col-sm-4">
+
+            <input class="form-control" placeholder="Nome completo" name="nome" type="text"
+              ng-model="membro.nome" ng-minlength="2" id="nome" ng-required="true" tabindex="1">
+            @if ($errors->has('nome'))
+                <span class="help-block"><strong>{{ $errors->first('nome') }}</strong></span>
+            @endif
+        </div>
+        <div ng-show="membroForm.name.$dirty" ng-messages="membroForm.name.$error">
+            <span ng-message="minlength" class="help-block">
+                <strong>O nome deve ter no mínimo 2 caracteres.</strong>
+            </span>
+            <span ng-message="required" class="help-block">
+                <strong>O nome é obrigatório.</strong>
+            </span>
+        </div>
+    </div>
+
+    {{-- Grupo Caseiro --}}
+    <div class="form-group">
+        {{ Form::label('grupo_caseiro_id','Grupo Caseiro:',['class'=>'col-sm-2 control-label'])}}
+      <div class="col-sm-4">
+          <select name="grupo_caseiro_id" id="grupo_caseiro_id" tabindex="2"
+                    ng-options="g.nome for g in grupos track by g.id"
+                    ng-model="membro.grupo_caseiro_id">
+                <option></option>
+        </select>
+      </div>
+    </div>
+
+    {{-- Sexo --}}
+    <div class="form-group">
+        {{ Form::label('sexo','Sexo:',['class'=>'col-sm-2 control-label'])}}
+        <div class="col-sm-4">
+            <div class="radio3 radio-check radio-success radio-inline">
+                <input type="radio" name="sexo" ng-model="membro.sexo"
+                    id="sexo-masculino" value="M" required>
+                <label for="sexo-masculino">Masculino</label>
+            </div>
+            <div class="radio3 radio-check radio-success radio-inline">
+                <input type="radio" name="sexo" ng-model="membro.sexo"
+                    id="sexo-feminino" value="F" required>
+                <label for="sexo-feminino">Feminino</label>
+            </div>
+        </div>
+    </div>
+
+    {{-- Data Nascimento --}}
+    <div class="form-group {{ $errors->has('hora') ? ' has-error' : '' }}"
+        ng-class="{'has-error' : membroForm.data_nascimento.$invalid && !membroForm.data_nascimento.$pristine}">
+        {{ Form::label('data_nascimento','Data de Nascimento:',['class'=>'col-sm-2 control-label'])}}
+        <div class="col-sm-4">
+            <input class="form-control" placeholder="dd/mm/AAAA" name="data_nascimento"
+                ng-model="membro.data_nascimento" ng-required="true" datetime="dd/MM/yyyy" datetime-model="dd/MM/yyyy"
+                    type="text" id="data_nascimento">
+                    <span class="idade"></span>
+            @if ($errors->has('hora'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('hora') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div ng-show="membroForm.datanascimento.$dirty" ng-messages="membroForm.datanascimento.$error">
+            <span ng-message="required" class="help-block">
+                <strong>Data de Nascimento é obrigatória.</strong>
+            </span>
+        </div>
+    </div>
+
+    {{-- Região --}}
+    <div class="form-group">
+        {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
+      <div class="col-sm-4">
+          <select name="regiao" id="regiao"
+                    ng-options="r.nome for r in regioes track by r.nome"
+                    ng-model="membro.regiao">
+                        <option></option>
+                    </select>
+      </div>
+    </div>
+
+    {{-- Endereço --}}
+    <div class="form-group">
+      {{ Form::label('endereco','Endereço:',['class'=>'col-sm-2 control-label'])}}
+        <div class="col-sm-4">
+            <input class="form-control" placeholder="Endereço" name="endereco" type="text"
+              ng-model="membro.endereco" id="endereco">
+        </div>
+    </div>
+
+    {{-- Email --}}
     <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}"
-        ng-class="{'has-error' : usuarioForm.email.$invalid && !usuarioForm.email.$pristine}">
+        ng-class="{'has-error' : membroForm.email.$invalid && !membroForm.email.$pristine}">
         {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
         <input class="form-control" placeholder="Endereço de email" name="email"
-                type="email" id="email" ng-model="usuario.email" ng-required="true"
-                ng-remote-validate="/api/usuarios/email" ng-readonly="!emailField">
+                type="email" id="email" ng-model="membro.email">
         @if ($errors->has('email'))
             <span class="help-block">
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
         @endif
     </div>
-      <div ng-show="usuarioForm.email.$dirty" ng-messages="usuarioForm.email.$error">
+      <div ng-show="membroForm.email.$dirty" ng-messages="membroForm.email.$error">
           <span ng-message="email" class="help-block">
               <strong>O email é inválido.</strong>
           </span>
-          <span ng-message="ngRemoteValidate" class="help-block">
-              <strong>O email está em uso.</strong>
-          </span>
-          <span ng-message="required" class="help-block">
-              <strong>O email é obrigatório.</strong>
-          </span>
       </div>
     </div>
 
-    <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}"
-        ng-class="{'has-error' : usuarioForm.name.$invalid && !usuarioForm.name.$pristine}">
-        {{ Form::label('name','Nome:',['class'=>'col-sm-2 control-label'])}}
+
+    {{-- Telefones --}}
+
+    <div class="form-group">
+        {{ Form::label('telefone','Telefone(s):',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
+          <div class="phone-list">
+              <div class="input-group phone-input">
+              <span class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle"
+                        data-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="type-text">Tipo</span> <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a class="changeType" href="javascript:;" data-type-value="celular">Celular</a></li>
+                        <li><a class="changeType" href="javascript:;" data-type-value="residencial">Residencial</a></li>
+                        <li><a class="changeType" href="javascript:;" data-type-value="comercial">Comercial</a></li>
+                    </ul>
+                </span>
+                <input type="hidden" name="telefone[1][tipo]" class="type-input" value="" />
+                <input type="text" name="telefone[1][numero]" class="form-control" placeholder="99999 9999" />
+              </div>
 
-          <input class="form-control" placeholder="Nome do usuário" name="name" type="text"
-            ng-model="usuario.name" ng-minlength="2" id="name" ng-required="true">
-          @if ($errors->has('name'))
-              <span class="help-block"><strong>{{ $errors->first('name') }}</strong></span>
-          @endif
+          </div>
+          <button type="button" class="btn btn-success btn-sm btn-add-phone">
+              <span class="glyphicon glyphicon-plus"></span> Adicionar outro telefone</button>
       </div>
-      <div ng-show="usuarioForm.name.$dirty" ng-messages="usuarioForm.name.$error">
-          <span ng-message="minlength" class="help-block">
-              <strong>O nome deve ter no mínimo 2 caracteres.</strong>
-          </span>
-          <span ng-message="required" class="help-block">
-              <strong>O nome é obrigatório.</strong>
-          </span>
-      </div>
+
     </div>
 
-    <div class="form-group {{ $errors->has('telefone') ? ' has-error' : '' }}"
-        ng-class="{'has-error' : usuarioForm.telefone.$invalid && !usuarioForm.telefone.$pristine}">
-        {{ Form::label('telefone','Telefone:',['class'=>'col-sm-2 control-label'])}}
-      <div class="col-sm-4">
-          <input class="form-control"
-          name="telefone" type="text" id="telefone" ng-model="usuario.telefone"
-          ui-mask="(99) 9999-?99999" ui-mask-placeholder-char="_"
-          ng-required="true">
-          @if ($errors->has('telefone'))
-              <span class="help-block">
-                  <strong>{{ $errors->first('telefone') }}</strong>
-              </span>
-          @endif
-      </div>
-      <div ng-show="usuarioForm.telefone.$dirty" ng-messages="usuarioForm.telefone.$error">
-          <span ng-message="required" class="help-block">
-              <strong>O telefone é obrigatório.</strong>
-          </span>
-      </div>
-    </div>
 
-    <div class="form-group {{ $errors->has('regiao') ? ' has-error' : '' }}">
-        {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
-      <div class="col-sm-4">
-        @include('layouts.select-regiao',[
-            'attr'=>['class'=>'form-control '.$regiao],
-            'selected'=>$regiao,
-            'name'=>'regiao'])
-      </div>
-    </div>
-    @if( $perfil)
-        <hr/>
-        <p>Caso deseje alterar a senha de acesso, digite a senha atual e a nova senha:</p>
-        <div class="form-group{{ $errors->has('old-password') ? ' has-error' : '' }}">
-          <label for="old-password" class="col-sm-2 control-label">
-            Senha atual
-          </label>
-          <div class="col-sm-4">
-            {{ Form::password('old-password', array('class' => 'form-control', 'id'=> 'old-password')) }}
-            @if ($errors->has('old-password'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('old-password') }}</strong>
-                </span>
-            @endif
-          </div>
-        </div>
-    @endif
-    @if( $passwordForm || $perfil)
-        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-            <label for="password" class="col-sm-2 control-label">
-                @if( $perfil)
-                    Nova 
-                @endif
-                Senha:
-            </label>
-          <div class="col-sm-4">
-              <input class="form-control" id="password" name="password"
-              type="password" value="" ng-model="usuario.password">
-            @if ($errors->has('password'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password') }}</strong>
-                </span>
-            @endif
-          </div>
-        </div>
-        <div class="form-group{{ $errors->has('password_confirm') ? ' has-error' : '' }}"
-            ng-class="{'has-error' : usuarioForm.password_confirm.$invalid && !usuarioForm.password_confirm.$pristine}">
-            {{ Form::label('password_confirm','Confirmação da Senha:',['class'=>'col-sm-2 control-label'])}}
-          <div class="col-sm-4">
-            <input class="form-control" id="password_confirm" name="password_confirm"
-                type="password" value="" compare-to="usuario.password"
-                ng-model="usuario.password_confirm">
-            @if ($errors->has('password_confirm'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('password_confirm') }}</strong>
-                </span>
-            @endif
-        </div>
-          <div ng-show="usuarioForm.password_confirm.$dirty" ng-messages="usuarioForm.password_confirm.$error">
-              <span ng-message="compareTo" class="help-block">
-                  <strong>As senhas devem ser iguais.</strong>
-              </span>
-          </div>
-        </div>
-    @endif
+
 
     <div class="form-group">
       <div class="col-sm-offset-2 col-sm-10">
-        <!--<button type="submit" class="btn btn-info" ng-click="criarUsuario(usuario)">-->
-          {{-- $submitButton --}}
-        <!--</button>-->
         <button class="btn btn-info"
-            ng-click="criarUsuario(usuario)"
-            ng-disabled="usuarioForm.$invalid">
-            @if( $perfil)
-                Atualizar Perfil
-            @else
+            ng-disabled="membroForm.$invalid">
                 <% button %>
-            @endif
         </button>
       </div>
     </div>

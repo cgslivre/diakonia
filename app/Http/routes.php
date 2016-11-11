@@ -43,5 +43,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/retiros/grupos','GrupoInscricaoController@index');
     Route::post('/retiros/grupos','GrupoInscricaoController@salvar');
 
+    Route::get('/regioes','RegiaoController@index');
+
 
 });

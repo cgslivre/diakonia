@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrupoCaseiro extends Migration
+class CreateRegiao extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,9 @@ class CreateGrupoCaseiro extends Migration
      */
     public function up()
     {
-        Schema::create('grupo_caseiro', function (Blueprint $table) {
+        Schema::create('regioes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome')->unique();
-
-            $table->softDeletes();
+            $table->string('nome')->unique();            
             $table->timestamps();
 
         });
@@ -29,6 +27,6 @@ class CreateGrupoCaseiro extends Migration
      */
     public function down()
     {
-        Schema::drop('grupo_caseiro');
+        Schema::drop('regioes');
     }
 }
