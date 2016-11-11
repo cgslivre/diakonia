@@ -165,7 +165,7 @@
 
           </div>
           <button type="button" class="btn btn-success btn-sm btn-add-phone">
-              <span class="glyphicon glyphicon-plus"></span> Adicionar outro telefone</button>
+              <i class="fa fa-plus" aria-hidden="true"></i> Adicionar outro telefone</button>
       </div>
 
     </div>

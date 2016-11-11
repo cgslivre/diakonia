@@ -42,21 +42,21 @@
                 <th class="text-center col-md-1">#</th>
                 <th class="text-center col-md-1"><i class="fa fa-user"></i></th>
                 <th><a href="" ng-click="ordenarPor('nome')">Nome
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='nome' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='nome' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='nome' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='nome' && !direcaoDaOrdenacao"></i>
                 </a></th>
                 <th><a href="" ng-click="ordenarPor('grupo.nome')">Grupo Caseiro
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='grupo.nome' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='grupo.nome' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='grupo.nome' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='grupo.nome' && !direcaoDaOrdenacao"></i>
                 </a></th>
                 <th><a href="" ng-click="ordenarPor('email')">Email
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></i>
                 </a></th>
                 <th>Telefone</th>
                 <th><a href="" ng-click="ordenarPor('regiao')">Região
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='regiao' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='regiao' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='regiao' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='regiao' && !direcaoDaOrdenacao"></i>
                 </a></th>
               </tr>
             </thead>
@@ -75,8 +75,8 @@
                     <td class="middle-align" ng-bind-html="membro.email | highlight:criterioDeBusca"></td>
                     <td class="middle-align" >
                         <p ng-repeat="tel in membro.telefones_json">
-                        <span class="glyphicon glyphicon-earphone" title="<%tel.tipo%>" >&nbsp;
-                        </span><span ng-bind-html="tel.numero | formatPhone"></span>
+                            <i class="fa fa-phone" aria-hidden="true" title="<%tel.tipo%>" ></i>&nbsp;
+                        <span ng-bind-html="tel.numero | formatPhone"></span>
                         </p>
 
                     </td>

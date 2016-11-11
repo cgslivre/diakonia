@@ -38,12 +38,12 @@
                 <th class="text-center col-md-1">#</th>
                 <th class="text-center col-md-1"><i class="fa fa-user"></i></th>
                 <th><a href="" ng-click="ordenarPor('name')">Nome
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='name' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='name' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='name' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='name' && !direcaoDaOrdenacao"></i>
                 </a></th>
                 <th><a href="" ng-click="ordenarPor('email')">Email
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></span>
-                    <span class="glyphicon glyphicon-sort-by-alphabet" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></span>
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></i>
                 </a></th>
                 <th>Telefone</th>
                 <th>Região</th>
