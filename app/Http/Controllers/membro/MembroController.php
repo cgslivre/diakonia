@@ -4,6 +4,7 @@ namespace App\Http\Controllers\membro;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use App\Http\Requests\membro\MembroRequest;
@@ -37,16 +38,20 @@ class MembroController extends Controller
     }
 
     public function store( MembroRequest $request){
-        dd($request['telefone']);
-        $tels = json_decode($request['telefone'],true);
-        dd($tels);
-        $telFiltro = array_filter( $tels , function($value){
-            print_r($value);
-            $filtered_var = filter_var($value, FILTER_SANITIZE_NUMBER_INT);
-            return strlen($filtered_var) > 0;
-        });
-        //dd(json_encode($tels));
-        //User::create($request->all());
-        //return redirect('usuarios')->with('message', 'Usuário adicionado!');
+
+        $tels = $request['telefone'];
+        $arr = array();
+        foreach ($tels as $tel) {
+            $numero = preg_replace("/[^0-9]/","",$tel["numero"]);
+            if( strlen($numero) > 0 ){
+                array_push($arr, array("numero"=>$numero,"tipo"=>$tel["tipo"]));
+            }
+        }
+        $request['telefones'] = json_encode($arr);
+        
+        Membro::create($request->all());
+
+        return Redirect::route('membros.lista')->with('message', 'Membro adicionado!');
+
     }
 }

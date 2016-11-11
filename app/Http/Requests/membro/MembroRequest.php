@@ -3,6 +3,7 @@
 namespace App\Http\Requests\membro;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class MembroRequest extends Request
 {
@@ -37,6 +38,12 @@ class MembroRequest extends Request
             'nome.min' => 'O nome precisa ter no mínimo 2 caracteres',
             'sexo.required' => 'É necessário informar o sexo da pessoa',
         ];
+    }
+
+    public function all(){
+        $input = parent::all();
+        $input['data_nascimento'] = Carbon::createFromFormat('j/n/Y', $input['data_nascimento'])->format('Y-m-d');
+        return $input;
     }
 
 }

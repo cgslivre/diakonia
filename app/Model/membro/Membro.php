@@ -5,6 +5,7 @@ namespace App\Model\membro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+
 class Membro extends Model
 {
     use SoftDeletes;
@@ -20,7 +21,7 @@ class Membro extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'data_nascimento', 'sexo','regiao','endereco',
+        'nome', 'data_nascimento', 'sexo','regiao','endereco', 'email','telefones', 'grupo_caseiro_id'
     ];
 
     public function getTelefonesJsonAttribute(){
@@ -30,4 +31,5 @@ class Membro extends Model
     public function grupo(){
         return $this->hasOne('App\Model\membro\GrupoCaseiro','id','grupo_caseiro_id');
     }
+
 }
