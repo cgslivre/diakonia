@@ -50,7 +50,7 @@ comum.filter('highlight', ['$sce', function($sce) {
 
 comum.filter('formatPhone', ['$sce', function($sce) {
     return function(input) {
-        console.log('>> ' + input);
+        //console.log('>> ' + input);
         if( input == null || input.length == 0 ){
             return '';
         } else{

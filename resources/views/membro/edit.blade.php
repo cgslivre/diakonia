@@ -1,21 +1,27 @@
 @extends( 'membro.template-membro')
 
-@section('nivel3', '<li class="active">Cadastrar novo membro</li>')
+@section('nivel2', '<li class="active">Editar membro</li>')
 
 @section('content')
-<div class="container-fluid" ng-app="membrosRecord" ng-controller="membroCreateCtrl">
-        {{ Form::open(array('url' => 'membro','files' => true, 'class'=> 'form-horizontal',
-            'name'=>'membroForm')) }}
-            @include('membro.form',[
-                'userAvatar'=>'users/avatar/000-default-150px.jpg'
-                , 'submitButton'=>'Cadastrar Membro'
-                , 'regiao'=>null])
-        {{ Form::close() }}
+
+<div class="container-fluid" ng-app="membrosRecord" ng-controller="membroEditCtrl">
+    {{ Form::model($membro, ['method' => 'PATCH' , 'action'=>['membro\MembroController@update',$membro->id]
+        ,'files' => true, 'name'=>'membroForm'
+        , 'class'=> 'form-horizontal']) }}
+        @include('membro.form',[
+            'readony'=>'readonly'
+            , 'regiao'=>$membro->regiao
+            , 'passwordForm'=>false])
+    {{ Form::close() }}
+
 
 </div>
-@endsection
 
-@section('scripts')
+    @section('scripts')
+    <script>
+        var post = {!! $membro !!};
+    </script>
+
     <script src="{{ url('js/membro/app-membro-module.min.js') }}"></script>
 
     <script type="text/javascript">
@@ -24,7 +30,7 @@
             format: 'd/m/Y',
             timepicker:false,
             mask:'99/99/9999',
-
+            value: '25/6/1983',
             closeOnDateSelect:true,
             onChangeDateTime:function(dp,$input){
                 console.log($input.val());
@@ -49,4 +55,7 @@
             }
         });
     </script>
+
+    @endsection
+
 @endsection

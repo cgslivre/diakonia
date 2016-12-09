@@ -6,7 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
-    <directory>&#47;</directory>
+    <directory>&#x2f;</directory>
     <parameters>
     </parameters>
     <log>
@@ -16,7 +16,7 @@
 <size_limit_lines/>
 <interval/>
 <timeout_days/>
-<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field></trans-log-table>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
 <perf-log-table><connection/>
 <schema/>
 <table/>
@@ -33,6 +33,11 @@
 <table/>
 <timeout_days/>
 <field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
     </log>
     <maxdate>
       <connection/>
@@ -61,21 +66,21 @@
     <clusterschemas>
     </clusterschemas>
   <created_user>-</created_user>
-  <created_date>2016&#47;11&#47;04 17:18:55.874</created_date>
+  <created_date>2016&#x2f;11&#x2f;04 17&#x3a;18&#x3a;55.874</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2016&#47;11&#47;04 17:18:55.874</modified_date>
+  <modified_date>2016&#x2f;11&#x2f;04 17&#x3a;18&#x3a;55.874</modified_date>
   </info>
   <notepads>
   </notepads>
   <connection>
     <name>conexao-novo-demandas-origem</name>
-    <server>${novo_demandas.origem.host}</server>
+    <server>&#x24;&#x7b;novo_demandas.origem.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${novo_demandas.origem.nomeBanco}</database>
-    <port>${novo_demandas.origem.porta}</port>
-    <username>${novo_demandas.origem.usuario}</username>
-    <password>${novo_demandas.origem.senha}</password>
+    <database>&#x24;&#x7b;novo_demandas.origem.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;novo_demandas.origem.porta&#x7d;</port>
+    <username>&#x24;&#x7b;novo_demandas.origem.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;novo_demandas.origem.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -83,7 +88,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${novo_demandas.origem.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;novo_demandas.origem.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -93,13 +98,13 @@
   </connection>
   <connection>
     <name>CONEXAO_DW_CORPORATIVO</name>
-    <server>${CONN-DW-CORPORATIVO-HOSTNAME}</server>
+    <server>&#x24;&#x7b;CONN-DW-CORPORATIVO-HOSTNAME&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${CONN-DW-CORPORATIVO-DATABASE}</database>
-    <port>${CONN-DW-CORPORATIVO-PORTNUMBER}</port>
-    <username>${CONN-DW-CORPORATIVO-USERNAME}</username>
-    <password>${CONN-DW-CORPORATIVO-PASSWORD}</password>
+    <database>&#x24;&#x7b;CONN-DW-CORPORATIVO-DATABASE&#x7d;</database>
+    <port>&#x24;&#x7b;CONN-DW-CORPORATIVO-PORTNUMBER&#x7d;</port>
+    <username>&#x24;&#x7b;CONN-DW-CORPORATIVO-USERNAME&#x7d;</username>
+    <password>&#x24;&#x7b;CONN-DW-CORPORATIVO-PASSWORD&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -107,7 +112,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${CONN-DW-CORPORATIVO-PORTNUMBER}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;CONN-DW-CORPORATIVO-PORTNUMBER&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -117,13 +122,13 @@
   </connection>
   <connection>
     <name>CONEXAO_LOG</name>
-    <server>${bicorporativo.logs.host}</server>
+    <server>&#x24;&#x7b;bicorporativo.logs.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${bicorporativo.logs.nomeBanco}</database>
-    <port>${bicorporativo.logs.porta}</port>
-    <username>${bicorporativo.logs.usuario}</username>
-    <password>${bicorporativo.logs.senha}</password>
+    <database>&#x24;&#x7b;bicorporativo.logs.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;bicorporativo.logs.porta&#x7d;</port>
+    <username>&#x24;&#x7b;bicorporativo.logs.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;bicorporativo.logs.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -131,7 +136,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${bicorporativo.logs.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;bicorporativo.logs.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -164,14 +169,14 @@
     </attributes>
   </connection>
   <connection>
-    <name>dircl_destino</name>
-    <server>${dircl_relacional.destino.host}</server>
+    <name>CONN_LOCAL_MOCK_RECEITA</name>
+    <server>localhost</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${dircl_relacional.destino.nomeBanco}</database>
-    <port>${dircl_relacional.destino.porta}</port>
-    <username>${dircl_relacional.destino.usuario}</username>
-    <password>${dircl_relacional.destino.senha}</password>
+    <database>mock_receita</database>
+    <port>5432</port>
+    <username>postgres</username>
+    <password>Encrypted 2be98afc86aa7f2e4bb16bd64d980aac9</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -179,7 +184,31 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${dircl_relacional.destino.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5432</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>dircl_destino</name>
+    <server>&#x24;&#x7b;dircl_relacional.destino.host&#x7d;</server>
+    <type>POSTGRESQL</type>
+    <access>Native</access>
+    <database>&#x24;&#x7b;dircl_relacional.destino.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;dircl_relacional.destino.porta&#x7d;</port>
+    <username>&#x24;&#x7b;dircl_relacional.destino.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dircl_relacional.destino.senha&#x7d;</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dircl_relacional.destino.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -189,13 +218,13 @@
   </connection>
   <connection>
     <name>dircl_origem</name>
-    <server>${dircl_relacional.origem.host}</server>
+    <server>&#x24;&#x7b;dircl_relacional.origem.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${dircl_relacional.origem.nomeBanco}</database>
-    <port>${dircl_relacional.origem.porta}</port>
-    <username>${dircl_relacional.origem.usuario}</username>
-    <password>${dircl_relacional.origem.senha}</password>
+    <database>&#x24;&#x7b;dircl_relacional.origem.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;dircl_relacional.origem.porta&#x7d;</port>
+    <username>&#x24;&#x7b;dircl_relacional.origem.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;dircl_relacional.origem.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -203,7 +232,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${dircl_relacional.origem.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;dircl_relacional.origem.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -279,21 +308,23 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
   <connection>
     <name>painel_indicadores_destino</name>
-    <server>${painel_indicadores.destino.host}</server>
+    <server>&#x24;&#x7b;painel_indicadores.destino.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${painel_indicadores.destino.nomeBanco}</database>
+    <database>&#x24;&#x7b;painel_indicadores.destino.nomeBanco&#x7d;</database>
     <port>5432</port>
-    <username>${painel_indicadores.destino.usuario}</username>
-    <password>${painel_indicadores.destino.senha}</password>
+    <username>&#x24;&#x7b;painel_indicadores.destino.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;painel_indicadores.destino.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -311,13 +342,13 @@
   </connection>
   <connection>
     <name>painel_indicadores_origem</name>
-    <server>${painel_indicadores.origem.host}</server>
+    <server>&#x24;&#x7b;painel_indicadores.origem.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${painel_indicadores.origem.nomeBanco}</database>
-    <port>${painel_indicadores.origem.porta}</port>
-    <username>${painel_indicadores.origem.usuario}</username>
-    <password>${painel_indicadores.origem.senha}</password>
+    <database>&#x24;&#x7b;painel_indicadores.origem.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;painel_indicadores.origem.porta&#x7d;</port>
+    <username>&#x24;&#x7b;painel_indicadores.origem.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;painel_indicadores.origem.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -325,7 +356,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${painel_indicadores.origem.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;painel_indicadores.origem.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -359,13 +390,13 @@
   </connection>
   <connection>
     <name>sisaud_destino</name>
-    <server>${sisaud.destino.host}</server>
+    <server>&#x24;&#x7b;sisaud.destino.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${sisaud.destino.nomeBanco}</database>
-    <port>${sisaud.destino.porta}</port>
-    <username>${sisaud.destino.usuario}</username>
-    <password>${sisaud.destino.senha}</password>
+    <database>&#x24;&#x7b;sisaud.destino.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;sisaud.destino.porta&#x7d;</port>
+    <username>&#x24;&#x7b;sisaud.destino.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;sisaud.destino.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -373,7 +404,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${sisaud.destino.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;sisaud.destino.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
@@ -383,13 +414,13 @@
   </connection>
   <connection>
     <name>sisaud_origem</name>
-    <server>${sisaud.origem.host}</server>
+    <server>&#x24;&#x7b;sisaud.origem.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${sisaud.origem.nomeBanco}</database>
+    <database>&#x24;&#x7b;sisaud.origem.nomeBanco&#x7d;</database>
     <port>5432</port>
-    <username>${sisaud.origem.usuario}</username>
-    <password>${sisaud.origem.senha}</password>
+    <username>&#x24;&#x7b;sisaud.origem.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;sisaud.origem.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -407,13 +438,13 @@
   </connection>
   <connection>
     <name>siscop_relacional_destino</name>
-    <server>${siscop_relacional.destino.host}</server>
+    <server>&#x24;&#x7b;siscop_relacional.destino.host&#x7d;</server>
     <type>POSTGRESQL</type>
     <access>Native</access>
-    <database>${siscop_relacional.destino.nomeBanco}</database>
-    <port>${siscop_relacional.destino.porta}</port>
-    <username>${siscop_relacional.destino.usuario}</username>
-    <password>${siscop_relacional.destino.senha}</password>
+    <database>&#x24;&#x7b;siscop_relacional.destino.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;siscop_relacional.destino.porta&#x7d;</port>
+    <username>&#x24;&#x7b;siscop_relacional.destino.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;siscop_relacional.destino.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -421,7 +452,7 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${siscop_relacional.destino.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;siscop_relacional.destino.porta&#x7d;</attribute></attribute>
       <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
@@ -431,13 +462,13 @@
   </connection>
   <connection>
     <name>siscop_relacional_origem</name>
-    <server>${siscop_relacional.origem.host}</server>
+    <server>&#x24;&#x7b;siscop_relacional.origem.host&#x7d;</server>
     <type>MSSQL</type>
     <access>Native</access>
-    <database>${siscop_relacional.origem.nomeBanco}</database>
-    <port>${siscop_relacional.origem.porta}</port>
-    <username>${siscop_relacional.origem.usuario}</username>
-    <password>${siscop_relacional.origem.senha}</password>
+    <database>&#x24;&#x7b;siscop_relacional.origem.nomeBanco&#x7d;</database>
+    <port>&#x24;&#x7b;siscop_relacional.origem.porta&#x7d;</port>
+    <username>&#x24;&#x7b;siscop_relacional.origem.usuario&#x7d;</username>
+    <password>&#x24;&#x7b;siscop_relacional.origem.senha&#x7d;</password>
     <servername/>
     <data_tablespace/>
     <index_tablespace/>
@@ -446,19 +477,27 @@
       <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
       <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
       <attribute><code>MSSQL_DOUBLE_DECIMAL_SEPARATOR</code><attribute>N</attribute></attribute>
-      <attribute><code>PORT_NUMBER</code><attribute>${siscop_relacional.origem.porta}</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>&#x24;&#x7b;siscop_relacional.origem.porta&#x7d;</attribute></attribute>
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>N</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
   <order>
-  <hop> <from>regiões</from><to>Trim</to><enabled>Y</enabled> </hop>  <hop> <from>Trim</from><to>Verifica os vazios</to><enabled>Y</enabled> </hop>  <hop> <from>Verifica os vazios</from><to>ordena</to><enabled>Y</enabled> </hop>  <hop> <from>Verifica os vazios</from><to>Dummy</to><enabled>Y</enabled> </hop>  <hop> <from>ordena</from><to>Data Atual</to><enabled>Y</enabled> </hop>  <hop> <from>Data Atual</from><to>Gravar na tabela</to><enabled>Y</enabled> </hop>  </order>
+  <hop> <from>regi&#xf5;es</from><to>Trim</to><enabled>Y</enabled> </hop>
+  <hop> <from>Trim</from><to>Verifica os vazios</to><enabled>Y</enabled> </hop>
+  <hop> <from>Verifica os vazios</from><to>ordena</to><enabled>Y</enabled> </hop>
+  <hop> <from>Verifica os vazios</from><to>Dummy</to><enabled>Y</enabled> </hop>
+  <hop> <from>ordena</from><to>Data Atual</to><enabled>Y</enabled> </hop>
+  <hop> <from>Data Atual</from><to>Gravar na tabela</to><enabled>N</enabled> </hop>
+  <hop> <from>Data Atual</from><to>SQL File Output</to><enabled>Y</enabled> </hop>
+  </order>
   <step>
-    <name>regiões</name>
-    <type>DataGrid</type>
+    <name>Data Atual</name>
+    <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -466,60 +505,37 @@
            </partitioning>
     <fields>
       <field>
-        <name>nome</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>255</length>
-        <precision>-1</precision>
-      </field>
-    </fields>
-    <data>
-      <line> <item>Águas Claras</item> </line>
-      <line> <item>Asa Norte</item> </line>
-      <line> <item>Asa Sul</item> </line>
-      <line> <item>Brazlândia</item> </line>
-      <line> <item>Candangolândia</item> </line>
-      <line> <item>Ceilândia</item> </line>
-      <line> <item>Cruzeiro</item> </line>
-      <line> <item>Estrutural</item> </line>
-      <line> <item>Fercal</item> </line>
-      <line> <item>Formosa (GO)</item> </line>
-      <line> <item>Gama</item> </line>
-      <line> <item>Granja do Torto</item> </line>
-      <line> <item>Guará</item> </line>
-      <line> <item>Itapoã</item> </line>
-      <line> <item>Jardim Botânico</item> </line>
-      <line> <item>Jardim Mangueiral</item> </line>
-      <line> <item>Lago Norte</item> </line>
-      <line> <item>Lago Sul</item> </line>
-      <line> <item>Noroeste</item> </line>
-      <line> <item>Núcleo Bandeirante</item> </line>
-      <line> <item>Octogonal</item> </line>
-      <line> <item>Paranoá</item> </line>
-      <line> <item>Park Sul</item> </line>
-      <line> <item>Park Way</item> </line>
-      <line> <item>Planaltina</item> </line>
-      <line> <item>Recanto das Emas</item> </line>
-      <line> <item>Riacho Fundo</item> </line>
-      <line> <item>Samambaia</item> </line>
-      <line> <item>Santa Maria</item> </line>
-      <line> <item>São Sebastião</item> </line>
-      <line> <item>SIA</item> </line>
-      <line> <item>Sobradinho</item> </line>
-      <line> <item>Sudoeste</item> </line>
-      <line> <item>Taguatinga</item> </line>
-      <line> <item>Valparaíso de Goiás</item> </line>
-      <line> <item>Varjão</item> </line>
-      <line> <item>Vicente Pires</item> </line>
-      <line> <item>Vila Planalto</item> </line>
-    </data>
+        <name>created_at</name>
+        <type>system date &#x28;fixed&#x29;</type>
+        </field>
+      <field>
+        <name>updated_at</name>
+        <type>system date &#x28;fixed&#x29;</type>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>55</xloc>
-      <yloc>47</yloc>
+      <xloc>511</xloc>
+      <yloc>43</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>287</xloc>
+      <yloc>154</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -529,6 +545,7 @@
     <type>TableOutput</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -562,42 +579,11 @@
     </step>
 
   <step>
-    <name>ordena</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>%%java.io.tmpdir%%</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>nome</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>421</xloc>
-      <yloc>44</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Trim</name>
     <type>StringOperations</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -631,6 +617,7 @@
     <type>Validator</type>
     <description/>
     <distribute>N</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -638,7 +625,7 @@
            </partitioning>
 <validate_all>N</validate_all>
 <concat_errors>N</concat_errors>
-<concat_separator>|</concat_separator>
+<concat_separator>&#x7c;</concat_separator>
        <validator_field><name>nome</name>
 <validation_name>embranco</validation_name>
 <max_length/>
@@ -646,7 +633,7 @@
 <null_allowed>N</null_allowed>
 <only_null_allowed>N</only_null_allowed>
 <only_numeric_allowed>N</only_numeric_allowed>
-<data_type>-</data_type>
+<data_type>None</data_type>
 <data_type_verified>N</data_type_verified>
 <conversion_mask/>
 <decimal_symbol/>
@@ -674,28 +661,45 @@
     </step>
 
   <step>
-    <name>Dummy</name>
-    <type>Dummy</type>
+    <name>ordena</name>
+    <type>SortRows</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
            <schema_name/>
            </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>nome</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>287</xloc>
-      <yloc>154</yloc>
+      <xloc>421</xloc>
+      <yloc>44</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Data Atual</name>
-    <type>SystemInfo</type>
+    <name>regi&#xf5;es</name>
+    <type>DataGrid</type>
     <description/>
     <distribute>Y</distribute>
+    <custom_distribution/>
     <copies>1</copies>
          <partitioning>
            <method>none</method>
@@ -703,18 +707,101 @@
            </partitioning>
     <fields>
       <field>
-        <name>created_at</name>
-        <type>system date (fixed)</type>
-        </field>
-      <field>
-        <name>updated_at</name>
-        <type>system date (fixed)</type>
-        </field>
-      </fields>
+        <name>nome</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>255</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>&#xc1;guas Claras</item> </line>
+      <line> <item>Asa Norte</item> </line>
+      <line> <item>Asa Sul</item> </line>
+      <line> <item>Brazl&#xe2;ndia</item> </line>
+      <line> <item>Candangol&#xe2;ndia</item> </line>
+      <line> <item>Ceil&#xe2;ndia</item> </line>
+      <line> <item>Cruzeiro</item> </line>
+      <line> <item>Estrutural</item> </line>
+      <line> <item>Fercal</item> </line>
+      <line> <item>Formosa &#x28;GO&#x29;</item> </line>
+      <line> <item>Gama</item> </line>
+      <line> <item>Granja do Torto</item> </line>
+      <line> <item>Guar&#xe1;</item> </line>
+      <line> <item>Itapo&#xe3;</item> </line>
+      <line> <item>Jardim Bot&#xe2;nico</item> </line>
+      <line> <item>Jardim Mangueiral</item> </line>
+      <line> <item>Lago Norte</item> </line>
+      <line> <item>Lago Sul</item> </line>
+      <line> <item>Noroeste</item> </line>
+      <line> <item>N&#xfa;cleo Bandeirante</item> </line>
+      <line> <item>Octogonal</item> </line>
+      <line> <item>Parano&#xe1;</item> </line>
+      <line> <item>Park Sul</item> </line>
+      <line> <item>Park Way</item> </line>
+      <line> <item>Planaltina</item> </line>
+      <line> <item>Recanto das Emas</item> </line>
+      <line> <item>Riacho Fundo</item> </line>
+      <line> <item>Samambaia</item> </line>
+      <line> <item>Santa Maria</item> </line>
+      <line> <item>S&#xe3;o Sebasti&#xe3;o</item> </line>
+      <line> <item>SIA</item> </line>
+      <line> <item>Sobradinho</item> </line>
+      <line> <item>Sudoeste</item> </line>
+      <line> <item>Taguatinga</item> </line>
+      <line> <item>Valpara&#xed;so de Goi&#xe1;s</item> </line>
+      <line> <item>Varj&#xe3;o</item> </line>
+      <line> <item>Vicente Pires</item> </line>
+      <line> <item>Vila Planalto</item> </line>
+    </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>511</xloc>
-      <yloc>43</yloc>
+      <xloc>55</xloc>
+      <yloc>47</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>SQL File Output</name>
+    <type>SQLFileOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>LOCAL-MYSQL</connection>
+    <schema>diakonia</schema>
+    <table>regioes</table>
+    <truncate>N</truncate>
+    <create>N</create>
+    <encoding/>
+    <dateformat/>
+    <addtoresult>N</addtoresult>
+    <startnewline>Y</startnewline>
+    <file>
+      <name>&#x24;&#x7b;Internal.Transformation.Filename.Directory&#x7d;&#x2f;regioes</name>
+      <extention>sql</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <splitevery>0</splitevery>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      </file>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>655</xloc>
+      <yloc>127</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -736,4 +823,5 @@
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
    <slave_transformation>N</slave_transformation>
+
 </transformation>

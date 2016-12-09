@@ -6,7 +6,8 @@
     "gulp-minify-css": "^1.2.3"
   },
   "dependencies": {
+    "bootstrap-sass": "^3.0.0",
     "laravel-elixir": "^4.0.0",
-    "bootstrap-sass": "^3.0.0"
+    "ng-tags-input": "github:wizbii/ngTagsInput"
   }
 }

@@ -33,9 +33,13 @@ elixir(function(mix) {
 	mix.copy(paths.fontawesome + '/fonts', 'public/fonts')
 	// Junta e minimiza os arquivos de scripts
 	mix.scripts([
+			// Definidos
+			paths.bower + "/angular/angular.min.js",
+			paths.bower + "/ng-tags-input/ng-tags-input.min.js",
+
+			// A Definir
 			paths.jquery + "/jquery.min.js" ,
 			paths.bootstrap + "/js/bootstrap.min.js" ,
-			paths.bower + "/angular/angular.min.js",
 			paths.bower + "/angular-sanitize/angular-sanitize.min.js",
 			paths.bower + "/angular-messages/angular-messages.min.js",
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
@@ -48,7 +52,9 @@ elixir(function(mix) {
 			paths.bower + "/select2/dist/js/select2.full.min.js",
 			paths.bower + "/select2/dist/js/i18n/pt-BR.js",
 			paths.bower + "/image-picker/image-picker/image-picker.min.js",
+			// Scripts gerais
 			paths.default + "/js/app.js"
+
 	], 'public/js/app.min.js', './')
 
 	// Scripts Usuários

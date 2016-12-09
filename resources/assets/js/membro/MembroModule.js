@@ -1,4 +1,4 @@
-var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'comum'])
+var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'comum','ngTagsInput'])
   .config(['$interpolateProvider', function ($interpolateProvider) {
       $interpolateProvider.startSymbol('<%');
       $interpolateProvider.endSymbol('%>');
@@ -7,11 +7,14 @@ var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','
 app.controller('membrosIndexController', ['$scope', '$http',
   function ($scope, $http) {
     $scope.membros = [];
+
     $http.get("/membro").success(function(data) {
-
         $scope.membros = data;
+    });    
 
-    });
+    $scope.userShowLink = function( membro ){
+        return window.location.origin + '/membro/' + membro + '/edit';
+	};
 
     $scope.avatarPathSmall = function( avatar, sexo ){
         if ( avatar === null ){
@@ -30,11 +33,37 @@ app.controller('membrosIndexController', ['$scope', '$http',
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 
+    $scope.loadTags = function(query) {
+        return $http.get('/regioes');
+  };
+
 }]);
+
+
 
 app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
     $scope.button = "Cadastrar Membro";
+    $scope.edit = false;
+
+    $http.get("/membro/grupo-caseiro/lista").success(function(data) {
+        $scope.grupos = data;
+    });
+
+    $http.get("/regioes").success(function(data) {
+        $scope.regioes = data;
+    });
+    $scope.membro = {};
+    $scope.membro.avatar_path = '/img/membro/000-default-homem-70px.jpg';
+
+
+  }
+]);
+
+app.controller('membroEditCtrl', ['$scope', '$http', '$location',
+  function ($scope, $http,$location) {
+    $scope.button = "Atualizar Membro";
+    $scope.edit = true;
 
     $http.get("/membro/grupo-caseiro/lista").success(function(data) {
         $scope.grupos = data;
@@ -44,8 +73,26 @@ app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
         $scope.regioes = data;
     });
 
+    $scope.membro = {};
+    $scope.membro.nome = post['nome'];
+    $scope.membro.grupo_caseiro_id = post['grupo_caseiro_id'];
+    $scope.membro.sexo = post['sexo'];
+    var dia = moment(post['data_nascimento']).format('D/M/YYYY');
+    $scope.membro.data_nascimento = dia;
+
+    var avatar = post['avatar_path'];
+    if( avatar == null ){
+        $scope.membro.avatar_path = $scope.membro.sexo == 'M' ?
+            '/img/membro/000-default-homem-70px.jpg' : '/img/membro/000-default-mulher-70px.jpg';
+    }
+    $scope.membro.regiao = post['regiao'];
+    $scope.membro.endereco = post['endereco'];
+    $scope.membro.email = post['email'];
+    $scope.membro.telefones = post['telefones_json'];
+
   }
 ]);
+
 
 $(function(){
 	$(document.body).on('click', '.changeType' ,function(){

@@ -4,6 +4,7 @@ namespace App\Model\membro;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 
 class Membro extends Model
@@ -12,7 +13,7 @@ class Membro extends Model
     protected $softDelete = true;
 
     protected $appends = [
-        'telefones_json'
+        'telefones_json' , 'idade'
     ];
 
     /**
@@ -30,6 +31,12 @@ class Membro extends Model
 
     public function grupo(){
         return $this->hasOne('App\Model\membro\GrupoCaseiro','id','grupo_caseiro_id');
+    }
+
+    public function getIdadeAttribute(){
+        $hoje = new Carbon();
+        $nascimento = Carbon::createFromFormat('Y-m-d', $this->data_nascimento);
+        return $nascimento->diffInYears($hoje, false);
     }
 
 }
