@@ -16,8 +16,12 @@
         <input id="cb_buscaAvancada" ng-class='{open:show}' class="collapse-input" type=checkbox ng-model="collapse"/>
         <label for="cb_buscaAvancada">Busca Avançada</label>
         <div ng-show="collapse">
-            <tags-input track-by-expr="$index" ng-model="tags" add-on-paste="true" key-property="id" display-property="nome">
-                <auto-complete source="loadTags($query)"></auto-complete>
+            <tags-input track-by-expr="$index" placeholder="Adicione uma região"
+                addFromAutocompleteOnly="true"
+                ng-model="tags" add-on-paste="true" key-property="id" display-property="nome">
+                <auto-complete min-length="1" load-on-focus="true"
+                    debounceDelay="15" source="loadTags($query)"
+                    max-results-to-show="5"></auto-complete>
             </tags-input>
         </div>
     </div>

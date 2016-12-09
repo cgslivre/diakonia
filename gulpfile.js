@@ -36,6 +36,7 @@ elixir(function(mix) {
 			// Definidos
 			paths.bower + "/angular/angular.min.js",
 			paths.bower + "/ng-tags-input/ng-tags-input.min.js",
+			paths.bower + "/angular-resource/angular-resource.min.js",
 
 			// A Definir
 			paths.jquery + "/jquery.min.js" ,

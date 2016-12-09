@@ -1,16 +1,19 @@
-var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'comum','ngTagsInput'])
+var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'ngResource', 'comum','ngTagsInput'])
   .config(['$interpolateProvider', function ($interpolateProvider) {
       $interpolateProvider.startSymbol('<%');
       $interpolateProvider.endSymbol('%>');
 }]);
 
-app.controller('membrosIndexController', ['$scope', '$http',
-  function ($scope, $http) {
+app.controller('membrosIndexController', ['$scope', '$http', '$resource',
+  function ($scope, $http, $resource) {
     $scope.membros = [];
+
+    var regioes = $resource('/regioes');
+    console.log( regioes.query() );
 
     $http.get("/membro").success(function(data) {
         $scope.membros = data;
-    });    
+    });
 
     $scope.userShowLink = function( membro ){
         return window.location.origin + '/membro/' + membro + '/edit';
@@ -22,7 +25,7 @@ app.controller('membrosIndexController', ['$scope', '$http',
                 return window.location.origin + '/img/membro/000-default-mulher-70px.jpg';
             } else{
                 return window.location.origin + '/img/membro/000-default-homem-70px.jpg';
-        }
+            }
         } else{
             return window.location.origin  + '/' + avatar + '70px.jpg';
         }
@@ -34,8 +37,16 @@ app.controller('membrosIndexController', ['$scope', '$http',
 	};
 
     $scope.loadTags = function(query) {
-        return $http.get('/regioes');
-  };
+        console.log('[query]: ' + query);
+        //return regioes.query().$promise;
+        return $http.get('/regioes', {cache: true}).then( function(response){
+            var regioes = response.data;
+            return regioes.filter(
+                function( regiao ){
+                    return regiao.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
+                });
+            });
+        };
 
 }]);
 
