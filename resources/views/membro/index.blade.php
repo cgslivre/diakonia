@@ -13,17 +13,30 @@
     </div>
 
     <div class="buscaAvancada">
+
         <input id="cb_buscaAvancada" ng-class='{open:show}' class="collapse-input" type=checkbox ng-model="collapse"/>
         <label for="cb_buscaAvancada">Busca Avançada</label>
         <div ng-show="collapse">
-            <tags-input track-by-expr="$index" placeholder="Adicione uma região"
-                addFromAutocompleteOnly="true"
-                ng-model="tags" add-on-paste="true" key-property="id" display-property="nome">
-                <auto-complete min-length="1" load-on-focus="true"
-                    debounceDelay="15" source="loadTags($query)"
-                    max-results-to-show="5"></auto-complete>
-            </tags-input>
+            <div class="row">
+                <div class="col-md-1">
+                    <label for="regioesFiltro">Regiões</label>
+                </div>
+                <div class="col-md-4">
+                    <tags-input track-by-expr="$index" placeholder="Adicione uma região"
+                        addFromAutocompleteOnly="true" on-tag-adding="validarTag($tag)"
+                        ng-model="regioesFiltro" add-on-paste="true" key-property="id" display-property="nome">
+                        <auto-complete min-length="2" load-on-focus="true" select-first-match="false"
+                            debounceDelay="15" source="loadTags($query)"
+                            max-results-to-show="5"></auto-complete>
+                    </tags-input>
+                </div>
+            </div>
+            <div class="row">
+                <%regioesFiltro%>
+            </div>
+
         </div>
+
     </div>
     {{--
     <a href="{{ url('/membro/create') }}" class="btn btn-success">

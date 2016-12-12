@@ -37,8 +37,6 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
 	};
 
     $scope.loadTags = function(query) {
-        console.log('[query]: ' + query);
-        //return regioes.query().$promise;
         return $http.get('/regioes', {cache: true}).then( function(response){
             var regioes = response.data;
             return regioes.filter(
@@ -46,7 +44,16 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
                     return regiao.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
                 });
             });
-        };
+    };
+
+    $scope.validarTag = function( $tag ){
+        if (typeof $tag.id != 'undefined'){
+            return true;
+        } else{
+            return false;
+        }
+        
+    }
 
 }]);
 
