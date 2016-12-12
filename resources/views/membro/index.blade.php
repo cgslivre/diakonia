@@ -31,9 +31,6 @@
                     </tags-input>
                 </div>
             </div>
-            <div class="row">
-                <%regioesFiltro%>
-            </div>
 
         </div>
 
@@ -89,7 +86,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao) track by $index">
+                <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | filter:filtroRegioes(regioesFiltro)| orderBy:criterioDeOrdenacao:direcaoDaOrdenacao) track by $index">
                     <th class="col-md-1 text-center middle-align" scope="row" title="<%membro.id%>"><%($index+1)%></th>
                     <td class="col-md-1 text-center">
                         <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(membro.avatar_path,membro.sexo)%>" class="profile-img"/>

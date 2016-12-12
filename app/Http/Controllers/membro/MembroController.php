@@ -60,7 +60,7 @@ class MembroController extends Controller
     }
 
     public function update($id, MembroRequest $request){
-        $request['telefones'] = self::getTelefonesJson($request['telefone']);        
+        $request['telefones'] = self::getTelefonesJson($request['telefone']);
         $membro = Membro::findOrFail($id);
         $membro->update( $request->all());
         return Redirect::back()->withInput()->with('message', 'Membro atualizado!');

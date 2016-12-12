@@ -36,6 +36,22 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
 		$scope.direcaoDaOrdenacao = !$scope.direcaoDaOrdenacao;
 	};
 
+    $scope.filtroRegioes = function(regioes){
+        return function( item ){
+            if( typeof regioes == 'undefined' || regioes.length == 0 ){
+                return true;
+            }
+            var i = regioes.length;
+            while( i-- ){
+                if( regioes[i]['nome'] === item.regiao ){
+                    return true;
+                }
+            }
+            return false;
+        }
+
+    };
+
     $scope.loadTags = function(query) {
         return $http.get('/regioes', {cache: true}).then( function(response){
             var regioes = response.data;
@@ -52,7 +68,7 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
         } else{
             return false;
         }
-        
+
     }
 
 }]);
