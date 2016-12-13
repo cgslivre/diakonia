@@ -7,7 +7,7 @@
     {{--  Diz ao browser para ser responsivo com a largura da tela --}}
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Diakonia - Discípulos em Brasília - @yield('titulo')</title>
-
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     {{Html::style('css/all.min.css')}}
 
   </head>

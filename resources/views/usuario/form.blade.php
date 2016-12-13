@@ -118,7 +118,7 @@
         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
             <label for="password" class="col-sm-2 control-label">
                 @if( $perfil)
-                    Nova 
+                    Nova
                 @endif
                 Senha:
             </label>
@@ -158,8 +158,7 @@
         <!--<button type="submit" class="btn btn-info" ng-click="criarUsuario(usuario)">-->
           {{-- $submitButton --}}
         <!--</button>-->
-        <button class="btn btn-info"
-            ng-click="criarUsuario(usuario)"
+        <button class="btn btn-info"            
             ng-disabled="usuarioForm.$invalid">
             @if( $perfil)
                 Atualizar Perfil

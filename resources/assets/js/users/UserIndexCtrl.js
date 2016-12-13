@@ -4,7 +4,7 @@ app.controller('usuariosController', ['$scope', '$http',
     $http.get("/usuario").success(function(data) {
 
         $scope.usuarios = data;
-        //console.log($scope.usuarios[1].usuario_roles.length);
+        
     });
     $scope.avatarPathSmall = function( avatar ){
         if ( avatar === null ){
@@ -33,38 +33,6 @@ app.controller('usuariosController', ['$scope', '$http',
 
 }]);
 
-app.filter('highlight', ['$sce', function($sce) {
-    return function(text, phrase) {
-
-        if( phrase ){
-            text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
-        }
-        return $sce.trustAsHtml(text);
-    };
-}]);
-
-app.filter('formatPhone', ['$sce', function($sce) {
-    return function(input) {
-        console.log('>> ' + input);
-        if( input == null || input.length == 0 ){
-            return '';
-        } else{
-            switch (input.length) {
-                case 8:
-                    return input.slice(0,4) + '-' + input.slice(4,8);
-                case 9:
-                    return input.slice(0,5) + '-' + input.slice(5,9);
-                case 10:
-                    return '(' + input.slice(0,2) + ') ' + input.slice(2,6) + '-' + input.slice(6,10);
-                case 11:
-                    return '(' + input.slice(0,2) + ') ' + input.slice(2,7) + '-' + input.slice(7,11);
-                default:
-                    return input;
-            }
-        }
-    };
-}]);
-
 app.filter('roleuserfilter', ['$sce', function($sce) {
     return function(input) {
         if( input === 'role-user-admin') return 'Administrador';
@@ -73,23 +41,3 @@ app.filter('roleuserfilter', ['$sce', function($sce) {
         else return input;
     };
 }]);
-
-
-function mascaraTelefone( input ){
-    if( input == null || input.length == 0 ){
-        return '';
-    } else{
-        switch (input.length) {
-            case 8:
-                return input.slice(0,4) + '-' + input.slice(4,8);
-            case 9:
-                return input.slice(0,5) + '-' + input.slice(5,9);
-            case 10:
-                return '(' + input.slice(0,2) + ') ' + input.slice(2,6) + '-' + input.slice(6,10);
-            case 11:
-                return '(' + input.slice(0,2) + ') ' + input.slice(2,7) + '-' + input.slice(7,11);
-            default:
-                return input;
-        }
-    }
-}

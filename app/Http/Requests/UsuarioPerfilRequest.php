@@ -27,7 +27,7 @@ class UsuarioPerfilRequest extends Request
             'name' => 'required|min:2',
             'old-password' => 'required_with:password',
             'avatar' => 'image',
-            'telefone' => 'required|integer',
+            'telefone' => 'required|numeric',
             'password' => 'min:6|same:password_confirm|required_with:old-password',
             'password_confirm' => 'min:6|same:password|required_with:old-password'
         ];

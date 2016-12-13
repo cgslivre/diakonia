@@ -10,7 +10,7 @@
         "laravelcollective/html": "5.2.*",
         "components/jquery": "1.11.3",
         "twitter/bootstrap": "3.3.*",
-        "components/font-awesome": "dev-master",
+        "components/font-awesome": "4.7",
         "doctrine/dbal" : "dev-master",
         "intervention/image": "dev-master",
         "silber/bouncer": "^0.1.7",
@@ -21,7 +21,8 @@
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "laravel/homestead": "^3.0"
     },
     "autoload": {
         "classmap": [

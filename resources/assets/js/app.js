@@ -36,3 +36,81 @@ function formatPhone( input ){
         }
     }
 }
+
+var comum = angular.module( 'comum', [])
+comum.filter('highlight', ['$sce', function($sce) {
+    return function(text, phrase) {
+
+        if( phrase ){
+            text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
+        }
+        return $sce.trustAsHtml(text);
+    };
+}]);
+
+comum.filter('formatPhone', ['$sce', function($sce) {
+    return function(input) {
+        //console.log('>> ' + input);
+        if( input == null || input.length == 0 ){
+            return '';
+        } else{
+            switch (input.length) {
+                case 8:
+                    return input.slice(0,4) + '-' + input.slice(4,8);
+                case 9:
+                    return input.slice(0,5) + '-' + input.slice(5,9);
+                case 10:
+                    return '(' + input.slice(0,2) + ') ' + input.slice(2,6) + '-' + input.slice(6,10);
+                case 11:
+                    return '(' + input.slice(0,2) + ') ' + input.slice(2,7) + '-' + input.slice(7,11);
+                default:
+                    return input;
+            }
+        }
+    };
+}]);
+
+comum.directive("compareTo", function() {
+    return {
+        require: "ngModel",
+        scope: {
+            otherModelValue: "=compareTo"
+        },
+        link: function(scope, element, attributes, ngModel) {
+
+            ngModel.$validators.compareTo = function(modelValue) {
+                return modelValue == scope.otherModelValue;
+            };
+
+            scope.$watch("otherModelValue", function() {
+                ngModel.$validate();
+            });
+        }
+    };
+});
+
+comum.directive("dateFormat", function(){
+    return {
+        // limit usage to argument only
+        restrict: 'A',
+        require: "ngModel",
+
+        link: function(scope, element, attr, ctrl) {
+            // please note you can name your function & argument anything you like
+            function customValidator(ngModelValue) {
+
+                var valid = moment(ngModelValue,'D/M/YYYY H:mm', true);
+                console.log(ngModelValue + ": " +valid.isValid());
+                if (valid.isValid()) {
+                    ctrl.$setValidity('formato', true);
+                } else {
+                    ctrl.$setValidity('formato', false);
+                }
+
+                return ngModelValue;
+            }
+
+            ctrl.$parsers.push(customValidator);
+        }
+    };
+});

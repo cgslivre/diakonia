@@ -33,9 +33,14 @@ elixir(function(mix) {
 	mix.copy(paths.fontawesome + '/fonts', 'public/fonts')
 	// Junta e minimiza os arquivos de scripts
 	mix.scripts([
+			// Definidos
+			paths.bower + "/angular/angular.min.js",
+			paths.bower + "/ng-tags-input/ng-tags-input.min.js",
+			paths.bower + "/angular-resource/angular-resource.min.js",
+
+			// A Definir
 			paths.jquery + "/jquery.min.js" ,
 			paths.bootstrap + "/js/bootstrap.min.js" ,
-			paths.bower + "/angular/angular.min.js",
 			paths.bower + "/angular-sanitize/angular-sanitize.min.js",
 			paths.bower + "/angular-messages/angular-messages.min.js",
 			paths.bower + "/angular-locale-pt-br/angular-locale_pt-br.js",
@@ -48,7 +53,9 @@ elixir(function(mix) {
 			paths.bower + "/select2/dist/js/select2.full.min.js",
 			paths.bower + "/select2/dist/js/i18n/pt-BR.js",
 			paths.bower + "/image-picker/image-picker/image-picker.min.js",
+			// Scripts gerais
 			paths.default + "/js/app.js"
+
 	], 'public/js/app.min.js', './')
 
 	// Scripts Usuários
@@ -76,6 +83,11 @@ elixir(function(mix) {
 			"musica/MusicaEscalaCreateCtrl.js",
 	], 'public/js/musica/app-musica-escala-module.min.js')
 
+	// Scripts Membros
+	mix.scripts([
+			"membro/MembroModule.js",
+	], 'public/js/membro/app-membro-module.min.js')
+
 	// Junta e minimiza os arquivos de estilos
 	mix.styles([
 				paths.bootstrap + "/css/bootstrap.css",
@@ -83,10 +95,12 @@ elixir(function(mix) {
 				paths.default + "/css/checkbox3.css",
 				paths.bower + "/datetimepicker/jquery.datetimepicker.css",
 				paths.bower + "/select2/dist/css/select2.min.css",
-				paths.bower + "/angular-ui-select/dist/select.min.css",				
+				paths.bower + "/angular-ui-select/dist/select.min.css",
 				paths.bower + "/checkbox3/dist/checkbox3.min.css",
 				paths.bower + "/image-picker/image-picker/image-picker.css",
         		paths.default + "/css/main.css",
+				paths.default + "/css/forms.css",
+				paths.default + "/css/ng-tags-input.css",
 				paths.default + "/css/theme.css"
     ], 'public/css/all.min.css', './');
 });

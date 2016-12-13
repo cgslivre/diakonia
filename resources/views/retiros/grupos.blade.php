@@ -1,6 +1,6 @@
 @extends( 'retiros.template-retiro')
 
-@section('nivel2', '<li class="active">Grupos de Inscritos</li>')
+@section('nivel2', '<li class="active">Grupos Caseiros</li>')
 
 
 @section('content')
