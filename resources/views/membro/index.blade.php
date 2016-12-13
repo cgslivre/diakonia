@@ -14,19 +14,41 @@
 
     <div class="buscaAvancada">
 
-        <input id="cb_buscaAvancada" ng-class='{open:show}' class="collapse-input" type=checkbox ng-model="collapse"/>
-        <label for="cb_buscaAvancada">Busca Avançada</label>
+        <input id="cb_buscaAvancada" ng-class='{open:show}' class="collapse-input pointer" type=checkbox ng-model="collapse"/>
+        <label class="pointer" for="cb_buscaAvancada">Busca Avançada</label>
         <div ng-show="collapse">
             <div class="row">
+
+                <div class="col-md-2">
+                    <div class="form-group text-right">
+                        <label class="lbl-margin-center" for="gruposFiltro">Grupos Caseiros</label>
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <tags-input track-by-expr="$index" placeholder="Adicione um grupo caseiro"
+                        addFromAutocompleteOnly="true" on-tag-adding="validarTag($tag)"
+                        replace-spaces-with-dashes="false"
+                        ng-model="gruposFiltro" add-on-paste="true" key-property="id" display-property="nome">
+                        <auto-complete min-length="2" load-on-focus="true" select-first-match="false"
+                            debounceDelay="15" source="loadGruposTags($query)"
+                            max-results-to-show="5"></auto-complete>
+                    </tags-input>
+                </div>
+
                 <div class="col-md-1">
-                    <label for="regioesFiltro">Regiões</label>
+                    <div class="form-group text-right">
+                        <label class="lbl-margin-center" for="regioesFiltro">Regiões</label>
+                    </div>
+
                 </div>
                 <div class="col-md-4">
                     <tags-input track-by-expr="$index" placeholder="Adicione uma região"
                         addFromAutocompleteOnly="true" on-tag-adding="validarTag($tag)"
+                        replace-spaces-with-dashes="false"
                         ng-model="regioesFiltro" add-on-paste="true" key-property="id" display-property="nome">
                         <auto-complete min-length="2" load-on-focus="true" select-first-match="false"
-                            debounceDelay="15" source="loadTags($query)"
+                            debounceDelay="15" source="loadRegioesTags($query)"
                             max-results-to-show="5"></auto-complete>
                     </tags-input>
                 </div>
@@ -86,7 +108,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | filter:filtroRegioes(regioesFiltro)| orderBy:criterioDeOrdenacao:direcaoDaOrdenacao) track by $index">
+                <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | filter:filtroRegioes(regioesFiltro)| filter:filtroGrupos(gruposFiltro)| orderBy:criterioDeOrdenacao:direcaoDaOrdenacao) track by $index">
                     <th class="col-md-1 text-center middle-align" scope="row" title="<%membro.id%>"><%($index+1)%></th>
                     <td class="col-md-1 text-center">
                         <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(membro.avatar_path,membro.sexo)%>" class="profile-img"/>

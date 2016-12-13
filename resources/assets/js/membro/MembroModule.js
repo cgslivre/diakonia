@@ -49,15 +49,39 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
             }
             return false;
         }
-
     };
 
-    $scope.loadTags = function(query) {
+    $scope.filtroGrupos = function(grupos){
+        return function( item ){
+            if( typeof grupos == 'undefined' || grupos.length == 0 ){
+                return true;
+            }
+            var i = grupos.length;
+            while( i-- ){
+                if( grupos[i]['id'] === item.grupo_caseiro_id ){
+                    return true;
+                }
+            }
+            return false;
+        }
+    };
+
+    $scope.loadRegioesTags = function(query) {
         return $http.get('/regioes', {cache: true}).then( function(response){
             var regioes = response.data;
             return regioes.filter(
                 function( regiao ){
                     return regiao.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
+                });
+            });
+    };
+
+    $scope.loadGruposTags = function(query) {
+        return $http.get('/membro/grupo-caseiro/lista', {cache: true}).then( function(response){
+            var grupos = response.data;
+            return grupos.filter(
+                function( grupo ){
+                    return grupo.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
                 });
             });
     };

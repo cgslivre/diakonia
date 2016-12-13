@@ -230,3 +230,5 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected img{
 .loading{font-weight: bold;color:#1288c3;}
 
 span.idade{padding:6px;}
+
+.pointer{cursor: pointer;}

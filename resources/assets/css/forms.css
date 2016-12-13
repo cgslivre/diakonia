@@ -31,7 +31,7 @@
 }
 
 .btn-floating.btn-large {
-    width: 56px; 
+    width: 56px;
     height: 56px;
 }
 
@@ -54,3 +54,5 @@ input.collapse-input[type=checkbox] + label:before { letter-spacing: 10px; } /* 
 
 input.collapse-input[type=checkbox]:checked + label:before { content: "\f077"; } /* checked icon */
 input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px; }
+
+.lbl-margin-center{margin-top: 6px;}
