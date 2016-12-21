@@ -68,7 +68,12 @@
             <i class="fa fa-user-plus fa-2x"></i>
         </a>
     </div>
-
+    {{--
+    @foreach ($tiposRelIgreja as $item)
+        {{ $item[0] }}<br />
+        {{ $item[1] }}
+    @endforeach
+    --}}
     <hr/>
     <div>
         <div class="search-result">
@@ -140,6 +145,11 @@
 
 @section('scripts')
     <script src="{{ url('js/membro/app-membro-module.min.js') }}"></script>
+
+    <script type="text/javascript">
+
+        //console.log(tiposRelIgreja);
+    </script>
 
 @endsection
 </div>

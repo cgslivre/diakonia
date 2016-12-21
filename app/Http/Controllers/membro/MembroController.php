@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use App\Http\Requests\membro\MembroRequest;
 use App\Model\membro\Membro;
+use App\Model\membro\RelacionamentoIgreja;
 
 class MembroController extends Controller
 {
@@ -21,20 +22,20 @@ class MembroController extends Controller
     }
 
     public function index(){
-
         $membros = Membro::with('grupo')->orderBy('nome','asc')->get();
         return $membros;
     }
 
     public function lista(){
+        $tiposRelIgreja = RelacionamentoIgreja::$tipos;
 
-        //$membros = Membro::all();
-        //return view('membro.index' , compact( 'membros'));
-        return view('membro.index');
+        //return view('membro.index')->with('tiposRelIgreja',$tiposRelIgreja));
+        return view('membro.index')->with('tiposRelIgreja',$tiposRelIgreja);
     }
 
     public function create(){
-        return view('membro.create');
+        $tiposRelIgreja = RelacionamentoIgreja::$tipos;
+        return view('membro.create')->with('tiposRelIgreja',$tiposRelIgreja);
     }
 
     public function store( MembroRequest $request){
@@ -55,8 +56,9 @@ class MembroController extends Controller
     }
 
     public function edit( $id ){
+        $tiposRelIgreja = RelacionamentoIgreja::$tipos;
         $membro = Membro::findOrFail($id);
-        return view('membro.edit', compact('membro'));
+        return view('membro.edit', compact('membro'))->with('tiposRelIgreja',$tiposRelIgreja);
     }
 
     public function update($id, MembroRequest $request){
