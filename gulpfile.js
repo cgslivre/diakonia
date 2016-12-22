@@ -113,7 +113,7 @@ gulp.task('js', function(){
 
 });
 
-gulp.task('angular', ['js'], function(){
+gulp.task('angular', function(){
 	// Usuários
 	gulp.src([
 		paths.default + '/js/users/UserModule.js'
@@ -163,7 +163,8 @@ gulp.task('default', function( cb ){
 	runSequence(['ambiente', 'fonts', 'css', 'js', 'angular', 'watch'], cb);
 });
 
-gulp.task('watch', function(){
+gulp.task('watch', ['ambiente'],function(){
     gulp.watch(paths.default + '/css/*.css',['css']);
     gulp.watch(paths.default + '/js/*.js',['js']);
+	gulp.watch(paths.default + '/js/**/*.js',['angular']);
 });
