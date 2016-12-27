@@ -5,7 +5,6 @@ var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
 var size = require('gulp-size');
 var rm = require('gulp-rimraf');
-var runSequence = require('run-sequence');
 var uglify = require('gulp-uglify');
 
 
@@ -23,12 +22,13 @@ var config = {
     production: !!util.env.production
 };
 
-gulp.task('ambiente', function(){
+gulp.task('ambiente', function(done){
 	if( config.production ){
 		util.log(util.colors.bgRed(util.colors.white('Ambiente de Produção')));
 	} else{
 		util.log(util.colors.bgBlue(util.colors.white('Ambiente de Desenvolvimento')));
 	}
+	done();
 });
 
 gulp.task('clean', function() {
@@ -39,14 +39,15 @@ gulp.task('clean', function() {
 	]).pipe(rm());
 });
 
-gulp.task('fonts', function(){
-	util.log(util.colors.green('Copiando arquivos de fontes'));
+gulp.task('fonts', function(done){
+
 	gulp.src(paths.fontawesome + '/fonts/*')
 		.pipe(gulp.dest('public/fonts'));
+	done();
 });
 
-gulp.task('css', function(){
-	util.log(util.colors.green('Copiando arquivos de CSS'));
+gulp.task('css', function(done){
+
 	var files = [
 		// Em avaliação
 		paths.bootstrap + '/css/bootstrap.css'
@@ -67,18 +68,16 @@ gulp.task('css', function(){
 
 	gulp.src(files)
 		.pipe(expect({ checkRealFile: true, verbose: true },files))
-		.pipe(size({showFiles: true}))
+		.pipe(size({showFiles: true, title: "CSS:: "}))
 		.pipe(concat('all.min.css'))
 		.pipe(config.production ? cleanCSS(): util.noop())
-		.pipe(size({showFiles: true}))
 		.pipe(gulp.dest('public/css'));
 
-
+	done();
 
 });
 
-gulp.task('js', function(){
-	util.log(util.colors.green('Copiando arquivos de Javascript'));
+gulp.task('js', function(done){
 	var filesjs = [
 		// Definidos
 		paths.bower + '/angular/angular.min.js'
@@ -104,23 +103,24 @@ gulp.task('js', function(){
 	];
 
 	gulp.src(filesjs)
-		.pipe(expect({ checkRealFile: true, verbose: true },filesjs))
-		.pipe(size({showFiles: true}))
+		//.pipe(expect({ checkRealFile: true, verbose: true },filesjs))
+		.pipe(size({showFiles: true, title: "Javascript:: "}))
 		.pipe(concat('app.min.js'))
 		.pipe(config.production ? uglify(): util.noop())
-		.pipe(size({showFiles: true}))
 		.pipe(gulp.dest('public/js'));
+
+	done();
 
 });
 
-gulp.task('angular', function(){
+gulp.task('angular', function(done){
 	// Usuários
 	gulp.src([
 		paths.default + '/js/users/UserModule.js'
 		, paths.default + '/js/users/UserIndexCtrl.js'
 		, paths.default + '/js/users/UserCreateCtrl.js'
 		, paths.default + '/js/users/UserEditCtrl.js'
-	]).pipe(size({showFiles: true}))
+	]).pipe(size({showFiles: true, title: "AngularJS (Usuários):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-users-module.min.js'))
 	.pipe(gulp.dest('public/js/users'));
@@ -130,7 +130,7 @@ gulp.task('angular', function(){
 		paths.default + '/js/musica/MusicaEventoModule.js'
 		, paths.default + '/js/musica/MusicaEventoCreateCtrl.js'
 		, paths.default + '/js/musica/MusicaEventoEditCtrl.js'
-	]).pipe(size({showFiles: true}))
+	]).pipe(size({showFiles: true, title: "AngularJS (Música Evento):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-musica-module.min.js'))
 	.pipe(gulp.dest('public/js/musica'));
@@ -138,7 +138,7 @@ gulp.task('angular', function(){
 	gulp.src([
 		paths.default + '/js/musica/MusicaStaffModule.js'
 		, paths.default + '/js/musica/MusicaStaffCreateCtrl.js'
-	]).pipe(size({showFiles: true}))
+	]).pipe(size({showFiles: true, title: "AngularJS (Música Staff):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-musica-staff-module.min.js'))
 	.pipe(gulp.dest('public/js/musica'));
@@ -146,25 +146,39 @@ gulp.task('angular', function(){
 	gulp.src([
 		paths.default + '/js/musica/MusicaEscalaModule.js'
 		, paths.default + '/js/musica/MusicaEscalaCreateCtrl.js'
-	]).pipe(size({showFiles: true}))
+	]).pipe(size({showFiles: true, title: "AngularJS (Escala):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-musica-escala-module.min.js'))
 	.pipe(gulp.dest('public/js/musica'));
 
 	gulp.src([
 		paths.default + '/js/membro/MembroModule.js'
-	]).pipe(size({showFiles: true}))
+	]).pipe(size({showFiles: true, title: "AngularJS (Membro):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-membro-module.min.js'))
 	.pipe(gulp.dest('public/js/membro'));
+
+	done();
 });
 
-gulp.task('default', function( cb ){
-	runSequence(['ambiente', 'fonts', 'css', 'js', 'angular', 'watch'], cb);
-});
+// gulp.task('default', function( cb ){
+// 	runSequence(['ambiente', 'fonts', 'css', 'js', 'angular', 'watch'], cb);
+// });
 
-gulp.task('watch', ['ambiente'],function(){
-    gulp.watch(paths.default + '/css/*.css',['css']);
-    gulp.watch(paths.default + '/js/*.js',['js']);
-	gulp.watch(paths.default + '/js/**/*.js',['angular']);
-});
+gulp.task('watch', gulp.series('ambiente', function(){
+	gulp.watch(paths.default + '/css/*.css',gulp.series('css'));
+    gulp.watch(paths.default + '/js/*.js',gulp.series('js'));
+	gulp.watch(paths.default + '/js/**/*.js',gulp.series('angular'));
+}));
+
+
+gulp.task('default',
+	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
+	// gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
+);
+
+// gulp.task('watch', ['ambiente'],function(){
+//     gulp.watch(paths.default + '/css/*.css',['css']);
+//     gulp.watch(paths.default + '/js/*.js',['js']);
+// 	gulp.watch(paths.default + '/js/**/*.js',['angular']);
+// });
