@@ -9,9 +9,6 @@ var uglify = require('gulp-uglify');
 
 var paths = {
 	'default' : 'resources/assets',
-	'bootstrap':'vendor/twitter/bootstrap/dist',
-	'jquery':'vendor/components/jquery',
-	'fontawesome':'vendor/components/font-awesome',
 	'bower':'bower_components'
 }
 
@@ -38,7 +35,7 @@ gulp.task('clean', function() {
 
 gulp.task('fonts', function(done){
 
-	gulp.src(paths.fontawesome + '/fonts/*')
+	gulp.src(paths.bower + '/components-font-awesome/fonts/*')
 		.pipe(gulp.dest('public/fonts'));
 	done();
 });
@@ -47,7 +44,7 @@ gulp.task('css', function(done){
 
 	var files = [
 		// Em avaliação
-		paths.bootstrap + '/css/bootstrap.css'
+		paths.bower + '/bootstrap/dist/css/bootstrap.css'
 		,paths.default + '/css/checkbox3.css'
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
@@ -55,7 +52,7 @@ gulp.task('css', function(done){
 		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
 		// OK
-		,paths.fontawesome + '/css/font-awesome.min.css'
+		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'
@@ -81,8 +78,8 @@ gulp.task('js', function(done){
 		,paths.bower + '/ng-tags-input/ng-tags-input.min.js'
 		,paths.bower + '/angular-resource/angular-resource.min.js'
 		// A definir
-		,paths.jquery + '/jquery.min.js'
-		,paths.bootstrap + '/js/bootstrap.min.js'
+		,paths.bower + '/jquery/dist/jquery.min.js'
+		,paths.bower + '/bootstrap/dist/js/bootstrap.min.js'
 		,paths.bower + '/angular-sanitize/angular-sanitize.min.js'
 		,paths.bower + '/angular-messages/angular-messages.min.js'
 		,paths.bower + '/angular-locale-pt-br/angular-locale_pt-br.js'

@@ -9,9 +9,6 @@
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
     "run-sequence": "^1.2.2"
-  },
-  "dependencies": {
-    "bootstrap-sass": "^3.0.0",
-    "ng-tags-input": "github:wizbii/ngTagsInput"
   }
+
 }
