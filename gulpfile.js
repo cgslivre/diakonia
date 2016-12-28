@@ -7,9 +7,6 @@ var size = require('gulp-size');
 var rm = require('gulp-rimraf');
 var uglify = require('gulp-uglify');
 
-
-//var elixir = require('laravel-elixir');
-
 var paths = {
 	'default' : 'resources/assets',
 	'bootstrap':'vendor/twitter/bootstrap/dist',
@@ -161,9 +158,6 @@ gulp.task('angular', function(done){
 	done();
 });
 
-// gulp.task('default', function( cb ){
-// 	runSequence(['ambiente', 'fonts', 'css', 'js', 'angular', 'watch'], cb);
-// });
 
 gulp.task('watch', gulp.series('ambiente', function(){
 	gulp.watch(paths.default + '/css/*.css',gulp.series('css'));
@@ -174,11 +168,5 @@ gulp.task('watch', gulp.series('ambiente', function(){
 
 gulp.task('default',
 	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
-	// gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
-);
 
-// gulp.task('watch', ['ambiente'],function(){
-//     gulp.watch(paths.default + '/css/*.css',['css']);
-//     gulp.watch(paths.default + '/js/*.js',['js']);
-// 	gulp.watch(paths.default + '/js/**/*.js',['angular']);
-// });
+);
