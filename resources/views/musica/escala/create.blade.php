@@ -6,7 +6,7 @@
 
 
 @section('content')
-<div class="" ng-app="musicaStaffRecord" ng-controller="musicaEventoCreateCtrl">
+<div class="" ng-app="musicaEscalaRecord" ng-controller="musicaEscalaCreateCtrl">
     {{ Form::open(array('route' => ['musica.escala.analise',$evento->id], 'class'=> 'form-horizontal',
             'name'=>'musicaEscalaForm')) }}
 
@@ -96,7 +96,7 @@
 
 @section('scripts')
 
-    <script src="{{ url('js/musica/app-musica-escala-module.min.js') }}"></script>
+    <script src="{{ url('js/musica/app-musica-module.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(".select-lider").select2({

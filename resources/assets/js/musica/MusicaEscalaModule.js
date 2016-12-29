@@ -1,4 +1,4 @@
-var app = angular.module('musicaStaffRecord', ['ngMessages','ngSanitize','remoteValidation','ui.select'])
+var app = angular.module('musicaEscalaRecord', ['ngMessages','ngSanitize','remoteValidation','ui.select'])
   .config(['$interpolateProvider', function ($interpolateProvider) {
       $interpolateProvider.startSymbol('<%');
       $interpolateProvider.endSymbol('%>')
@@ -16,7 +16,7 @@ app.directive("toggleClass", function() {
   }
 });
 
-app.controller('musicaEventoCreateCtrl', ['$scope', '$http', '$location', '$timeout',
+app.controller('musicaEscalaCreateCtrl', ['$scope', '$http', '$location', '$timeout',
   function ($scope, $http,$location,$timeout) {
     $scope.servicos = {};
     $scope.staffPorServico = [];
