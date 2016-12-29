@@ -11,8 +11,8 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
     var regioes = $resource('/regioes');
     console.log( regioes.query() );
 
-    $http.get("/membro").success(function(data) {
-        $scope.membros = data;
+    $http.get("/membro").then(function(response) {
+        $scope.membros = response.data;
     });
 
     $scope.userShowLink = function( membro ){
@@ -104,12 +104,12 @@ app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
     $scope.button = "Cadastrar Membro";
     $scope.edit = false;
 
-    $http.get("/membro/grupo-caseiro/lista").success(function(data) {
-        $scope.grupos = data;
+    $http.get("/membro/grupo-caseiro/lista").then(function(response) {
+        $scope.grupos = response.data;
     });
 
-    $http.get("/regioes").success(function(data) {
-        $scope.regioes = data;
+    $http.get("/regioes").then(function(response) {
+        $scope.regioes = response.data;
     });
     $scope.membro = {};
     $scope.membro.avatar_path = '/img/membro/000-default-homem-70px.jpg';
@@ -123,12 +123,12 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.button = "Atualizar Membro";
     $scope.edit = true;
 
-    $http.get("/membro/grupo-caseiro/lista").success(function(data) {
-        $scope.grupos = data;
+    $http.get("/membro/grupo-caseiro/lista").then(function(response) {
+        $scope.grupos = response.data;
     });
 
-    $http.get("/regioes").success(function(data) {
-        $scope.regioes = data;
+    $http.get("/regioes").then(function(response) {
+        $scope.regioes = response.data;
     });
 
     $scope.membro = {};

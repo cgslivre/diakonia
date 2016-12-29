@@ -1,10 +1,10 @@
 app.controller('usuariosController', ['$scope', '$http',
   function ($scope, $http) {
     $scope.usuarios = [];
-    $http.get("/usuario").success(function(data) {
+    $http.get("/usuario").then(function(response) {
 
-        $scope.usuarios = data;
-        
+        $scope.usuarios = response.data;
+
     });
     $scope.avatarPathSmall = function( avatar ){
         if ( avatar === null ){
