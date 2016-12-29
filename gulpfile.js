@@ -118,7 +118,7 @@ gulp.task('angular', function(done){
 
 	// Música
 	gulp.src([
-		paths.default + '/js/musica/MusicaEventoModule.js'		
+		paths.default + '/js/musica/MusicaEventoModule.js'
 	]).pipe(size({showFiles: true, title: "AngularJS (Música Evento):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-musica-module.min.js'))
@@ -133,8 +133,7 @@ gulp.task('angular', function(done){
 	.pipe(gulp.dest('public/js/musica'));
 
 	gulp.src([
-		paths.default + '/js/musica/MusicaEscalaModule.js'
-		, paths.default + '/js/musica/MusicaEscalaCreateCtrl.js'
+		paths.default + '/js/musica/MusicaEscalaModule.js'		
 	]).pipe(size({showFiles: true, title: "AngularJS (Escala):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-musica-escala-module.min.js'))
