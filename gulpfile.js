@@ -110,10 +110,7 @@ gulp.task('js', function(done){
 gulp.task('angular', function(done){
 	// Usuários
 	gulp.src([
-		paths.default + '/js/users/UserModule.js'
-		, paths.default + '/js/users/UserIndexCtrl.js'
-		, paths.default + '/js/users/UserCreateCtrl.js'
-		, paths.default + '/js/users/UserEditCtrl.js'
+		paths.default + '/js/users/UserModule.js'		
 	]).pipe(size({showFiles: true, title: "AngularJS (Usuários):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-users-module.min.js'))
