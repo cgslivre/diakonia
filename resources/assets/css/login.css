@@ -56,19 +56,22 @@
     position: relative;
 }
 
-.login-form-group > input{
+.login-form-group > input, .login-form-group > input:-webkit-autofill
+, .login-form-group > input:-webkit-autofill:hover
+, .login-form-group > input:-webkit-autofill:focus
+, .login-form-group > input:-webkit-autofill:active{
     border: 2px solid transparent;
     border-radius: 4px;
     width: 100%;
     margin: 8px 0px;
-    -webkit-transition: all 0.4s ease-out;
+    -webkit-transition: all 0.4s ease-out;    
     -moz-transition: all 0.4s ease-out;
     -ms-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
     font-size: 1.5rem;
     padding: 12px 12px 12px 45px;
-    background: transparent;
+    background: transparent !important;
     height: 5rem;
     border-bottom: 1px solid #657d7d;
     font-weight: 500;

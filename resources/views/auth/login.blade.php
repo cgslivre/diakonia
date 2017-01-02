@@ -9,7 +9,7 @@
         </header>
         <div class="login-conteudo">
             <div class="login-header text-center">Login</div>
-                <form role="form" method="POST" action="{{ url('/login') }}">
+                <form role="form" method="POST" action="{{ url('/login') }}" autocomplete="off">
                     {!! csrf_field() !!}
                     <div class="login-form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <label for="email" class="user"></label>
