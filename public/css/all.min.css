@@ -9445,8 +9445,8 @@ span.idade{padding:6px;}
 
 .esqueci-senha{
     padding-top: 20px;
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.4rem;
     display: inline-block;
 }
 
@@ -9490,7 +9490,7 @@ span.idade{padding:6px;}
     border-radius: 4px;
     width: 100%;
     margin: 8px 0px;
-    -webkit-transition: all 0.4s ease-out;    
+    -webkit-transition: all 0.4s ease-out;
     -moz-transition: all 0.4s ease-out;
     -ms-transition: all 0.4s ease-out;
     -o-transition: all 0.4s ease-out;
