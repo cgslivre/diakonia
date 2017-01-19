@@ -36,12 +36,10 @@
     "ng-remote-validate": "^0.6.1",
     "ng-tags-input": "3.1.1",
     "select2": "^4.0.2",
-    "angular-moment-picker": "moment-picker#^0.9.3",
-    "angular-bootstrap": "^2.4.0",
     "angular-i18n": "^1.6.1"
   },
   "resolutions": {
-    "angular": "1.6.1",
-    "moment": "^2.13.0"
+    "angular": "1.6.1"
+
   }
 }
