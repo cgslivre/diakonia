@@ -35,13 +35,20 @@ class RelacionamentosSeeder extends Seeder
         ],
         [
             'id' => 4,
+            'desc_geral' => 'conjuge',
+            'desc_masc' => 'marido',
+            'desc_fem' => 'esposa',
+            'categoria' => 'familia'
+        ],
+        [
+            'id' => 5,
             'desc_geral' => 'discipulo',
             'desc_masc' => 'discípulo',
             'desc_fem' => 'discípula',
             'categoria' => 'igreja'
         ],
         [
-            'id' => 5,
+            'id' => 6,
             'desc_geral' => 'discipulador',
             'desc_masc' => 'discipulador',
             'desc_fem' => 'discipuladora',

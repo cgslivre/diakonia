@@ -33,6 +33,10 @@ class Membro extends Model
         return $this->hasOne('App\Model\membro\GrupoCaseiro','id','grupo_caseiro_id');
     }
 
+    public function relacionamentos(){
+        return $this->hasMany('App\Model\membro\RelacionamentoMembro','membro_de_id','id');
+    }
+
     public function getIdadeAttribute(){
         $hoje = new Carbon();
         $nascimento = Carbon::createFromFormat('Y-m-d', $this->data_nascimento);
