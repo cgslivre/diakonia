@@ -7737,6 +7737,50 @@ ul.thumbnails.image_picker_selector {
     ul.thumbnails.image_picker_selector li .thumbnail.selected {
       background: #0088cc; }
 
+/* Include this file in your html if you are using the CSP mode. */
+
+.uib-datepicker-popup.dropdown-menu {
+  display: block;
+  float: none;
+  margin: 0;
+}
+
+.uib-button-bar {
+  padding: 10px 9px 2px;
+}
+
+.uib-datepicker .uib-title {
+  width: 100%;
+}
+
+.uib-day button, .uib-month button, .uib-year button {
+  min-width: 100%;
+}
+
+.uib-left, .uib-right {
+  width: 100%
+}
+
+.uib-position-measure {
+  display: block !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+.uib-position-scrollbar-measure {
+  position: absolute !important;
+  top: -9999px !important;
+  width: 50px !important;
+  height: 50px !important;
+  overflow: scroll !important;
+}
+
+.uib-position-body-scrollbar-measure {
+  overflow: scroll !important;
+}
+
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -9033,6 +9077,8 @@ input.collapse-input[type=checkbox]:checked + label:before { content: "\f077"; }
 input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px; }
 
 .lbl-margin-center{margin-top: 6px;}
+
+.required{color:#E63946;}
 
 tags-input {
   display: block;

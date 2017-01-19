@@ -29,7 +29,7 @@
    {{-- Nome --}}
     <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}"
       ng-class="{'has-error' : membroForm.nome.$invalid && !membroForm.nome.$pristine}">
-      {{ Form::label('nome','Nome:',['class'=>'col-sm-2 control-label'])}}
+      <label for="nome" class="col-sm-2 control-label"><span class="required">*</span>Nome:</label>
         <div class="col-sm-4">
 
             <input class="form-control" placeholder="Nome completo" name="nome" type="text"
@@ -65,7 +65,7 @@
 
     {{-- Sexo --}}
     <div class="form-group">
-        {{ Form::label('sexo','Sexo:',['class'=>'col-sm-2 control-label'])}}
+        <label for="drco" class="col-sm-2 control-label"><span class="required">*</span>Sexo:</label>
         <div class="col-sm-4">
             <div class="radio3 radio-check radio-success radio-inline">
                 <input type="radio" name="sexo" ng-model="membro.sexo"
@@ -81,24 +81,13 @@
     </div>
 
     {{-- Data Nascimento --}}
-    <div class="form-group {{ $errors->has('hora') ? ' has-error' : '' }}"
-        ng-class="{'has-error' : membroForm.data_nascimento.$invalid && !membroForm.data_nascimento.$pristine}">
-        {{ Form::label('data_nascimento','Data de Nascimento:',['class'=>'col-sm-2 control-label'])}}
+    <div class="form-group">
+        <label for="data_nascimento" class="col-sm-2 control-label">
+            <span class="required">*</span>Data de Nascimento:</label>
         <div class="col-sm-4">
-            <input class="form-control" placeholder="dd/mm/AAAA" name="data_nascimento"
-                ng-model="membro.data_nascimento" ng-required="true" datetime="dd/MM/yyyy" datetime-model="dd/MM/yyyy"
-                    type="text" id="data_nascimento"  tabindex="5">
-                    <span class="idade"></span>
-            @if ($errors->has('hora'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('hora') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div ng-show="membroForm.datanascimento.$dirty" ng-messages="membroForm.datanascimento.$error">
-            <span ng-message="required" class="help-block">
-                <strong>Data de Nascimento é obrigatória.</strong>
-            </span>
+            <input type="text" class="form-control" ng-model="membro.data_nascimento" is-open="focus"
+                ng-focus="focus=true" datepicker-options="dateOptions" show-button-bar="false"
+                uib-datepicker-popup="d/M/yyyy" ng-required="true" name="data_nascimento"/>
         </div>
     </div>
 

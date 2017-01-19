@@ -1,4 +1,5 @@
-var app = angular.module('membrosRecord', ['ngMessages','ngSanitize','ui.mask','remoteValidation', 'ngResource', 'comum','ngTagsInput'])
+var app = angular.module('membrosRecord', ['ngMessages','ngSanitize'
+    ,'ui.mask','remoteValidation', 'ngResource', 'comum','ngTagsInput','ui.bootstrap'])
   .config(['$interpolateProvider', function ($interpolateProvider) {
       $interpolateProvider.startSymbol('<%');
       $interpolateProvider.endSymbol('%>');
@@ -101,6 +102,8 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
 
 app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
+      var vm = this;
+    vm.focus = false;
     $scope.button = "Cadastrar Membro";
     $scope.edit = false;
 
@@ -114,6 +117,13 @@ app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
     $scope.membro = {};
     $scope.membro.avatar_path = '/img/membro/000-default-homem-70px.jpg';
 
+    $scope.dateOptions = {
+        dateDisabled: false,
+        formatYear: 'yyyy',
+        showWeeks: false,
+        maxDate: new Date(),
+        startingDay: 1
+    };
 
   }
 ]);
