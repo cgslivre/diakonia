@@ -52,13 +52,21 @@
     <div class="form-group">
         {{ Form::label('grupo_caseiro_id','Grupo Caseiro:',['class'=>'col-sm-2 control-label'])}}
       <div class="col-sm-4">
-          <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control"
+        <!--  <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control"
                     ng-model="membro.grupo_caseiro_id"  tabindex="2">
-                    <option ng-selected="true" value="" ng-show="!edit">Selecione um grupo caseiro...</option>
+                    <option ng-selected="membro.grupo_caseiro_id == null" value=""
+                            ng-show="!edit">Selecione um grupo caseiro...</option>
                         <option data-ng-repeat="g in grupos" value="<%g.id%>"
                             ng-selected="membro.grupo_caseiro_id==g.id"
-                        ><%g.nome%></option>
+                        ><%g.nome%> : <%membro.grupo_caseiro_id%>:<%g.id%></option>
           </select>
+      -->
+      <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control" ng-model="membro.grupo_caseiro_id"
+              tabindex="2"
+              ng-options="g.id as g.nome for g in grupos">
+              <option ng-selected="membro.grupo_caseiro_id == null" value=""
+                      ng-show="!edit">Selecione um grupo caseiro...</option>
+      </select>
 
       </div>
     </div>

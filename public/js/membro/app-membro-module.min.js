@@ -145,7 +145,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.nome = post['nome'];
     $scope.membro.grupo_caseiro_id = post['grupo_caseiro_id'];
     $scope.membro.sexo = post['sexo'];
-    var dia = moment(post['data_nascimento']).format('D/M/YYYY');
+    var dia = moment(post['data_nascimento'],"Y-MM-DD").toDate();
     $scope.membro.data_nascimento = dia;
 
     var avatar = post['avatar_path'];
