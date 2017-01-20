@@ -9,7 +9,7 @@ class RelacionamentoMembro extends Model
     protected $table = 'relacionamento_membros';
     public $timestamps  = false;
 
-    protected $with = ['membroDe','membroPara','relacionamento'];
+    protected $with = ['membroDe','membroPara'];
 
     public function membroDe(){
         return $this->hasOne('App\Model\membro\Membro','id','membro_de_id');

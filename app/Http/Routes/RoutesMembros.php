@@ -10,6 +10,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('membro/grupo-caseiro','membro\GrupoCaseiroController@salvar');
 
     Route::resource('membro','membro\MembroController');
+    Route::get('membro/{membro}/relacionamentos/{categoria?}', 'membro\RelacionamentoController@relacionamentos');
     Route::get('membros', 'membro\MembroController@lista')->name('membros.lista');
 
 

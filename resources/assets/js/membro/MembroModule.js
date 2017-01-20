@@ -141,6 +141,10 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         $scope.regioes = response.data;
     });
 
+    $http.get("/membro/" + post["id"] + "/relacionamentos").then( function(response){
+        $scope.relacionamentos = response.data;
+    });
+
     $scope.membro = {};
     $scope.membro.nome = post['nome'];
     $scope.membro.grupo_caseiro_id = post['grupo_caseiro_id'];

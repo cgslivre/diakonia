@@ -200,4 +200,8 @@
     </div>
 
   </div>
+  <h3>Relacionamentos</h3>
+  <div ng-repeat="relacionamento in relacionamentos track by relacionamento.id">
+      <%relacionamento%>
+  </div>
 </div>

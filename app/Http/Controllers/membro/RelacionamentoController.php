@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use App\Model\membro\Membro;
+use App\Model\membro\Relacionamento;
+use App\Model\membro\RelacionamentoMembro;
 
 class RelacionamentoController extends Controller
 {
@@ -19,7 +21,25 @@ class RelacionamentoController extends Controller
         $this->middleware('auth');
     }
 
-    public function relacionamentosDoUsuario( $membro ){
-        
+    public function relacionamentos( $membro , $categoria = null){
+        if( $categoria == null ){
+            return RelacionamentoMembro::where('membro_de_id',$membro)->get();
+        }
+
+        if( $categoria == Relacionamento::CATEGORIA_IGREJA ||
+            $categoria == Relacionamento::CATEGORIA_FAMILIA ){
+                $rels = RelacionamentoMembro::with('relacionamento')
+                    ->join('relacionamentos', 'relacionamento_id', '=', 'relacionamentos.id')
+                    ->where('membro_de_id',$membro)
+                    ->where('relacionamentos.categoria','=',$categoria)
+                    ->get();
+                return $rels;
+        } else{
+            abort(404);
+        }
+
+
+
+
     }
 }
