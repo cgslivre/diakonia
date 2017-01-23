@@ -52,18 +52,9 @@
         <div class="form-group">
             {{ Form::label('grupo_caseiro_id','Grupo Caseiro:',['class'=>'col-sm-2 control-label'])}}
             <div class="col-sm-4">
-                <!--  <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control"
-                ng-model="membro.grupo_caseiro_id"  tabindex="2">
-                <option ng-selected="membro.grupo_caseiro_id == null" value=""
-                ng-show="!edit">Selecione um grupo caseiro...</option>
-                <option data-ng-repeat="g in grupos" value="<%g.id%>"
-                ng-selected="membro.grupo_caseiro_id==g.id"
-                ><%g.nome%> : <%membro.grupo_caseiro_id%>:<%g.id%></option>
-            </select>
-        -->
         <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control" ng-model="membro.grupo_caseiro_id"
         tabindex="2"
-        ng-options="g.id as g.nome for g in grupos">
+        ng-options="g.id as g.nome for g in grupos track by g.id">
         <option ng-selected="membro.grupo_caseiro_id == null" value=""
         ng-show="!edit">Selecione um grupo caseiro...</option>
     </select>
@@ -235,9 +226,23 @@
     <p ng-show="relacionamentosIgreja.length == 0 ">
         Nenhum relacionamento na igreja cadastrado.
     </p>
-    <div ng-repeat="relacionamento in relacionamentosIgreja track by relacionamento.id">
+    <ul>
+        <li ng-repeat="relacionamento in relacionamentosIgreja track by relacionamento.id"
+        class="relacionamento"
+        ng-class="relacionamento.desc_geral">
+            <span class="membro-de"><%membro.nome%></span> é
+            <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
+                    ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
+            de
+            <span>
+                <a href="<%userShowLink(relacionamento.membro_para.id)%>">
+                    <%relacionamento.membro_para.nome%></a>
+            </span>.
 
-    </div>
+
+    </li>
+    </ul>
+    
 </div>
 
 </div>
