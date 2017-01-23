@@ -21,7 +21,7 @@ class RelacionamentoController extends Controller
         $this->middleware('auth');
     }
 
-    public function relacionamentos( $membro , $categoria = null){
+    public function relacionamentosMembro( $membro , $categoria = null){
         if( $categoria == null ){
             return RelacionamentoMembro::where('membro_de_id',$membro)->get();
         }
@@ -37,9 +37,20 @@ class RelacionamentoController extends Controller
         } else{
             abort(404);
         }
-
-
-
-
     }
+
+    public function relacionamentos( $categoria = null ){
+        if( $categoria == null ){
+            return Relacionamento::orderby('categoria')->get();
+        }
+
+        if( $categoria == Relacionamento::CATEGORIA_IGREJA ||
+            $categoria == Relacionamento::CATEGORIA_FAMILIA ){
+            $rels = Relacionamento::where('categoria',$categoria)->get();
+            return $rels;
+        } else{
+            abort(404);
+        }
+    }
+
 }
