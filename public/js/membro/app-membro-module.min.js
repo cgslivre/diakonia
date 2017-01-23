@@ -141,9 +141,17 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         $scope.regioes = response.data;
     });
 
-    $http.get("/membro/" + post["id"] + "/relacionamentos").then( function(response){
-        $scope.relacionamentos = response.data;
+    $http.get("/membro/" + post["id"] + "/relacionamentos/igreja").then( function(response){
+        $scope.relacionamentosIgreja = response.data;
     });
+
+    $http.get("/membro/" + post["id"] + "/relacionamentos/familia").then( function(response){
+        $scope.relacionamentosFamilia = response.data;
+    });
+
+    $scope.userShowLink = function( membro ){
+        return window.location.origin + '/membro/' + membro + '/edit';
+	};
 
     $scope.membro = {};
     $scope.membro.nome = post['nome'];
