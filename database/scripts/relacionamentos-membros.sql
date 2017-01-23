@@ -21,8 +21,7 @@
 
 LOCK TABLES `relacionamento_membros` WRITE;
 /*!40000 ALTER TABLE `relacionamento_membros` DISABLE KEYS */;
-INSERT INTO `relacionamento_membros` VALUES (1,2,5,4);
-INSERT INTO `relacionamento_membros` VALUES (2,5,2,4);
+INSERT INTO `relacionamento_membros` VALUES (1,2,5,4),(2,5,2,4),(3,2,7,5),(4,7,2,6);
 /*!40000 ALTER TABLE `relacionamento_membros` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -35,4 +34,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-23 14:12:13
+-- Dump completed on 2017-01-23 16:34:52

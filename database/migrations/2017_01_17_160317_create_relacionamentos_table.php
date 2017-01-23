@@ -19,6 +19,7 @@ class CreateRelacionamentosTable extends Migration
             $table->string('desc_masc',30);
             $table->string('desc_fem',30);
             $table->string('categoria',30);
+            $table->integer('rel_inverso_id')->unsigned()->index();
 
 
 

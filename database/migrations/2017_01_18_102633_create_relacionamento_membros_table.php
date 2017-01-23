@@ -15,16 +15,16 @@ class CreateRelacionamentoMembrosTable extends Migration
         Schema::create('relacionamento_membros', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('membro_de_id')->unsigned()->index()->nullable();
+            $table->integer('membro_de_id')->unsigned()->index();
             $table->foreign('membro_de_id')
                 ->references('id')
                 ->on('membros');
-            $table->integer('membro_para_id')->unsigned()->index()->nullable();
+            $table->integer('membro_para_id')->unsigned()->index();
             $table->foreign('membro_para_id')
                 ->references('id')
                 ->on('membros');
 
-            $table->integer('relacionamento_id')->unsigned()->index()->nullable();
+            $table->integer('relacionamento_id')->unsigned()->index();
             $table->foreign('relacionamento_id')
                 ->references('id')
                 ->on('relacionamentos');
