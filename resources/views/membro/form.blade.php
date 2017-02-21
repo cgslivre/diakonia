@@ -221,7 +221,7 @@
 
             </li>
         </ul>
-        <div class="add-relacionamento form-group">
+        <div class="add-relacionamento">
             <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
             <span class="membro"><%membro.nome%></span> é
 
@@ -234,16 +234,23 @@
         de
         <input
         	type="text"
-        	ng-model="asyncSelected"
+        	ng-model="id_rel_familia_selected"
         	placeholder="escolher membro"
-        	uib-typeahead="membro.nome for membro in getLocation($viewValue)"
-        	typeahead-loading="loadingLocations"
-        	typeahead-no-results="noResults"
+        	uib-typeahead="membro.id as membro.nome for membro in getMembrosRelacionamento($viewValue)"
+            typeahead-editable="false"
+            typeahead-input-formatter="formatInput($model)"
+        	typeahead-loading="carregandoMembrosRelFamilia"
+        	typeahead-no-results="semResultadosMembrosRelFamilia"
         	class="">
-            <i ng-show="loadingLocations" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-            <div ng-show="noResults">
-              <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado</div>
+                <i ng-show="carregandoMembrosRelFamilia" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                <div ng-show="semResultadosMembrosRelFamilia">
+                  <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado
+                </div>
+                <a href="#"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
             </div>
+
+            <br>
+            <%id_rel_familia_selected%>
 
 <hr class="divider">
 <h4>Igreja</h4>

@@ -129,7 +129,9 @@ app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
 app.controller('membroEditCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
     $scope.button = "Atualizar Membro";
+    $scope.id_rel_familia_selected = null;
     $scope.edit = true;
+    var membros;
 
     var array=[];
     var self = this;
@@ -210,20 +212,12 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.email = post['email'];
     $scope.membro.telefones = post['telefones_json'];
 
-    $scope.loadMembrosFamilia = function(query) {
-        return $http.get('/membro', {cache: true}).then( function(response){
-            var membros = response.data;
-            return membros.filter(
-                function( membro ){
-                    return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
-                });
-            });
-    };
 
-    $scope.getLocation = function(query) {
+
+    $scope.getMembrosRelacionamento = function(query) {
         return $http.get('/membro', {cache: true})
             .then(function(response){
-                var membros = response.data;
+                membros = response.data;
                 return membros.filter(
                     function( membro ){
                         return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
@@ -231,6 +225,16 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
 
             });
       };
+
+    $scope.formatInput = function($model) {
+        var inputLabel = '';
+        angular.forEach(membros, function(state) {
+            if ($model === state.id) {
+                inputLabel = state.nome;
+            }
+        });
+        return inputLabel;
+    }
 
 
 
