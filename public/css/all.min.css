@@ -9096,6 +9096,9 @@ div.relacionamentos ul li{
     list-style-type: none;
 }
 
+.add-relacionamento{margin-top: 15px;}
+.incluir-relacionamento{margin-right: 5px;}
+
 tags-input {
   display: block;
 }

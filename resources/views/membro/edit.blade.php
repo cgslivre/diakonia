@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container-fluid" ng-app="membrosRecord" ng-controller="membroEditCtrl">
+<div class="container-fluid" ng-app="membrosRecord" ng-controller="membroEditCtrl as ctrl">
     {{ Form::model($membro, ['method' => 'PATCH' , 'action'=>['membro\MembroController@update',$membro->id]
         ,'files' => true, 'name'=>'membroForm'
         , 'class'=> 'form-horizontal']) }}

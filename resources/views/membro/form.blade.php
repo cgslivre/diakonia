@@ -52,145 +52,145 @@
         <div class="form-group">
             {{ Form::label('grupo_caseiro_id','Grupo Caseiro:',['class'=>'col-sm-2 control-label'])}}
             <div class="col-sm-4">
-        <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control" ng-model="membro.grupo_caseiro_id"
-        tabindex="2"
-        ng-options="g.id as g.nome for g in grupos track by g.id">
-        <option ng-selected="membro.grupo_caseiro_id == null" value=""
-        ng-show="!edit">Selecione um grupo caseiro...</option>
-    </select>
-
-</div>
-</div>
-
-{{-- Sexo --}}
-<div class="form-group">
-    <label for="drco" class="col-sm-2 control-label"><span class="required">*</span>Sexo:</label>
-    <div class="col-sm-4">
-        <div class="radio3 radio-check radio-success radio-inline">
-            <input type="radio" name="sexo" ng-model="membro.sexo"
-            id="sexo-masculino" value="M" required  tabindex="3">
-            <label for="sexo-masculino">Masculino</label>
-        </div>
-        <div class="radio3 radio-check radio-success radio-inline">
-            <input type="radio" name="sexo" ng-model="membro.sexo"
-            id="sexo-feminino" value="F" required  tabindex="4">
-            <label for="sexo-feminino">Feminino</label>
-        </div>
-    </div>
-</div>
-
-{{-- Data Nascimento --}}
-<div class="form-group">
-    <label for="data_nascimento" class="col-sm-2 control-label">
-        <span class="required">*</span>Data de Nascimento:</label>
-        <div class="col-sm-4">
-            <input type="text" class="form-control" ng-model="membro.data_nascimento" is-open="focus"
-            ng-focus="focus=true" datepicker-options="dateOptions" show-button-bar="false"
-            uib-datepicker-popup="d/M/yyyy" ng-required="true" name="data_nascimento"/>
-        </div>
-    </div>
-
-    {{-- Região --}}
-    <div class="form-group">
-        {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
-        <div class="col-sm-4">
-            <select name="regiao" id="regiao" class="form-control"
-            ng-model="membro.regiao"  tabindex="6">
-            <option ng-selected="true" value="" ng-show="!edit">Selecione uma região...</option>
-            <option data-ng-repeat="r in regioes" value="<%r.nome%>"
-                ng-selected="membro.regiao==r.nome"
-                ><%r.nome%></option>
+                <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control" ng-model="membro.grupo_caseiro_id"
+                tabindex="2"
+                ng-options="g.id as g.nome for g in grupos track by g.id">
+                <option ng-selected="membro.grupo_caseiro_id == null" value=""
+                ng-show="!edit">Selecione um grupo caseiro...</option>
             </select>
+
         </div>
     </div>
 
-    {{-- Endereço --}}
+    {{-- Sexo --}}
     <div class="form-group">
-        {{ Form::label('endereco','Endereço:',['class'=>'col-sm-2 control-label'])}}
+        <label for="drco" class="col-sm-2 control-label"><span class="required">*</span>Sexo:</label>
         <div class="col-sm-4">
-            <input class="form-control" placeholder="Endereço" name="endereco" type="text"
-            ng-model="membro.endereco" id="endereco"  tabindex="7">
+            <div class="radio3 radio-check radio-success radio-inline">
+                <input type="radio" name="sexo" ng-model="membro.sexo"
+                id="sexo-masculino" value="M" required  tabindex="3">
+                <label for="sexo-masculino">Masculino</label>
+            </div>
+            <div class="radio3 radio-check radio-success radio-inline">
+                <input type="radio" name="sexo" ng-model="membro.sexo"
+                id="sexo-feminino" value="F" required  tabindex="4">
+                <label for="sexo-feminino">Feminino</label>
+            </div>
         </div>
     </div>
 
-    {{-- Email --}}
-    <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}"
-        ng-class="{'has-error' : membroForm.email.$invalid && !membroForm.email.$pristine}">
-        {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label'])}}
-        <div class="col-sm-4">
-            <input class="form-control" placeholder="Endereço de email" name="email"
-            type="email" id="email" ng-model="membro.email"  tabindex="8">
-            @if ($errors->has('email'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('email') }}</strong>
+    {{-- Data Nascimento --}}
+    <div class="form-group">
+        <label for="data_nascimento" class="col-sm-2 control-label">
+            <span class="required">*</span>Data de Nascimento:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" ng-model="membro.data_nascimento" is-open="focus"
+                ng-focus="focus=true" datepicker-options="dateOptions" show-button-bar="false"
+                uib-datepicker-popup="d/M/yyyy" ng-required="true" name="data_nascimento"/>
+            </div>
+        </div>
+
+        {{-- Região --}}
+        <div class="form-group">
+            {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
+            <div class="col-sm-4">
+                <select name="regiao" id="regiao" class="form-control"
+                ng-model="membro.regiao"  tabindex="6">
+                <option ng-selected="true" value="" ng-show="!edit">Selecione uma região...</option>
+                <option data-ng-repeat="r in regioes" value="<%r.nome%>"
+                    ng-selected="membro.regiao==r.nome"
+                    ><%r.nome%></option>
+                </select>
+            </div>
+        </div>
+
+        {{-- Endereço --}}
+        <div class="form-group">
+            {{ Form::label('endereco','Endereço:',['class'=>'col-sm-2 control-label'])}}
+            <div class="col-sm-4">
+                <input class="form-control" placeholder="Endereço" name="endereco" type="text"
+                ng-model="membro.endereco" id="endereco"  tabindex="7">
+            </div>
+        </div>
+
+        {{-- Email --}}
+        <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}"
+            ng-class="{'has-error' : membroForm.email.$invalid && !membroForm.email.$pristine}">
+            {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label'])}}
+            <div class="col-sm-4">
+                <input class="form-control" placeholder="Endereço de email" name="email"
+                type="email" id="email" ng-model="membro.email"  tabindex="8">
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                @endif
+            </div>
+            <div ng-show="membroForm.email.$dirty" ng-messages="membroForm.email.$error">
+                <span ng-message="email" class="help-block">
+                    <strong>O email é inválido.</strong>
                 </span>
-            @endif
-        </div>
-        <div ng-show="membroForm.email.$dirty" ng-messages="membroForm.email.$error">
-            <span ng-message="email" class="help-block">
-                <strong>O email é inválido.</strong>
-            </span>
-        </div>
-    </div>
-
-
-    {{-- Telefones --}}
-
-    <div class="form-group">
-        {{ Form::label('telefone','Telefone(s):',['class'=>'col-sm-2 control-label'])}}
-        <div class="col-sm-4">
-            <div class="phone-list">
-                <div class="input-group phone-input" ng-show="!membro.telefones">
-                    {{-- Apenas para criação (telefone em branco)--}}
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-expanded="false">
-                        <span class="type-text">Tipo</span> <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="changeType" href="javascript:;" data-type-value="celular">Celular</a></li>
-                            <li><a class="changeType" href="javascript:;" data-type-value="residencial">Residencial</a></li>
-                            <li><a class="changeType" href="javascript:;" data-type-value="comercial">Comercial</a></li>
-                        </ul>
-                    </span>
-                    <input type="hidden" name="telefone[1][tipo]" class="type-input" value="" />
-                    <input type="text" name="telefone[1][numero]"
-                    class="form-control" placeholder="99999 9999"
-                    tabindex="9"/>
-                </div>
-                {{-- Edição--}}
-                <div class="input-group phone-input" ng-repeat="tel in membro.telefones">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle"
-                        data-toggle="dropdown"
-                        aria-expanded="false">
-                        <span class="type-text"><%tel.tipo%></span> <span class="caret"></span></button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a class="changeType" href="javascript:;" data-type-value="celular">Celular</a></li>
-                            <li><a class="changeType" href="javascript:;" data-type-value="residencial">Residencial</a></li>
-                            <li><a class="changeType" href="javascript:;" data-type-value="comercial">Comercial</a></li>
-                        </ul>
-                    </span>
-                    <input type="hidden" name="telefone[1][tipo]" class="type-input" value="<%tel.tipo%>" />
-                    <input type="text" name="telefone[1][numero]" class="form-control" placeholder="99999 9999" value="<%tel.numero%>"/>
-                </div>
             </div>
-            <button type="button" class="btn btn-success btn-sm btn-add-phone">
-                <i class="fa fa-plus" aria-hidden="true"></i> Adicionar outro telefone</button>
-            </div>
-
         </div>
+
+
+        {{-- Telefones --}}
 
         <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button class="btn btn-info"   tabindex="10"
-                ng-disabled="membroForm.$invalid">
-                <% button %>
-            </button>
-        </div>
-    </div>
+            {{ Form::label('telefone','Telefone(s):',['class'=>'col-sm-2 control-label'])}}
+            <div class="col-sm-4">
+                <div class="phone-list">
+                    <div class="input-group phone-input" ng-show="!membro.telefones">
+                        {{-- Apenas para criação (telefone em branco)--}}
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="type-text">Tipo</span> <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="changeType" href="javascript:;" data-type-value="celular">Celular</a></li>
+                                <li><a class="changeType" href="javascript:;" data-type-value="residencial">Residencial</a></li>
+                                <li><a class="changeType" href="javascript:;" data-type-value="comercial">Comercial</a></li>
+                            </ul>
+                        </span>
+                        <input type="hidden" name="telefone[1][tipo]" class="type-input" value="" />
+                        <input type="text" name="telefone[1][numero]"
+                        class="form-control" placeholder="99999 9999"
+                        tabindex="9"/>
+                    </div>
+                    {{-- Edição--}}
+                    <div class="input-group phone-input" ng-repeat="tel in membro.telefones">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle"
+                            data-toggle="dropdown"
+                            aria-expanded="false">
+                            <span class="type-text"><%tel.tipo%></span> <span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a class="changeType" href="javascript:;" data-type-value="celular">Celular</a></li>
+                                <li><a class="changeType" href="javascript:;" data-type-value="residencial">Residencial</a></li>
+                                <li><a class="changeType" href="javascript:;" data-type-value="comercial">Comercial</a></li>
+                            </ul>
+                        </span>
+                        <input type="hidden" name="telefone[1][tipo]" class="type-input" value="<%tel.tipo%>" />
+                        <input type="text" name="telefone[1][numero]" class="form-control" placeholder="99999 9999" value="<%tel.numero%>"/>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success btn-sm btn-add-phone">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Adicionar outro telefone</button>
+                </div>
 
-</div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-info"   tabindex="10"
+                    ng-disabled="membroForm.$invalid">
+                    <% button %>
+                </button>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <div class="row">
@@ -209,40 +209,64 @@
             <li ng-repeat="relacionamento in relacionamentosFamilia track by relacionamento.id"
             class="relacionamento"
             ng-class="relacionamento.desc_geral">
-                <span class="membro-de"><%membro.nome%></span> é
-                <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
-                        ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
-                de
-                <span>
-                    <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-                        <%relacionamento.membro_para.nome%></a>
-                </span>.
-
-
-        </li>
-    </ul>
-    <hr class="divider">
-    <h4>Igreja</h4>
-    <p ng-show="relacionamentosIgreja.length == 0 ">
-        Nenhum relacionamento na igreja cadastrado.
-    </p>
-    <ul>
-        <li ng-repeat="relacionamento in relacionamentosIgreja track by relacionamento.id"
-        class="relacionamento"
-        ng-class="relacionamento.desc_geral">
             <span class="membro-de"><%membro.nome%></span> é
             <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
-                    ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
+            ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
             de
             <span>
                 <a href="<%userShowLink(relacionamento.membro_para.id)%>">
                     <%relacionamento.membro_para.nome%></a>
-            </span>.
+                </span>.
+
+
+            </li>
+        </ul>
+        <div class="add-relacionamento form-group">
+            <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
+            <span class="membro"><%membro.nome%></span> é
+
+            <select name="relacionamento_familia_id" id="relacionamento_familia_id"
+            ng-model="add_rel_familia_relacionamento">
+            <option ng-repeat="rel_familia in listaRelacionamentosFamilia" value="rel_familia.id">
+                <%rel_familia.desc_geral%>
+            </option>
+        </select>
+        de
+        <input
+        	type="text"
+        	ng-model="asyncSelected"
+        	placeholder="escolher membro"
+        	uib-typeahead="membro.nome for membro in getLocation($viewValue)"
+        	typeahead-loading="loadingLocations"
+        	typeahead-no-results="noResults"
+        	class="">
+            <i ng-show="loadingLocations" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+            <div ng-show="noResults">
+              <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado</div>
+            </div>
+
+<hr class="divider">
+<h4>Igreja</h4>
+<p ng-show="relacionamentosIgreja.length == 0 ">
+    Nenhum relacionamento na igreja cadastrado.
+</p>
+<ul>
+    <li ng-repeat="relacionamento in relacionamentosIgreja track by relacionamento.id"
+    class="relacionamento"
+    ng-class="relacionamento.desc_geral">
+    <span class="membro-de"><%membro.nome%></span> é
+    <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
+    ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
+    de
+    <span>
+        <a href="<%userShowLink(relacionamento.membro_para.id)%>">
+            <%relacionamento.membro_para.nome%></a>
+        </span>.
 
 
     </li>
-    </ul>
-    
+</ul>
+
 </div>
 
 </div>

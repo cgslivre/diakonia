@@ -98,8 +98,6 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
 
 }]);
 
-
-
 app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
       var vm = this;
@@ -133,6 +131,44 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.button = "Atualizar Membro";
     $scope.edit = true;
 
+    var array=[];
+    var self = this;
+    $http.get("/membro").then(function (result) {
+          array = result.data;
+          init();
+    });
+    function init(){
+          self.simulateQuery = false;
+          self.isDisabled = false;
+          self.querySearch = querySearch;
+          self.selectedItemChange = selectedItemChange;
+          self.searchTextChange = searchTextChange;
+    }
+
+    function querySearch(query) {
+        console.log(array);
+        var results = query ? array.filter(createFilterFor(query)) : array;
+        console.log(results);
+        return results;
+    }
+
+    function searchTextChange(text) {
+        console.log('Text changed to ' + text);
+    }
+
+    function selectedItemChange(item) {
+        console.log('Item changed');
+    }
+
+    function createFilterFor(query) {
+        console.log('pesquisa: ' + query);
+        var lowercaseQuery = query.toLowerCase();
+        return function filterFn(item) {
+            return (item.nome.toLowerCase().indexOf(lowercaseQuery) != -1);
+        };
+    }
+
+
     $http.get("/membro/grupo-caseiro/lista").then(function(response) {
         $scope.grupos = response.data;
     });
@@ -147,6 +183,10 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
 
     $http.get("/membro/" + post["id"] + "/relacionamentos/familia").then( function(response){
         $scope.relacionamentosFamilia = response.data;
+    });
+
+    $http.get("/membros/relacionamentos/familia").then(function(response) {
+        $scope.listaRelacionamentosFamilia = response.data;
     });
 
     $scope.userShowLink = function( membro ){
@@ -169,6 +209,31 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.endereco = post['endereco'];
     $scope.membro.email = post['email'];
     $scope.membro.telefones = post['telefones_json'];
+
+    $scope.loadMembrosFamilia = function(query) {
+        return $http.get('/membro', {cache: true}).then( function(response){
+            var membros = response.data;
+            return membros.filter(
+                function( membro ){
+                    return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
+                });
+            });
+    };
+
+    $scope.getLocation = function(query) {
+        return $http.get('/membro', {cache: true})
+            .then(function(response){
+                var membros = response.data;
+                return membros.filter(
+                    function( membro ){
+                        return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
+                    });
+
+            });
+      };
+
+
+
 
   }
 ]);
