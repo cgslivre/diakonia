@@ -56,8 +56,7 @@
                 ng-model="membro.grupo"
                 tabindex="2"
                 ng-options="g as g.nome for g in grupos track by g.id">
-                <!--<option ng-selected="membro.grupo_caseiro_id == null" value=""
-                ng-show="false">Selecione um grupo caseiro...</option>-->
+                <option ng-show="!edit" value="">Escolha um grupo caseiro</option>
             </select>
         </div>
     </div>
