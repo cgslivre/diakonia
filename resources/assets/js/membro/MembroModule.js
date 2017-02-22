@@ -129,47 +129,7 @@ app.controller('membroCreateCtrl', ['$scope', '$http', '$location',
 app.controller('membroEditCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
     $scope.button = "Atualizar Membro";
-    $scope.id_rel_familia_selected = null;
     $scope.edit = true;
-    var membros;
-
-    var array=[];
-    var self = this;
-    $http.get("/membro").then(function (result) {
-          array = result.data;
-          init();
-    });
-    function init(){
-          self.simulateQuery = false;
-          self.isDisabled = false;
-          self.querySearch = querySearch;
-          self.selectedItemChange = selectedItemChange;
-          self.searchTextChange = searchTextChange;
-    }
-
-    function querySearch(query) {
-        console.log(array);
-        var results = query ? array.filter(createFilterFor(query)) : array;
-        console.log(results);
-        return results;
-    }
-
-    function searchTextChange(text) {
-        console.log('Text changed to ' + text);
-    }
-
-    function selectedItemChange(item) {
-        console.log('Item changed');
-    }
-
-    function createFilterFor(query) {
-        console.log('pesquisa: ' + query);
-        var lowercaseQuery = query.toLowerCase();
-        return function filterFn(item) {
-            return (item.nome.toLowerCase().indexOf(lowercaseQuery) != -1);
-        };
-    }
-
 
     $http.get("/membro/grupo-caseiro/lista").then(function(response) {
         $scope.grupos = response.data;
@@ -197,11 +157,11 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
 
     $scope.membro = {};
     $scope.membro.nome = post['nome'];
-    $scope.membro.grupo_caseiro_id = post['grupo_caseiro_id'];
+    $scope.membro.grupo = post['grupo'];
+    $scope.gci = 9;
     $scope.membro.sexo = post['sexo'];
     var dia = moment(post['data_nascimento'],"Y-MM-DD").toDate();
     $scope.membro.data_nascimento = dia;
-
     var avatar = post['avatar_path'];
     if( avatar == null ){
         $scope.membro.avatar_path = $scope.membro.sexo == 'M' ?
@@ -213,7 +173,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.telefones = post['telefones_json'];
 
 
-
+    var membros;
     $scope.getMembrosRelacionamento = function(query) {
         return $http.get('/membro', {cache: true})
             .then(function(response){

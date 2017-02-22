@@ -57,7 +57,7 @@ class MembroController extends Controller
 
     public function edit( $id ){
         $tiposRelIgreja = RelacionamentoIgreja::$tipos;
-        $membro = Membro::findOrFail($id);
+        $membro = Membro::with('grupo')->findOrFail($id);
         return view('membro.edit', compact('membro'))->with('tiposRelIgreja',$tiposRelIgreja);
     }
 

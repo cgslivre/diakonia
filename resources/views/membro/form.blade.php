@@ -52,15 +52,16 @@
         <div class="form-group">
             {{ Form::label('grupo_caseiro_id','Grupo Caseiro:',['class'=>'col-sm-2 control-label'])}}
             <div class="col-sm-4">
-                <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control" ng-model="membro.grupo_caseiro_id"
+                <select name="grupo_caseiro_id" id="grupo_caseiro_id" class="form-control"
+                ng-model="membro.grupo"
                 tabindex="2"
-                ng-options="g.id as g.nome for g in grupos track by g.id">
-                <option ng-selected="membro.grupo_caseiro_id == null" value=""
-                ng-show="!edit">Selecione um grupo caseiro...</option>
+                ng-options="g as g.nome for g in grupos track by g.id">
+                <!--<option ng-selected="membro.grupo_caseiro_id == null" value=""
+                ng-show="false">Selecione um grupo caseiro...</option>-->
             </select>
-
         </div>
     </div>
+
 
     {{-- Sexo --}}
     <div class="form-group">
@@ -224,13 +225,12 @@
         <div class="add-relacionamento">
             <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
             <span class="membro"><%membro.nome%></span> é
-
             <select name="relacionamento_familia_id" id="relacionamento_familia_id"
             ng-model="add_rel_familia_relacionamento">
             <option ng-repeat="rel_familia in listaRelacionamentosFamilia" value="rel_familia.id">
                 <%rel_familia.desc_geral%>
             </option>
-        </select>
+        </select><%add_rel_familia_relacionamento%>
         de
         <input
         	type="text"
@@ -246,7 +246,10 @@
                 <div ng-show="semResultadosMembrosRelFamilia">
                   <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado
                 </div>
-                <a href="#"><i class="fa fa-plus-square" aria-hidden="true"></i></a>
+                <button class="btn btn-info" ng-disabled="id_rel_familia_selected == null"
+                    title="Adicionar relacionamento">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>
+                </button>
             </div>
 
             <br>
