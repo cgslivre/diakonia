@@ -157,6 +157,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
 
     $scope.membro = {};
     $scope.membro.nome = post['nome'];
+    $scope.membro.id = post['id'];
     $scope.membro.grupo = post['grupo'];
     $scope.gci = 9;
     $scope.membro.sexo = post['sexo'];
@@ -172,7 +173,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.email = post['email'];
     $scope.membro.telefones = post['telefones_json'];
 
-
+    $scope.add_tipo_relacionamento;
     var membros;
     $scope.getMembrosRelacionamento = function(query) {
         return $http.get('/membro', {cache: true})
@@ -194,6 +195,13 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             }
         });
         return inputLabel;
+    }
+
+    $scope.actAddRelFamilia = function(membro, relacionamento, membroDest){
+        console.log('membro: ', membro);
+        console.log('relacionamento: ', relacionamento);
+        console.log('membroDest: ', membroDest);
+        return true;
     }
 
 

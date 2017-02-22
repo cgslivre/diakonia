@@ -29,18 +29,23 @@
         <div class="add-relacionamento">
             <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
             <span class="membro"><%membro.nome%></span> é
+            <select name="add_tipo_relacionamento" id="add_tipo_relacionamento"
+            ng-model="add_tipo_relacionamento"
+            ng-options="relFam as relFam.desc_geral for relFam in listaRelacionamentosFamilia track by relFam.id">
+        </select>
+            {{--
             <select name="relacionamento_familia_id" id="relacionamento_familia_id"
             ng-model="add_rel_familia_relacionamento">
             <option ng-repeat="rel_familia in listaRelacionamentosFamilia" value="rel_familia.id">
                 <%rel_familia.desc_geral%>
             </option>
-        </select><%add_rel_familia_relacionamento%>
+        </select>--}}
         de
         <input
         	type="text"
         	ng-model="id_rel_familia_selected"
         	placeholder="escolher membro"
-        	uib-typeahead="membro.id as membro.nome for membro in getMembrosRelacionamento($viewValue)"
+        	uib-typeahead="membroD.id as membroD.nome for membroD in getMembrosRelacionamento($viewValue)"
             typeahead-editable="false"
             typeahead-input-formatter="formatInput($model)"
         	typeahead-loading="carregandoMembrosRelFamilia"
@@ -50,8 +55,11 @@
                 <div ng-show="semResultadosMembrosRelFamilia">
                   <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado
                 </div>
-                <button class="btn btn-info" ng-disabled="id_rel_familia_selected == null"
-                    title="Adicionar relacionamento">
+                <button
+                    class="btn btn-info"
+                    ng-disabled="id_rel_familia_selected == null"
+                    title="Adicionar relacionamento"
+                    ng-click="actAddRelFamilia(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)">
                     <i class="fa fa-plus-square" aria-hidden="true"></i>
                 </button>
             </div>
