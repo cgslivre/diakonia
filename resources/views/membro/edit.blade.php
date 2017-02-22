@@ -13,6 +13,7 @@
             , 'regiao'=>$membro->regiao
             , 'passwordForm'=>false])
     {{ Form::close() }}
+    @include('membro.edit-relacionamentos')
 
 
 </div>
