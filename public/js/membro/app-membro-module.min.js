@@ -130,6 +130,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
   function ($scope, $http,$location) {
     $scope.button = "Atualizar Membro";
     $scope.edit = true;
+    $scope.loadingRelFamilia = false;
 
     $http.get("/membro/grupo-caseiro/lista").then(function(response) {
         $scope.grupos = response.data;
@@ -198,10 +199,22 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     }
 
     $scope.actAddRelFamilia = function(membro, relacionamento, membroDest){
-        console.log('membro: ', membro);
-        console.log('relacionamento: ', relacionamento);
-        console.log('membroDest: ', membroDest);
-        return true;
+        $scope.loadingRelFamilia = true;
+        var addRel = {};
+        addRel.relacionamento = relacionamento;
+        addRel.membroDestino = membroDest;
+        $http({
+            method: 'POST',
+            url: '/membro/' + membro + '/relacionamento/add',
+            data: addRel
+        }
+        ).then( function( response ){
+            console.log(response);
+            $scope.loadingRelFamilia = false;
+        }, function( response){
+            console.log(response);
+            $scope.loadingRelFamilia = false;
+        });        
     }
 
 

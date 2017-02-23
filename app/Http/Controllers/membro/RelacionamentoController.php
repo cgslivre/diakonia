@@ -53,4 +53,15 @@ class RelacionamentoController extends Controller
         }
     }
 
+    public function addRelacionamento( $membro, Request $request ){
+        
+        $a = [];
+        $a[] = $membro;
+        $a[] = $request->input('relacionamento');
+        $a[] = $request->input('membroDestino');
+
+
+        return $a;
+    }
+
 }
