@@ -52,6 +52,8 @@
                 class="btn btn-info"
                 ng-disabled="id_rel_familia_selected == null"
                 title="Adicionar relacionamento"
+                data-toggle="modal"
+                data-target="#modalWarning"
                 ng-click="actAddRelFamilia(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)">
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
@@ -86,3 +88,4 @@
 </div>
 
 </div>
+@include('membro.modal-relacionamento')

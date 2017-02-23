@@ -211,10 +211,14 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         ).then( function( response ){
             console.log(response);
             $scope.loadingRelFamilia = false;
+            if( response.data.erros){
+                console.log('Erro:')
+            }
         }, function( response){
-            console.log(response);
+            console.log(response.data);
+            console.log('Falha na requisição');
             $scope.loadingRelFamilia = false;
-        });        
+        });
     }
 
 

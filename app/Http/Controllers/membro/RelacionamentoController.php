@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
+use Response;
 use App\Model\membro\Membro;
 use App\Model\membro\Relacionamento;
 use App\Model\membro\RelacionamentoMembro;
@@ -54,14 +55,28 @@ class RelacionamentoController extends Controller
     }
 
     public function addRelacionamento( $membro, Request $request ){
-        
-        $a = [];
-        $a[] = $membro;
-        $a[] = $request->input('relacionamento');
-        $a[] = $request->input('membroDestino');
 
+        $membroOrigem = Membro::findOrFail($membro);
 
-        return $a;
+        $rel_id = $request->input('relacionamento');
+        $relacionamento = Relacionamento::findOrFail($rel_id);
+
+        $membroDestino = Membro::findOrFail($request->input('membroDestino'));
+
+        $data = [];
+        $erros = [];
+        if( $membroOrigem == $membroDestino ){
+            $erros[] = "Não é possível fazer um auto-relacionamento.";
+        }
+
+        if (!empty($erros)) {
+            $data['erros']  = $erros;
+        } else {
+            $data['mensagem'] = 'Relacionamento adicionado!';
+        }
+
+        return Response::json($data);
+
     }
 
 }
