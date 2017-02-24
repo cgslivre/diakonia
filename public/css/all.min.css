@@ -9297,9 +9297,21 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
 
 .modal-header-danger {
 	color:#fff;
-    padding:9px 15px;
+    /*padding:9px 15px;*/
     border-bottom:1px solid #eee;
     background-color: #d9534f;
+}
+.modal-header-warning {
+	color:#000;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #d6d94f;
+}
+.modal-header-success {
+	color:#ffffff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #229d2a;
 }
 
 .app-container .content-container .side-menu .navbar-header .navbar-brand .title{margin-left: 15px;}

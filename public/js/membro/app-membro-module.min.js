@@ -198,6 +198,8 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         return inputLabel;
     }
 
+    $scope.erros_add_relacionamento = [];
+
     $scope.actAddRelFamilia = function(membro, relacionamento, membroDest){
         $scope.loadingRelFamilia = true;
         var addRel = {};
@@ -211,12 +213,21 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         ).then( function( response ){
             console.log(response);
             $scope.loadingRelFamilia = false;
+            $scope.erros_add_relacionamento = response.data.erros;
             if( response.data.erros){
+                $scope.tipo_modal = "aviso";
+                $scope.tipo_modal_classe = "modal-header-warning";
                 console.log('Erro:')
+            } else{
+                $scope.tipo_modal = "sucesso";
+                $scope.tipo_modal_classe = "modal-header-success";
             }
         }, function( response){
             console.log(response.data);
+            $scope.erros_add_relacionamento.push("Falha na requisição");
             console.log('Falha na requisição');
+            $scope.tipo_modal = "erro";
+            $scope.tipo_modal_classe = "modal-header-danger";
             $scope.loadingRelFamilia = false;
         });
     }
