@@ -69,6 +69,15 @@ class RelacionamentoController extends Controller
             $erros[] = "Não é possível fazer um auto-relacionamento.";
         }
 
+        $outrosRels = RelacionamentoMembro::join('relacionamentos','relacionamento_id','=','relacionamentos.id')
+            ->where('membro_de_id',$membro)
+            ->where('relacionamentos.categoria','=',$relacionamento->categoria)
+            ->get();
+
+        if( !$outrosRels->isEmpty()){
+            $erros[] = "Já existe um relacionamento com " . $membroDestino->nome . ".";
+        }
+
         if (!empty($erros)) {
             $data['erros']  = $erros;
         } else {

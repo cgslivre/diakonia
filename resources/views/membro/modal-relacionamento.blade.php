@@ -11,7 +11,7 @@
                 <h4 ng-if="tipo_modal == 'sucesso'" class="modal-title" id="modal-ativacao">Sucesso</h4>
             </div>
             <div ng-if="erros_add_relacionamento.length > 0" class="modal-body">
-                Não foi possível completar sua requisição:
+                <strong>Não foi possível completar sua requisição:</strong>
                 <ul>
                     <li ng-repeat="erro in erros_add_relacionamento">
                         <%erro%>
