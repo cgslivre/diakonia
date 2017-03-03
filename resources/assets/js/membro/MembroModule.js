@@ -144,9 +144,12 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         $scope.relacionamentosIgreja = response.data;
     });
 
-    $http.get("/membro/" + post["id"] + "/relacionamentos/familia").then( function(response){
-        $scope.relacionamentosFamilia = response.data;
-    });
+    $scope.atualizaRelsFamilia = function() {
+        $http.get("/membro/" + post["id"] + "/relacionamentos/familia").then( function(response){
+            $scope.relacionamentosFamilia = response.data;
+        });
+    };
+    $scope.atualizaRelsFamilia();
 
     $http.get("/membros/relacionamentos/familia").then(function(response) {
         $scope.listaRelacionamentosFamilia = response.data;
@@ -221,6 +224,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             } else{
                 $scope.tipo_modal = "sucesso";
                 $scope.tipo_modal_classe = "modal-header-success";
+                $scope.atualizaRelsFamilia();
             }
         }, function( response){
             console.log(response.data);

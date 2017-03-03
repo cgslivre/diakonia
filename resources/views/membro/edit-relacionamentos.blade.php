@@ -11,7 +11,7 @@
             Nenhum relacionamento familiar cadastrado.
         </p>
         <ul>
-            <li ng-repeat="relacionamento in relacionamentosFamilia track by relacionamento.id"
+            <li ng-repeat="relacionamento in relacionamentosFamilia track by $index"
             class="relacionamento"
             ng-class="relacionamento.desc_geral">
             <span class="membro-de"><%membro.nome%></span> é
