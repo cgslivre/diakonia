@@ -67,8 +67,7 @@ span.relacionamento-desc{padding: 3px;font-weight: bold;}
 .relacionamento-desc.conjuge{background-color: #acd2eb;}
 
 div.relacionamentos ul{display: table-row;}
-div.relacionamentos ul li{
-    display: table-cell;
+div.relacionamentos ul li{    
     vertical-align: middle;
     line-height: 28px;
     height: 28px;

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use Response;
+use Log;
 use App\Model\membro\Membro;
 use App\Model\membro\Relacionamento;
 use App\Model\membro\RelacionamentoMembro;
@@ -82,10 +83,29 @@ class RelacionamentoController extends Controller
         if (!empty($erros)) {
             $data['erros']  = $erros;
         } else {
+            $this->salvarRelacionamento($membroOrigem, $membroDestino, $relacionamento);
             $data['mensagem'] = 'Relacionamento adicionado!';
         }
 
         return Response::json($data);
+
+    }
+
+    private function salvarRelacionamento( $membroOrigem, $membroDestino, $relacionamento ){
+        $relacionamentoDireto = new RelacionamentoMembro;
+        $relacionamentoDireto->membro_de_id = $membroOrigem->id;
+        $relacionamentoDireto->membro_para_id = $membroDestino->id;
+        $relacionamentoDireto->relacionamento_id = $relacionamento->id;
+
+        $relacionamentoInverso = new RelacionamentoMembro;
+        $relacionamentoInverso->membro_de_id = $membroDestino->id;
+        $relacionamentoInverso->membro_para_id = $membroOrigem->id;
+        $relacionamentoInverso->relacionamento_id = $relacionamento->rel_inverso_id;
+
+        $relacionamentoDireto->save();
+        $relacionamentoInverso->save();
+
+
 
     }
 

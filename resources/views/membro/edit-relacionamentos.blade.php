@@ -20,8 +20,8 @@
             de
             <span>
                 <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-                    <%relacionamento.membro_para.nome%></a>
-                </span>.
+                    <%relacionamento.membro_para.nome%></a>.
+                </span>
 
 
             </li>
@@ -78,8 +78,8 @@
     de
     <span>
         <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-            <%relacionamento.membro_para.nome%></a>
-        </span>.
+            <%relacionamento.membro_para.nome%></a>.
+        </span>
 
 
     </li>
