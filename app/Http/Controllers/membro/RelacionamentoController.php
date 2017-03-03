@@ -71,6 +71,7 @@ class RelacionamentoController extends Controller
 
         $outrosRels = RelacionamentoMembro::join('relacionamentos','relacionamento_id','=','relacionamentos.id')
             ->where('membro_de_id',$membro)
+            ->where('membro_para_id',$membroDestino->id)
             ->where('relacionamentos.categoria','=',$relacionamento->categoria)
             ->get();
 
