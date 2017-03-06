@@ -11,6 +11,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('membro','membro\MembroController');
     Route::post('membro/{membro}/relacionamento/add','membro\RelacionamentoController@addRelacionamento');
+    Route::post('membro/{membro}/relacionamento/remove','membro\RelacionamentoController@removeRelacionamento');
     Route::get('membro/{membro}/relacionamentos/{categoria?}', 'membro\RelacionamentoController@relacionamentosMembro');
     Route::get('membros', 'membro\MembroController@lista')->name('membros.lista');
     Route::get('membros/relacionamentos/{categoria?}','membro\RelacionamentoController@relacionamentos');

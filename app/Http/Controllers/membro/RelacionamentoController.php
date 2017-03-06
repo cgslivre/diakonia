@@ -30,10 +30,11 @@ class RelacionamentoController extends Controller
 
         if( $categoria == Relacionamento::CATEGORIA_IGREJA ||
             $categoria == Relacionamento::CATEGORIA_FAMILIA ){
-                $rels = RelacionamentoMembro::with('relacionamento')
-                    ->join('relacionamentos', 'relacionamento_id', '=', 'relacionamentos.id')
-                    ->where('membro_de_id',$membro)
-                    ->where('relacionamentos.categoria','=',$categoria)
+                $rels = RelacionamentoMembro::where('membro_de_id',$membro)
+                    ->whereHas('relacionamento',
+                        function($query) use($categoria){
+                            $query->where('categoria','=',$categoria);})
+                    ->with('relacionamento')
                     ->get();
                 return $rels;
         } else{
@@ -89,6 +90,12 @@ class RelacionamentoController extends Controller
 
         return Response::json($data);
 
+    }
+
+    public function removeRelacionamento( $membro, Request $request ){
+        $membroOrigem = Membro::findOrFail($membro);
+        $rel_id = $request->input('relacionamento');
+        $relMembro = RelacionamentoMembro::findOrFail($rel_id);
     }
 
     private function salvarRelacionamento( $membroOrigem, $membroDestino, $relacionamento ){

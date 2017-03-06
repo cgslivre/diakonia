@@ -14,16 +14,17 @@
             <li ng-repeat="relacionamento in relacionamentosFamilia track by $index"
             class="relacionamento"
             ng-class="relacionamento.desc_geral">
-            <span class="membro-de"><%membro.nome%></span> é
-            <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
-            ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
-            de
-            <span>
-                <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-                    <%relacionamento.membro_para.nome%></a>.
+                <span class="membro-de"><%membro.nome%></span> é
+                <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
+                ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
+                de
+                <span>
+                    <a href="<%userShowLink(relacionamento.membro_para.id)%>">
+                        <%relacionamento.membro_para.nome%></a>.
                 </span>
-
-
+                <a href="#" ng-click="actRemoveRelacionamento(relacionamento.id)">
+                    <i class="fa fa-times" aria-hidden="true" ></i>
+                </a>
             </li>
         </ul>
         <div class="add-relacionamento">
@@ -74,18 +75,19 @@
     Nenhum relacionamento na igreja cadastrado.
 </p>
 <ul>
-    <li ng-repeat="relacionamento in relacionamentosIgreja track by relacionamento.id"
+    <li ng-repeat="relac in relacionamentosIgreja track by relac.id"
     class="relacionamento"
-    ng-class="relacionamento.desc_geral">
-    <span class="membro-de"><%membro.nome%></span> é
-    <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
-    ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
-    de
-    <span>
-        <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-            <%relacionamento.membro_para.nome%></a>.
+    ng-class="relac.desc_geral">
+        <span class="membro-de"><%membro.nome%></span> é
+        <span class="relacionamento-desc" ng-class="relac.desc_geral"
+        ng-bind="membro.sexo == 'M' ? relac.desc_masc : relac.desc_fem"></span>
+        de
+        <span>
+            <a href="<%userShowLink(relac.membro_para.id)%>">
+                <%relac.membro_para.nome%></a>.
         </span>
-
+        <a href="#" ng-click="actRemoveRelacionamento(relac.id)">
+            <i class="fa fa-times" aria-hidden="true" ></i></a>
 
     </li>
 </ul>

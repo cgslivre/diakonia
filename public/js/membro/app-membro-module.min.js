@@ -242,8 +242,11 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             $scope.tipo_modal_classe = "modal-header-danger";
             $scope.loadingRelFamilia = false;
         });
-    }
+    };
 
+    $scope.actRemoveRelacionamento = function(rel_id){
+        console.log(rel_id);
+    };
 
 
 
