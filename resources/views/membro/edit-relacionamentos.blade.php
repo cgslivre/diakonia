@@ -54,7 +54,7 @@
                 title="Adicionar relacionamento"
                 data-toggle="modal"
                 data-target="#modalWarning"
-                ng-click="actAddRelFamilia(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)">
+                ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)">
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
             <span ng-show="loadingRelFamilia" class="text-info"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Atualizando...</span>
@@ -63,7 +63,12 @@
             <br>
             {{--<%id_rel_familia_selected%>--}}
 
+
+
 <hr class="divider">
+
+
+{{-- +++++++++++++++++++ Igreja +++++++++++++++++++ --}}
 <h4>Igreja</h4>
 <p ng-show="relacionamentosIgreja.length == 0 ">
     Nenhum relacionamento na igreja cadastrado.
@@ -84,6 +89,39 @@
 
     </li>
 </ul>
+<div class="add-relacionamento">
+    <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
+    <span class="membro"><%membro.nome%></span> é
+    <select name="add_tipo_relacionamento_igreja" id="add_tipo_relacionamento_igreja"
+    ng-model="add_tipo_relacionamento_igreja"
+    ng-options="relIgr as relIgr.desc_geral for relIgr in listaRelacionamentosIgreja track by relIgr.id">
+    </select>
+    de
+    <input
+        type="text"
+        ng-model="id_rel_igreja_selected"
+        placeholder="escolher membro"
+        uib-typeahead="membroD.id as membroD.nome for membroD in getMembrosRelacionamento($viewValue)"
+        typeahead-editable="false"
+        typeahead-input-formatter="formatInput($model)"
+        typeahead-loading="carregandoMembrosRelIgreja"
+        typeahead-no-results="semResultadosMembrosRelIgreja"
+        class="">
+    <i ng-show="carregandoMembrosRelIgreja" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+    <div ng-show="semResultadosMembrosRelIgreja">
+      <i class="fa fa-times" aria-hidden="true"></i> Nenhum membro encontrado
+    </div>
+    <button
+        class="btn btn-info"
+        ng-disabled="id_rel_igreja_selected == null"
+        title="Adicionar relacionamento"
+        data-toggle="modal"
+        data-target="#modalWarning"
+        ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento_igreja.id,id_rel_igreja_selected)">
+        <i class="fa fa-plus-square" aria-hidden="true"></i>
+    </button>
+    <span ng-show="loadingRelFamilia" class="text-info"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Atualizando...</span>
+</div>
 
 </div>
 

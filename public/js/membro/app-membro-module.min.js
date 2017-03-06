@@ -140,9 +140,12 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         $scope.regioes = response.data;
     });
 
-    $http.get("/membro/" + post["id"] + "/relacionamentos/igreja").then( function(response){
-        $scope.relacionamentosIgreja = response.data;
-    });
+    $scope.atualizaRelsIgreja = function(){
+        $http.get("/membro/" + post["id"] + "/relacionamentos/igreja").then( function(response){
+            $scope.relacionamentosIgreja = response.data;
+        });
+    };
+    $scope.atualizaRelsIgreja();
 
     $scope.atualizaRelsFamilia = function() {
         $http.get("/membro/" + post["id"] + "/relacionamentos/familia").then( function(response){
@@ -154,6 +157,10 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $http.get("/membros/relacionamentos/familia").then(function(response) {
         $scope.listaRelacionamentosFamilia = response.data;
     });
+
+    $http.get("/membros/relacionamentos/igreja").then(function(response) {
+        $scope.listaRelacionamentosIgreja = response.data;
+    })
 
     $scope.userShowLink = function( membro ){
         return window.location.origin + '/membro/' + membro + '/edit';
@@ -203,7 +210,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
 
     $scope.erros_add_relacionamento = [];
 
-    $scope.actAddRelFamilia = function(membro, relacionamento, membroDest){
+    $scope.actAddRelacionamento = function(membro, relacionamento, membroDest){
         $scope.loadingRelFamilia = true;
         var addRel = {};
         addRel.relacionamento = relacionamento;
@@ -225,6 +232,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
                 $scope.tipo_modal = "sucesso";
                 $scope.tipo_modal_classe = "modal-header-success";
                 $scope.atualizaRelsFamilia();
+                $scope.atualizaRelsIgreja();
             }
         }, function( response){
             console.log(response.data);
