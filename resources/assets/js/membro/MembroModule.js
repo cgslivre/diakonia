@@ -211,13 +211,13 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.erros_add_relacionamento = [];
 
     $scope.actAddRelacionamento = function(membro, relacionamento, membroDest){
-        
+
         toastr.options = {
             "positionClass": "toast-bottom-right"
         };
         var addRel = {};
         addRel.relacionamento = relacionamento;
-        addRel.membroDestino = membroDest;
+        addRel.membroDestino = membroDest;        
         $http({
             method: 'POST',
             url: '/membro/' + membro + '/relacionamento/add',
@@ -235,8 +235,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             }
         }, function( response){
             console.log(response.data);
-            toastr["success"]("Falha na requisição");
-
+            toastr["error"]("Falha na requisição");
         });
     };
 

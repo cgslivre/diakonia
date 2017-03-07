@@ -55,7 +55,8 @@
                 title="Adicionar relacionamento"
                 data-toggle="modal"
                 data-target="#modalWarning"
-                ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)">
+                ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento.id,id_rel_familia_selected)
+                    ;id_rel_familia_selected=null;add_tipo_relacionamento=null">
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
 
@@ -117,7 +118,8 @@
         class="btn btn-info"
         ng-disabled="id_rel_igreja_selected == null"
         title="Adicionar relacionamento"
-        ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento_igreja.id,id_rel_igreja_selected)">
+        ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento_igreja.id,id_rel_igreja_selected)
+        ;id_rel_igreja_selected=null;add_tipo_relacionamento_igreja=null">
         <i class="fa fa-plus-square" aria-hidden="true"></i>
     </button>
 
