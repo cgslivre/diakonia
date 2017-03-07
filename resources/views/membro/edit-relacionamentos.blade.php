@@ -120,10 +120,9 @@
         ng-click="actAddRelacionamento(membro.id,add_tipo_relacionamento_igreja.id,id_rel_igreja_selected)">
         <i class="fa fa-plus-square" aria-hidden="true"></i>
     </button>
-    
-</div>
 
 </div>
 
 </div>
-@include('membro.modal-relacionamento')
+
+</div>
