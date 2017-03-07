@@ -80,7 +80,7 @@
     class="relacionamento"
     ng-class="relac.desc_geral">
         <span class="membro-de"><%membro.nome%></span> é
-        <span class="relacionamento-desc" ng-class="relac.relacionamentodesc_geral"
+        <span class="relacionamento-desc" ng-class="relac.relacionamento.desc_geral"
         ng-bind="membro.sexo == 'M' ? relac.relacionamento.desc_masc : relac.relacionamento.desc_fem"></span>
         de
         <span>

@@ -9084,12 +9084,8 @@ input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px
 div.relacionamentos{
     font-size: 14px;
 }
-
-span.relacionamento-desc{padding: 3px;font-weight: bold;}
-.relacionamento-desc.conjuge{background-color: #acd2eb;}
-
 div.relacionamentos ul{display: table-row;}
-div.relacionamentos ul li{    
+div.relacionamentos ul li{
     vertical-align: middle;
     line-height: 28px;
     height: 28px;
@@ -9500,6 +9496,18 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected img{
 span.idade{padding:6px;}
 
 .pointer{cursor: pointer;}
+
+/* Relacionamentos */
+span.relacionamento-desc{padding: 3px;font-weight: bold;border-radius: 3px;}
+
+/* Cores relacionamentos*/
+.relacionamento-desc.conjuge{background-color: #acd2eb;}
+.relacionamento-desc.pai-mae{background-color: #e8b571;}
+.relacionamento-desc.irmao{background-color: #87d6a4;}
+.relacionamento-desc.filho{background-color: #deb6b3;}
+
+.relacionamento-desc.discipulo{background-color: #acd2eb;}
+.relacionamento-desc.discipulador{background-color: #e8b571;}
 
 
 .login-container{

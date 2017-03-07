@@ -62,12 +62,8 @@ input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px
 div.relacionamentos{
     font-size: 14px;
 }
-
-span.relacionamento-desc{padding: 3px;font-weight: bold;}
-.relacionamento-desc.conjuge{background-color: #acd2eb;}
-
 div.relacionamentos ul{display: table-row;}
-div.relacionamentos ul li{    
+div.relacionamentos ul li{
     vertical-align: middle;
     line-height: 28px;
     height: 28px;
