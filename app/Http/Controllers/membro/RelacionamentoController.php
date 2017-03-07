@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests;
 use Response;
 use Log;
+use Grimthorr\LaravelToast\Toast;
 use App\Model\membro\Membro;
 use App\Model\membro\Relacionamento;
 use App\Model\membro\RelacionamentoMembro;
@@ -94,13 +95,10 @@ class RelacionamentoController extends Controller
 
     public function removeRelacionamento( Request $request ){
         //Log::info($request);
-        //$membroOrigem = Membro::findOrFail($request['membro']);
         $relMembro = RelacionamentoMembro::findOrFail($request['rel_id']);
         $relInverso = $relMembro->relacionamentoInverso();
 
-        RelacionamentoMembro::destroy([$request['rel_id'],$relInverso->id]);
-        //$relMembro->delete();
-        //$relInverso->delete();
+        RelacionamentoMembro::destroy([$request['rel_id'],$relInverso->id]);                
     }
 
     private function salvarRelacionamento( $membroOrigem, $membroDestino, $relacionamento ){

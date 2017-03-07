@@ -21,5 +21,13 @@
   <div class="alert bg-danger">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
     {{Session::get('erro')}}
-  </div>  
+  </div>
+@endif
+
+@if (session()->has('flash_notification.message'))
+  <div class="alert alert-{{ session('flash_notification.level') }}">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+      {!! session('flash_notification.message') !!}
+  </div>
 @endif

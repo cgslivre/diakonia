@@ -35,7 +35,7 @@
               </ol>
 
               <hr class="divider">
-              @include('layouts.mensagens')
+              @include('layouts.mensagens')              
               @yield('content')
 
 

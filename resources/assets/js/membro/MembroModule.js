@@ -257,6 +257,10 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         ).then( function( response ){
             $scope.atualizaRelsFamilia();
             $scope.atualizaRelsIgreja();
+            toastr.options = {
+                "positionClass": "toast-bottom-right"
+            };
+            toastr["success"]("Relacionamento excluído")
         }, function( response){
             console.log(response.data);
             console.log('Falha na requisição');
