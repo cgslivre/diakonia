@@ -92,10 +92,15 @@ class RelacionamentoController extends Controller
 
     }
 
-    public function removeRelacionamento( $membro, Request $request ){
-        $membroOrigem = Membro::findOrFail($membro);
-        $rel_id = $request->input('relacionamento');
-        $relMembro = RelacionamentoMembro::findOrFail($rel_id);
+    public function removeRelacionamento( Request $request ){
+        //Log::info($request);
+        //$membroOrigem = Membro::findOrFail($request['membro']);
+        $relMembro = RelacionamentoMembro::findOrFail($request['rel_id']);
+        $relInverso = $relMembro->relacionamentoInverso();
+
+        RelacionamentoMembro::destroy([$request['rel_id'],$relInverso->id]);
+        //$relMembro->delete();
+        //$relInverso->delete();
     }
 
     private function salvarRelacionamento( $membroOrigem, $membroDestino, $relacionamento ){

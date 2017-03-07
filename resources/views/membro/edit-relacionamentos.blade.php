@@ -11,18 +11,18 @@
             Nenhum relacionamento familiar cadastrado.
         </p>
         <ul>
-            <li ng-repeat="relacionamento in relacionamentosFamilia track by $index"
+            <li ng-repeat="rel in relacionamentosFamilia track by rel.id"
             class="relacionamento"
-            ng-class="relacionamento.desc_geral">
+            ng-class="rel.relacionamento.desc_geral">
                 <span class="membro-de"><%membro.nome%></span> é
-                <span class="relacionamento-desc" ng-class="relacionamento.desc_geral"
-                ng-bind="membro.sexo == 'M' ? relacionamento.desc_masc : relacionamento.desc_fem"></span>
+                <span class="relacionamento-desc" ng-class="rel.relacionamento.desc_geral"
+                ng-bind="membro.sexo == 'M' ? rel.relacionamento.desc_masc : rel.relacionamento.desc_fem"></span>
                 de
                 <span>
-                    <a href="<%userShowLink(relacionamento.membro_para.id)%>">
-                        <%relacionamento.membro_para.nome%></a>.
+                    <a href="<%userShowLink(rel.membro_para.id)%>">
+                        <%rel.membro_para.nome%></a>.
                 </span>
-                <a href="#" ng-click="actRemoveRelacionamento(relacionamento.id)">
+                <a href="#" ng-click="actRemoveRelacionamento(membro.id,rel.id)">
                     <i class="fa fa-times" aria-hidden="true" ></i>
                 </a>
             </li>
@@ -79,14 +79,14 @@
     class="relacionamento"
     ng-class="relac.desc_geral">
         <span class="membro-de"><%membro.nome%></span> é
-        <span class="relacionamento-desc" ng-class="relac.desc_geral"
-        ng-bind="membro.sexo == 'M' ? relac.desc_masc : relac.desc_fem"></span>
+        <span class="relacionamento-desc" ng-class="relac.relacionamentodesc_geral"
+        ng-bind="membro.sexo == 'M' ? relac.relacionamento.desc_masc : relac.relacionamento.desc_fem"></span>
         de
         <span>
             <a href="<%userShowLink(relac.membro_para.id)%>">
                 <%relac.membro_para.nome%></a>.
         </span>
-        <a href="#" ng-click="actRemoveRelacionamento(relac.id)">
+        <a href="#" ng-click="actRemoveRelacionamento(membro.id,relac.id)">
             <i class="fa fa-times" aria-hidden="true" ></i></a>
 
     </li>

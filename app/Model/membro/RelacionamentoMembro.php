@@ -3,13 +3,14 @@
 namespace App\Model\membro;
 
 use Illuminate\Database\Eloquent\Model;
+use Log;
 
 class RelacionamentoMembro extends Model
 {
     protected $table = 'relacionamento_membros';
     public $timestamps  = false;
 
-    protected $with = ['membroDe','membroPara'];
+    protected $with = ['membroDe','membroPara','relacionamento'];
 
     public function membroDe(){
         return $this->hasOne('App\Model\membro\Membro','id','membro_de_id');
@@ -21,5 +22,13 @@ class RelacionamentoMembro extends Model
 
     public function relacionamento(){
         return $this->hasOne('App\Model\membro\Relacionamento','id','relacionamento_id');
+    }
+
+    public function scopeRelacionamentoInverso($query){
+        Log::info($this->relacionamento->rel_inverso_id);
+        return $query->where('membro_de_id','=',$this->membro_para_id)
+                ->where('membro_para_id','=',$this->membro_de_id)
+                ->where('relacionamento_id','=',$this->relacionamento->rel_inverso_id)
+                ->first();
     }
 }

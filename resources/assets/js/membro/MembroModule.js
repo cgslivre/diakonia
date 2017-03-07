@@ -244,8 +244,23 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         });
     };
 
-    $scope.actRemoveRelacionamento = function(rel_id){
+    $scope.actRemoveRelacionamento = function(membro,rel_id){
         console.log(rel_id);
+        var fields = {};
+        fields.rel_id = rel_id;
+        fields.membro = membro;
+        $http({
+            method: 'POST',
+            url: '/membro/remover-relacionamento',
+            data: fields
+        }
+        ).then( function( response ){
+            $scope.atualizaRelsFamilia();
+            $scope.atualizaRelsIgreja();
+        }, function( response){
+            console.log(response.data);
+            console.log('Falha na requisição');
+        });
     };
 
 
