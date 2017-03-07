@@ -256,3 +256,11 @@ span.relacionamento-desc{padding: 3px;font-weight: bold;border-radius: 3px;}
 
 .relacionamento-desc.discipulo{background-color: #acd2eb;}
 .relacionamento-desc.discipulador{background-color: #e8b571;}
+
+div.relacionamentos > h3{color:#337ab7;font-weight: bold;}
+div.relacionamentos > h4{color:#337ab7;margin-left: 5px;}
+div.relacionamentos > ul > li{margin-left: 10px;}
+div.relacionamentos > ul > li > i.fa-link{color: #AAA;}
+
+.no-results{font-style: italic;color:#AAA}
+a.remover-relacionamento{color:#E63946;}
