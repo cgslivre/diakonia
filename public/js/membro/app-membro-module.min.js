@@ -211,7 +211,10 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.erros_add_relacionamento = [];
 
     $scope.actAddRelacionamento = function(membro, relacionamento, membroDest){
-        $scope.loadingRelFamilia = true;
+        
+        toastr.options = {
+            "positionClass": "toast-bottom-right"
+        };
         var addRel = {};
         addRel.relacionamento = relacionamento;
         addRel.membroDestino = membroDest;
@@ -221,26 +224,19 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             data: addRel
         }
         ).then( function( response ){
-            console.log(response);
-            $scope.loadingRelFamilia = false;
-            $scope.erros_add_relacionamento = response.data.erros;
             if( response.data.erros){
-                $scope.tipo_modal = "aviso";
-                $scope.tipo_modal_classe = "modal-header-warning";
-                console.log('Erro:')
+                response.data.erros.forEach(function(entry){
+                    toastr["warning"](entry).css("width","500px");
+                });
             } else{
-                $scope.tipo_modal = "sucesso";
-                $scope.tipo_modal_classe = "modal-header-success";
                 $scope.atualizaRelsFamilia();
                 $scope.atualizaRelsIgreja();
+                toastr["success"]("Relacionamento incluído com sucesso");
             }
         }, function( response){
             console.log(response.data);
-            $scope.erros_add_relacionamento.push("Falha na requisição");
-            console.log('Falha na requisição');
-            $scope.tipo_modal = "erro";
-            $scope.tipo_modal_classe = "modal-header-danger";
-            $scope.loadingRelFamilia = false;
+            toastr["success"]("Falha na requisição");
+
         });
     };
 
@@ -260,7 +256,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
             toastr.options = {
                 "positionClass": "toast-bottom-right"
             };
-            toastr["success"]("Relacionamento excluído")
+            toastr["success"]("Relacionamento excluído");
         }, function( response){
             console.log(response.data);
             console.log('Falha na requisição');
