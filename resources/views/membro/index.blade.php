@@ -87,7 +87,7 @@
                 <span class="counter"><%membrosFiltered.length%></span> membros encontrados.
             </p>
         </div>
-        <table ng-show="membros.length > 0" class="table table-striped table-hover">
+        <table ng-show="membros.length > 0" class="table table-striped table-hover membros">
             <thead>
               <tr>
                 <th class="text-center col-md-1">#</th>
@@ -116,7 +116,9 @@
                 <tr ng-repeat="membro in membrosFiltered = ( membros | filter:criterioDeBusca | filter:filtroRegioes(regioesFiltro)| filter:filtroGrupos(gruposFiltro)| orderBy:criterioDeOrdenacao:direcaoDaOrdenacao) track by $index">
                     <th class="col-md-1 text-center middle-align" scope="row" title="<%membro.id%>"><%($index+1)%></th>
                     <td class="col-md-1 text-center">
-                        <img alt="Foto de Perfil" ng-src="<%avatarPathSmall(membro.avatar_path,membro.sexo)%>" class="profile-img"/>
+                        <img alt="Foto de Perfil"
+                            ng-src="<%avatarPathSmall(membro.avatar_path,membro.sexo)%>"
+                            class="profile-img"/>
                     </td>
                     <td class="middle-align"><a
                         @can('user-view')

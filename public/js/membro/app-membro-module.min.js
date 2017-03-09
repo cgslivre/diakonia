@@ -28,7 +28,7 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
                 return window.location.origin + '/img/membro/000-default-homem-70px.jpg';
             }
         } else{
-            return window.location.origin  + '/' + avatar + '70px.jpg';
+            return window.location.origin  + '/' + avatar;
         }
 	};
 

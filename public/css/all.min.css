@@ -9519,6 +9519,8 @@ div.relacionamentos > ul > li > i.fa-link{color: #AAA;}
 .no-results{font-style: italic;color:#AAA}
 a.remover-relacionamento{color:#E63946;}
 
+table.membros > tbody > tr > td > img.profile-img {width: 70px;}
+
 
 .login-container{
     filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
