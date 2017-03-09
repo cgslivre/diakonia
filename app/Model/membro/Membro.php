@@ -56,6 +56,17 @@ class Membro extends Model
         return $this;
     }
 
+    public static function create( array $attributes = [] ){
+
+        $membro = parent::create($attributes);
+
+        if( array_key_exists('avatar',$attributes ) ){
+            self::saveAvatar($attributes['avatar'], $membro);
+        }
+
+        return $membro;
+    }
+
     private static function saveAvatar($avatar, Membro $membro){
         if( isset($avatar) ){
             $file = $avatar;
