@@ -178,6 +178,8 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     if( avatar == null ){
         $scope.membro.avatar_path = $scope.membro.sexo == 'M' ?
             '/img/membro/000-default-homem-70px.jpg' : '/img/membro/000-default-mulher-70px.jpg';
+    }else{
+        $scope.membro.avatar_path = '/' + post['avatar_path'];
     }
     $scope.membro.regiao = post['regiao'];
     $scope.membro.endereco = post['endereco'];
@@ -217,7 +219,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
         };
         var addRel = {};
         addRel.relacionamento = relacionamento;
-        addRel.membroDestino = membroDest;        
+        addRel.membroDestino = membroDest;
         $http({
             method: 'POST',
             url: '/membro/' + membro + '/relacionamento/add',

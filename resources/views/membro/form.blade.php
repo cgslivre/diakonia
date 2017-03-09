@@ -11,16 +11,19 @@
         </span>
     @endif
     <div class="col-md-2 text-right">
-        <img alt="Foto de Perfil" ng-src="<%membro.avatar_path%>" class="profile-img" >
+        <img alt="Foto de Perfil" ng-src="<%membro.avatar_path%>" class="profile-img-membro" >
     </div>
-    <div class="col-md-6 bottom-align-text{{ $errors->has('avatar') ? ' has-error' : '' }}">
-        {{ Form::file('avatar') }}
+
+    <div class="col-md-2 bottom-align-text{{ $errors->has('avatar') ? ' has-error' : '' }}">
+
+        {{ Form::file('avatar',['id'=>'avatar']) }}
         @if ($errors->has('avatar'))
             <span class="help-block">
                 <strong>{{ $errors->first('avatar') }}</strong>
             </span>
         @endif
     </div>
+
 </div>
 
 <div class="row">
