@@ -40,15 +40,7 @@ class MembroController extends Controller
 
     public function store( MembroRequest $request){
 
-        $tels = $request['telefone'];
-        $arr = array();
-        foreach ($tels as $tel) {
-            $numero = preg_replace("/[^0-9]/","",$tel["numero"]);
-            if( strlen($numero) > 0 ){
-                array_push($arr, array("numero"=>$numero,"tipo"=>$tel["tipo"]));
-            }
-        }
-        $request['telefones'] = json_encode($arr);
+        $request['telefones'] = self::getTelefonesJson($request['telefone']);
         Membro::create($request->all());
 
         return Redirect::route('membros.lista')->with('message', 'Membro adicionado!');

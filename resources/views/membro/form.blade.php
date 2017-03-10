@@ -176,6 +176,9 @@
                         </span>
                         <input type="hidden" name="telefone[1][tipo]" class="type-input" value="<%tel.tipo%>" />
                         <input type="text" name="telefone[1][numero]" class="form-control" placeholder="99999 9999" value="<%tel.numero%>"/>
+                        <span class="input-group-btn">
+    						<button class="btn btn-danger btn-remove-phone" type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+    					</span>
                     </div>
                 </div>
                 <button type="button" class="btn btn-success btn-sm btn-add-phone">
