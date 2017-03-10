@@ -51,6 +51,13 @@ a.logo {position: fixed;left: 50%; margin: 0 auto;}
     border-bottom:1px solid #eee;
     background-color: #d6d94f;
 }
+
+.modal-header-info {
+	color:#fff;
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: #337ab7;
+}
 .modal-header-success {
 	color:#ffffff;
     padding:9px 15px;

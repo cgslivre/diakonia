@@ -47,11 +47,29 @@ class GrupoCaseiroController extends Controller
 
       $grupo = new GrupoCaseiro;
       $grupo->nome = $input['nome'];
-      //$grupo->ativo = true;
 
       $grupo->save();
 
       return redirect('membro/grupo-caseiro')->with('message', 'Grupo Caseiro adicionado!');
+    }
+
+    public function atualizar(GrupoCaseiro $grupo, Request $request){
+
+        $request["nome"] = $request["nomeEdicao"];
+
+        $validator = Validator::make($request->all(), [
+                'nome' => 'required|min:2|unique:grupo_caseiro,nome,' . $grupo->id
+        ]);
+
+        if( $validator->fails()){
+          return redirect('membro/grupo-caseiro')->withErrors($validator);
+        }
+
+        $grupo->update( $request->all());
+
+        return redirect('membro/grupo-caseiro')->with('message', 'Grupo Caseiro atualizado!');
+
+
     }
 
 }
