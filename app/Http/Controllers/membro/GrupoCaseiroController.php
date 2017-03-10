@@ -68,8 +68,19 @@ class GrupoCaseiroController extends Controller
         $grupo->update( $request->all());
 
         return redirect('membro/grupo-caseiro')->with('message', 'Grupo Caseiro atualizado!');
+    }
 
-
+    public function remover($id){
+        $grupo = GrupoCaseiro::findOrFail($id);
+        $nomeGrupo = $grupo->nome;
+        if($grupo->membros->isEmpty()){
+            $grupo->delete();
+            return redirect('membro/grupo-caseiro')
+                ->with('message', 'Grupo ' . $nomeGrupo . ' removido.');
+        } else{
+            return redirect('membro/grupo-caseiro')->with('erro', 'Existem membros vinculados a este grupo caseiro.' .
+                'Não é possível remover o grupo.');
+        }
     }
 
 }

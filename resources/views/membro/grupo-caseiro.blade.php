@@ -1,4 +1,4 @@
-@extends( 'usuario.template-usuario')
+@extends( 'membro.template-membro')
 
 @section('nivel2', '<li class="active">Grupos Caseiros</li>')
 
@@ -42,7 +42,12 @@
         <tr class="grupo-ativo">
           <th scope="row" title="{{ $grupo->id }}">@index</th>
           <td class="nome-grupo">{{ $grupo->nome }}</td>
-          <td><a href="" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+          <td>
+              {{ Form::open([ 'method'  => 'delete', 'route' => [ 'membros.grupo-caseiro.remover', $grupo->id ] ]) }}
+              {{ Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>',
+                  ['class' => 'btn btn-danger','type'=>'submit']) }}
+              {{ Form::close() }}
+          </td>
         </tr>
       @endforeachIndexed
 
