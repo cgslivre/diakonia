@@ -10,7 +10,7 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
     $scope.membros = [];
 
     var regioes = $resource('/regioes');
-    console.log( regioes.query() );
+    //console.log( regioes.query() );
 
     $http.get("/membro").then(function(response) {
         $scope.membros = response.data;
