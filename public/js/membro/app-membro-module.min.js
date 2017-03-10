@@ -296,7 +296,7 @@ $(function(){
 					'<input type="text" name="telefone['+index+'][numero]" class="form-control" placeholder="99999 9999" />'+
 					'<input type="hidden" name="telefone['+index+'][tipo]" class="type-input" value="" />'+
 					'<span class="input-group-btn">'+
-						'<button class="btn btn-danger btn-remove-phone" type="button"><span class="glyphicon glyphicon-remove"></span></button>'+
+						'<button class="btn btn-danger btn-remove-phone" type="button"><i class="fa fa-trash-o" aria-hidden="true"></i></button>'+
 					'</span>'+
 				'</div>'
 		);
