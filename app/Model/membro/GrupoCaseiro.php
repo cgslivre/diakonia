@@ -5,11 +5,8 @@ namespace App\Model\membro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class GrupoCaseiro extends Model
-{
-    use SoftDeletes;
-    protected $softDelete = true;
-
+class GrupoCaseiro extends Model{
+    
     protected $table = 'grupo_caseiro';
 
     /**
@@ -20,6 +17,10 @@ class GrupoCaseiro extends Model
     protected $fillable = [
         'nome'
     ];
+
+    public function membros(){
+        return $this->hasMany('App\Model\membro\Membro');
+    }
 
 
 }
