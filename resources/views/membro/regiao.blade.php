@@ -48,7 +48,7 @@
                                 <td class="nome-grupo">{{ $regiao->nome }}</td>
                                 <td>
                                     {{ Form::open([ 'method'  => 'delete',
-                                        'route' => [ 'membros.grupo-caseiro.remover', $regiao->id ] ]) }}
+                                        'route' => [ 'membros.regiao.destroy', $regiao->id ] ]) }}
                                         {{ Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>',
                                             ['class' => 'btn btn-danger','type'=>'submit']) }}
                                             {{ Form::close() }}
