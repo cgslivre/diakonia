@@ -7,8 +7,8 @@
     <div class="panel-body">
       <ul class="nav navbar-nav">
         <li><a href="{{ URL::route('musica.calendario') }}"><span class="icon fa fa-calendar"></span> Calendário</a></li>
-        <li><a href="{{ URL::route('musica.evento.index') }}"><span class="icon fa fa-calendar-o"></span> Eventos</a></li>
-        <li><a href="{{ URL::route('musica.staff.index') }}"><span class="icon fa fa-users"></span> Equipe</a></li>
+        <li><a href="{{ URL::route('evento.index') }}"><span class="icon fa fa-calendar-o"></span> Eventos</a></li>
+        <li><a href="{{ URL::route('staff.index') }}"><span class="icon fa fa-users"></span> Equipe</a></li>
       </ul>
     </div>
   </div>

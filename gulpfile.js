@@ -97,7 +97,7 @@ gulp.task('js', function(done){
 		//,paths.bower + '/angular-locale-pt-br/angular-locale_pt-br.js'
 		,paths.bower + '/ng-remote-validate/release/ngRemoteValidate.js'
 		,paths.bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js'
-		,paths.default + '/js/angular/modules/ui-bootstrap-datepicker.js'
+		//,paths.default + '/js/angular/modules/ui-bootstrap-datepicker.js'
 		,paths.bower + '/angular-ui-mask/dist/mask.min.js'
 		,paths.bower + '/angular-ui-select/dist/select.min.js'
 		,paths.bower + '/moment/min/moment-with-locales.min.js'

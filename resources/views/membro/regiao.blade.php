@@ -3,7 +3,7 @@
 @section('nivel2', '<li class="active">Regiões</li>')
 
 @section('content')
-    {!! Form::open(array('route'=>'membros.regiao.store','class'=>'form-inline')) !!}
+    {!! Form::open(array('route'=>'regiao.store','class'=>'form-inline')) !!}
 
     <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
         {!! Form::label('nome', 'Nome da região:' , ['class'=>'control-label'])!!}
@@ -48,7 +48,7 @@
                                 <td class="nome-grupo">{{ $regiao->nome }}</td>
                                 <td>
                                     {{ Form::open([ 'method'  => 'delete',
-                                        'route' => [ 'membros.regiao.destroy', $regiao->id ] ]) }}
+                                        'route' => [ 'regiao.destroy', $regiao->id ] ]) }}
                                         {{ Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>',
                                             ['class' => 'btn btn-danger','type'=>'submit']) }}
                                             {{ Form::close() }}

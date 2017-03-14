@@ -12,7 +12,7 @@
         <li><a href="{{ URL::route('membros.grupo-caseiro') }}">
             <span class="icon fa fa-users"></span> Grupos Caseiros
         </a></li>
-        <li><a href="{{ URL::route('membros.regiao.index') }}">
+        <li><a href="{{ URL::route('regiao.index') }}">
             <span class="icon fa fa-map-signs"></span> Regiões
         </a></li>
       </ul>

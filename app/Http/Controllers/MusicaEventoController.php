@@ -47,7 +47,7 @@ class MusicaEventoController extends Controller
         $input['created_by'] = Auth::user()->id;
 
         $id = MusicaEvento::create($input)->id;
-        return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento adicionado!');
+        return Redirect::route('evento.edit',['user'=>$id])->with('message', 'Evento adicionado!');
     }
 
     public function update( $id, MusicaEventoRequest $request ){
@@ -57,7 +57,7 @@ class MusicaEventoController extends Controller
         $input['modified_by'] = Auth::user()->id;
 
         $evento->update($input);
-        return Redirect::route('musica.evento.edit',['user'=>$id])->with('message', 'Evento alterado!');
+        return Redirect::route('evento.edit',['user'=>$id])->with('message', 'Evento alterado!');
     }
 
     public function removerEvento( $id ){
@@ -68,7 +68,7 @@ class MusicaEventoController extends Controller
     public function destroy($id){
         $evento = MusicaEvento::findOrFail( $id );
         $evento->delete();
-        return Redirect::route('musica.evento.index')->with('message', 'Evento removido!');
+        return Redirect::route('evento.index')->with('message', 'Evento removido!');
     }
 
     public function index(){

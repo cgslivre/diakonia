@@ -189,6 +189,7 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.add_tipo_relacionamento;
     var membros;
     $scope.getMembrosRelacionamento = function(query) {
+        console.log('---');
         return $http.get('/membro', {cache: true})
             .then(function(response){
                 membros = response.data;
@@ -197,6 +198,9 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
                         return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
                     });
 
+            }, function( response){
+                console.log(response.data);
+                toastr["error"]("Falha na requisição");
             });
       };
 
