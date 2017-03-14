@@ -38,17 +38,17 @@
                     {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-padrao-form',
                         'class'=>'inline')) !!}
                         {{ Form::hidden('user-perfil', 'role-user-users')  }}
-                        {{ Form::submit('Padrão',['class'=>$user->is('role-user-users')?'btn btn-success':'btn btn-default']) }}
+                        {{ Form::submit('Padrão',['class'=>$user->isAn('role-user-users')?'btn btn-success':'btn btn-default']) }}
                     {!! Form::close() !!}
                     {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-gerente-form',
                         'class'=>'inline')) !!}
                         {{ Form::hidden('user-perfil', 'role-user-manage')  }}
-                        {{ Form::submit('Gerente',['class'=>$user->is('role-user-manage')?'btn btn-success':'btn btn-default']) }}
+                        {{ Form::submit('Gerente',['class'=>$user->isAn('role-user-manage')?'btn btn-success':'btn btn-default']) }}
                     {!! Form::close() !!}
                     {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-admin-form',
                         'class'=>'inline')) !!}
                         {{ Form::hidden('user-perfil', 'role-user-admin')  }}
-                        {{ Form::submit('Administrador',['class'=>$user->is('role-user-admin')?'btn btn-success':'btn btn-default']) }}
+                        {{ Form::submit('Administrador',['class'=>$user->isAn('role-user-admin')?'btn btn-success':'btn btn-default']) }}
                     {!! Form::close() !!}
 
                 </div>

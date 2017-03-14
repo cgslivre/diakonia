@@ -37,7 +37,7 @@ class UsuarioPermissoesController extends Controller
         }
         $perfil = $request->input('user-perfil');
         $user = User::findOrFail($id);
-        $val = $user->is($perfil);
+        $val = $user->isAn($perfil);
 
         $user->retract('role-user-users');
         $user->retract('role-user-manage');
