@@ -27,7 +27,7 @@ class MembroRequest extends Request
         return [
             'nome' => 'required|min:2',
             'sexo' => 'required',
-            'data_nascimento' => 'required|date_format:"Y-n-j"'
+            'data_nascimento' => 'required|date_format:"Y-n-j"|before:today'
         ];
     }
 
@@ -39,6 +39,7 @@ class MembroRequest extends Request
             'nome.min' => 'O nome precisa ter no mínimo 2 caracteres',
             'sexo.required' => 'É necessário informar o sexo da pessoa',
             'data_nascimento.required' => 'É necessário informar a data de nascimento',
+            'data_nascimento.before' => 'Data de nascimento inválida',
             'data_nascimento.date_format' => 'Data de nascimento inválida: Utilize o formato dd/mm/AAAA',
         ];
     }
