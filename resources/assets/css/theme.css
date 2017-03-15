@@ -273,3 +273,4 @@ div.relacionamentos > ul > li > i.fa-link{color: #AAA;}
 a.remover-relacionamento{color:#E63946;}
 
 table.membros > tbody > tr > td > img.profile-img {width: 70px;}
+table.membros > tbody{font-size: 13px;}

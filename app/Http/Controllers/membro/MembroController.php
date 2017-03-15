@@ -40,6 +40,8 @@ class MembroController extends Controller
 
     public function store( MembroRequest $request){
 
+        $request['grupo_caseiro_id'] =
+            $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
         Membro::create($request->all());
 
@@ -55,6 +57,8 @@ class MembroController extends Controller
 
     public function update($id, MembroRequest $request){
         //dd($request);
+        $request['grupo_caseiro_id'] =
+            $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;        
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
         $membro = Membro::findOrFail($id);
         $membro->update( $request->all());
