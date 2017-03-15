@@ -2,6 +2,8 @@
 
 @section('nivel2', '<li class="active">Editar membro</li>')
 
+@section('titulo', 'Edição: ' . $membro->nome)
+
 @section('content')
 
 <div class="container-fluid" ng-app="membrosRecord" ng-controller="membroEditCtrl as ctrl">
@@ -24,7 +26,7 @@
     </script>
 
     <script src="{{ url('js/membro/app-membro-module.min.js') }}"></script>
-    
+
 
     @endsection
 
