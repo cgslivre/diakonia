@@ -83,13 +83,19 @@
     </div>
 
     {{-- Data Nascimento --}}
-    <div class="form-group">
+    <div class="form-group {{ $errors->has('data_nascimento') ? ' has-error' : '' }}">
         <label for="data_nascimento" class="col-sm-2 control-label">
             <span class="required">*</span>Data de Nascimento:</label>
             <div class="col-sm-4">
-                <input type="text" class="form-control" ng-model="membro.data_nascimento" is-open="focus"
-                ng-focus="focus=true" datepicker-options="dateOptions" show-button-bar="false"
-                uib-datepicker-popup="d/M/yyyy" ng-required="true" name="data_nascimento"/>
+                <input type="text"
+                class="form-control "
+                ng-model="membro.data_nascimento" is-open="focus"
+                name="data_nascimento" id="data_nascimento"
+                ng-focus="focus=true" datepicker-options="dateOptions"
+                 ng-required="true" />
+                 @if ($errors->has('data_nascimento'))
+                     <span class="help-block"><strong>{{ $errors->first('data_nascimento') }}</strong></span>
+                 @endif
             </div>
         </div>
 

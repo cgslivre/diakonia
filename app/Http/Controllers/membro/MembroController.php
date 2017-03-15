@@ -38,8 +38,7 @@ class MembroController extends Controller
         return view('membro.create')->with('tiposRelIgreja',$tiposRelIgreja);
     }
 
-    public function store( MembroRequest $request){
-
+    public function store( MembroRequest $request){        
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
@@ -58,7 +57,7 @@ class MembroController extends Controller
     public function update($id, MembroRequest $request){
         //dd($request);
         $request['grupo_caseiro_id'] =
-            $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;        
+            $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
         $membro = Membro::findOrFail($id);
         $membro->update( $request->all());

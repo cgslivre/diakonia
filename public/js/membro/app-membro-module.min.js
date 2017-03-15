@@ -172,7 +172,8 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
     $scope.membro.grupo = post['grupo'];
     $scope.gci = 9;
     $scope.membro.sexo = post['sexo'];
-    var dia = moment(post['data_nascimento'],"Y-MM-DD").toDate();
+    var dia = moment(post['data_nascimento'],"Y-MM-DD").format("D/M/YYYY");
+    //console.log(post['data_nascimento']  + " :: " + dia) ;
     $scope.membro.data_nascimento = dia;
     var avatar = post['avatar_path'];
     if( avatar == null ){
