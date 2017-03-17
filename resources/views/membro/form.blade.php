@@ -1,9 +1,3 @@
-{{--@if($errors->has())
-@foreach ($errors->all() as $error)
-<div>{{ $error }}</div>
-@endforeach
-@endif
---}}
 <div class="row">
     @if ($errors->has('remove'))
         <span class="help-block">
@@ -196,9 +190,13 @@
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button class="btn btn-info"   tabindex="10"
-                    ng-disabled="membroForm.$invalid">
-                    <% button %>
-                </button>
+                        ng-disabled="membroForm.$invalid">
+                        <% button %>
+                    </button>
+                    <button class="btn btn-danger" type="button"
+                            data-toggle="modal" data-target="#modalRemoverMembro">
+                        Remover membro
+                    </button>
             </div>
         </div>
 

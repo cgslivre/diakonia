@@ -16,6 +16,7 @@
             , 'passwordForm'=>false])
     {{ Form::close() }}
     @include('membro.edit-relacionamentos')
+    @include('membro.modal-exclusao', ['membro'=>$membro])
 
 
 </div>
