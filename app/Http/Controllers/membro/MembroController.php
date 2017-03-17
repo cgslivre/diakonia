@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Requests\membro\MembroRequest;
 use App\Model\membro\Membro;
 use App\Model\membro\RelacionamentoIgreja;
+use App\Model\membro\RelacionamentoMembro;
 
 class MembroController extends Controller
 {
@@ -38,7 +39,7 @@ class MembroController extends Controller
         return view('membro.create')->with('tiposRelIgreja',$tiposRelIgreja);
     }
 
-    public function store( MembroRequest $request){        
+    public function store( MembroRequest $request){
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
@@ -73,5 +74,20 @@ class MembroController extends Controller
             }
         }
         return json_encode($arr);
+    }
+
+    public function destroy( $id ){
+        $membro = Membro::with('grupo')->findOrFail($id);
+
+        RelacionamentoMembro::where(
+            function ($query) use ($id) {
+                $query->where( 'membro_de_id', '=', $id )
+                    ->orWhere('membro_para_id','=', $id);
+            })->delete();
+
+        $membro->delete();
+
+        return Redirect::route('membros.lista')->with('message',
+            'Membro: ' . $membro->nome . ' removido(a)!');
     }
 }

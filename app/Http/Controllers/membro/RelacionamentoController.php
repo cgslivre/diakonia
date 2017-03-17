@@ -72,7 +72,8 @@ class RelacionamentoController extends Controller
             $erros[] = "Não é possível fazer um auto-relacionamento.";
         }
 
-        $outrosRels = RelacionamentoMembro::join('relacionamentos','relacionamento_id','=','relacionamentos.id')
+        $outrosRels = RelacionamentoMembro::join('relacionamentos','relacionamento_id'
+            ,'=','relacionamentos.id')
             ->where('membro_de_id',$membro)
             ->where('membro_para_id',$membroDestino->id)
             ->where('relacionamentos.categoria','=',$relacionamento->categoria)
@@ -98,7 +99,7 @@ class RelacionamentoController extends Controller
         $relMembro = RelacionamentoMembro::findOrFail($request['rel_id']);
         $relInverso = $relMembro->relacionamentoInverso();
 
-        RelacionamentoMembro::destroy([$request['rel_id'],$relInverso->id]);                
+        RelacionamentoMembro::destroy([$request['rel_id'],$relInverso->id]);
     }
 
     private function salvarRelacionamento( $membroOrigem, $membroDestino, $relacionamento ){
