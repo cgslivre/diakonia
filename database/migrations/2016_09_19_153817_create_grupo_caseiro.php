@@ -15,10 +15,7 @@ class CreateGrupoCaseiro extends Migration
         Schema::create('grupo_caseiro', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->unique();
-
-            $table->softDeletes();
             $table->timestamps();
-
         });
     }
 

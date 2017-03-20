@@ -1,1 +1,3 @@
-mysqldump --no-create-info --extended-insert=FALSE -u root -p diakonia membros relacionamento_membros > /home/00448406160/projetos/Development/Diakonia/database/scripts/dump-membros-2017-03-20.sql
+mysqldump --no-create-info --extended-insert=FALSE -u root -p diakonia grupo_caseiro membros relacionamento_membros > /home/00448406160/projetos/Development/Diakonia/database/scripts/dump-membros-2017-03-20.sql
+
+mysql -v -h localhost -u root -p  diakonia < /home/00448406160/projetos/Development/Diakonia/database/scripts/dump-membros-2017-03-20.sqlmysql -h localhost -u root -p  diakonia < /home/00448406160/projetos/Development/Diakonia/database/scripts/dump-membros-2017-03-20.sql
