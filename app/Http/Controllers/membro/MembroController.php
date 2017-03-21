@@ -43,10 +43,10 @@ class MembroController extends Controller
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
-        Membro::create($request->all());
+        $membro = Membro::create($request->all());
 
-        return Redirect::route('membros.lista')->with('message', 'Membro adicionado!');
-
+        return redirect()->route('membro.edit', ['id' => $membro->id])
+            ->with('message', 'Membro adicionado!');;
     }
 
     public function edit( $id ){

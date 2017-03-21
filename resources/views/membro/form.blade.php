@@ -22,7 +22,7 @@
 
 <div class="row">
     <div class="col-md-12">
-
+        <input type="hidden" name="id" id="id" ng-value="membro.id">
         {{-- Nome --}}
         <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}"
             ng-class="{'has-error' : membroForm.nome.$invalid && !membroForm.nome.$pristine}">

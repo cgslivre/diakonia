@@ -24,11 +24,16 @@ class MembroRequest extends Request
      */
     public function rules()
     {
-        return [
-            'nome' => 'required|min:2',
-            'sexo' => 'required',
-            'data_nascimento' => 'required|date_format:"Y-n-j"|before:today'
-        ];
+        $rules = $this->rules;
+        if(empty($this->id)){
+            $rules['nome'] = 'required|min:2|unique:membros';
+        } else{
+            $rules['nome'] = 'required|min:2|unique:membros,nome,'.$this->id.',id';
+        }
+        $rules['sexo'] = 'required';
+        $rules['data_nascimento'] = 'required|date_format:"Y-n-j"|before:today';
+        //dd($rules);
+        return $rules;
     }
 
 
