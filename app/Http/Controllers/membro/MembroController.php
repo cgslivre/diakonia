@@ -23,6 +23,9 @@ class MembroController extends Controller
     }
 
     public function index(){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
         $membros = Membro::with('grupo')->orderBy('nome','asc')->get();
         return $membros;
     }
@@ -40,6 +43,9 @@ class MembroController extends Controller
     }
 
     public function store( MembroRequest $request){
+        if(Bouncer::denies('membro-create')){
+            abort(403);
+        }
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
@@ -56,7 +62,9 @@ class MembroController extends Controller
     }
 
     public function update($id, MembroRequest $request){
-        //dd($request);
+        if(Bouncer::denies('membro-edit')){
+            abort(403);
+        }
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
@@ -77,6 +85,9 @@ class MembroController extends Controller
     }
 
     public function destroy( $id ){
+        if(Bouncer::denies('membro-remove')){
+            abort(403);
+        }
         $membro = Membro::with('grupo')->findOrFail($id);
 
         RelacionamentoMembro::where(

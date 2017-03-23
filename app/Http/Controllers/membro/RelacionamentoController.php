@@ -59,6 +59,10 @@ class RelacionamentoController extends Controller
 
     public function addRelacionamento( $membro, Request $request ){
 
+        if(Bouncer::denies('membro-edit')){
+            abort(403);
+        }
+
         $membroOrigem = Membro::findOrFail($membro);
 
         $rel_id = $request->input('relacionamento');
@@ -95,7 +99,9 @@ class RelacionamentoController extends Controller
     }
 
     public function removeRelacionamento( Request $request ){
-        //Log::info($request);
+        if(Bouncer::denies('membro-edit')){
+            abort(403);
+        }
         $relMembro = RelacionamentoMembro::findOrFail($request['rel_id']);
         $relInverso = $relMembro->relacionamentoInverso();
 

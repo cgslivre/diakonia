@@ -32,7 +32,9 @@ class GrupoCaseiroController extends Controller
     }
 
     public function salvar(Request $request){
-      //$input = Request::all();
+        if(Bouncer::denies('membro-grupo-create')){
+            abort(403);
+        }
 
       $validator = Validator::make($request->all(), [
               'nome' => 'required|min:2|unique:grupo_caseiro'
@@ -54,7 +56,9 @@ class GrupoCaseiroController extends Controller
     }
 
     public function atualizar(GrupoCaseiro $grupo, Request $request){
-
+        if(Bouncer::denies('membro-grupo-edit')){
+            abort(403);
+        }
         $request["nome"] = $request["nomeEdicao"];
 
         $validator = Validator::make($request->all(), [
@@ -71,6 +75,9 @@ class GrupoCaseiroController extends Controller
     }
 
     public function remover($id){
+        if(Bouncer::denies('membro-grupo-remove')){
+            abort(403);
+        }
         $grupo = GrupoCaseiro::findOrFail($id);
         $nomeGrupo = $grupo->nome;
         if($grupo->membros->isEmpty()){
