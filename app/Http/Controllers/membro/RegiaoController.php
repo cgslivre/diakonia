@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Regiao;
+use Bouncer;
 use Validator;
 
 class RegiaoController extends Controller
@@ -27,6 +28,9 @@ class RegiaoController extends Controller
     }
 
     public function store(Request $request){
+        if(Bouncer::denies('membro-regiao-create')){
+            abort(403);
+        }
         $validator = Validator::make($request->all(), [
                 'nome' => 'required|min:2|unique:regioes'
         ]);
@@ -46,6 +50,9 @@ class RegiaoController extends Controller
     }
 
     public function destroy($id){
+        if(Bouncer::denies('membro-regiao-remove')){
+            abort(403);
+        }
         $regiao = Regiao::findOrFail($id);
         $regiao->delete();
         return redirect('membros/regiao')->with('message', 'Região removida!');

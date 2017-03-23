@@ -17,8 +17,11 @@
 
         {{-- @include('layouts.menus.retiros') --}}
 
-        @include('layouts.menus.musica')
-        @include('layouts.menus.membros')
+        {{--@include('layouts.menus.musica')    --}}
+
+        @can('membro-list')
+            @include('layouts.menus.membros')
+        @endcan
 
         {{-- @include('layouts.menus.criancas') --}}
 

@@ -9,12 +9,16 @@
         <li><a href="{{ URL::route('membros.lista') }}">
             <span class="icon fa fa-th-list"></span> Lista
         </a></li>
+        @can('membro-grupo-create')
         <li><a href="{{ URL::route('membros.grupo-caseiro') }}">
             <span class="icon fa fa-users"></span> Grupos Caseiros
         </a></li>
+        @endcan
+        @can('membro-regiao-create')
         <li><a href="{{ URL::route('regiao.index') }}">
             <span class="icon fa fa-map-signs"></span> Regiões
         </a></li>
+        @endcan
       </ul>
     </div>
   </div>
