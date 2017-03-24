@@ -57,23 +57,15 @@
         </div>
 
     </div>
-    {{--
-    <a href="{{ url('/membro/create') }}" class="btn btn-success">
-        <i class="fa fa-user-plus"></i> Cadastrar novo membro
-    </a>
-    --}}
+    @can('membro-create')
     <div class="fixed-action-btn">
         <a href="{{ url('/membro/create') }}" title="Cadastrar novo membro"
         class="btn-floating btn-largbtn-floating btn-large">
             <i class="fa fa-user-plus fa-2x"></i>
         </a>
     </div>
-    {{--
-    @foreach ($tiposRelIgreja as $item)
-        {{ $item[0] }}<br />
-        {{ $item[1] }}
-    @endforeach
-    --}}
+    @endcan
+
     <hr/>
     <div>
         <div class="search-result">

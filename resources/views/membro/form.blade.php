@@ -189,14 +189,18 @@
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
+                    @can('membro-edit')
                     <button class="btn btn-info"   tabindex="10"
                         ng-disabled="membroForm.$invalid">
                         <% button %>
                     </button>
+                    @endcan
+                    @can('membro-remove')
                     <button class="btn btn-danger" type="button"
                             data-toggle="modal" data-target="#modalRemoverMembro">
                         Remover membro
                     </button>
+                    @endcan
             </div>
         </div>
 

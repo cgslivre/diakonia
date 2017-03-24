@@ -4,8 +4,8 @@
 
 
 @section('content')
+    @can('membro-grupo-create')
   {!! Form::open(array('url'=>'/membro/grupo-caseiro','class'=>'form-inline')) !!}
-
     <div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">
         {!! Form::label('nome', 'Nome do grupo:' , ['class'=>'control-label'])!!}
 
@@ -20,6 +20,7 @@
 
     </div>
   {!! Form::close() !!}
+    @endcan
 
 <hr class="divider">
 
@@ -32,7 +33,7 @@
       <tr>
         <th>#</th>
         <th>Nome</th>
-        <th>Remover</th>
+        @can('membro-grupo-remove')<th>Remover</th>@endcan
       </tr>
     </thead>
     <tbody>
@@ -42,12 +43,12 @@
         <tr class="grupo-ativo">
           <th scope="row" title="{{ $grupo->id }}">@index</th>
           <td class="nome-grupo">{{ $grupo->nome }}</td>
-          <td>
+          @can('membro-grupo-remove')<td>
               {{ Form::open([ 'method'  => 'delete', 'route' => [ 'membros.grupo-caseiro.remover', $grupo->id ] ]) }}
               {{ Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>',
                   ['class' => 'btn btn-danger','type'=>'submit']) }}
               {{ Form::close() }}
-          </td>
+          </td>@endcan
         </tr>
       @endforeachIndexed
 

@@ -21,9 +21,11 @@
                     <a href="<%userShowLink(rel.membro_para.id)%>">
                         <%rel.membro_para.nome%></a>.
                 </span>
+                @can('membro-edit')
                 <a href="#" title="Remover relacionamento" class="remover-relacionamento" ng-click="actRemoveRelacionamento(membro.id,rel.id)">
                     <i class="fa fa-times" aria-hidden="true" ></i>
                 </a>
+                @endcan
             </li>
         </ul>
         <div class="add-relacionamento">
@@ -45,6 +47,7 @@
             	typeahead-no-results="semResultadosMembrosRelFamilia"
             	class="">
             <i ng-show="carregandoMembrosRelFamilia" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+            @can('membro-edit')
             <button
                 class="btn btn-info"
                 ng-disabled="id_rel_familia_selected == null"
@@ -55,6 +58,7 @@
                     ;id_rel_familia_selected=null;add_tipo_relacionamento=null">
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
+            @endcan
             <span class="no-results" ng-show="semResultadosMembrosRelFamilia">Nenhum membro encontrado</span>
 
         </div>
@@ -85,9 +89,10 @@
             <a href="<%userShowLink(relac.membro_para.id)%>">
                 <%relac.membro_para.nome%></a>.
         </span>
+        @can('membro-edit')
         <a href="#" title="Remover relacionamento" class="remover-relacionamento" ng-click="actRemoveRelacionamento(membro.id,relac.id)">
             <i class="fa fa-times" aria-hidden="true" ></i></a>
-
+        @endcan
     </li>
 </ul>
 <div class="add-relacionamento">
@@ -109,6 +114,7 @@
         typeahead-no-results="semResultadosMembrosRelIgreja"
         class="">
     <i ng-show="carregandoMembrosRelIgreja" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+    @can('membro-edit')
     <button
         class="btn btn-info"
         ng-disabled="id_rel_igreja_selected == null"
@@ -117,6 +123,7 @@
         ;id_rel_igreja_selected=null;add_tipo_relacionamento_igreja=null">
         <i class="fa fa-plus-square" aria-hidden="true"></i>
     </button>
+    @endcan
     <span class="no-results" ng-show="semResultadosMembrosRelIgreja">Nenhum membro encontrado</span>
 
 </div>

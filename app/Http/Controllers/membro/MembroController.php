@@ -57,6 +57,9 @@ class MembroController extends Controller
     }
 
     public function edit( $id ){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
         $tiposRelIgreja = RelacionamentoIgreja::$tipos;
         $membro = Membro::with('grupo')->findOrFail($id);
         return view('membro.edit', compact('membro'))->with('tiposRelIgreja',$tiposRelIgreja);
