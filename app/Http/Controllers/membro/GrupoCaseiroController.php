@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Http\Requests;
 use Validator;
+use Bouncer;
 use App\Model\membro\GrupoCaseiro;
 
 class GrupoCaseiroController extends Controller

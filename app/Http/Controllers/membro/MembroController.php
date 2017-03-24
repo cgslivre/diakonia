@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
+use Bouncer;
 use App\Http\Requests\membro\MembroRequest;
 use App\Model\membro\Membro;
 use App\Model\membro\RelacionamentoIgreja;

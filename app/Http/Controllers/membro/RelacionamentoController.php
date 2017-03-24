@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use Response;
+use Bouncer;
 use Log;
 use Grimthorr\LaravelToast\Toast;
 use App\Model\membro\Membro;
