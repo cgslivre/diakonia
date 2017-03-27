@@ -4,18 +4,13 @@
     </div>
     <nav class="nav" role="navigation">
         <ul class="nav__list">
-            <li>
-                <input id="group-1" type="checkbox" hidden />
-                <label for="group-1"><span class="fa fa-angle-right"></span> Usuários</label>
-                <ul class="group-list">
-                    <li><a href="#">Lista</a></li>
-                    <li><a href="#">Permissões</a></li>
-                </ul>
-            </li>
+            @can('user-list')
+                @include('layouts.menus.usuarios')
+            @endcan
 
             <li>
                 <input id="group-2" type="checkbox" hidden />
-                <label for="group-2"><span class="fa fa-angle-right"></span> Membros</label>
+                <label for="group-2"><span class="seta fa fa-angle-right"></span> Membros</label>
                 <ul class="group-list">
                     <li><a href="/membros">Lista</a></li>
                     <li><a href="#">Grupos Caseiros</a></li>
