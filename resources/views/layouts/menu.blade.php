@@ -1,6 +1,6 @@
 <header class="menu-lateral" role="banner">
     <div class="nav-header">
-        <div class="title">Menu</div>
+        <a class="logo" href="#"><img src="{{ url('img/logo-diakonia.png') }}" alt="Diakonia Logo" /></a>
     </div>
     <nav class="nav" role="navigation">
         <ul class="nav__list">
@@ -8,15 +8,9 @@
                 @include('layouts.menus.usuarios')
             @endcan
 
-            <li>
-                <input id="group-2" type="checkbox" hidden />
-                <label for="group-2"><span class="seta fa fa-angle-right"></span> Membros</label>
-                <ul class="group-list">
-                    <li><a href="/membros">Lista</a></li>
-                    <li><a href="#">Grupos Caseiros</a></li>
-                    <li><a href="/membros/regiao">Regiões</a></li>
-                </ul>
-            </li>
+            @can('membro-list')
+                @include('layouts.menus.membros')
+            @endcan
 
         </ul>
     </nav>

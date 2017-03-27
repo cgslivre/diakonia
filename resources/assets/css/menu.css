@@ -30,7 +30,7 @@ header > .nav-header > .title{
 
 nav.nav{display:block;}
 
-header.menu-lateral span.icon{color: #f6f3cc;}
+header.menu-lateral span.icon{color: #e4f2f1;margin-right: 10px;}
 
 /**
  * Styling top level items

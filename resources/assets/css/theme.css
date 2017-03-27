@@ -34,8 +34,6 @@ h2{color:#376c8c;}
   margin: 0;
 }
 
-a.logo {position: fixed;left: 50%; margin: 0 auto;}
-
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
 .table tbody{font-size: 15px;}
 

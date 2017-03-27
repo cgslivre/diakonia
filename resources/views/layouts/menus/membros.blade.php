@@ -1,11 +1,9 @@
-<li class="panel panel-default dropdown">
-  <a data-toggle="collapse" href="#dropdown-membros">
-      <span class="icon fa fa-address-book-o"></span><span class="title">Membros</span>
-  </a>
-  <!-- Dropdown level 1 -->
-  <div id="dropdown-membros" class="panel-collapse collapse">
-    <div class="panel-body">
-      <ul class="nav navbar-nav">
+<li>
+    <input id="group-membros" type="checkbox" hidden />
+    <label for="group-membros">
+        <span class="seta fa fa-angle-right"></span> <span class="icon fa fa-address-book-o"></span> Membros
+    </label>
+    <ul class="group-list">
         <li><a href="{{ URL::route('membros.lista') }}">
             <span class="icon fa fa-th-list"></span> Lista
         </a></li>
@@ -19,7 +17,6 @@
             <span class="icon fa fa-map-signs"></span> Regiões
         </a></li>
         @endcan
-      </ul>
-    </div>
-  </div>
+
+    </ul>
 </li>

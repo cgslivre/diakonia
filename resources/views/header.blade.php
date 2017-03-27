@@ -3,12 +3,8 @@
     <div class="navbar-header">
 
 
-        <a class="logo" href="#"><img src="{{ url('img/logo-diakonia.png') }}" alt="Diakonia Logo" /></a>
+        
 
-
-        <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
-            <i class="fa fa-th icon"></i>
-        </button>
     </div>
     <ul class="nav navbar-nav navbar-right">
       <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">

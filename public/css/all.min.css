@@ -9196,8 +9196,6 @@ h2{color:#376c8c;}
   margin: 0;
 }
 
-a.logo {position: fixed;left: 50%; margin: 0 auto;}
-
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
 .table tbody{font-size: 15px;}
 
@@ -9469,7 +9467,7 @@ header > .nav-header > .title{
 
 nav.nav{display:block;}
 
-header.menu-lateral span.icon{color: #f6f3cc;}
+header.menu-lateral span.icon{color: #e4f2f1;margin-right: 10px;}
 
 /**
  * Styling top level items
