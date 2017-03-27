@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use App\Http\Requests;
 use Bouncer;
+use Auth;
 use App\Http\Requests\membro\MembroRequest;
 use App\Model\membro\Membro;
 use App\Model\membro\RelacionamentoIgreja;
@@ -23,7 +24,7 @@ class MembroController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index(){        
         if(Bouncer::denies('membro-list')){
             abort(403);
         }
@@ -32,6 +33,9 @@ class MembroController extends Controller
     }
 
     public function lista(){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
         $tiposRelIgreja = RelacionamentoIgreja::$tipos;
 
         //return view('membro.index')->with('tiposRelIgreja',$tiposRelIgreja));

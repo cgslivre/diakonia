@@ -40,11 +40,11 @@
       </tr>
     </thead>
     <tbody>
-
-      @foreachIndexed( $grupos as $grupo )
+      <?php $i=1 ?>
+      @foreach( $grupos as $grupo )
 
         <tr class="{{ ($grupo->ativo) ? 'grupo-ativo' : 'grupo-inativo'}}">
-          <th scope="row" title="{{ $grupo->id }}">@index</th>
+          <th scope="row" title="{{ $grupo->id }}">{{$i++}}</th>
           <td
           @unless ($grupo->ativo)
           class="text-muted"
@@ -72,7 +72,7 @@
           </td>
 
         </tr>
-      @endforeachIndexed
+      @endforeach
 
     </tbody>
   </table>

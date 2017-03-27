@@ -37,21 +37,22 @@
       </tr>
     </thead>
     <tbody>
-
-      @foreachIndexed( $grupos as $grupo )
+     <?php $i=1 ?>
+      @foreach( $grupos as $grupo )
 
         <tr class="grupo-ativo">
-          <th scope="row" title="{{ $grupo->id }}">@index</th>
+          <th scope="row" title="{{ $grupo->id }}">{{$i++}}</th>
           <td class="nome-grupo">{{ $grupo->nome }}</td>
           @can('membro-grupo-remove')<td>
-              {{ Form::open([ 'method'  => 'delete', 'route' => [ 'membros.grupo-caseiro.remover', $grupo->id ] ]) }}
+              {{ Form::open([ 'method'  => 'delete',
+                  'route' => [ 'membros.grupo-caseiro.remover', $grupo->id ] ]) }}
               {{ Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i>',
                   ['class' => 'btn btn-danger','type'=>'submit']) }}
               {{ Form::close() }}
           </td>@endcan
         </tr>
-      @endforeachIndexed
 
+      @endforeach
     </tbody>
   </table>
 

@@ -113,7 +113,7 @@
                             class="profile-img"/>
                     </td>
                     <td class="middle-align"><a
-                        @can('user-view')
+                        @can('membro-list')
                             href="<%userShowLink(membro.id)%>"
                         @endcan
                         ng-bind-html="membro.nome | highlight:criterioDeBusca"></a></td>

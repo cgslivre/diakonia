@@ -16,7 +16,7 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
         $scope.membros = response.data;
     });
 
-    $scope.userShowLink = function( membro ){
+    $scope.userShowLink = function( membro ){        
         return window.location.origin + '/membro/' + membro + '/edit';
 	};
 
