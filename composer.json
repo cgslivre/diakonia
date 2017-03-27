@@ -24,7 +24,8 @@
     "autoload": {
         "classmap": [
             "database",
-            "app/Http/Controllers/musica"
+            "app/Http/Controllers/musica",
+            "app/Http/Controllers/membro"
         ],
         "psr-4": {
             "App\\": "app/"

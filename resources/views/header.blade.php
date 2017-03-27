@@ -45,9 +45,13 @@
                 <div class="btn-group margin-bottom-2x" role="group">
                   <a href="{{ url('/perfil') }}"><button type="button" class="btn btn-default"><i class="fa fa-user"></i> Perfil</button></a>
                   <button type="button" class="btn btn-default">
-                    <a href="{{ url('/logout') }}">
+                    <a href="{{ url('/logout') }}"
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">>
                       <i class="fa fa-btn fa-sign-out"></i>Logout
                     </a>
+                    <form id="logout-form" action="{{ url('/logout') }}"
+                            method="POST" style="display: none;">{{ csrf_field() }}
+                    </form>
                   </button>
                 </div>
               </div>
