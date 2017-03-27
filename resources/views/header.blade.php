@@ -1,20 +1,8 @@
-{{--
-  <a href="{{ URL::route('retiros') }}" class="logo">
-    {{ HTML::image('img/diakonia-logo.png') }}
---}}
-<nav class="navbar navbar-default navbar-fixed-top navbar-top">
+<div class="barra-topo">
   <div id="topo" class="container-fluid">
     <div class="navbar-header">
-        <button type="button" class="navbar-expand-toggle">
-            <i class="fa fa-bars icon"></i>
-        </button>
-        {{-- Título da Página --}}
-<!--
-        <ol class="breadcrumb navbar-breadcrumb">
-            <li class="active">Diakonia</li>
-            <li class="active">@yield('titulo')</li>
-        </ol>
--->
+
+
         <a class="logo" href="#"><img src="{{ url('img/logo-diakonia.png') }}" alt="Diakonia Logo" /></a>
 
 
@@ -46,7 +34,7 @@
                   <a href="{{ url('/perfil') }}"><button type="button" class="btn btn-default"><i class="fa fa-user"></i> Perfil</button></a>
                   <button type="button" class="btn btn-default">
                     <a href="{{ url('/logout') }}"
-                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">>
+                        onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                       <i class="fa fa-btn fa-sign-out"></i>Logout
                     </a>
                     <form id="logout-form" action="{{ url('/logout') }}"
@@ -61,4 +49,4 @@
       </li>
     </ul>
   </div>
-</nav>
+</div>

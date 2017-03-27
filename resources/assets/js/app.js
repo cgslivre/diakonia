@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
   $(".app-container").toggleClass("expanded");
   $(".navbar-expand-toggle").click(function() {
     $(".app-container").toggleClass("expanded");
@@ -14,7 +14,7 @@ $(function() {
   return $(".side-menu .nav .dropdown").on('show.bs.collapse', function() {
     return $(".side-menu .nav .dropdown .collapse").collapse('hide');
   });
-});
+});*/
 
 $('.alert, hr.mensagem').not('.alert-important').delay(3000).slideUp(300);
 
@@ -49,7 +49,7 @@ comum.filter('highlight', ['$sce', function($sce) {
 }]);
 
 comum.filter('formatPhone', ['$sce', function($sce) {
-    return function(input) {        
+    return function(input) {
         var ret = input.toString();
         if( ret == null || ret.length == 0 ){
             return '';

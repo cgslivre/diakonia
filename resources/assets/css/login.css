@@ -37,6 +37,9 @@
 }
 
 .login-box > header{
+    position: inherit;
+    width: auto;
+    height: auto;
     font-size: 20px;
     background-color: white;
     padding: 20px;

@@ -15,34 +15,33 @@
   <body class="flat-blue">
 
     <div class="app-container">
-      <div class="row content-container">
 
-      {{-- Inclui o cabeçalho da página --}}
-@include('header')
+
+
 
 {{-- Inclui o Menu  --}}
 @if (Auth::guest())
 @else
   @include('layouts.menu')
 @endif
+      <div class="side-body">
+          {{-- Inclui o cabeçalho da página --}}
+    @include('header')
+          <ol id="navegador" class="breadcrumb">
+            @yield('nivel1')
+            @yield('nivel2')
+            @yield('nivel3')
+          </ol>
 
-        <div class="container-fluid">
-          <div class="side-body">
-              <ol id="navegador" class="breadcrumb">
-                @yield('nivel1')
-                @yield('nivel2')
-                @yield('nivel3')
-              </ol>
+          <hr class="divider">
+          @include('layouts.mensagens')
+          @yield('content')
 
-              <hr class="divider">
-              @include('layouts.mensagens')              
-              @yield('content')
-
-
-          </div>
-        </div>
 
       </div>
+
+
+
     </div> {{-- Fim div.app-container --}}
 
     <footer class="app-footer">

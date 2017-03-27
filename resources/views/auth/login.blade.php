@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-container">
     <div class="login-box">
-        <header class="text-center">
+        <header id="login" class="text-center">
             <img src="../img/logo_v2.png" alt="Logo Diakonia">
 
         </header>
