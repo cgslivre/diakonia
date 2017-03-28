@@ -24,11 +24,13 @@ h2{color:#376c8c;}
 .navbar-default .navbar-nav>.open>a,
  .navbar-default .navbar-nav>.open>a:focus,
   .navbar-default .navbar-nav>.open>a:hover{background-color: none;}
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{background-color: #d73541;color: #f9f9f9;}
+ .nav .open>a:hover{background-color: #235675;color: #f9f9f9;}
 .navbar-default .navbar-nav>li>a.user-menu {color: #f9f9f9;}
+li.dropdown.profile.open > a{color: #23527c;}
 
 
-.profile-info{color:#333333;}
+.profile-info{padding: 5px;text-align: center;}
+.profile-info > p{font-size: 12px;font-weight: bold;word-break: break-all;}
 #topo > div > ol.breadcrumb > li{color: #f9f9f9; }
 #topo > div > ol.breadcrumb{margin-left: 20%;}
 

@@ -17,20 +17,20 @@
         </li>
         <li>
           <div class="profile-info">
-
-            <h4 class="username">Usuário</h4>
             <p>{{ Auth::user()->email }}</p>
             <div class="btn-group margin-bottom-2x" role="group">
-              <a href="{{ url('/perfil') }}"><button type="button" class="btn btn-default"><i class="fa fa-user"></i> Perfil</button></a>
-              <button type="button" class="btn btn-default">
-                <a href="{{ url('/logout') }}"
+              <a href="{{ url('/perfil') }}" class="btn btn-default">
+                  <i class="fa fa-user"></i> Perfil
+              </a>
+
+              <a href="{{ url('/logout') }}" class="btn btn-info"
                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                <i class="fa fa-btn fa-sign-out"></i>Logout
+                <i class="fa fa-btn fa-sign-out"></i> Logout
               </a>
               <form id="logout-form" action="{{ url('/logout') }}"
               method="POST" style="display: none;">{{ csrf_field() }}
-            </form>
-          </button>
+              </form>
+
         </div>
       </div>
     </li>
