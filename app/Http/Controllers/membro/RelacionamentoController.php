@@ -35,8 +35,8 @@ class RelacionamentoController extends Controller
                 $rels = RelacionamentoMembro::where('membro_de_id',$membro)
                     ->whereHas('relacionamento',
                         function($query) use($categoria){
-                            $query->where('categoria','=',$categoria);})
-                    ->with('relacionamento')
+                            $query->where('categoria','=',$categoria);})                    
+                    ->orderBy('relacionamento_id','asc')
                     ->get();
                 return $rels;
         } else{
