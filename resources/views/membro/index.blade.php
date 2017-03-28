@@ -90,7 +90,10 @@
                     <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='nome' && direcaoDaOrdenacao"></i>
                     <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='nome' && !direcaoDaOrdenacao"></i>
                 </a></th>
-                <th>Idade</th>
+                <th><a href="" ng-click="ordenarPor('idade')">Idade
+                    <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='idade' && direcaoDaOrdenacao"></i>
+                    <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='idade' && !direcaoDaOrdenacao"></i>
+                </a></th>
                 <th><a href="" ng-click="ordenarPor('grupo.nome')">Grupo Caseiro
                     <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='grupo.nome' && direcaoDaOrdenacao"></i>
                     <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='grupo.nome' && !direcaoDaOrdenacao"></i>
