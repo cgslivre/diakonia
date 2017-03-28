@@ -9,12 +9,16 @@ h2{color:#376c8c;}
   color: #f9f9f9;
 }
 
-#topo{background-color: #E63946;color: #f9f9f9;}
-/* Subarea selecionada */
-#menu-lateral > nav  > div > ul.nav > li > a[aria-expanded="true"]{background-color: #376c8c; }
-#menu-lateral > nav  > div > ul.nav > li > div[aria-expanded="true"]{background-color: #377194; }
+#topo{
+  background-color: #eceff4;
+  height: 50px;
+  width: 100%;
+  z-index: 990;
+  left: 0;
+  top: 0;
+  position: fixed;
+}
 
-#topo {height: 80px;}
 
 #topo > ul > li.dropdown{background-color: none;}
 .navbar-default .navbar-nav>.open>a,

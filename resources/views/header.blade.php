@@ -1,11 +1,6 @@
 <div class="barra-topo">
   <div id="topo" class="container-fluid">
-    <div class="navbar-header">
-
-
-        
-
-    </div>
+    
     <ul class="nav navbar-nav navbar-right">
       <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
           <i class="fa fa-times icon"></i>

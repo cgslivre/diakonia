@@ -10,6 +10,7 @@ header div, header nav, header ul, header li, header input, header label{
 header ul{list-style: none;}
 header {
   position: fixed;
+  z-index: 995;
   width: 20%;
   height: 100%;
   background-color: #2d6688;
