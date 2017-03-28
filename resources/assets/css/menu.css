@@ -19,7 +19,7 @@ header {
 header > .nav-header{
     height: 80px;
     line-height: 80px;
-
+    text-align: center;
 }
 header > .nav-header > .title{
     color: #e9f0f1;
@@ -29,7 +29,9 @@ header > .nav-header > .title{
     box-shadow: inset 0 -1px #2d6688;
 }
 
-nav.nav{display:block;}
+nav.nav{display:block;font-size: 15px}
+
+nav.nav label{font-weight: normal;}
 
 header.menu-lateral span.icon{color: #e4f2f1;margin-right: 10px;}
 

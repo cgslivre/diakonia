@@ -24,21 +24,18 @@
 @else
   @include('layouts.menu')
 @endif
-      <div class="side-body">
-          {{-- Inclui o cabeçalho da página --}}
+  <div class="side-body">
+    {{-- Inclui o cabeçalho da página --}}
     @include('header')
-          <ol id="navegador" class="breadcrumb">
-            @yield('nivel1')
-            @yield('nivel2')
-            @yield('nivel3')
-          </ol>
 
-          <hr class="divider">
-          @include('layouts.mensagens')
-          @yield('content')
+   <hr class="divider">
+   @include('layouts.mensagens')
+   <div class="conteudo">
+     @yield('content')
+   </div>
 
 
-      </div>
+  </div>
 
 
 

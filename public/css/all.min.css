@@ -9192,6 +9192,9 @@ h2{color:#376c8c;}
 
 .profile-info{color:#333333;}
 #topo > div > ol.breadcrumb > li{color: #f9f9f9; }
+#topo > div > ol.breadcrumb{margin-left: 20%;}
+
+.conteudo{margin-top: 50px;}
 
 .button-link{
   border: 0;
@@ -9242,7 +9245,15 @@ span.counter{font-size: 120%;font-weight: bold;}
 
 .highlighted { background: yellow }
 
-#navegador{font-size:18px;margin-top: 15px;background: none;}
+#navegador{
+  font-size:16px;
+  margin-top: 15px;
+  margin-left: 20%;
+  line-height: 0;
+  background: none;
+}
+
+.conteudo{padding: 10px;}
 
 .inline{display: inline}
 
@@ -9460,7 +9471,7 @@ header {
 header > .nav-header{
     height: 80px;
     line-height: 80px;
-
+    text-align: center;
 }
 header > .nav-header > .title{
     color: #e9f0f1;
@@ -9470,7 +9481,9 @@ header > .nav-header > .title{
     box-shadow: inset 0 -1px #2d6688;
 }
 
-nav.nav{display:block;}
+nav.nav{display:block;font-size: 15px}
+
+nav.nav label{font-weight: normal;}
 
 header.menu-lateral span.icon{color: #e4f2f1;margin-right: 10px;}
 

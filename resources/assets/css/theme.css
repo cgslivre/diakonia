@@ -30,6 +30,9 @@ h2{color:#376c8c;}
 
 .profile-info{color:#333333;}
 #topo > div > ol.breadcrumb > li{color: #f9f9f9; }
+#topo > div > ol.breadcrumb{margin-left: 20%;}
+
+.conteudo{margin-top: 50px;}
 
 .button-link{
   border: 0;
@@ -80,7 +83,15 @@ span.counter{font-size: 120%;font-weight: bold;}
 
 .highlighted { background: yellow }
 
-#navegador{font-size:18px;margin-top: 15px;background: none;}
+#navegador{
+  font-size:16px;
+  margin-top: 15px;
+  margin-left: 20%;
+  line-height: 0;
+  background: none;
+}
+
+.conteudo{padding: 10px;}
 
 .inline{display: inline}
 
