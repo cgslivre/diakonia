@@ -25,6 +25,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('membros/relacionamentos/{categoria?}','membro\RelacionamentoController@relacionamentos');
 
     // Regiões
+    Route::resource('membros/consulta','membro\ConsultaController');
+
+    // Regiões
     Route::resource('membros/regiao','membro\RegiaoController');
     Route::get('regioes', 'RegiaoController@lista')
         ->name('regioes.lista');
