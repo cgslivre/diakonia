@@ -27,7 +27,7 @@
     <?php $i=1 ?>
     @if (count($regioes) > 0 )
 
-        <div class="row">
+        <div class="row noventa">
 
 
 

@@ -1,43 +1,5 @@
-.fixed-action-btn {
-  position: fixed;
-  right: 23px;
-  bottom: 23px;
-  padding-top: 15px;
-  margin-bottom: 0;
-  z-index: 998;
-}
 
-.btn-floating {
-    display: inline-block;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    padding: 0;
-    background-color: #26a69a;
-    border-radius: 50%;
-    transition: .3s;
-    cursor: pointer;
-    vertical-align: middle;
-}
 
-.btn-large {
-    height: 54px;
-    line-height: 54px;
-}
-
-.btn-floating.btn-large {
-    width: 56px;
-    height: 56px;
-}
-
-.btn-floating i {
-    line-height: 56px;
-}
 
 .phone-input{
 	margin-bottom:8px;

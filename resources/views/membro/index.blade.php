@@ -5,7 +5,16 @@
 
 @section('content')
 
+
 <div ng-app="membrosRecord" ng-controller="membrosIndexController">
+    @can('membro-create')
+        <div class="fixed-action-btn">
+            <a href="{{ url('/membro/create') }}" title="Cadastrar novo membro"
+            class="btn-floating btn-large">
+            <i class="fa fa-user-plus fa-2x"></i>
+        </a>
+    </div>
+@endcan
 
     <div class="form-group input-group-lg">
         <input type="text" ng-model="criterioDeBusca" class="form-control"
@@ -57,14 +66,7 @@
         </div>
 
     </div>
-    @can('membro-create')
-    <div class="fixed-action-btn">
-        <a href="{{ url('/membro/create') }}" title="Cadastrar novo membro"
-        class="btn-floating btn-largbtn-floating btn-large">
-            <i class="fa fa-user-plus fa-2x"></i>
-        </a>
-    </div>
-    @endcan
+
 
     <hr/>
     <div>

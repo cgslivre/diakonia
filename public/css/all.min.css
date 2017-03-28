@@ -7968,31 +7968,13 @@ a:hover {
     height:100%;
   position: relative;
    }
-  .app-container .app-footer {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 65px;
-    -webkit-transition: all 0.25s;
-    transition: all 0.25s;
-    font-size: 12px;
-    font-family: 'Roboto Condensed', sans-serif; }
-    .app-container .app-footer .wrapper {
-      padding: 10px 35px;
-      padding-left: 25px;
-      height: 50px;
-      line-height: 50px;
-      vertical-align: middle; }
+
   .app-container .content-container {
     margin-right: 0;
     margin-left: 0; }
 
 
-.app-container.expanded .app-footer {
-  left: 250px; }
-  .app-container.expanded .app-footer .wrapper {
-    padding-left: 25px; }
+
 
 .app-container.expanded .content-container .navbar-top {
   padding-left: 250px; }
@@ -8027,48 +8009,7 @@ a:hover {
 .app-container.expanded .side-body {
   margin-left: 260px; }
 
-/* small screen */
-@media (max-width: 768px) {
-  .navbar {
-    padding-left: 0; }
-    .navbar .navbar-header {
-      width: auto;
-      display: block; }
-    .navbar .navbar-nav {
-      width: auto;
-      margin: 0; }
-      .navbar .navbar-nav > li {
-        display: inline-block; }
-    .navbar .navbar-right {
-      position: absolute;
-      top: 0;
-      right: -100%;
-      height: 100%;
-      width: 100%;
-      -moz-transition: all 0.25s linear;
-      -webkit-transition: all 0.25s linear;
-      transition: all 0.25s linear; }
-      .navbar .navbar-right .open .dropdown-menu {
-        position: absolute; }
-    .navbar .navbar-right.expanded {
-      right: 0; }
-  .app-container .navbar-top {
-    min-width: 300px; }
-  .app-container .content-container .side-menu {
-    margin-left: -250px;
-    width: 0px; }
-  .app-container .content-container .side-body {
-    margin-left: 10px; }
-  .app-container.expanded .navbar-top {
-    min-width: 480px;
-    padding-left: 0px; }
-  .app-container.expanded .side-menu {
-    margin-left: 0px;
-    width: 250px; }
-  .app-container.expanded .side-body {
-    margin-left: 10px; }
-  .app-container .app-footer .wrapper, .app-container.expanded .app-footer .wrapper {
-    padding-left: 25px; } }
+
 
 .panel {
   border-radius: 1px; }
@@ -8233,9 +8174,7 @@ a:hover {
 
 
 
-/* RESPONSIVE CSS
--------------------------------------------------- */
-@media (min-width: 768px) {
+
   /* Navbar positioning foo */
   .navbar-wrapper .container {
     padding-right: 15px;
@@ -8246,56 +8185,12 @@ a:hover {
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
     border-radius: 4px; }
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: 1.4; }
-  .featurette-heading {
-    font-size: 50px; } }
 
-} }
 
-.fixed-action-btn {
-  position: fixed;
-  right: 23px;
-  bottom: 23px;
-  padding-top: 15px;
-  margin-bottom: 0;
-  z-index: 998;
-}
+ }
 
-.btn-floating {
-    display: inline-block;
-    color: #fff;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    padding: 0;
-    background-color: #26a69a;
-    border-radius: 50%;
-    transition: .3s;
-    cursor: pointer;
-    vertical-align: middle;
-}
 
-.btn-large {
-    height: 54px;
-    line-height: 54px;
-}
 
-.btn-floating.btn-large {
-    width: 56px;
-    height: 56px;
-}
-
-.btn-floating i {
-    line-height: 56px;
-}
 
 .phone-input{
 	margin-bottom:8px;
@@ -8795,7 +8690,7 @@ header ul{list-style: none;}
 header {
   position: fixed;
   z-index: 995;
-  width: 270px;
+  width: 20%;
   height: 100%;
   background-color: #2d6688;
 }
@@ -8903,6 +8798,49 @@ label > span.seta {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
+
+.fixed-action-btn {
+  position: fixed;
+  right: 23px;
+  bottom: 23px;
+  padding-top: 15px;
+  margin-bottom: 0;
+  z-index: 998;
+}
+
+.btn-floating {
+    display: inline-block;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0;
+    background-color: #26a69a;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.btn-large {
+    height: 54px;
+    line-height: 54px;
+}
+
+.btn-floating.btn-large {
+    width: 56px;
+    height: 56px;
+}
+
+.btn-floating i {
+    line-height: 56px;
+}
+
+.noventa{width: 90%;}
 
 
 .login-container{

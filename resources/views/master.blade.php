@@ -34,18 +34,13 @@
      @yield('content')
    </div>
 
+  </div> {{-- Fim da div side-body--}}
 
-  </div>
 
 
 
     </div> {{-- Fim div.app-container --}}
 
-    <footer class="app-footer">
-      <div class="wrapper">
-        © 2016 Copyright
-      </div>
-    </footer>
 
     {{ HTML::script('js/app.min.js') }}
 
