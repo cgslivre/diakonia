@@ -8703,12 +8703,12 @@ header > .nav-header{
 header > .nav-header > .title{
     color: #e9f0f1;
     margin-left: 20px;
-    font-size: 14px;
+    font-size: 13px;
     font-style: italic;
     box-shadow: inset 0 -1px #2d6688;
 }
 
-nav.nav{display:block;font-size: 15px}
+nav.nav{display:block;}
 
 nav.nav label{font-weight: normal;}
 
@@ -8718,12 +8718,11 @@ header.menu-lateral span.icon{color: #e4f2f1;margin-right: 10px;}
  * Styling top level items
  */
 
-header > .nav a, header > .nav label {
+header > .nav > ul > li > label {
   display: block;
   padding: .85rem;
   color: #fff;
-  background-color: #376c8c;
-  box-shadow: inset 0 -1px #2d6688;
+  box-shadow: inset 0 -1px #296183;
 }
 
 header > .nav a:focus, header > .nav a:hover, header > .nav label:focus, header > .nav label:hover {
@@ -8737,7 +8736,9 @@ header > .nav label { cursor: pointer; }
  */
 
 .group-list a, .group-list label {
-  padding-left: 2rem;
+  padding: 1.25rem 0 1.25rem 3rem;
+  display: block;
+  color: #d5e5ee;
   background: #285977;
   box-shadow: inset 0 -1px #2d6688;
 }
