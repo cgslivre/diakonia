@@ -8903,10 +8903,7 @@ label > span.seta {
     position: relative;
 }
 
-.login-form-group > input, .login-form-group > input:-webkit-autofill
-, .login-form-group > input:-webkit-autofill:hover
-, .login-form-group > input:-webkit-autofill:focus
-, .login-form-group > input:-webkit-autofill:active{
+.login-form-group > input{
     border: 2px solid transparent;
     border-radius: 4px;
     width: 100%;
