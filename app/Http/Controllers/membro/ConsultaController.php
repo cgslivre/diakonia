@@ -54,6 +54,22 @@ class ConsultaController extends Controller
                     });
                 }
             })
+            // Opção [é discipulador]
+            ->when($consulta->tem_discipulador, function( $query ) use ($consulta ){
+                if( $consulta->tem_discipulador == 'S' ){
+                    return $query->whereIn('id', function( $query){
+                        $query->select('membro_de_id')
+                            ->from('relacionamento_membros')
+                            ->where('relacionamento_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULO);
+                    });
+                } else if( $consulta->tem_discipulador == 'N'){
+                    return $query->whereNotIn('id', function( $query){
+                        $query->select('membro_de_id')
+                            ->from('relacionamento_membros')
+                            ->where('relacionamento_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULO);
+                    });
+                }
+            })
             ->orderBy('nome','ASC')
             ->get();
     }
