@@ -29,7 +29,7 @@
                     <td>{{$i++}}</td>
                     <td><a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a></td>
                     <td>{{$membro->grupo->nome}}</td>
-                    <td>{{$membro->data_nascimento}}</td>
+                    <td title="{{$membro->data_nascimento->format('d/M/Y')}}">{{$membro->idade}}</td>
                     <td>{{$membro->regiao}}</td>
                     <td>{{$membro->email}}</td>
                 </tr>

@@ -19,6 +19,8 @@ class Membro extends Model
         'telefones_json' , 'idade'
     ];
 
+    protected $dates = ['created_at', 'updated_at','data_nascimento'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -42,7 +44,7 @@ class Membro extends Model
 
     public function getIdadeAttribute(){
         $hoje = new Carbon();
-        $nascimento = Carbon::createFromFormat('Y-m-d', $this->data_nascimento);
+        $nascimento = Carbon::createFromFormat('Y-m-d H:i:s', $this->data_nascimento);
         return $nascimento->diffInYears($hoje, false);
     }
 
