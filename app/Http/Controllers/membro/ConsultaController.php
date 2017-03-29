@@ -70,6 +70,11 @@ class ConsultaController extends Controller
                     });
                 }
             })
+            // Opção [Idade Mínima]
+            ->when($consulta->idade_minima, function( $query ) use ($consulta ){
+                $data = \Carbon\Carbon::now()->subYears($consulta->idade_minima)->toDateString();
+                return $query->where('data_nascimento','<=',$data);
+            })
             ->orderBy('nome','ASC')
             ->get();
     }
