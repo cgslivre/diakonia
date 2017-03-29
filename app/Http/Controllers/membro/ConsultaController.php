@@ -30,51 +30,31 @@ class ConsultaController extends Controller
         }
 
         dd( $this->consultar($consulta));
-
-        /*
-        $year = 2012;
-        $published = true;
-
-        DB::table('node')
-        ->where(function($query) use ($published, $year)
-        {
-            if ($published) {
-                $query->where('published', 'true');
-            }
-
-            if (!empty($year) && is_numeric($year)) {
-                $query->where('year', '>', $year);
-            }
-        })
-        ->get( array('column1','column2') );
-*/
+        
         return view('membro.consulta.show');
 
     }
 
     private function consultar($consulta){
         return DB::table('membros')
-            ->where( function( $query) use ($consulta){
-                // Idade Minima
-                if( $consulta->idade_minima ){
-
+            // Opção [tem discípulos]
+            ->when($consulta->tem_discipulos, function( $query ) use ($consulta ){
+                if( $consulta->tem_discipulos == 'S' ){
+                    return $query->whereIn('id', function( $query){
+                        $query->select('membro_de_id')
+                            ->from('relacionamento_membros')
+                            ->where('relacionamento_id','=',6);
+                    });
+                } else if( $consulta->tem_discipulos == 'N'){
+                    return $query->whereNotIn('id', function( $query){
+                        $query->select('membro_de_id')
+                            ->from('relacionamento_membros')
+                            ->where('relacionamento_id','=',6);
+                    });
                 }
-
-                // Idade Maxima
-                if( $consulta->idade_minima ){
-
-                }
-
-                // Se é discipulador
-                if( $consulta->tem_discipulos ){
-
-                }
-
-                // Se tem discipulos
-                if( $consulta->tem_discipulador){
-                    
-                }
-            })->get();
+            })
+            ->orderBy('nome','ASC')
+            ->get();
     }
 
 }
