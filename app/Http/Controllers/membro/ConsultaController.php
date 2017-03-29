@@ -84,6 +84,10 @@ class ConsultaController extends Controller
                 $data = \Carbon\Carbon::now()->subYears($consulta->idade_maxima)->toDateString();
                 return $query->where('data_nascimento','>=',$data);
             })
+            // Opção [Sexo]
+            ->when($consulta->sexo, function( $query ) use ($consulta ){
+                return $query->where('sexo','=',$consulta->sexo);
+            })
             ->with('grupo')
             ->orderBy('nome','ASC');
 
