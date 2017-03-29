@@ -25,7 +25,7 @@ class RelacionamentoMembro extends Model
     }
 
     public function scopeRelacionamentoInverso($query){
-        Log::info($this->relacionamento->rel_inverso_id);
+        //Log::info($this->relacionamento->rel_inverso_id);
         return $query->where('membro_de_id','=',$this->membro_para_id)
                 ->where('membro_para_id','=',$this->membro_de_id)
                 ->where('relacionamento_id','=',$this->relacionamento->rel_inverso_id)

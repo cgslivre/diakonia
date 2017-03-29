@@ -9,7 +9,10 @@ use App\Http\Controllers\Controller;
 
 use App\Regiao;
 use Bouncer;
+use DB;
 use Validator;
+
+use App\Model\membro\ConsultaMembro;
 
 class ConsultaController extends Controller
 {
@@ -18,7 +21,16 @@ class ConsultaController extends Controller
         $this->middleware('auth');
     }
 
-    public function show($consulta){
+    public function show($slug){
+
+        // Aborta se não encontrar consulta com o slug informado
+        $consulta = ConsultaMembro::slug($slug)->first();
+        if( !$consulta ){
+            abort(404);
+        }
+
+        dd( $this->consultar($consulta));
+
         /*
         $year = 2012;
         $published = true;
@@ -38,6 +50,31 @@ class ConsultaController extends Controller
 */
         return view('membro.consulta.show');
 
+    }
+
+    private function consultar($consulta){
+        return DB::table('membros')
+            ->where( function( $query) use ($consulta){
+                // Idade Minima
+                if( $consulta->idade_minima ){
+
+                }
+
+                // Idade Maxima
+                if( $consulta->idade_minima ){
+
+                }
+
+                // Se é discipulador
+                if( $consulta->tem_discipulos ){
+
+                }
+
+                // Se tem discipulos
+                if( $consulta->tem_discipulador){
+                    
+                }
+            })->get();
     }
 
 }
