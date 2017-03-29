@@ -13,6 +13,7 @@ use DB;
 use Validator;
 
 use App\Model\membro\ConsultaMembro;
+use App\Model\membro\Relacionamento;
 
 class ConsultaController extends Controller
 {
@@ -30,7 +31,7 @@ class ConsultaController extends Controller
         }
 
         dd( $this->consultar($consulta));
-        
+
         return view('membro.consulta.show');
 
     }
@@ -43,13 +44,13 @@ class ConsultaController extends Controller
                     return $query->whereIn('id', function( $query){
                         $query->select('membro_de_id')
                             ->from('relacionamento_membros')
-                            ->where('relacionamento_id','=',6);
+                            ->where('relacionamento_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULADOR);
                     });
                 } else if( $consulta->tem_discipulos == 'N'){
                     return $query->whereNotIn('id', function( $query){
                         $query->select('membro_de_id')
                             ->from('relacionamento_membros')
-                            ->where('relacionamento_id','=',6);
+                            ->where('relacionamento_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULADOR);
                     });
                 }
             })
