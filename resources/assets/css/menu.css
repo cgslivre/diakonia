@@ -164,3 +164,6 @@ label > span.seta {
 }
 
 .noventa{width: 90%;}
+.tabela > .consulta-membros, .tabela > .consulta-membros td{
+    font-size: 1.2rem;
+}

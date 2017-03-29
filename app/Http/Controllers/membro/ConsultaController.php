@@ -30,9 +30,11 @@ class ConsultaController extends Controller
             abort(404);
         }
 
-        dd( $this->consultar($consulta));
+        $membros = $this->consultar($consulta);
 
-        return view('membro.consulta.show');
+        return view('membro.consulta.show')
+            ->with('membros',$membros)
+            ->with('consulta',$consulta);
 
     }
 
