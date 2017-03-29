@@ -13,6 +13,7 @@ use DB;
 use Validator;
 
 use App\Model\membro\ConsultaMembro;
+use App\Model\membro\Membro;
 use App\Model\membro\Relacionamento;
 
 class ConsultaController extends Controller
@@ -39,7 +40,8 @@ class ConsultaController extends Controller
     }
 
     private function consultar($consulta){
-        return DB::table('membros')
+        $query = Membro::query();
+        $query
             // Opção [tem discípulos]
             ->when($consulta->tem_discipulos, function( $query ) use ($consulta ){
                 if( $consulta->tem_discipulos == 'S' ){
@@ -82,8 +84,10 @@ class ConsultaController extends Controller
                 $data = \Carbon\Carbon::now()->subYears($consulta->idade_maxima)->toDateString();
                 return $query->where('data_nascimento','>=',$data);
             })
-            ->orderBy('nome','ASC')
-            ->get();
+            ->with('grupo')
+            ->orderBy('nome','ASC');
+
+            return $query->get();
     }
 
 }

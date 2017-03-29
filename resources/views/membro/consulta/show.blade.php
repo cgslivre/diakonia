@@ -16,7 +16,7 @@
                 <tr>
                     <th>#</th>
                     <th>Nome</th>
-                    <th>Grupo</th>
+                    <th>Grupo Caseiro</th>
                     <th>Idade</th>
                     <th>Região</th>
                     <th>Email</th>
@@ -28,7 +28,7 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td><a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a></td>
-                    <td>{{$membro->grupo_caseiro_id}}</td>
+                    <td>{{$membro->grupo->nome}}</td>
                     <td>{{$membro->data_nascimento}}</td>
                     <td>{{$membro->regiao}}</td>
                     <td>{{$membro->email}}</td>
