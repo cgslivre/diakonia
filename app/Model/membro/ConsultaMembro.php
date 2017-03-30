@@ -23,4 +23,8 @@ class ConsultaMembro extends Model
         $query->where('slug','=', $slug);
     }
 
+    public function scopePublica( $query ){
+        $query->where('consulta_publica',true);
+    }
+
 }
