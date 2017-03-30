@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(MusicaStaffSeeder::class);
         $this->call(RelacionamentosSeeder::class);
         $this->call(RegioesSeeder::class);
+        $this->call(ConsultaMembrosSeeder::class);
         //Model::reguard();
     }
 }
