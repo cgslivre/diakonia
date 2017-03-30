@@ -26,6 +26,16 @@ class ConsultaMembrosSeeder extends Seeder
         [
             'created_at' =>  \Carbon\Carbon::now(),
             'updated_at' =>  \Carbon\Carbon::now(),
+            'slug' => 'todos',
+            'titulo' => 'Todos os membros',            
+            'consulta_publica' => true,
+            'created_by' => 1,
+            'modified_by' => 1
+        ]]);
+        DB::table('consulta_membros')->insert([
+        [
+            'created_at' =>  \Carbon\Carbon::now(),
+            'updated_at' =>  \Carbon\Carbon::now(),
             'slug' => 'todos-os-que-nao-tem-discipuladores',
             'titulo' => 'Sem discipulador(a) (acima de 12 anos)',
             'tem_discipulador' => 'N',

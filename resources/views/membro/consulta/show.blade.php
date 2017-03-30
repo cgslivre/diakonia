@@ -28,7 +28,11 @@
                 <tr>
                     <td>{{$i++}}</td>
                     <td><a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a></td>
-                    <td>{{$membro->grupo->nome}}</td>
+                    @if($membro->grupo)
+                        <td>{{$membro->grupo->nome}}</td>
+                    @else
+                        <td class="text-muted">Sem grupo</td>
+                    @endif
                     <td title="{{$membro->data_nascimento->format('d/M/Y')}}">{{$membro->idade}}</td>
                     <td>{{$membro->regiao}}</td>
                     <td>{{$membro->email}}</td>
