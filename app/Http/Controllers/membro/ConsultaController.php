@@ -23,6 +23,14 @@ class ConsultaController extends Controller
         $this->middleware('auth');
     }
 
+    public function index(){
+
+        $consultasPublicas = ConsultaMembro::publica()->get();
+
+        return view('membro.consulta.index')
+            ->with('consultasPublicas',$consultasPublicas);
+    }
+
     public function show($slug){
 
         // Aborta se não encontrar consulta com o slug informado

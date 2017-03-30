@@ -7,6 +7,11 @@
         <li><a href="{{ URL::route('membros.lista') }}">
             <span class="icon fa fa-th-list"></span>Lista
         </a></li>
+        @can('membro-list')
+        <li><a href="{{ URL::route('consulta.index') }}">
+            <span class="icon fa fa-search"></span>Consultas
+        </a></li>
+        @endcan
         @can('membro-grupo-create')
         <li><a href="{{ URL::route('membros.grupo-caseiro') }}">
             <span class="icon fa fa-users"></span>Grupos Caseiros
