@@ -43,17 +43,11 @@ gulp.task('fonts', function(done){
 gulp.task('css', function(done){
 
 	var files = [
-		// Em avaliação
+
 		paths.default + '/css/bootstrap-reset.css'
 
 		,paths.default + '/css/bootstrap.css'
-
-		,paths.default + '/css/bootstrap-grid.css'
-		,paths.default + '/css/bootstrap-button.css'
-		,paths.default + '/css/bootstrap-modal.css'
-		,paths.default + '/css/bootstrap-responsive.css'
-		,paths.default + '/css/bootstrap-print.css'
-
+		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
@@ -61,12 +55,9 @@ gulp.task('css', function(done){
 		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
 		,paths.bower + '/toastr/toastr.min.css'
-		//,paths.bower + '/angular-moment-picker/dist/angular-moment-picker.min.css'
-		//,paths.bower + '/angular-bootstrap/ui-bootstrap-csp.css'
-		,paths.default + '/css/ui-bootstrap-datepicker.css'
-		// OK
-		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
+		,paths.default + '/css/ui-bootstrap-datepicker.css'
+		
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'
