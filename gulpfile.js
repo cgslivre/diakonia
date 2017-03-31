@@ -45,7 +45,6 @@ gulp.task('css', function(done){
 	var files = [
 
 		paths.default + '/css/bootstrap-reset.css'
-
 		,paths.default + '/css/bootstrap.css'
 		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
@@ -57,7 +56,7 @@ gulp.task('css', function(done){
 		,paths.bower + '/toastr/toastr.min.css'
 
 		,paths.default + '/css/ui-bootstrap-datepicker.css'
-		
+
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'

@@ -1,3 +1,7 @@
+/**
+ * Definições Gerais
+ */
+
 .no-padding {
   padding: 0px !important; }
 
@@ -22,53 +26,46 @@
 .text-indent {
   text-indent: 1em; }
 
-.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
-.profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
-.profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
-ul.dropdown-menu{padding: 0;}
+.loader-container {
+  display: none; }
+  .loader .loader-container {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1003; }      
+      .loader:after {
+          content: "";
+          display: block;
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.9);
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1001;
+          border-radius: 1px; }
 
 .app-container {
-   min-height: 100%;
-   width:100%;
-   height:100%;
-   position: relative;
-}
+  min-height: 100%;
+  width:100%;
+  height:100%;
+  position: relative;}
+    .app-container .side-body {
+    width: 80%;
+    position: absolute;
+    right: 0;
+    -webkit-transition: all 0.25s;
+    transition: all 0.25s; }
+    .app-container.expanded .side-body {
+        margin-left: 260px; }
 
 .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
   margin-left: -15px;
   margin-right: -15px; }
 
-
-/* Main body section */
-.app-container .side-body {
-    width: 80%;
-  position: absolute;
-  right: 0;
-  -webkit-transition: all 0.25s;
-  transition: all 0.25s; }
-
-.app-container.expanded .side-body {
-  margin-left: 260px; }
-
-.loader-container {
-  display: none; }
-
-.loader .loader-container {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1003; }
-
-.loader:after {
-  content: "";
-  display: block;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1001;
-  border-radius: 1px; }
+.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
+.profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
+.profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
+ul.dropdown-menu{padding: 0;}
