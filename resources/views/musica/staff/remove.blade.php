@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="text-center bigtext1 alert alert-warning alert-important">
+    <div class="text-center name-title-2 alert alert-warning alert-important">
         Tem certeza que deseja remover <span class="destaque">"{{$staff->user->name}}"</span> da equipe de música?
     </div>
 

@@ -9,7 +9,7 @@
         Date::setLocale('pt_BR');?>
 @section('content')
 
-    <div class="text-center bigtext1 alert alert-warning alert-important">
+    <div class="text-center name-title-2 alert alert-warning alert-important">
         Tem certeza que deseja excluir o evento <span class="destaque">"{{$evento->titulo}}"</span>?
     </div>
 

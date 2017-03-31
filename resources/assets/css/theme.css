@@ -3,6 +3,11 @@ body{background-color: #f9f9f9;}
 h2{color:#376c8c;}
 .highlighted { background: yellow }
 .required{color:#E63946;}
+.name-title-1{font-size: 36px;font-weight: bold;}
+.name-title-2{font-size: 30px;}
+.name-title-3{font-size: 24px;}
+
+
 /* +++ Menu Lateral ++++ */
 .navbar-top, #menu-lateral, #menu-lateral > nav, #menu-lateral > nav > div > ul > li{
   background-color: #457B9D;
@@ -47,14 +52,8 @@ li.dropdown.profile.open > a{color: #23527c;}
     background-color: #229d2a;
 }
 
+/* +++ Estilos páginas administração de Usuários ++++ */
 
-
-
-
-.name-title-1{font-size: 36px;font-weight: bold;}
-.name-title-2{font-size: 30px;}
-.name-title-3{font-size: 24px;}
-.bigtext1{font-size: 150%;}
 
 span.counter{font-size: 120%;font-weight: bold;}
 
