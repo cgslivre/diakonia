@@ -60,7 +60,7 @@ gulp.task('css', function(done){
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'
-		,paths.default + '/css/theme.css'		
+		,paths.default + '/css/theme.css'
 		,paths.default + '/css/login.css'
 
 	];

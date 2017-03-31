@@ -1,49 +1,32 @@
-
-
-.phone-input{
-	margin-bottom:8px;
-}
-.tabela > .consulta-membros, .tabela > .consulta-membros td{
-	font-size: 1.2rem;
-}
-
+/* Páginas da seção MEMBROS */
+/* Estilo botão para expandir/retrair o painel*/
 input.collapse-input[type=checkbox] { display:none; } /* to hide the checkbox itself */
 input.collapse-input[type=checkbox] + label:before {
-  font-family: FontAwesome;
-  display: inline-block;
-}
+	font-family: FontAwesome;
+	display: inline-block;}
+	input.collapse-input[type=checkbox] + label:before { content: "\f078"; } /* unchecked icon */
+	input.collapse-input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+	input.collapse-input[type=checkbox]:checked + label:before { content: "\f077"; } /* checked icon */
+	input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px; }
 
-input.collapse-input[type=checkbox] + label:before { content: "\f078"; } /* unchecked icon */
-input.collapse-input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
+	.lbl-margin-center{margin-top: 6px;}
 
-input.collapse-input[type=checkbox]:checked + label:before { content: "\f077"; } /* checked icon */
-input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px; }
+.phone-input{margin-bottom:8px;}
 
-.lbl-margin-center{margin-top: 6px;}
-
-
-
-.button-link{
-  border: 0;
-  background: none;
-  padding: 0;
-  margin: 0;
-}
+.tabela > .consulta-membros
+, .tabela > .consulta-membros td{font-size: 1.2rem;}
 
 div.relacionamentos{
-    font-size: 14px;
-}
-div.relacionamentos ul{display: table-row;}
-div.relacionamentos ul li{
-    vertical-align: middle;
-    line-height: 28px;
-    height: 28px;
-    list-style-type: none;
-}
+    font-size: 14px;}
+	div.relacionamentos ul{display: table-row;}
+	div.relacionamentos ul li{
+	    vertical-align: middle;
+	    line-height: 28px;
+	    height: 28px;
+	    list-style-type: none;}
 
 .add-relacionamento{margin-top: 15px;}
 .incluir-relacionamento{margin-right: 5px;}
-
 .profile-img-membro{width: 140px;}
 
 table.grupo-caseiro, table.regiao{width: auto;}

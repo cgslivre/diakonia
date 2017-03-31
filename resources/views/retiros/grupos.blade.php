@@ -56,14 +56,16 @@
                 'nomeGrupo' => $grupo->nome,
                 'grupoAtivo' => $grupo->ativo,
                 'id' => 'form-ativacao-id-' . $grupo->id,
-                'class'=>'button-link form-ativacao']) !!}
+                'class'=>'form-ativacao']) !!}
               {{ Form::hidden('id', $grupo->id ) }}
               @if( $grupo->ativo)
-                <button type="submit" class="btn button-link" data-toggle="modal" data-target="#modalWarning">
+                <button type="submit" class="btn no-margin no-padding no-background"
+                    data-toggle="modal" data-target="#modalWarning">
                     <i class="fa fa-check-circle"></i>
                 </button>
               @else
-                  <button type="submit" class="btn button-link" data-toggle="modal" data-target="#modalWarning">
+                  <button type="submit" class="btn no-margin no-padding no-background"
+                      data-toggle="modal" data-target="#modalWarning">
                       <i class="fa fa-times"></i>
                   </button>
               @endif
