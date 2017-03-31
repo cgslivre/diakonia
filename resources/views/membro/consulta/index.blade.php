@@ -1,4 +1,3 @@
-{{ \Carbon\Carbon::setLocale(config('app.locale')) }}
 @extends( 'membro.template-membro')
 
 @section('nivel2', '<li class="active">Consultas de Membros</li>')
