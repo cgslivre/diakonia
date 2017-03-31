@@ -44,7 +44,16 @@ gulp.task('css', function(done){
 
 	var files = [
 		// Em avaliação
-		paths.bower + '/bootstrap/dist/css/bootstrap.css'
+		paths.default + '/css/bootstrap-reset.css'
+
+		,paths.default + '/css/bootstrap.css'
+
+		,paths.default + '/css/bootstrap-grid.css'
+		,paths.default + '/css/bootstrap-button.css'
+		,paths.default + '/css/bootstrap-modal.css'
+		,paths.default + '/css/bootstrap-responsive.css'
+		,paths.default + '/css/bootstrap-print.css'
+
 
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
@@ -58,14 +67,6 @@ gulp.task('css', function(done){
 		// OK
 		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
-/*
-		,paths.default + '/css/bootstrap-reset.css'
-		,paths.default + '/css/bootstrap-grid.css'
-		,paths.default + '/css/bootstrap-button.css'
-		,paths.default + '/css/bootstrap-modal.css'
-		,paths.default + '/css/bootstrap-responsive.css'
-		,paths.default + '/css/bootstrap-print.css'
-*/
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'
@@ -100,7 +101,7 @@ gulp.task('js', function(done){
 		,paths.bower + '/angular-i18n/angular-locale_pt-br.js'
 		// A definir
 		,paths.bower + '/jquery/dist/jquery.min.js'
-		,paths.bower + '/bootstrap/dist/js/bootstrap.min.js'
+		,paths.default + '/js/bootstrap.js'
 		,paths.bower + '/angular-sanitize/angular-sanitize.min.js'
 		,paths.bower + '/angular-messages/angular-messages.min.js'
 		,paths.bower + '/toastr/toastr.min.js'
