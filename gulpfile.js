@@ -53,9 +53,7 @@ gulp.task('css', function(done){
 		,paths.bower + '/angular-ui-select/dist/select.min.css'
 		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
-		,paths.bower + '/toastr/toastr.min.css'
-
-		,paths.default + '/css/ui-bootstrap-datepicker.css'
+		,paths.bower + '/toastr/toastr.min.css'		
 
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
