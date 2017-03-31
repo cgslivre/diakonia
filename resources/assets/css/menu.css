@@ -36,6 +36,7 @@ header.menu-lateral span.icon{
     margin-right: 10px;
 }
 
+div.nav-header > a.logo > img{display: inherit;}
 /**
  * Styling top level items
  */

@@ -1,6 +1,8 @@
 <header class="menu-lateral" role="banner">
     <div class="nav-header">
-        <a class="logo" href="#"><img src="{{ url('img/logo_FRONT-WHITE.png') }}" alt="Diakonia Logo" /></a>
+        <a class="logo" href="{{ url('/home') }}">
+            <img src="{{ url('img/logo_FRONT-WHITE.png') }}" alt="Diakonia Logo" class="img-responsive" />
+        </a>
     </div>
     <nav class="nav" role="navigation">
         <ul class="nav__list">

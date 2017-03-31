@@ -57,7 +57,7 @@
                 ,'data-toggle'=>'modal', 'data-target'=>'#modalWarning']) }}
 
             <!-- Modal -->
-            <div class="modal fade modal-danger bs-example-modal-sm" id="modalWarning" tabindex="-1"
+            <div class="modal fade modal-danger" id="modalWarning" tabindex="-1"
                   role="dialog" aria-labelledby="modal-ativacao" aria-hidden="true">
                 <div class="modal-dialog modal-sm">
                     <div class="modal-content">
