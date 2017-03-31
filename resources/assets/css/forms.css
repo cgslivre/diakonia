@@ -1,8 +1,10 @@
 
 
-
 .phone-input{
 	margin-bottom:8px;
+}
+.tabela > .consulta-membros, .tabela > .consulta-membros td{
+	font-size: 1.2rem;
 }
 
 input.collapse-input[type=checkbox] { display:none; } /* to hide the checkbox itself */

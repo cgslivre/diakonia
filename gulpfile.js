@@ -45,7 +45,7 @@ gulp.task('css', function(done){
 	var files = [
 		// Em avaliação
 		paths.bower + '/bootstrap/dist/css/bootstrap.css'
-		,paths.default + '/css/checkbox3.css'
+
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
 		,paths.bower + '/angular-ui-select/dist/select.min.css'
@@ -57,6 +57,15 @@ gulp.task('css', function(done){
 		,paths.default + '/css/ui-bootstrap-datepicker.css'
 		// OK
 		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
+
+/*
+		,paths.default + '/css/bootstrap-reset.css'
+		,paths.default + '/css/bootstrap-grid.css'
+		,paths.default + '/css/bootstrap-button.css'
+		,paths.default + '/css/bootstrap-modal.css'
+		,paths.default + '/css/bootstrap-responsive.css'
+		,paths.default + '/css/bootstrap-print.css'
+*/
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
 		,paths.default + '/css/ng-tags-input.css'
