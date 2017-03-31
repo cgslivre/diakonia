@@ -21,7 +21,7 @@ input.collapse-input[type=checkbox]:checked + label:before { letter-spacing: 5px
 
 .lbl-margin-center{margin-top: 6px;}
 
-.required{color:#E63946;}
+
 
 .button-link{
   border: 0;

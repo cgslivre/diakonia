@@ -231,14 +231,16 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected img{
     color: #E63946;
     background-color: #eed3d5;
 }
-.no-margin, .row > .margin{margin: 0 !important;}
+
 .descricao-servico{font-weight: bold;}
 
 .loading{font-weight: bold;color:#1288c3;}
 
 span.idade{padding:6px;}
 
-.pointer{cursor: pointer;}
+
+
+.required{color:#E63946;}
 
 /* Relacionamentos */
 span.relacionamento-desc{padding: 3px;font-weight: bold;border-radius: 3px;}
@@ -257,7 +259,7 @@ div.relacionamentos > h4{color:#337ab7;margin-left: 5px;}
 div.relacionamentos > ul > li{margin-left: 10px;}
 div.relacionamentos > ul > li > i.fa-link{color: #AAA;}
 
-.no-results{font-style: italic;color:#AAA}
+.no-results{font-style: italic;color:#aaaaaa;}
 a.remover-relacionamento{color:#E63946;}
 
 table.membros > tbody > tr > td > img.profile-img {width: 70px;}

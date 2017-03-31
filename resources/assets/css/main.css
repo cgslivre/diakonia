@@ -3,6 +3,7 @@
  */
 
 .no-padding {padding: 0px !important;}
+.pointer{cursor: pointer;}
 .float-left {float: left;}
 .float-right {float: right;}
 .clear-both {clear: both;}
@@ -12,6 +13,7 @@
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0; }
+  .no-margin, .row > .margin{margin: 0 !important;}
 .text-indent {text-indent: 1em;}
 .noventa{width: 90%;}
 .inline{display: inline}
@@ -60,9 +62,9 @@
 
 .conteudo{padding: 10px;}
 
-  /**
-   * Layout Topo (breadcrumb e Login profile)
-   **/
+/**
+ * Layout Topo (breadcrumb e Login profile)
+**/
 #topo{
    background-color: #eceff4;
    height: 50px;
@@ -80,3 +82,74 @@
     .profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
     .profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
     ul.dropdown-menu{padding: 0;}
+
+/**
+ * Menu Principal
+**/
+header.menu-lateral {
+    position: fixed;
+    z-index: 995;
+    width: 20%;
+    height: 100%;
+    background-color: #2d6688;}
+    header.menu-lateral div, header.menu-lateral nav
+    , header.menu-lateral ul, header.menu-lateral li
+    , header.menu-lateral input, header.menu-lateral label{
+      margin: 0;
+      padding: 0;
+      border: 0}
+    header.menu-lateral ul{list-style: none;}
+    header.menu-lateral > .nav-header{
+        height: 80px;
+        line-height: 80px;
+        text-align: center;}
+        header.menu-lateral > .nav-header > .title{
+            color: #e9f0f1;
+            margin-left: 20px;
+            font-size: 13px;
+            font-style: italic;
+            box-shadow: inset 0 -1px #2d6688;}
+    div.nav-header > a.logo > img{display: inherit;}
+    header.menu-lateral span.icon{
+    color: #e4f2f1;
+    margin-right: 10px;}
+
+header.menu-lateral > .nav > ul > li > label {
+  display: block;
+  padding: .85rem;
+  font-weight: normal;
+  color: #fff;
+  box-shadow: inset 0 -1px #296183;}
+
+header.menu-lateral > .nav a:focus, header.menu-lateral > .nav a:hover
+, header.menu-lateral > .nav label:focus, header.menu-lateral > .nav label:hover {
+  background: #F53444;
+}
+
+header.menu-lateral > .nav label { cursor: pointer; }
+
+
+.group-list a, .group-list label {
+  padding: 1.25rem 0 1.25rem 3rem;
+  display: block;
+  color: #d5e5ee;
+  background: #285977;
+  box-shadow: inset 0 -1px #2d6688;
+}
+
+.group-list a:focus, .group-list a:hover
+, .group-list label:focus, .group-list label:hover {
+     background: #F53444; }
+
+.nav__list input[type=checkbox]:checked + label + ul {
+    max-height: 1000px; }
+
+label > span.seta {
+  float: right;
+  -webkit-transition: -webkit-transform .65s ease;
+  transition: transform .65s ease;}
+    .nav__list input[type=checkbox]:checked + label > span.seta {
+        -webkit-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
