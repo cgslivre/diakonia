@@ -16,7 +16,7 @@
   margin-right: 0; }
   .no-margin, .row > .margin{margin: 0 !important;}
 .text-indent {text-indent: 1em;}
-.noventa{width: 90%;}
+.width-90{width: 90%;}
 .inline{display: inline}
 
 .loader-container {
@@ -81,8 +81,10 @@
      margin-left: 20%;
      line-height: 0;
      background: none;}
-    .profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
-    .profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
+     .profile-info{padding: 5px;text-align: center;}
+         .profile-info > p{font-size: 12px;font-weight: bold;word-break: break-all;}
+        .profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
+        .profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
     ul.dropdown-menu{padding: 0;}
 
 /**

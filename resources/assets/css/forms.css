@@ -1,3 +1,6 @@
+/* Definições Gerais */
+.table tbody{font-size: 15px;}
+.table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
 /* Páginas da seção MEMBROS */
 /* Estilo botão para expandir/retrair o painel*/
 input.collapse-input[type=checkbox] { display:none; } /* to hide the checkbox itself */

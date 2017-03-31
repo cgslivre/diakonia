@@ -1,38 +1,28 @@
-
-
+/* +++ Definições Gerais +++ */
 body{background-color: #f9f9f9;}
 h2{color:#376c8c;}
-
+.highlighted { background: yellow }
+.required{color:#E63946;}
+/* +++ Menu Lateral ++++ */
 .navbar-top, #menu-lateral, #menu-lateral > nav, #menu-lateral > nav > div > ul > li{
   background-color: #457B9D;
 }
-
-#menu-lateral .navbar-default .navbar-brand, #menu-lateral .navbar-default .navbar-nav>li>a, .navbar-default .navbar-text{
+#menu-lateral .navbar-default .navbar-brand
+, #menu-lateral .navbar-default .navbar-nav>li>a
+, .navbar-default .navbar-text{
   color: #f9f9f9;
 }
+.nav .open>a:hover{background-color: #235675;color: #f9f9f9;}
 
-.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
-
-#topo > ul > li.dropdown{background-color: none;}
-.navbar-default .navbar-nav>.open>a,
- .navbar-default .navbar-nav>.open>a:focus,
-  .navbar-default .navbar-nav>.open>a:hover{background-color: none;}
- .nav .open>a:hover{background-color: #235675;color: #f9f9f9;}
-.navbar-default .navbar-nav>li>a.user-menu {color: #f9f9f9;}
-li.dropdown.profile.open > a{color: #23527c;}
-
-
-.profile-info{padding: 5px;text-align: center;}
-.profile-info > p{font-size: 12px;font-weight: bold;word-break: break-all;}
+/* +++ Barra Superior ++++ */
 #topo > div > ol.breadcrumb > li{color: #f9f9f9; }
 #topo > div > ol.breadcrumb{margin-left: 20%;}
 
+.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
+li.dropdown.profile.open > a{color: #23527c;}
 
 
-
-.table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
-.table tbody{font-size: 15px;}
-
+/* +++ Estilos dos Modals ++++ */
 .modal-header-danger {
 	color:#fff;
     border-bottom:1px solid #eee;
@@ -44,7 +34,6 @@ li.dropdown.profile.open > a{color: #23527c;}
     border-bottom:1px solid #eee;
     background-color: #d6d94f;
 }
-
 .modal-header-info {
 	color:#fff;
     padding:9px 15px;
@@ -58,16 +47,16 @@ li.dropdown.profile.open > a{color: #23527c;}
     background-color: #229d2a;
 }
 
+
+
+
+
 .name-title-1{font-size: 36px;font-weight: bold;}
 .name-title-2{font-size: 30px;}
 .name-title-3{font-size: 24px;}
 .bigtext1{font-size: 150%;}
 
-.width-80{width: 80%;}
-
 span.counter{font-size: 120%;font-weight: bold;}
-
-.highlighted { background: yellow }
 
 
 ul.rolebox{list-style-type: none;margin:0;-webkit-margin-before:0em;-webkit-margin-after:0em;-webkit-padding-start:0;}
@@ -99,7 +88,6 @@ label.permissons-label{text-align: right;}
     border-bottom: 1px solid #dddddd;
     margin-right: 50px;
 }
-.card-evento .dias-restando{}
 
 .eventos-card{table-layout: fixed;width: 100%;}
 .data{
@@ -235,12 +223,6 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected img{
 .descricao-servico{font-weight: bold;}
 
 .loading{font-weight: bold;color:#1288c3;}
-
-span.idade{padding:6px;}
-
-
-
-.required{color:#E63946;}
 
 /* Relacionamentos */
 span.relacionamento-desc{padding: 3px;font-weight: bold;border-radius: 3px;}
