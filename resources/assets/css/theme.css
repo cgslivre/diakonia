@@ -11,16 +11,7 @@ h2{color:#376c8c;}
   color: #f9f9f9;
 }
 
-#topo{
-  background-color: #eceff4;
-  height: 50px;
-  width: 100%;
-  z-index: 990;
-  left: 0;
-  top: 0;
-  position: fixed;
-}
-
+.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
 
 #topo > ul > li.dropdown{background-color: none;}
 .navbar-default .navbar-nav>.open>a,
@@ -38,19 +29,12 @@ li.dropdown.profile.open > a{color: #23527c;}
 
 .conteudo{margin: 50px 0;}
 
-.button-link{
-  border: 0;
-  background: none;
-  padding: 0;
-  margin: 0;
-}
 
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
 .table tbody{font-size: 15px;}
 
 .modal-header-danger {
 	color:#fff;
-    /*padding:9px 15px;*/
     border-bottom:1px solid #eee;
     background-color: #d9534f;
 }
@@ -74,8 +58,6 @@ li.dropdown.profile.open > a{color: #23527c;}
     background-color: #229d2a;
 }
 
-.app-container .content-container .side-menu .navbar-header .navbar-brand .title{margin-left: 15px;}
-
 .name-title-1{font-size: 36px;font-weight: bold;}
 .name-title-2{font-size: 30px;}
 .name-title-3{font-size: 24px;}
@@ -87,17 +69,6 @@ span.counter{font-size: 120%;font-weight: bold;}
 
 .highlighted { background: yellow }
 
-#navegador{
-  font-size:16px;
-  margin-top: 15px;
-  margin-left: 20%;
-  line-height: 0;
-  background: none;
-}
-
-.conteudo{padding: 10px;}
-
-.inline{display: inline}
 
 ul.rolebox{list-style-type: none;margin:0;-webkit-margin-before:0em;-webkit-margin-after:0em;-webkit-padding-start:0;}
 ul.rolebox > li{font-size:12px;font-weight: bold;}

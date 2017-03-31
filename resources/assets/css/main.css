@@ -2,29 +2,19 @@
  * Definições Gerais
  */
 
-.no-padding {
-  padding: 0px !important; }
-
-.float-left {
-  float: left; }
-
-.float-right {
-  float: right; }
-
-.clear-both {
-  clear: both; }
-
-.no-margin-bottom {
-  margin-bottom: 0; }
-
+.no-padding {padding: 0px !important;}
+.float-left {float: left;}
+.float-right {float: right;}
+.clear-both {clear: both;}
+.no-margin-bottom {margin-bottom: 0;}
 .no-margin {
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0; }
-
-.text-indent {
-  text-indent: 1em; }
+.text-indent {text-indent: 1em;}
+.noventa{width: 90%;}
+.inline{display: inline}
 
 .loader-container {
   display: none; }
@@ -34,7 +24,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 1003; }      
+      z-index: 1003; }
       .loader:after {
           content: "";
           display: block;
@@ -47,6 +37,9 @@
           z-index: 1001;
           border-radius: 1px; }
 
+/**
+ * Estrutura Geral das Páginas
+ **/
 .app-container {
   min-height: 100%;
   width:100%;
@@ -65,7 +58,25 @@
   margin-left: -15px;
   margin-right: -15px; }
 
-.navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
-.profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
-.profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
-ul.dropdown-menu{padding: 0;}
+.conteudo{padding: 10px;}
+
+  /**
+   * Layout Topo (breadcrumb e Login profile)
+   **/
+#topo{
+   background-color: #eceff4;
+   height: 50px;
+   width: 100%;
+   z-index: 990;
+   left: 0;
+   top: 0;
+   position: fixed;}
+   #navegador{
+     font-size:16px;
+     margin-top: 15px;
+     margin-left: 20%;
+     line-height: 0;
+     background: none;}
+    .profile-info > div{width: 100%;text-align: center;margin-left: 10%;}
+    .profile-info > div > a{width: 40%;padding: 8px;margin: 5px;}
+    ul.dropdown-menu{padding: 0;}
