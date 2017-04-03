@@ -17,6 +17,33 @@
             </div>
         </div>
 
+        <h3>Perfis</h3>
+
+        @foreach ($rolesGroup as $roles)
+            <div class="panel panel-default permissoes">
+              <div class="panel-heading"><strong>{{ $roles->first()->scope }}</strong></div>
+              <div class="panel-body">
+                @foreach ($roles as $role)
+                    <div class="row">
+                        <div class="col-md-2 text-right"><strong>{{$role->title}}</strong></div>
+                        <div class="col-md-10">
+                            @foreach ($role->getAbilities()->pluck('title') as $key => $value)
+                                <span class="habilidade">
+                                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                {{$value}}
+                            </span>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+                <hr/>
+              </div>
+            </div>
+
+        @endforeach
+
+        {{--
+
 
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -55,7 +82,7 @@
 
             </div>
         </div>
-
+--}}
         {{--
         <div class="panel panel-default">
             <div class="panel-heading">

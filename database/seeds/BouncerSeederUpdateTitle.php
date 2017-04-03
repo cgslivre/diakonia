@@ -13,13 +13,13 @@ class BouncerSeederUpdateTitle extends Seeder
     {
         // Usuários
         DB::table('roles')->where('name','role-user-users')
-            ->update(array('title'=>'Padrão','scope'=>'Usuário'));
+            ->update(array('title'=>'Padrão','scope'=>'Usuário','level'=>1));
         DB::table('roles')->where('name','role-user-manage')
-            ->update(array('title'=>'Gerente','scope'=>'Usuário'));
+            ->update(array('title'=>'Gerente','scope'=>'Usuário','level'=>2));
         DB::table('roles')->where('name','role-user-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Usuário'));
+            ->update(array('title'=>'Administrador','scope'=>'Usuário','level'=>3));
 
-        DB::table('abilities')->where('name','user-list')->update(array('title'=>'Lista Usuários'));
+        DB::table('abilities')->where('name','user-list')->update(array('title'=>'Listar Usuários'));
         DB::table('abilities')->where('name','user-view')->update(array('title'=>'Ver Usuário'));
         DB::table('abilities')->where('name','user-edit')->update(array('title'=>'Editar Usuário'));
         DB::table('abilities')->where('name','user-remove')->update(array('title'=>'Remover Usuário'));
@@ -29,11 +29,11 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Membros
         DB::table('roles')->where('name','role-membro-user')
-            ->update(array('title'=>'Padrão','scope'=>'Membros'));
+            ->update(array('title'=>'Padrão','scope'=>'Membros','level'=>1));
         DB::table('roles')->where('name','role-membro-lider')
-            ->update(array('title'=>'Líder','scope'=>'Membros'));
+            ->update(array('title'=>'Líder','scope'=>'Membros','level'=>2));
         DB::table('roles')->where('name','role-membro-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Membros'));
+            ->update(array('title'=>'Administrador','scope'=>'Membros','level'=>3));
 
         DB::table('abilities')->where('name','membro-list')
             ->update(array('title'=>'Ver Membros'));
