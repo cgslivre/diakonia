@@ -17,6 +17,8 @@
             </div>
         </div>
 
+        <code>{{$user->getAbilities()->pluck('name')}}</code>
+
         <h3>Perfis</h3>
 
         @foreach ($rolesGroup as $roles)
@@ -36,63 +38,32 @@
                         </div>
                     </div>
                 @endforeach
-                <hr/>
+                <div class="row permissao-form">
+                    <div class="col-md-3 text-right"><strong>Permissões do Usuário:</strong></div>
+                    <div class="col-md-9">
+                        {{Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id]
+                            ,'name'=>'frm-edit-permissoes'))}}
+                            <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
+                                <input type="radio" name="permissao[]"
+                                value="" id="nenhum" checked>
+                                <label for="nenhum">Nenhuma</label>
+                            </div>
+                            @foreach ($roles as $role)
+                            <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
+                                <input type="radio" name="permissao[]"
+                                value="{{$role->name}}" id="{{$role->name}}"
+                                {{ $user->isAn($role->name)? "checked" : "" }}>
+                                <label for="{{$role->name}}">{{$role->title}}</label>
+                            </div>
+                            @endforeach
+                        {!! Form::close() !!}
+                    </div>
+                </div>
               </div>
             </div>
 
         @endforeach
 
-        {{--
-
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><span class="icon fa fa-user"></span> Perfis para administração de Usuário</h3>
-            </div>
-            <div class="panel-body">
-                <dl class="dl-horizontal">
-                    <dt>Perfil Padrão</dt>
-                    <dd>Pode visualizar lista de usuários, visualizar perfil de um usuário específico</dd>
-
-                    <dt>Perfil Gerente</dt>
-                    <dd>Pode editar usuários, criar novo usuário. <mark>(inclui permissões do perfil Usuário: Padrão)</mark></dd>
-
-                    <dt>Perfil Administrador</dt>
-                    <dd>Pode remover usuários e alterar permissões de outros usuários. <mark>(inclui permissões do perfil Usuário: Gerente)</mark></dd>
-                </dl>
-
-                <div class="">
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-padrao-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-users')  }}
-                        {{ Form::submit('Padrão',['class'=>$user->isAn('role-user-users')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-gerente-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-manage')  }}
-                        {{ Form::submit('Gerente',['class'=>$user->isAn('role-user-manage')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-                    {!! Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id],'name'=>'usr-perfil-admin-form',
-                        'class'=>'inline')) !!}
-                        {{ Form::hidden('user-perfil', 'role-user-admin')  }}
-                        {{ Form::submit('Administrador',['class'=>$user->isAn('role-user-admin')?'btn btn-success':'btn btn-default']) }}
-                    {!! Form::close() !!}
-
-                </div>
-
-            </div>
-        </div>
---}}
-        {{--
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title"><span class="icon fa fa-home"></span> Perfis para administração de Retiros</h3>
-            </div>
-            <div class="panel-body">
-                ...
-            </div>
-        </div>
-        --}}
 
     </div>
 

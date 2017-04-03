@@ -70,6 +70,11 @@ ul.rolebox{
 .permissoes > .panel-body > .row{border-bottom: 1px dotted #eee;margin: 5px;}
 .permissoes span.habilidade{padding: 3px;white-space: nowrap;}
     .permissoes span.habilidade > i.fa{color: #376c8c;}
+    .permissoes .row.permissao-form{
+        background-color: #efefef;
+        border: none;
+        padding: 10px;
+        border-radius: 4px;}
 
 /* +++ Estilos páginas Música ++++ */
 .destaque{font-weight: bold; color: #376c8c; }
