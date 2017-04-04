@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ColunaScopeRoles extends Migration
+class CriarColunaNivelRole extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class ColunaScopeRoles extends Migration
      */
     public function up()
     {
-
-        if(!Schema::hasColumn('roles', 'scope')){
+        if(!Schema::hasColumn('roles', 'nivel')){
             Schema::table('roles', function ($table) {
-                $table->string('scope')->default('Geral');
+                $table->tinyInteger('nivel');
             });
         }
-
     }
 
     /**
@@ -29,6 +27,6 @@ class ColunaScopeRoles extends Migration
      */
     public function down()
     {
-        // Nada
+        //
     }
 }

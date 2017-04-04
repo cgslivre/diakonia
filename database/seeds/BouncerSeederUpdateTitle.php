@@ -11,13 +11,13 @@ class BouncerSeederUpdateTitle extends Seeder
      */
     public function run()
     {
-        // Usuários
+        // Usuários        
         DB::table('roles')->where('name','role-user-users')
-            ->update(array('title'=>'Padrão','scope'=>'Usuário','level'=>1));
+            ->update(array('title'=>'Padrão','scope'=>'Usuário','nivel'=>1));
         DB::table('roles')->where('name','role-user-manage')
-            ->update(array('title'=>'Gerente','scope'=>'Usuário','level'=>2));
+            ->update(array('title'=>'Gerente','scope'=>'Usuário','nivel'=>2));
         DB::table('roles')->where('name','role-user-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Usuário','level'=>3));
+            ->update(array('title'=>'Administrador','scope'=>'Usuário','nivel'=>3));
 
         DB::table('abilities')->where('name','user-list')->update(array('title'=>'Listar Usuários'));
         DB::table('abilities')->where('name','user-view')->update(array('title'=>'Ver Usuário'));
@@ -29,11 +29,11 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Membros
         DB::table('roles')->where('name','role-membro-user')
-            ->update(array('title'=>'Padrão','scope'=>'Membros','level'=>1));
+            ->update(array('title'=>'Padrão','scope'=>'Membros','nivel'=>1));
         DB::table('roles')->where('name','role-membro-lider')
-            ->update(array('title'=>'Líder','scope'=>'Membros','level'=>2));
+            ->update(array('title'=>'Líder','scope'=>'Membros','nivel'=>2));
         DB::table('roles')->where('name','role-membro-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Membros','level'=>3));
+            ->update(array('title'=>'Administrador','scope'=>'Membros','nivel'=>3));
 
         DB::table('abilities')->where('name','membro-list')
             ->update(array('title'=>'Ver Membros'));
@@ -53,8 +53,6 @@ class BouncerSeederUpdateTitle extends Seeder
             ->update(array('title'=>'Adicionar Região'));
         DB::table('abilities')->where('name','membro-regiao-remove')
             ->update(array('title'=>'Remover Região'));
-
-
 
     }
 }
