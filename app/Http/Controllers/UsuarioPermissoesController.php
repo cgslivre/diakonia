@@ -41,20 +41,21 @@ class UsuarioPermissoesController extends Controller
         if( Gate::denies('user-permissions')){
             abort(403);
         }
-        $perfil = $request->input('user-perfil');
         $user = User::findOrFail($id);
-        $val = $user->isAn($perfil);
 
-        $user->retract('role-user-users');
-        $user->retract('role-user-manage');
-        $user->retract('role-user-admin');
+        $scope = $request->input('scope');
+        $roleChecked = $request->input('permissao');
 
-        if( !$val ){
-            $user->assign($perfil);
+        $roles = \Silber\Bouncer\Database\Role::where('scope',$scope)->get();
+        foreach ($roles as $role) {
+            if( $role->name == $roleChecked ){
+                $user->assign($role->name);
+            } else{
+                $user->retract($role->name);
+            }
         }
-
-        Bouncer::refreshFor($user);
-
-        return redirect()->action('UsuarioPermissoesController@edit',$id)->with('message', 'Perfil atualizado!');
+        Bouncer::refresh();
+        return redirect()->action('UsuarioPermissoesController@edit',$id)
+            ->with('message', 'Perfil atualizado!');
     }
 }

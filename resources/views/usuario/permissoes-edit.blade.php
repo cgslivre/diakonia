@@ -16,7 +16,6 @@
                 <p>{{ $user->email}}</p>
             </div>
         </div>
-        <?php Bouncer::refresh();Bouncer::dontCache();?>
         <code>{{$user->roles->pluck('name')}}</code>
         <br/>
         <code>{{$user->getAbilities()->pluck('name')}}</code>
@@ -45,14 +44,15 @@
                     <div class="col-md-9">
                         {{Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id]
                             ,'name'=>'frm-edit-permissoes'))}}
+                            {{ Form::hidden('scope',  $roles->first()->scope) }}
                             <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
-                                <input type="radio" name="permissao[]"
+                                <input type="radio" name="permissao"
                                 value="" id="nenhum" checked>
                                 <label for="nenhum">Nenhuma</label>
                             </div>
                             @foreach ($roles as $role)
                             <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
-                                <input type="radio" name="permissao[]"
+                                <input type="radio" name="permissao"
                                 value="{{$role->name}}" id="{{$role->name}}"
                                 {{ $user->isAn($role->name)? "checked" : "" }}>
                                 <label for="{{$role->name}}">{{$role->title}}</label>
@@ -73,5 +73,9 @@
 
 
 @section('scripts')
-
+<script>
+    $('input[type=radio]').on('change', function() {
+        $(this).closest("form").submit();
+    });
+</script>
 @endsection
