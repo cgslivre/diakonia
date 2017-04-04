@@ -16,6 +16,7 @@ use Validator;
 use App\Model\membro\ConsultaMembro;
 use App\Model\membro\Membro;
 use App\Model\membro\Relacionamento;
+use App\Http\Requests\membro\ConsultaMembroRequest;
 
 class ConsultaController extends Controller
 {
@@ -53,6 +54,23 @@ class ConsultaController extends Controller
             ->with('membros',$membros)
             ->with('consulta',$consulta);
 
+    }
+
+    public function edit( $id ){
+        $consulta = ConsultaMembro::findOrFail($id);
+        $membros = $this->consultar($consulta);
+
+        return view('membro.consulta.edit')
+            ->with('membros',$membros)
+            ->with('consulta',$consulta);
+
+    }
+
+    public function update($id, ConsultaMembroRequest $request){
+        dd($request);
+
+        return Redirect::route('consulta.edit')
+            ->withInput()->with('message', 'Consulta atualizada!');
     }
 
     private function consultar($consulta){
