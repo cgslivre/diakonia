@@ -67,6 +67,20 @@ ul.rolebox{
         .role-user-users{background-color: #284de7;color:#ffffff;}
         .notrole{color:#5e5d5d;background-color: #e3dddd;}
 
+.role-box{
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 1.2rem;
+    padding: 4px;      }
+    .role-box.role-nivel-1{background-color: #a1d1ee;}
+    .role-box.role-nivel-2{background-color: #eed064;}
+    .role-box.role-nivel-3{background-color: #f1bbbf;}
+
+    .role-box.role-nivel-1 > .role-scope{background-color: #376c8c;}
+    .role-box.role-nivel-2 > .role-scope{background-color: #5e4f19;}
+    .role-box.role-nivel-3 > .role-scope{background-color: #E63946;}
+    .role-box span.role-scope{font-weight: bold;color: #ffffff;padding: 2px;border-radius: 2px}
+
 .permissoes > .panel-body > .row{border-bottom: 1px dotted #eee;margin: 5px;}
 .permissoes span.habilidade{padding: 3px;white-space: nowrap;}
     .permissoes span.habilidade > i.fa{color: #376c8c;}
@@ -230,5 +244,6 @@ div.relacionamentos > ul > li > i.fa-link{color: #AAA;}
 
 a.remover-relacionamento{color:#E63946;}
 .no-results{font-style: italic;color:#aaaaaa;}
-table.membros > tbody > tr > td > img.profile-img {width: 70px;}
+table.membros > tbody > tr > td > img.profile-img,
+table.usuarios > tbody > tr > td > img.profile-img {width: 70px;}
 table.membros > tbody{font-size: 13px;}

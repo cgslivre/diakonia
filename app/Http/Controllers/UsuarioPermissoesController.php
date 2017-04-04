@@ -21,17 +21,16 @@ class UsuarioPermissoesController extends Controller
             abort(403);
         }
 
-        $rolesGroup = Bouncer::role()->all()->sortBy('level')->sortBy('scope')
-            ->groupBy('scope');
+        $usuarios = User::all()->sortBy('name');
 
-        return view('usuario.permissoes-index')->with('rolesGroup',$rolesGroup);
+        return view('usuario.permissoes-index')->with('usuarios',$usuarios);
     }
 
     public function edit( $id ){
         if( Gate::denies('user-permissions')){
             abort(403);
         }
-        $rolesGroup = Bouncer::role()->all()->sortBy('level')->sortBy('scope')
+        $rolesGroup = Bouncer::role()->all()->sortBy('nivel')->sortBy('scope')
             ->groupBy('scope');
         $user = User::findOrFail($id);
         return view('usuario.permissoes-edit')->with('user',$user)->with('rolesGroup',$rolesGroup);

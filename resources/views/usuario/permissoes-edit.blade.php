@@ -16,9 +16,12 @@
                 <p>{{ $user->email}}</p>
             </div>
         </div>
-        <code>{{$user->roles->pluck('name')}}</code>
+
         <br/>
+        {{--
+        <code>{{$user->roles->pluck('name')}}</code>
         <code>{{$user->getAbilities()->pluck('name')}}</code>
+        --}}
 
         <h3>Perfis</h3>
 

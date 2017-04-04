@@ -24,26 +24,22 @@
             , 'regiao'=>$user->regiao
             , 'passwordForm'=>false])
     {{ Form::close() }}
+    <hr/>
     @can('user-permissions')
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group ">
-                    <label class="col-sm-2 control-label text-right">Permissões:</label>
+                    <label class="col-sm-2 control-label text-right"><a class="btn btn-info"
+                    href="{{action('UsuarioPermissoesController@edit', ['id' => $user->id])}}"
+                    role="button">Permissões</a></label>
                   <div class="col-sm-4">
                     @include('usuario.permissons-labels')
                   </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-offset-2">
-                        <a class="btn btn-info"
-                        href="{{action('UsuarioPermissoesController@edit', ['id' => $user->id])}}"
-                        role="button">Alterar Permissões do Usuário</a>
-                </div>
-            </div>
-        </div>
+
+
     @endcan
 
 
