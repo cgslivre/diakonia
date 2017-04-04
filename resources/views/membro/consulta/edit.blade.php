@@ -8,7 +8,7 @@
     {{ Form::model($consulta, ['method' => 'PATCH'
         , 'action'=>['membro\ConsultaController@update',$consulta->id]
         , 'name'=>'consultaMembroForm'
-        , 'class'=> 'form-horizontal']) }}
+        ]) }}
         @include('membro.consulta.form')
     {{ Form::close() }}
     <hr/>

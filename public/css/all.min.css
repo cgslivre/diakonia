@@ -283,7 +283,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333;  
+  color: #333;
 }
 input,
 button,
@@ -4504,6 +4504,21 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+.col-1 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 8.333333%;
+    -ms-flex: 0 0 8.333333%;
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%;
+}
+
+.col-2 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 16.666667%;
+    -ms-flex: 0 0 16.666667%;
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%;
+}
 
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -5132,6 +5147,7 @@ ul.thumbnails.image_picker_selector {
 .float-right {float: right;}
 .clear-both {clear: both;}
 .no-margin-bottom {margin-bottom: 0;}
+.no-margin-sides{margin-left: 0 !important;;margin-right: 0;!important; }
 .no-margin {
   margin-top: 0;
   margin-bottom: 0;
@@ -5140,6 +5156,7 @@ ul.thumbnails.image_picker_selector {
   .no-margin, .row > .margin{margin: 0 !important;}
 .text-indent {text-indent: 1em;}
 .width-90{width: 90%;}
+.width-05{width:5%;}
 .inline{display: inline}
 
 .loader-container {

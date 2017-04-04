@@ -9,6 +9,7 @@
 .float-right {float: right;}
 .clear-both {clear: both;}
 .no-margin-bottom {margin-bottom: 0;}
+.no-margin-sides{margin-left: 0 !important;;margin-right: 0;!important; }
 .no-margin {
   margin-top: 0;
   margin-bottom: 0;
@@ -17,6 +18,7 @@
   .no-margin, .row > .margin{margin: 0 !important;}
 .text-indent {text-indent: 1em;}
 .width-90{width: 90%;}
+.width-05{width:5%;}
 .inline{display: inline}
 
 .loader-container {
