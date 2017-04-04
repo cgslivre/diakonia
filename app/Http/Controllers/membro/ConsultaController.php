@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use App\Regiao;
 use Bouncer;
 use DB;
+use Auth;
 use Validator;
 
 use App\Model\membro\ConsultaMembro;
@@ -27,8 +28,15 @@ class ConsultaController extends Controller
 
         $consultasPublicas = ConsultaMembro::publica()->get();
 
+        $consultasPrivadas = ConsultaMembro::where('created_by',Auth::user()->id)
+            ->where('consulta_publica',false)->get();
+
+
+
         return view('membro.consulta.index')
-            ->with('consultasPublicas',$consultasPublicas);
+            ->with('consultasPublicas',$consultasPublicas)
+            ->with('consultasPrivadas',$consultasPrivadas);
+
     }
 
     public function show($slug){
