@@ -57,6 +57,17 @@ class ConsultaController extends Controller
 
     }
 
+    public function create(){
+        $regioes = \App\Regiao::all()->pluck('nome');
+        $grupos = \App\Model\membro\GrupoCaseiro::all()
+            ->sortBy('nome');
+        $consulta = new ConsultaMembro;
+        return view('membro.consulta.create')
+            ->with('consulta',$consulta)
+            ->with('grupos',$grupos)
+            ->with('regioes',$regioes);
+    }
+
     public function edit( $id ){
         $consulta = ConsultaMembro::findOrFail($id);
         $membros = $this->consultar($consulta);

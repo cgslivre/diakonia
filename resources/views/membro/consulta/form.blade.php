@@ -16,7 +16,7 @@
                 <span class="required">*</span>Título:</label>
         </div>
         <div class="col-md-9">
-            {{Form::text('titulo', null,  ['class' => 'form-control',
+            {{Form::text('titulo', null,  ['class' => 'form-control titulo',
                 'placeholder'=>'Título da consulta'])}}
         </div>
     </div>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="col-md-9">
-            {{Form::text('slug', null,  ['class' => 'form-control',
+            {{Form::text('slug', null,  ['class' => 'form-control slug',
                 'placeholder'=>'Identificador da consulta'])}}
         </div>
     </div>

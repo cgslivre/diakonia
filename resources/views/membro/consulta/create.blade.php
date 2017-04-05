@@ -26,5 +26,9 @@
       placeholder: "Selecione um ou mais grupos caseiros",
       allowClear: true
     });
+
+    $('input.titulo').on('input',function(){
+        $('input.slug').val(slug($('input.titulo').val(),{lower: true}));
+    });
 </script>
 @endsection
