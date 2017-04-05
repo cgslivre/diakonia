@@ -7,6 +7,23 @@ h2{color:#376c8c;}
 .name-title-2{font-size: 30px;}
 .name-title-3{font-size: 24px;}
 span.counter{font-size: 120%;font-weight: bold;}
+.input-bs{
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+
+}
 
 
 /* +++ Menu Lateral ++++ */
@@ -247,3 +264,10 @@ a.remover-relacionamento{color:#E63946;}
 table.membros > tbody > tr > td > img.profile-img,
 table.usuarios > tbody > tr > td > img.profile-img {width: 70px;}
 table.membros > tbody{font-size: 13px;}
+
+.edicao-consulta{
+    background-color: #e5eef4;
+    border: 1px dotted #acd2eb;
+    border-radius: 5px;
+    padding: 10px;
+}

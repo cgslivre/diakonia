@@ -31,25 +31,56 @@
                 'placeholder'=>'Identificador da consulta'])}}
         </div>
     </div>
-    <div class="row">
+    <div class="row form-group no-margin-sides">
         <label for="idade_minima" class="col-md-offset-1">Idade Mínima:</label>
-        {{Form::number('idade_minima', $consulta->idade_minima, ['max'=>'99','class'=>'width-05'])}}
+        {{Form::number('idade_minima', $consulta->idade_minima,
+            ['max'=>'99','class'=>'width-05 input-bs'])}}
         <label for="idade_maxima" class="">Idade Máxima:</label>
-        {{Form::number('idade_maxima', $consulta->idade_maxima, ['max'=>'99','class'=>'width-05'])}}
-        <label for="sexo1" class="">Sexo:</label>
-        <div class="radio3 radio-check radio-success radio-inline">
+        {{Form::number('idade_maxima', $consulta->idade_maxima,
+            ['max'=>'99','class'=>'width-05 input-bs'])}}
+        <label for="sexo1" class="col-md-offset-1">Sexo:</label>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
             {{Form::radio('sexo', '', $consulta->sexo?false:true, ['id'=>'sexo-ambos'])}}
             <label for="sexo-ambos">Ambos</label>
         </div>
-        <div class="radio3 radio-check radio-success radio-inline">
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
             {{Form::radio('sexo', 'M', $consulta->sexo=='M'?true:false,['id'=>'sexo-masculino'])}}
             <label for="sexo-masculino">Masculino</label>
         </div>
-        <div class="radio3 radio-check radio-success radio-inline">
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
             {{Form::radio('sexo', 'F', $consulta->sexo=='F'?true:false, ['id'=>'sexo-feminino'])}}
             <label for="sexo-feminino">Feminino</label>
         </div>
+    </div>
 
+    <div class="row form-group no-margin-sides">
+        <label for="tem_discipulos" class="col-md-offset-1">Tem discipulo(s)?</label>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulos', '', $consulta->tem_discipulos?false:true, ['id'=>'discipulador-na'])}}
+            <label for="discipulador-na">Não se aplica</label>
+        </div>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulos', 'S', $consulta->tem_discipulos=='S'?true:false,['id'=>'discipulador-sim'])}}
+            <label for="discipulador-sim">Sim</label>
+        </div>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulos', 'N', $consulta->tem_discipulos=='N'?true:false, ['id'=>'discipulador-nao'])}}
+            <label for="discipulador-nao">Não</label>
+        </div>
+
+        <label for="tem_discipulador" class="col-md-offset-1">Tem discipulador(a)?</label>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulador', '', $consulta->tem_discipulador?false:true, ['id'=>'tem-discipulador-na'])}}
+            <label for="tem-discipulador-na">Não se aplica</label>
+        </div>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulador', 'S', $consulta->tem_discipulador=='S'?true:false,['id'=>'tem-discipulador-sim'])}}
+            <label for="tem-discipulador-sim">Sim</label>
+        </div>
+        <div class="radio3 radio-check radio-success radio-inline no-margin-sides">
+            {{Form::radio('tem_discipulador', 'N', $consulta->tem_discipulador=='N'?true:false, ['id'=>'tem-discipulador-nao'])}}
+            <label for="tem-discipulador-nao">Não</label>
+        </div>
     </div>
     {{Form::submit('Atualizar consulta', ['class' => 'btn btn-primary'])}}
 </div>
