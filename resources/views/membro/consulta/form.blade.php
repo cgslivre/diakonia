@@ -107,7 +107,12 @@
             <select name="grupos[]" id="grupos[]" class="select-grupos"
             multiple="multiple" style="width:100%">
             @foreach ($grupos as $grupo)
-                <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+                @if($consulta->grupos && in_array($grupo->id,json_decode($consulta->grupos)))
+                    <option value="{{$grupo->id}}" selected>{{$grupo->nome}}</option>
+                @else
+                    <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+                @endif
+
             @endforeach
         </select>
     </div>
