@@ -88,7 +88,7 @@
 
             <label for="regiao" class="">Regiões: </label>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
             <select name="regioes[]" id="regioes[]" class="select-regioes"
                 multiple="multiple" style="width:100%">
                 @foreach ($regioes as $regiao)

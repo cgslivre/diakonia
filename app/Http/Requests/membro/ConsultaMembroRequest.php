@@ -27,9 +27,17 @@ class ConsultaMembroRequest extends Request
         $rules = $this->rules;
         if(empty($this->id)){
             $rules['titulo'] = 'required|min:2|unique:consulta_membros';
+            $rules['slug'] = 'required|min:2|alpha_dash|unique:consulta_membros';
         } else{
             $rules['titulo'] = 'required|min:2|unique:consulta_membros,titulo,'.$this->id.',id';
+            $rules['slug'] = 'required|min:2|alpha_dash|unique:consulta_membros,slug,'.$this->id.',id';
         }
+        $rules['tem_discipulos'] = 'in:S,N';
+        $rules['tem_discipulador'] = 'in:S,N';
+        $rules['sexo'] = 'in:M,F';
+        $rules['idade_minima'] = 'integer';
+        $rules['idade_maxima'] = 'integer';
+
 
         return $rules;
     }
@@ -39,6 +47,8 @@ class ConsultaMembroRequest extends Request
     {
         return [
             'titulo.required' => 'É necessário informar o título da consulta',
+            'slug.unique' => 'Identificador já está em uso',
+            'slug.alpha_dash' => 'Formato inválido para o Identificador',
 
         ];
     }
