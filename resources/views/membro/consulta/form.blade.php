@@ -92,9 +92,12 @@
             <select name="regioes[]" id="regioes[]" class="select-regioes"
                 multiple="multiple" style="width:100%">
                 @foreach ($regioes as $regiao)
-                    <option value="{{$regiao}}">{{$regiao}}</option>
+                    @if($consulta->regioes && in_array($regiao,json_decode($consulta->regioes)))
+                        <option value="{{$regiao}}" selected>{{$regiao}}</option>
+                    @else
+                        <option value="{{$regiao}}">{{$regiao}}</option>
+                    @endif
                 @endforeach
-
             </select>
         </div>
         <div class="col-md-1 text-right">
