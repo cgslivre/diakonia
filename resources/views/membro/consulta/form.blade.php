@@ -82,5 +82,32 @@
             <label for="tem-discipulador-nao">Não</label>
         </div>
     </div>
+
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-1 col-md-offset-1 text-right">
+
+            <label for="regiao" class="">Regiões: </label>
+        </div>
+        <div class="col-md-5">
+            <select name="regioes[]" id="regioes[]" class="select-regioes"
+                multiple="multiple" style="width:100%">
+                @foreach ($regioes as $regiao)
+                    <option value="{{$regiao}}">{{$regiao}}</option>
+                @endforeach
+
+            </select>
+        </div>
+        <div class="col-md-1 text-right">
+            <label for="regiao" class="">Grupos: </label>
+        </div>
+        <div class="col-md-4">
+            <select name="grupos[]" id="grupos[]" class="select-grupos"
+            multiple="multiple" style="width:100%">
+            @foreach ($grupos as $grupo)
+                <option value="{{$grupo->id}}">{{$grupo->nome}}</option>
+            @endforeach
+        </select>
+    </div>
+    </div>
     {{Form::submit('Atualizar consulta', ['class' => 'btn btn-primary'])}}
 </div>

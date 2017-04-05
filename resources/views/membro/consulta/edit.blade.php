@@ -33,9 +33,16 @@
                 @foreach( $membros as $membro )
                 <tr>
                     <td>{{$i++}}</td>
-                    <td><a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a></td>
+                    <td>
+                        <span class="sexo-{{$membro->sexo}}">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </span>
+                        <a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a>
+                    </td>
                     @if($membro->grupo)
-                        <td>{{$membro->grupo->nome}}</td>
+                        <td>
+                            {{$membro->grupo->nome}}
+                        </td>
                     @else
                         <td class="text-muted">Sem grupo</td>
                     @endif
@@ -48,4 +55,17 @@
         </table>
     </div>
 
+@endsection
+
+@section('scripts')
+<script>
+    $(".select-regioes").select2({
+      placeholder: "Selecione uma ou mais opções",
+      allowClear: true
+    });
+    $(".select-grupos").select2({
+      placeholder: "Selecione um ou mais grupos caseiros",
+      allowClear: true
+    });
+</script>
 @endsection

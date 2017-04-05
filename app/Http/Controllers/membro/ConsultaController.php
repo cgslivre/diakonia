@@ -59,10 +59,15 @@ class ConsultaController extends Controller
     public function edit( $id ){
         $consulta = ConsultaMembro::findOrFail($id);
         $membros = $this->consultar($consulta);
+        $regioes = \App\Regiao::all()->pluck('nome');
+        $grupos = \App\Model\membro\GrupoCaseiro::all()
+            ->sortBy('nome');
 
         return view('membro.consulta.edit')
             ->with('membros',$membros)
-            ->with('consulta',$consulta);
+            ->with('consulta',$consulta)
+            ->with('grupos',$grupos)
+            ->with('regioes',$regioes);
 
     }
 
@@ -121,6 +126,16 @@ class ConsultaController extends Controller
             // Opção [Sexo]
             ->when($consulta->sexo, function( $query ) use ($consulta ){
                 return $query->where('sexo','=',$consulta->sexo);
+            })
+            // Opção [regiao]
+            ->when($consulta->regioes, function( $query ) use ($consulta){
+                $arrayRegioes = json_decode($consulta->regioes);
+                return $query->whereIn( 'regiao',$arrayRegioes);
+            })
+            // Opção [grupo caseiro]
+            ->when($consulta->grupos, function( $query ) use ($consulta){
+                $arrayGrupos = json_decode($consulta->grupos);
+                return $query->whereIn( 'grupo_caseiro_id',$arrayGrupos);
             })
             ->with('grupo')
             ->orderBy('nome','ASC');

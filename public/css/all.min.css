@@ -5557,8 +5557,10 @@ span.counter{font-size: 120%;font-weight: bold;}
     -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
     -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-
 }
+
+.sexo-M{color: #228bec;}
+.sexo-F{color: #d071e8;}
 
 
 /* +++ Menu Lateral ++++ */
