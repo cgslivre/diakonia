@@ -11,6 +11,11 @@ class ConsultaMembro extends Model
 
     protected $with = ['createBy','modifiedBy'];
 
+    protected $fillable = [
+        'slug', 'titulo', 'idade_minima','idade_maxima','tem_discipulos', 'tem_discipulador'
+        ,'sexo', 'regioes' , 'grupos' , 'consulta_publica' , 'created_by' , 'modified_by'
+    ];
+
     public function createBy(){
         return $this->hasOne('App\User', 'id', 'created_by');
     }

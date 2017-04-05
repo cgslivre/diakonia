@@ -12,9 +12,7 @@
         @include('membro.consulta.form')
     {{ Form::close() }}
     <hr/>
-    <div class="dados-consulta">
-        <p>Título da consulta: <span><strong>{{$consulta->titulo}}</strong></span></p>
-    </div>
+    
     <p>Total de membros encontrados: <strong>{{$membros->count()}}</strong></p>
     <div class="tabela">
         <table class="table table-striped table-hover consulta-membros">

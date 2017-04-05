@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 use App\Regiao;
 use Bouncer;
@@ -72,9 +73,21 @@ class ConsultaController extends Controller
     }
 
     public function update($id, ConsultaMembroRequest $request){
-        dd($request);
+        //dd($request);
 
-        return Redirect::route('consulta.edit')
+        $request['regioes'] = $request['regioes'] ?
+            collect($request['regioes'])->toJson() : null;
+        $request['grupos'] = $request['grupos'] ?
+            collect($request['grupos'])->toJson() : null;
+        $request['idade_minima'] = $request['idade_minima'] ?
+            $request['idade_minima'] : null;
+        $request['idade_maxima'] = $request['idade_maxima'] ?
+            $request['idade_maxima'] : null;
+
+        $consulta = ConsultaMembro::findOrFail($id);
+        $consulta->update( $request->all());
+
+        return Redirect::route('consulta.edit', $id)
             ->withInput()->with('message', 'Consulta atualizada!');
     }
 
@@ -120,8 +133,8 @@ class ConsultaController extends Controller
             })
             // Opção [Idade Máxima]
             ->when($consulta->idade_maxima, function( $query ) use ($consulta ){
-                $data = \Carbon\Carbon::now()->subYears($consulta->idade_maxima)->toDateString();
-                return $query->where('data_nascimento','>=',$data);
+                $data = \Carbon\Carbon::now()->subYears($consulta->idade_maxima+1)->toDateString();
+                return $query->where('data_nascimento','>',$data);
             })
             // Opção [Sexo]
             ->when($consulta->sexo, function( $query ) use ($consulta ){
