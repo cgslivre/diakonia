@@ -42,11 +42,16 @@ comum.filter('highlight', ['$sce', function($sce) {
     return function(text, phrase) {
 
         if( phrase ){
-            text = text.replace(new RegExp('('+phrase+')', 'gi'), '<span class="highlighted">$1</span>');
+            if( text ){
+                text = text.replace(new RegExp('('+phrase+')', 'gi'),
+                    '<span class="highlighted">$1</span>');
+            }
         }
         return $sce.trustAsHtml(text);
     };
 }]);
+
+
 
 comum.filter('formatPhone', ['$sce', function($sce) {
     return function(input) {
