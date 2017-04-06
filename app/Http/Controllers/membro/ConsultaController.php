@@ -27,6 +27,9 @@ class ConsultaController extends Controller
     }
 
     public function index(){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
 
         $consultasPublicas = ConsultaMembro::publica()->orderBy('titulo')->get();
 
@@ -42,6 +45,9 @@ class ConsultaController extends Controller
     }
 
     public function show($slug){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
 
         // Aborta se não encontrar consulta com o slug informado
         $consulta = ConsultaMembro::slug($slug)->first();
@@ -58,6 +64,9 @@ class ConsultaController extends Controller
     }
 
     public function create(){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
         $regioes = \App\Regiao::all()->pluck('nome');
         $grupos = \App\Model\membro\GrupoCaseiro::all()
             ->sortBy('nome');
@@ -70,6 +79,11 @@ class ConsultaController extends Controller
 
     public function edit( $id ){
         $consulta = ConsultaMembro::findOrFail($id);
+        if(Bouncer::denies('membro-list') ||
+            $consulta->create_by == Auth::user()->id){
+            abort(403);
+        }
+
         $membros = $this->consultar($consulta);
         $regioes = \App\Regiao::all()->pluck('nome');
         $grupos = \App\Model\membro\GrupoCaseiro::all()
@@ -84,6 +98,10 @@ class ConsultaController extends Controller
     }
 
     public function store(ConsultaMembroRequest $request){
+        if(Bouncer::denies('membro-list')){
+            abort(403);
+        }
+
         $request['regioes'] = $request['regioes'] ?
             collect($request['regioes'])->toJson() : null;
         $request['grupos'] = $request['grupos'] ?
@@ -103,7 +121,11 @@ class ConsultaController extends Controller
     }
 
     public function update($id, ConsultaMembroRequest $request){
-        //dd($request);
+        $consulta = ConsultaMembro::findOrFail($id);
+        if(Bouncer::denies('membro-list') ||
+            $consulta->create_by == Auth::user()->id){
+            abort(403);
+        }
 
         $request['regioes'] = $request['regioes'] ?
             collect($request['regioes'])->toJson() : null;
@@ -116,7 +138,6 @@ class ConsultaController extends Controller
 
         $request['modified_by'] = Auth::user()->id;
 
-        $consulta = ConsultaMembro::findOrFail($id);
         $consulta->update( $request->all());
 
         return Redirect::route('consulta.edit', $id)
@@ -191,6 +212,11 @@ class ConsultaController extends Controller
     public function destroy($id){
         $consulta = ConsultaMembro::findOrFail($id);
         $consulta->delete();
+
+        if(Bouncer::denies('membro-list') ||
+            $consulta->create_by == Auth::user()->id){
+            abort(403);
+        }
 
         return Redirect::route('consulta.index')->with('message',
             'Consulta: ' . $consulta->titulo . ' removida!');
