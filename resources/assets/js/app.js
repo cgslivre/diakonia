@@ -51,7 +51,39 @@ comum.filter('highlight', ['$sce', function($sce) {
     };
 }]);
 
-
+comum.filter('removeAcentos', function() {
+  return function(items, criterioDeBusca) {
+//      console.log('items >' + items);
+//      console.log('tagName >' + criterioDeBusca);
+    var clean = function(value) {
+        return value
+            .replace(/á/g, 'a')
+            .replace(/ã/g, 'a')
+            .replace(/ç/g, 'c')
+            .replace(/é/g, 'e')
+            .replace(/í/g, 'i')
+            .replace(/ó/g, 'o')
+            .replace(/ú/g, 'u');
+        }
+    var filtered = [];
+    angular.forEach(items, function(el) {
+        if( !criterioDeBusca){
+            filtered.push(el);
+        } else{
+            var full = el.nome + ' ' + el.regiao + ' '
+                + el.telefones + ' ' + el.email + ' ';
+            var grupo  = el.grupo ? el.grupo.nome : '';
+            full = full + grupo;
+            full = clean(full.toLowerCase());
+            var busca = clean( criterioDeBusca.toLowerCase());
+            if( full.indexOf(busca) > -1 ){
+                filtered.push(el);
+            }            
+        }
+    });
+    return filtered;
+  }
+});
 
 comum.filter('formatPhone', ['$sce', function($sce) {
     return function(input) {
