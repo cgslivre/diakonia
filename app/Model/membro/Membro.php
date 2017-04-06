@@ -44,7 +44,7 @@ class Membro extends Model
 
     public function discipulador(){
         $discipulador = $this->hasMany('App\Model\membro\RelacionamentoMembro','membro_de_id','id')
-            ->where('relacionamento_id',5);
+            ->where('relacionamento_id',Relacionamento::ID_RELACIONAMENTO_DISCIPULO);
 
         if( $discipulador->get()->isEmpty()){
             $discipulador = null;
