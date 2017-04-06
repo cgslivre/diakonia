@@ -5,11 +5,11 @@
 @section('titulo', 'Nova Consulta')
 
 @section('content')
-    {{ Form::model($consulta, ['method' => 'PATCH'
-        , 'action'=>['membro\ConsultaController@update',$consulta->id]
+    {{ Form::model($consulta, ['method' => 'POST'
+        , 'action'=>['membro\ConsultaController@store']
         , 'name'=>'consultaMembroForm'
         ]) }}
-        @include('membro.consulta.form')
+        @include('membro.consulta.form',['btnAction'=>'Criar Pesquisa'])
     {{ Form::close() }}
     <hr/>
 

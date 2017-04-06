@@ -117,5 +117,7 @@
         </select>
     </div>
     </div>
-    {{Form::submit('Atualizar consulta', ['class' => 'btn btn-primary'])}}
+    <div class="text-center">        
+        {{Form::submit($btnAction, ['class' => 'btn btn-primary'])}}
+    </div>
 </div>

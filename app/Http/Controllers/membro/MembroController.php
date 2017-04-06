@@ -24,7 +24,7 @@ class MembroController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){        
+    public function index(){
         if(Bouncer::denies('membro-list')){
             abort(403);
         }
@@ -57,7 +57,7 @@ class MembroController extends Controller
         $membro = Membro::create($request->all());
 
         return redirect()->route('membro.edit', ['id' => $membro->id])
-            ->with('message', 'Membro adicionado!');;
+            ->with('message', 'Membro adicionado!');
     }
 
     public function edit( $id ){

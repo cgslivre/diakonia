@@ -28,10 +28,10 @@ class ConsultaController extends Controller
 
     public function index(){
 
-        $consultasPublicas = ConsultaMembro::publica()->get();
+        $consultasPublicas = ConsultaMembro::publica()->orderBy('titulo')->get();
 
         $consultasPrivadas = ConsultaMembro::where('created_by',Auth::user()->id)
-            ->where('consulta_publica',false)->get();
+            ->where('consulta_publica',false)->orderBy('titulo')->get();
 
 
 
@@ -83,6 +83,25 @@ class ConsultaController extends Controller
 
     }
 
+    public function store(ConsultaMembroRequest $request){
+        $request['regioes'] = $request['regioes'] ?
+            collect($request['regioes'])->toJson() : null;
+        $request['grupos'] = $request['grupos'] ?
+            collect($request['grupos'])->toJson() : null;
+        $request['idade_minima'] = $request['idade_minima'] ?
+            $request['idade_minima'] : null;
+        $request['idade_maxima'] = $request['idade_maxima'] ?
+            $request['idade_maxima'] : null;
+
+        $request['created_by'] = Auth::user()->id;
+        $request['modified_by'] = Auth::user()->id;
+        //dd($request);
+        $consulta = ConsultaMembro::create($request->all());
+
+        return redirect()->route('consulta.edit', ['id' => $consulta->id])
+            ->with('message', 'Consulta salva!');
+    }
+
     public function update($id, ConsultaMembroRequest $request){
         //dd($request);
 
@@ -94,6 +113,8 @@ class ConsultaController extends Controller
             $request['idade_minima'] : null;
         $request['idade_maxima'] = $request['idade_maxima'] ?
             $request['idade_maxima'] : null;
+
+        $request['modified_by'] = Auth::user()->id;
 
         $consulta = ConsultaMembro::findOrFail($id);
         $consulta->update( $request->all());

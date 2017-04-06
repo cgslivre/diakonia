@@ -9,10 +9,10 @@
         , 'action'=>['membro\ConsultaController@update',$consulta->id]
         , 'name'=>'consultaMembroForm'
         ]) }}
-        @include('membro.consulta.form')
+        @include('membro.consulta.form',['btnAction'=>'Atualizar Pesquisa'])
     {{ Form::close() }}
     <hr/>
-    
+
     <p>Total de membros encontrados: <strong>{{$membros->count()}}</strong></p>
     <div class="tabela">
         <table class="table table-striped table-hover consulta-membros">

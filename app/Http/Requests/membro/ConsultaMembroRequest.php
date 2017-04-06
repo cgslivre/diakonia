@@ -47,6 +47,7 @@ class ConsultaMembroRequest extends Request
     {
         return [
             'titulo.required' => 'É necessário informar o título da consulta',
+            'slug.required' => 'É necessário informar um Identificador para a consulta',
             'slug.unique' => 'Identificador já está em uso',
             'slug.alpha_dash' => 'Formato inválido para o Identificador',
 
