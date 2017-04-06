@@ -42,6 +42,19 @@ class Membro extends Model
         return $this->hasMany('App\Model\membro\RelacionamentoMembro','membro_de_id','id');
     }
 
+    public function discipulador(){
+        $discipulador = $this->hasMany('App\Model\membro\RelacionamentoMembro','membro_de_id','id')
+            ->where('relacionamento_id',5);
+
+        if( $discipulador->get()->isEmpty()){
+            $discipulador = null;
+        } else{
+            $discipulador = $discipulador->first()->membroPara;
+        }
+
+        return $discipulador;
+    }
+
     public function getIdadeAttribute(){
         $hoje = new Carbon();
         $nascimento = Carbon::createFromFormat('Y-m-d H:i:s', $this->data_nascimento);

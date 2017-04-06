@@ -25,6 +25,7 @@
                     <th>#</th>
                     <th>Nome</th>
                     <th>Grupo Caseiro</th>
+                    <th>Discipulador</th>
                     <th>Idade</th>
                     <th>Região</th>
                     <th>Email</th>
@@ -47,6 +48,11 @@
                         </td>
                     @else
                         <td class="text-muted">Sem grupo</td>
+                    @endif
+                    @if($membro->discipulador())
+                        <td><a href="/membro/{{$membro->discipulador()->id}}/edit">{{$membro->discipulador()->nome}}</a></td>
+                    @else
+                        <td class="text-muted text-center"><i class="fa fa-ban" aria-hidden="true"></i></td>
                     @endif
                     <td title="{{$membro->data_nascimento->format('d/M/Y')}}">{{$membro->idade}}</td>
                     <td>{{$membro->regiao}}</td>
