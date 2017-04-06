@@ -7,6 +7,7 @@ var app = angular.module('membrosRecord', ['ngMessages','ngSanitize'
 
 app.controller('membrosIndexController', ['$scope', '$http', '$resource',
   function ($scope, $http, $resource) {
+      $scope.carregando = true;
     $scope.membros = [];
 
     var regioes = $resource('/regioes');
@@ -14,9 +15,10 @@ app.controller('membrosIndexController', ['$scope', '$http', '$resource',
 
     $http.get("/membro").then(function(response) {
         $scope.membros = response.data;
+        $scope.carregando = false;
     });
 
-    $scope.userShowLink = function( membro ){        
+    $scope.userShowLink = function( membro ){
         return window.location.origin + '/membro/' + membro + '/edit';
 	};
 

@@ -21,6 +21,9 @@
 
     <hr/>
     <div ng-controller="usuariosController">
+        <div class="loading text-center" ng-show="carregando">
+            <i class="fa fa-spinner fa-pulse fa-fw"></i> Carregando...
+        </div>
         <div class="search-result">
             <p ng-show="!usuariosFiltered.length">
                 <span class="counter">Nenhum</span> usuário encontrado.

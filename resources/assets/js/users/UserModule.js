@@ -26,10 +26,12 @@ app.controller('userEditCtrl', ['$scope', '$http', '$location',
 
 app.controller('usuariosController', ['$scope', '$http',
   function ($scope, $http) {
+    $scope.carregando = true;
     $scope.usuarios = [];
     $http.get("/usuario").then(function(response) {
 
         $scope.usuarios = response.data;
+        $scope.carregando = false;
 
     });
     $scope.avatarPathSmall = function( avatar ){
