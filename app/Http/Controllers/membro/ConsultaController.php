@@ -79,8 +79,9 @@ class ConsultaController extends Controller
 
     public function edit( $id ){
         $consulta = ConsultaMembro::findOrFail($id);
+
         if(Bouncer::denies('membro-list') ||
-            $consulta->create_by == Auth::user()->id){
+            $consulta->created_by != Auth::user()->id){
             abort(403);
         }
 
@@ -123,7 +124,7 @@ class ConsultaController extends Controller
     public function update($id, ConsultaMembroRequest $request){
         $consulta = ConsultaMembro::findOrFail($id);
         if(Bouncer::denies('membro-list') ||
-            $consulta->create_by == Auth::user()->id){
+            $consulta->created_by != Auth::user()->id){
             abort(403);
         }
 
@@ -214,7 +215,7 @@ class ConsultaController extends Controller
         $consulta->delete();
 
         if(Bouncer::denies('membro-list') ||
-            $consulta->create_by == Auth::user()->id){
+            $consulta->created_by != Auth::user()->id){
             abort(403);
         }
 
