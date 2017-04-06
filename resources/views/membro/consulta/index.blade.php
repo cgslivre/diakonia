@@ -60,4 +60,9 @@
         </tbody>
     </table>
 </div>
+<div class="fixed-action-btn">
+    <a href="{{ url('/membros/consulta/create') }}" title="Criar nova consulta"
+    class="btn-floating btn-large btn-primary">
+    <i class="fa fa-plus fa-2x"></i>
+</a>
 @endsection

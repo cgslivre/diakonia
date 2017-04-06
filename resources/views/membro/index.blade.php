@@ -10,7 +10,7 @@
     @can('membro-create')
         <div class="fixed-action-btn">
             <a href="{{ url('/membro/create') }}" title="Cadastrar novo membro"
-            class="btn-floating btn-large">
+            class="btn-floating btn-large btn-primary">
             <i class="fa fa-user-plus fa-2x"></i>
         </a>
     </div>
