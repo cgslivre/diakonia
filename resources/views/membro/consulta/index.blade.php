@@ -12,6 +12,7 @@
                 <th>Nome</th>
                 <th>Atualizada em</th>
                 <th>Atualizada por</th>
+                <th class="text-center"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,14 @@
                     {{$consulta->titulo}}</a></td>
                 <td>{{$consulta->updated_at->format('d/M/Y - H\\hi\\m\\i\\n')}}</td>
                 <td>{{$consulta->modifiedBy->name}}</td>
+                <td class="text-center">
+                    @if($consulta->created_by == Auth::user()->id)
+                    <a href="{{ route('consulta.edit', [$consulta->id]) }}"
+                    class="btn btn-info">Editar</a>
+                @else
+                    <a href="" class="text-muted btn disabled " role="button">Editar</a>
+                @endif
+                </td>
             </tr>
             @endforeach
         </tbody>
