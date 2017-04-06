@@ -9,8 +9,12 @@
         , 'action'=>['membro\ConsultaController@update',$consulta->id]
         , 'name'=>'consultaMembroForm'
         ]) }}
-        @include('membro.consulta.form',['btnAction'=>'Atualizar Pesquisa'])
+        @include('membro.consulta.form',[
+            'btnAction'=>'Atualizar Pesquisa',
+            'edicao'=>true,
+        ])
     {{ Form::close() }}
+    @include('membro.consulta.modal-exclusao', ['consulta'=>$consulta])
     <hr/>
 
     <p>Total de membros encontrados: <strong>{{$membros->count()}}</strong></p>

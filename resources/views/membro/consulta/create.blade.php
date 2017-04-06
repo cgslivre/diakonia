@@ -9,7 +9,10 @@
         , 'action'=>['membro\ConsultaController@store']
         , 'name'=>'consultaMembroForm'
         ]) }}
-        @include('membro.consulta.form',['btnAction'=>'Criar Pesquisa'])
+        @include('membro.consulta.form',[
+            'btnAction'=>'Criar Pesquisa',
+            'edicao'=>false,
+        ])
     {{ Form::close() }}
     <hr/>
 
