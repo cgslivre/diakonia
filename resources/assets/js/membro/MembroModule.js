@@ -198,7 +198,22 @@ app.controller('membroEditCtrl', ['$scope', '$http', '$location',
                 membros = response.data;
                 return membros.filter(
                     function( membro ){
-                        return membro.nome.toLowerCase().indexOf(query.toLowerCase()) != -1;
+                        var clean = function(value) {
+                            return value
+                                .replace(/á/g, 'a')
+                                .replace(/ã/g, 'a')
+                                .replace(/â/g, 'a')
+                                .replace(/ç/g, 'c')
+                                .replace(/é/g, 'e')
+                                .replace(/ẽ/g, 'e')
+                                .replace(/í/g, 'i')
+                                .replace(/ó/g, 'o')
+                                .replace(/õ/g, 'o')
+                                .replace(/ú/g, 'u');
+                            }
+                        var nome = clean(membro.nome.toLowerCase());
+                        var busca = clean(query.toLowerCase());
+                        return nome.indexOf(busca) != -1;
                     });
 
             }, function( response){
