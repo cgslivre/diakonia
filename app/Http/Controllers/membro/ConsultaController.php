@@ -188,4 +188,12 @@ class ConsultaController extends Controller
             return $query->get();
     }
 
+    public function destroy($id){
+        $consulta = ConsultaMembro::findOrFail($id);
+        $consulta->delete();
+
+        return Redirect::route('consulta.index')->with('message',
+            'Consulta: ' . $consulta->titulo . ' removida!');
+    }
+
 }
