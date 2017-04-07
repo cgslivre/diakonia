@@ -1,6 +1,6 @@
 @extends( 'membro.template-membro')
 
-@section('nivel2', '<li class="active">Regiões</li>')
+@section('nivel2')<li class="active">Regiões</li>@stop
 
 @section('content')
     @can('membro-regiao-create')

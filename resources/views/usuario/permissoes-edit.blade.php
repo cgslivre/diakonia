@@ -1,7 +1,11 @@
 @extends( 'usuario.template-usuario')
 
-@section('nivel2', '<li class="active"><a href="' . URL::route('usuario.permissoes') . '">Permissões dos usuários</a></li>')
-@section('nivel3', '<li class="active">Alterar Permissões do usuário</li>')
+@section('nivel2')
+    <li class="active">
+        <a href="{{URL::route('usuario.permissoes')}}">Permissões dos usuários</a>
+    </li>
+@stop
+@section('nivel3')<li class="active">Alterar Permissões do usuário</li>@stop
 
 
 @section('content')

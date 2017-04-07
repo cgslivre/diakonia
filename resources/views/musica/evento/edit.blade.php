@@ -1,7 +1,7 @@
 @extends( 'musica.template-musica')
 
-@section('nivel2', '<li class="active"><a href="/musica/evento">Eventos</a></li>')
-@section('nivel3', '<li class="active">Editar Evento</li>')
+@section('nivel2')<li class="active"><a href="/musica/evento">Eventos</a></li>@stop
+@section('nivel3')<li class="active">Editar Evento</li>@stop
 
 
 @section('content')

@@ -1,6 +1,8 @@
 @extends( 'membro.template-membro')
 
-@section('nivel3', '<li class="active">Cadastrar novo membro</li>')
+@section('nivel3')
+    <li class="active">Cadastrar novo membro</li>
+@stop
 
 @section('content')
 <div class="container-fluid" ng-app="membrosRecord" ng-controller="membroCreateCtrl">

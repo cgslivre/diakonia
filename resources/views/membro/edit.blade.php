@@ -1,6 +1,6 @@
 @extends( 'membro.template-membro')
 
-@section('nivel2', '<li class="active">Editar membro</li>')
+@section('nivel2')<li class="active">Editar membro</li>@stop
 
 @section('titulo', 'Edição: ' . $membro->nome)
 

@@ -1,8 +1,8 @@
 {{ Date::setLocale('pt_BR') }}
 @extends( 'musica.template-musica')
 
-@section('nivel2', '<li class="active"><a href="/musica/evento">Eventos</a></li>')
-@section('nivel3', '<li class="active">Análise da escala</li>')
+@section('nivel2')<li class="active"><a href="/musica/evento">Eventos</a></li>@stop
+@section('nivel3')<li class="active">Análise da escala</li>@stop
 
     @section('content')
         {{ $warnings }}

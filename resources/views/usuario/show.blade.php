@@ -1,6 +1,6 @@
 @extends( 'usuario.template-usuario')
 
-@section('nivel3', '<li class="active">Dados do usuário</li>')
+@section('nivel3')<li class="active">Dados do usuário</li>@stop
 
 
 @section('content')

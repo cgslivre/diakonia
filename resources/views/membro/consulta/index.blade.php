@@ -1,6 +1,6 @@
 @extends( 'membro.template-membro')
 
-@section('nivel2', '<li class="active">Consultas de Membros</li>')
+@section('nivel2')<li class="active">Consultas de Membros</li>@stop
 @section('titulo', 'Consultas de Membros')
 
 @section('content')

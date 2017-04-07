@@ -1,7 +1,7 @@
 {{ Date::setLocale('pt_BR') }}
 @extends( 'musica.template-musica')
 
-@section('nivel2', '<li class="active">Eventos de Música</li>')
+@section('nivel2')<li class="active">Eventos de Música</li>@stop
 
 
 @section('content')
