@@ -151,7 +151,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Silber\Bouncer\BouncerServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class,        
+        Jenssegers\Date\DateServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...
