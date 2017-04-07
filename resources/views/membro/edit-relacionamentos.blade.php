@@ -28,6 +28,7 @@
                 @endcan
             </li>
         </ul>
+        @can('membro-edit')
         <div class="add-relacionamento">
             <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
             <span class="membro"><%membro.nome%></span> é
@@ -47,7 +48,6 @@
             	typeahead-no-results="semResultadosMembrosRelFamilia"
             	class="">
             <i ng-show="carregandoMembrosRelFamilia" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-            @can('membro-edit')
             <button
                 class="btn btn-info"
                 ng-disabled="id_rel_familia_selected == null"
@@ -58,10 +58,9 @@
                     ;id_rel_familia_selected=null;add_tipo_relacionamento=null">
                 <i class="fa fa-plus-square" aria-hidden="true"></i>
             </button>
-            @endcan
             <span class="no-results" ng-show="semResultadosMembrosRelFamilia">Nenhum membro encontrado</span>
-
         </div>
+    @endcan
 
             <br>
             {{--<%id_rel_familia_selected%>--}}
@@ -95,6 +94,7 @@
         @endcan
     </li>
 </ul>
+@can('membro-edit')
 <div class="add-relacionamento">
     <label for="" class="incluir-relacionamento">Incluir relacionamento: </label>
     <span class="membro"><%membro.nome%></span> é
@@ -114,7 +114,6 @@
         typeahead-no-results="semResultadosMembrosRelIgreja"
         class="">
     <i ng-show="carregandoMembrosRelIgreja" class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-    @can('membro-edit')
     <button
         class="btn btn-info"
         ng-disabled="id_rel_igreja_selected == null"
@@ -123,9 +122,9 @@
         ;id_rel_igreja_selected=null;add_tipo_relacionamento_igreja=null">
         <i class="fa fa-plus-square" aria-hidden="true"></i>
     </button>
-    @endcan
     <span class="no-results" ng-show="semResultadosMembrosRelIgreja">Nenhum membro encontrado</span>
 
 </div>
+@endcan
 
 </div>
