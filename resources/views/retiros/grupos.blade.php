@@ -40,11 +40,11 @@
       </tr>
     </thead>
     <tbody>
-      <?php $i=1 ?>
+
       @foreach( $grupos as $grupo )
 
         <tr class="{{ ($grupo->ativo) ? 'grupo-ativo' : 'grupo-inativo'}}">
-          <th scope="row" title="{{ $grupo->id }}">{{$i++}}</th>
+          <th scope="row" title="{{ $grupo->id }}">{{$loop->iteration}}</th>
           <td
           @unless ($grupo->ativo)
           class="text-muted"

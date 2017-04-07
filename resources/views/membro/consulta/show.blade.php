@@ -24,10 +24,10 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $i=1 ?>
+
                 @foreach( $membros as $membro )
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{$loop->iteration}}</td>
                     <td><a href="/membro/{{$membro->id}}/edit">{{$membro->nome}}</a></td>
                     @if($membro->grupo)
                         <td>{{$membro->grupo->nome}}</td>

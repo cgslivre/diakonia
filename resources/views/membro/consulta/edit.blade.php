@@ -31,11 +31,10 @@
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php $i=1 ?>
+            <tbody>                
                 @foreach( $membros as $membro )
                 <tr>
-                    <td>{{$i++}}</td>
+                    <td>{{$loop->iteration}}</td>
                     <td>
                         <span class="sexo-{{$membro->sexo}}">
                             <i class="fa fa-user" aria-hidden="true"></i>

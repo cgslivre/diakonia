@@ -19,11 +19,11 @@
           </tr>
         </thead>
         <tbody>
-            <?php $i=1;?>
+
             @foreach( $usuarios as $usuario )
             <tr>
                 <th class="col-md-1 text-center middle-align"
-                    scope="row" title="{{$usuario->id}}">{{$i++}}</th>
+                    scope="row" title="{{$usuario->id}}">{{$loop->iteration}}</th>
                 <td class="col-md-1 text-center">
                     <img alt="Foto de Perfil" src="{{url($usuario->avatarPath())}}"
                         class="profile-img"/>
