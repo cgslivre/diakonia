@@ -12,7 +12,7 @@
                 <th>Endereço</th>
                 <th>Cidade</th>
                 <th>Mapa</th>
-                <th class="text-center"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
+                <th><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -23,7 +23,7 @@
                 <td>{{$local->slug}}</td>
                 <td>{{$local->endereco}}</td>
                 <td>{{$local->cidade}}/{{$local->uf}}</td>
-                <td><a href="http://www.google.com/maps/place/{{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}" target="_blank">
+                <td class="text-center"><a href="http://www.google.com/maps/place/{{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}" target="_blank">
                     <i class="fa fa-map-o" aria-hidden="true"></i>
                 </a></td>
                 <td class="text-center">

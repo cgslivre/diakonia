@@ -5321,6 +5321,8 @@ input.collapse-input[type=checkbox] + label:before {
 
 	.lbl-margin-center{margin-top: 6px;}
 
+.conteudo table > thead > tr >th{text-align: center;}
+
 .phone-input{margin-bottom:8px;}
 
 .tabela > .consulta-membros
@@ -5363,7 +5365,7 @@ table.grupo-caseiro, table.regiao{width: auto;}
     width: 40px;
     height: 40px;
     line-height: 40px;
-    padding: 0;    
+    padding: 0;
     border-radius: 50%;
     transition: .3s;
     cursor: pointer;
