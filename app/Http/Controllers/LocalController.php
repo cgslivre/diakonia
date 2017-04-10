@@ -18,7 +18,8 @@ class LocalController extends Controller
     }
 
     public function index(){
-        return view('local.local-index');
+        $locais = \App\Local::all();
+        return view('local.local-index')->with('locais', $locais);
     }
 
 
