@@ -13,5 +13,5 @@
             'edicao'=>true,
         ])
     {{ Form::close() }}
-    {{--@include('membro.consulta.modal-exclusao', ['consulta'=>$consulta])--}}
+    @include('local.modal-exclusao', ['local'=>$local])
 @endsection

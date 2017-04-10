@@ -62,5 +62,13 @@ class LocalController extends Controller
 
     }
 
+    public function destroy($id){
+        $local = \App\Local::findOrFail($id);
+        $local->delete();
+
+        return Redirect::route('local.index')->with('message',
+            'Local: ' . $local->nome . ' removida!');
+    }
+
 
 }
