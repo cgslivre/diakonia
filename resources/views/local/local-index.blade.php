@@ -18,7 +18,7 @@
         <tbody>
             @foreach( $locais as $local )
             <tr>
-                <td><a href="{{ route('local.show', [$local->id]) }}">
+                <td><a href="{{ route('local.show', [$local->slug]) }}">
                     {{$local->nome}}</a></td>
                 <td>{{$local->slug}}</td>
                 <td>{{$local->endereco}}</td>

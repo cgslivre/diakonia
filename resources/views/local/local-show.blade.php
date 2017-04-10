@@ -8,5 +8,16 @@
     {{$local->nome}}
 </h3>
 <p><strong>Identificador:</strong> {{$local->slug}}</p>
+<p><strong>Endereço:</strong> {{$local->endereco}}</p>
 <p><strong>Cidade:</strong> {{$local->cidade}}/{{$local->uf}}</p>
+
+
+<iframe width="90%" height="400px" frameborder="0" scrolling="no"
+    marginheight="0" marginwidth="0"
+    src="https://maps.google.com/maps?q={{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}&hl=pt;z=14&amp;output=embed">
+</iframe><br />
+<small>
+    <a href="https://maps.google.com/maps?q={{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}&hl=es;z=14&amp;output=embed"
+        style="color:#0000FF;text-align:left" target="_blank">Ver mapa maior</a>
+</small>
 @endsection
