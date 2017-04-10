@@ -44,6 +44,7 @@ class RouteServiceProvider extends ServiceProvider
             require app_path('Http/Routes/RoutesUsuarios.php');
             require app_path('Http/Routes/RoutesMusica.php');
             require app_path('Http/Routes/RoutesMembros.php');
+            require app_path('Http/Routes/RoutesEventos.php');
         });
     }
 }
