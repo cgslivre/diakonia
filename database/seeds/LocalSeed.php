@@ -9,9 +9,23 @@ class LocalSeed extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-      DB::table('local')->insert([
+    public function run()    {
+
+        DB::table('local')->delete();
+
+        DB::table('local')->insert([
+            'id' => 1,
+            'nome' => 'Prédio Congregação',
+            'slug' => 'predio-congregacao',
+            'uf' => 'DF',
+            'cidade' => 'Cruzeiro',
+            'created_at' => \Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now(),
+            'localizacao' => '{"latitude":-15.789857,"longitude":-47.941400}'
+        ]);
+
+        DB::table('local')->insert([
+          'id' => 2,
           'nome' => 'Chácara da Congregação',
           'slug' => 'chacara-congregacao',
           'uf' => 'GO',
@@ -19,6 +33,6 @@ class LocalSeed extends Seeder
           'created_at' => \Carbon\Carbon::now(),
           'updated_at' => \Carbon\Carbon::now(),
           'localizacao' => '{"latitude":-16.082648,"longitude":-48.471833}'
-      ]);
+        ]);
     }
 }

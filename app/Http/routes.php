@@ -45,5 +45,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/regioes','RegiaoController@index');
 
+    Route::resource('local','LocalController');
+
 
 });
