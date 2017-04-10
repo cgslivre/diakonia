@@ -5,7 +5,6 @@
       {{ $error }}
     </div>
     @endforeach
-
 @endif
 {{ Form::hidden('id', $consulta->id) }}
 <div class="edicao-consulta">

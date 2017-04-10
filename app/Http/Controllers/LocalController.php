@@ -31,5 +31,15 @@ class LocalController extends Controller
         return view('local.local-show')->with('local', $local);
     }
 
+    public function edit( $id ){
+        $local = \App\Local::findOrFail($id);
+
+        return view('local.local-edit')->with('local', $local);
+    }
+
+    public function update( $id, Request $request ){
+
+    }
+
 
 }
