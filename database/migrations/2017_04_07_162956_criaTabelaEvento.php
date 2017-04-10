@@ -19,6 +19,8 @@ class CriaTabelaEvento extends Migration
              $table->string('descricao')->nullable();
              $table->text('programacao')->nullable();
 
+             $table->softDeletes();
+
              $table->dateTime('data_hora_inicio');
              $table->dateTime('data_hora_fim');
 

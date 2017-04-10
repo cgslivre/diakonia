@@ -15,6 +15,7 @@ class CreateLocaisTable extends Migration
         Schema::create('local', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->string('nome');
             $table->string('slug')->unique();

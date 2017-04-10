@@ -16,6 +16,8 @@ class CriaTabelaTipoEvento extends Migration
          Schema::create('tipo_evento', function (Blueprint $table) {
              $table->increments('id');
              $table->string('nome')->unique();
+
+             $table->softDeletes();
          });
      }
 
