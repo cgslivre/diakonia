@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RelacionamentosSeeder::class);
         $this->call(RegioesSeeder::class);
         $this->call(ConsultaMembrosSeeder::class);
+        $this->call(PublicoAlvoSeeder::class);
+        $this->call(TipoEventoSeeder::class);
         //Model::reguard();
     }
 }
