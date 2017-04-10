@@ -48,5 +48,19 @@ class LocalController extends Controller
 
     }
 
+    public function create(){
+        $local = new \App\Local;
+
+        return view('local.local-create')->with('local', $local);
+    }
+
+    public function store( LocalRequest $request ){
+        $local = \App\Local::create($request->all());
+
+        return Redirect::route('local.edit', $local->id)
+            ->withInput()->with('message', 'Local criado!');
+
+    }
+
 
 }

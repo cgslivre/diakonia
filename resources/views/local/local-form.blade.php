@@ -59,15 +59,26 @@
             <label class="control-label" for="latitude">Latitude:</label>
         </div>
         <div class="col-md-2">
+            @if( $local->localizacao )
             <input class="form-control" placeholder="Latitude" name="latitude"
                 type="text" value="{{$local->localizacaoJson->latitude}}">
+            @else
+                <input class="form-control" placeholder="Latitude" name="latitude"
+                    type="text" value="">
+            @endif
         </div>
         <div class="col-md-1 text-right">
             <label class="control-label" for="uf">Longitude:</label>
         </div>
         <div class="col-md-2">
+            @if( $local->localizacao )
             <input class="form-control" placeholder="Longitude" name="longitude"
                 type="text" value="{{$local->localizacaoJson->longitude}}">
+            @else
+                <input class="form-control" placeholder="Longitude" name="longitude"
+                type="text" value="">
+            @endif
+
         </div>
     </div>
     <hr/>

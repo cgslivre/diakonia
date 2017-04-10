@@ -23,9 +23,13 @@
                 <td>{{$local->slug}}</td>
                 <td>{{$local->endereco}}</td>
                 <td>{{$local->cidade}}/{{$local->uf}}</td>
-                <td class="text-center"><a href="http://www.google.com/maps/place/{{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}" target="_blank">
-                    <i class="fa fa-map-o" aria-hidden="true"></i>
-                </a></td>
+                <td class="text-center">
+                    @if( $local->localizacao)
+                    <a href="http://www.google.com/maps/place/{{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}" target="_blank">
+                        <i class="fa fa-map-o" aria-hidden="true"></i>
+                    </a>
+                    @endif
+                </td>
                 <td class="text-center">
                     <a href="{{ route('local.edit', [$local->id]) }}"
                     class="btn btn-info">Editar</a>
@@ -34,4 +38,9 @@
             @endforeach
         </tbody>
     </table>
+    <div class="fixed-action-btn">
+        <a href="{{ route('local.create') }}" title="Criar um novo local"
+        class="btn-floating btn-large btn-primary">
+        <i class="fa fa-plus fa-2x"></i>
+    </a>
 @endsection
