@@ -53,7 +53,11 @@ class LocalRequest extends Request
         $loc = [];
         $loc['latitude'] = $input['latitude'];
         $loc['longitude'] = $input['longitude'];
-        $input['localizacao'] = json_encode($loc);
+        if(empty($loc['latitude']) && empty( $loc['longitude'])){
+            $input['localizacao'] = null;
+        } else{
+            $input['localizacao'] = json_encode($loc);
+        }
         //$input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
 
         return $input;
