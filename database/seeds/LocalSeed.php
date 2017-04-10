@@ -17,6 +17,7 @@ class LocalSeed extends Seeder
             'id' => 1,
             'nome' => 'Prédio Congregação',
             'slug' => 'predio-congregacao',
+            'endereco' => 'SCRS Quadra 2 - Área Especial E',
             'uf' => 'DF',
             'cidade' => 'Cruzeiro',
             'created_at' => \Carbon\Carbon::now(),

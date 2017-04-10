@@ -18,6 +18,7 @@ class CreateLocaisTable extends Migration
             $table->softDeletes();
 
             $table->string('nome');
+            $table->string('endereco')->nullable();
             $table->string('slug')->unique();
 
             $table->char('uf',2);

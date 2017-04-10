@@ -22,5 +22,14 @@ class LocalController extends Controller
         return view('local.local-index')->with('locais', $locais);
     }
 
+    public function show($slug){
+        $local = \App\Local::slug($slug)->first();
+
+        if( !$local ){
+            abort(404);
+        }
+        return view('local.local-show')->with('local', $local);
+    }
+
 
 }

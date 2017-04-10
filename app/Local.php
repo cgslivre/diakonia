@@ -16,4 +16,8 @@ class Local extends Model
     public function getLocalizacaoJsonAttribute(){
         return json_decode($this->localizacao);
     }
+
+    public function scopeSlug($query,$slug){
+        $query->where('slug','=', $slug);
+    }
 }

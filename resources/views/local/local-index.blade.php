@@ -9,6 +9,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Identificador</th>
+                <th>Endereço</th>
                 <th>Cidade</th>
                 <th>Mapa</th>
                 <th class="text-center"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></th>
@@ -20,6 +21,7 @@
                 <td><a href="{{ route('local.show', [$local->id]) }}">
                     {{$local->nome}}</a></td>
                 <td>{{$local->slug}}</td>
+                <td>{{$local->endereco}}</td>
                 <td>{{$local->cidade}}/{{$local->uf}}</td>
                 <td><a href="http://www.google.com/maps/place/{{$local->localizacaoJson->latitude}},{{$local->localizacaoJson->longitude}}" target="_blank">
                     <i class="fa fa-map-o" aria-hidden="true"></i>
