@@ -14,6 +14,8 @@
                 @include('layouts.menus.membros')
             @endcan
 
+            @include('layouts.menus.geral')
+
         </ul>
     </nav>
 </header>
