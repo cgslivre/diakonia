@@ -9,6 +9,11 @@ class Local extends Model
 {
     protected $table = 'local';
 
+    protected $fillable = [
+        'slug', 'nome', 'cidade','endereco','uf', 'localizacao'
+        ,'imagem_path'
+     ];
+
     protected $appends = [
         'localizacao_json'
     ];

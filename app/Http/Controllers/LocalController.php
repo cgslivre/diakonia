@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\LocalRequest;
 use Illuminate\Http\Request;
 
 class LocalController extends Controller
@@ -37,7 +39,12 @@ class LocalController extends Controller
         return view('local.local-edit')->with('local', $local);
     }
 
-    public function update( $id, Request $request ){
+    public function update( $id, LocalRequest $request ){
+        $local = \App\Local::findOrFail($id);
+        $local->update( $request->all());
+
+        return Redirect::route('local.edit', $id)
+            ->withInput()->with('message', 'Local atualizado!');
 
     }
 
