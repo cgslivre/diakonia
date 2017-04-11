@@ -24,9 +24,13 @@ class EventoController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){        
+    public function index(){
     }
 
+    public function create(){
+        $evento = new Evento;
 
+        return view('evento.evento-create')->with('evento', $evento);
+    }
 
 }
