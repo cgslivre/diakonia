@@ -8,5 +8,8 @@ Route::group(['middleware' => 'web','as'=>'eventos.','prefix'=>'eventos'], funct
     Route::get('tipos','evento\TipoEventoController@index')
         ->name('tipos.index');
 
+    Route::get('publico-alvo','evento\PublicoAlvoController@index')
+        ->name('publico-alvo.index');
+
 
 });
