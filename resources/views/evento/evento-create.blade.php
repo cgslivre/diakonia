@@ -14,3 +14,12 @@
         ])
     {{ Form::close() }}
 @endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        $('#template-evento').on('change', function(){
+            var val = this.value;
+            $("input[name='titulo']").val(val);
+        });
+    </script>
+@endsection

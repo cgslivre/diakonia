@@ -10,13 +10,24 @@
 {{ Form::hidden('id', $evento->id) }}
 <div>
     <div class="row form-group no-margin-sides">
-        <div class="col-md-2 text-right">
+        <div class="col-md-1 text-right">
             <label class="control-label" for="nome">
-                <span class="required">*</span>Nome:</label>
+                <span class="required">*</span>Título:</label>
         </div>
-        <div class="col-md-9">
-            {{Form::text('nome', null,  ['class' => 'form-control',
-                'placeholder'=>'Nome do local'])}}
+        <div class="col-md-4">
+            {{Form::text('titulo', null,  ['class' => 'form-control',
+                'placeholder'=>'Título do Evento'])}}
+        </div>
+        <div class="col-md-2 text-right">
+            Usar template:
+        </div>
+        <div class="col-md-3">
+            <select id="template-evento" id="" class="form-control" placeholder="Escolher um modelo">
+                <option value="" disabled selected>Escolha um modelo</option>
+                <option>Encontro Geral</option>
+                <option>Encontro de Jovens</option>
+                <option>Retiro Geral</option>
+            </select>
         </div>
     </div>
 
