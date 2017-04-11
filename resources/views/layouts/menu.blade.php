@@ -14,6 +14,7 @@
                 @include('layouts.menus.membros')
             @endcan
 
+            @include('layouts.menus.eventos')
             @include('layouts.menus.geral')
 
         </ul>
