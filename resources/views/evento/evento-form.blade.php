@@ -10,11 +10,11 @@
 {{ Form::hidden('id', $evento->id) }}
 <div>
     <div class="row form-group no-margin-sides">
-        <div class="col-md-1 text-right">
-            <label class="control-label" for="nome">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="titulo">
                 <span class="required">*</span>Título:</label>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             {{Form::text('titulo', null,  ['class' => 'form-control',
                 'placeholder'=>'Título do Evento'])}}
         </div>
@@ -28,6 +28,34 @@
                 <option>Encontro de Jovens</option>
                 <option>Retiro Geral</option>
             </select>
+        </div>
+    </div>
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="data_hora_inicio">
+                <span class="required">*</span>Data e Hora Início:</label>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
+                    type="text" id="data_hora_inicio">
+            @if ($errors->has('data_hora_inicio'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('data_hora_inicio') }}</strong>
+                </span>
+            @endif
+        </div>
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="data_hora_fim">
+                <span class="required">*</span>Data e Hora Fim:</label>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
+                    type="text" id="data_hora_fim">
+            @if ($errors->has('data_hora_fim'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('data_hora_fim') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
 
