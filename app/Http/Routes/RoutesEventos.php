@@ -1,7 +1,7 @@
 <?php
 
 
-Route::group(['middleware' => 'web','as'=>'eventos.','prefix'=>'eventos'], function () {
+Route::group(['middleware' => 'web','as'=>'evento.','prefix'=>'evento'], function () {
 
     // Tipos Eventos
     //Route::resource('tipo' ,'evento\TipoEventoController');
@@ -12,4 +12,8 @@ Route::group(['middleware' => 'web','as'=>'eventos.','prefix'=>'eventos'], funct
         ->name('publico-alvo.index');
 
 
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::resource('evento','evento\EventoController');
 });

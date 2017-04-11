@@ -20,6 +20,7 @@ class CriaTabelaEvento extends Migration
              $table->text('programacao')->nullable();
 
              $table->softDeletes();
+             $table->timestamps();
 
              $table->dateTime('data_hora_inicio');
              $table->dateTime('data_hora_fim');
@@ -38,6 +39,16 @@ class CriaTabelaEvento extends Migration
              $table->foreign('tipo_evento_id')
                 ->references('id')
                 ->on('tipo_evento');
+
+            $table->integer('created_by')->unsigned()->nullable();
+            $table->foreign('created_by')
+                ->references('id')
+                ->on('users');
+
+            $table->integer('modified_by')->unsigned()->nullable();
+            $table->foreign('modified_by')
+                ->references('id')
+                ->on('users');
          });
      }
 
