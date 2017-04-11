@@ -58,6 +58,48 @@
             @endif
         </div>
     </div>
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="local_id">
+                <span class="required">*</span>Local:</label>
+        </div>
+        <div class="col-md-3">
+            <select name="local_id" id="local_id" class="select-local form-control">
+                <option value="" disabled selected>Escolha um local</option>
+                @foreach ($locais as $local)
+                    <option value="{{$local->id}}">{{$local->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="publico_alvo_id">
+                <span class="required">*</span>Público Alvo:</label>
+        </div>
+        <div class="col-md-3">
+            <select name="publico_alvo_id" id="publico_alvo_id" class="form-control">
+                <option value="" disabled selected>Selecione o público alvo</option>
+                @foreach ($publicos as $publico)
+                    <option value="{{$publico->id}}">{{$publico->nome}}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="tipo_evento_id">
+                <span class="required">*</span>Tipo Evento:</label>
+        </div>
+        <div class="col-md-8">
+            @foreach ($tipos as $tipo)
+            <div class="radio3 radio-check radio-success radio-inline">
+                {{Form::radio('tipo_evento_id', $tipo->id, false, ['id'=>'tipo-evento-'.$tipo->id])}}
+                <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
+            </div>
+        @endforeach
+        </div>
+    </div>
 
     <hr/>
     <div class="text-center">

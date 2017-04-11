@@ -30,7 +30,14 @@ class EventoController extends Controller
     public function create(){
         $evento = new Evento;
 
-        return view('evento.evento-create')->with('evento', $evento);
+        $tipos = \App\Model\evento\TipoEvento::all()->sortBy('nome');
+        $publicos = \App\Model\evento\PublicoAlvo::all()->sortBy('nome');
+        $locais = \App\Local::all();
+        return view('evento.evento-create')
+            ->with('evento', $evento)
+            ->with('tipos',$tipos)
+            ->with('locais',$locais)
+            ->with('publicos',$publicos);
     }
 
 }
