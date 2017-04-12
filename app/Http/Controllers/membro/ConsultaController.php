@@ -211,13 +211,13 @@ class ConsultaController extends Controller
     }
 
     public function destroy($id){
+        if(Bouncer::denies('membro-list') ||
+        $consulta->created_by != Auth::user()->id){
+            abort(403);
+        }
         $consulta = ConsultaMembro::findOrFail($id);
         $consulta->delete();
 
-        if(Bouncer::denies('membro-list') ||
-            $consulta->created_by != Auth::user()->id){
-            abort(403);
-        }
 
         return Redirect::route('consulta.index')->with('message',
             'Consulta: ' . $consulta->titulo . ' removida!');

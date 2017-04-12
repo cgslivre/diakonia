@@ -26,6 +26,9 @@ class EventoController extends Controller
     }
 
     public function index(){
+        $eventos = Evento::all();
+
+        return $eventos->pluck('titulo');
     }
 
     public function create(){
@@ -76,6 +79,14 @@ class EventoController extends Controller
             ->with('locais',$locais)
             ->with('publicos',$publicos);;
 
+    }
+
+    public function destroy( $id ){
+        $evento = Evento::findOrFail($id);
+        $evento->delete();
+
+        return Redirect::route('evento.index')->with('message',
+            'Evento: ' . $evento->titulo . ' removido!');
     }
 
 
