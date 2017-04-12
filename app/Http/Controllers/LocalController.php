@@ -34,12 +34,20 @@ class LocalController extends Controller
     }
 
     public function edit( $id ){
+        if(Bouncer::denies('geral-edit-local')){
+            abort(403);
+        }
+
         $local = \App\Local::findOrFail($id);
 
         return view('local.local-edit')->with('local', $local);
     }
 
     public function update( $id, LocalRequest $request ){
+        if(Bouncer::denies('geral-edit-local')){
+            abort(403);
+        }
+
         $local = \App\Local::findOrFail($id);
         $local->update( $request->all());
 
@@ -49,12 +57,20 @@ class LocalController extends Controller
     }
 
     public function create(){
+        if(Bouncer::denies('geral-create-local')){
+            abort(403);
+        }
+
         $local = new \App\Local;
 
         return view('local.local-create')->with('local', $local);
     }
 
     public function store( LocalRequest $request ){
+        if(Bouncer::denies('geral-create-local')){
+            abort(403);
+        }
+
         $local = \App\Local::create($request->all());
 
         return Redirect::route('local.edit', $local->id)
@@ -63,6 +79,10 @@ class LocalController extends Controller
     }
 
     public function destroy($id){
+        if(Bouncer::denies('geral-remove-local')){
+            abort(403);
+        }
+
         $local = \App\Local::findOrFail($id);
         $local->delete();
 
