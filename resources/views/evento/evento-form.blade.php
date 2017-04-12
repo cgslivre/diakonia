@@ -38,10 +38,16 @@
                     Data e Hora Início:</label>
             </div>
             <div class="col-md-2">
-                <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
-                        type="text" id="data_hora_inicio"
-                        value="{{old('data_hora_inicio') ?
-                            Date::parse(old('data_hora_inicio'))->format('j/n/Y G:i') : ''}}">
+                @if($edicao)
+                    <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
+                    type="text" id="data_hora_inicio"
+                    value="{{Date::parse($evento->data_hora_inicio)->format('j/n/Y G:i')}}">
+                @else
+                    <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
+                    type="text" id="data_hora_inicio"
+                    value="{{old('data_hora_inicio') ?
+                        Date::parse(old('data_hora_inicio'))->format('j/n/Y G:i') : ''}}">
+                @endif
                 @if ($errors->has('data_hora_inicio'))
                     <span class="help-block">
                         <strong>{{ $errors->first('data_hora_inicio') }}</strong>
@@ -55,10 +61,16 @@
                     Data e Hora Fim:</label>
             </div>
             <div class="col-md-2 {{ $errors->has('email') ? ' has-error' : '' }}">
-                <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
-                        type="text" id="data_hora_fim"
-                        value="{{old('data_hora_fim') ?
-                            Date::parse(old('data_hora_fim'))->format('j/n/Y G:i') : ''}}">
+                @if($edicao)
+                    <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
+                    type="text" id="data_hora_fim"
+                    value="{{Date::parse($evento->data_hora_fim)->format('j/n/Y G:i')}}">
+                @else
+                    <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
+                    type="text" id="data_hora_fim"
+                    value="{{old('data_hora_fim') ?
+                        Date::parse(old('data_hora_fim'))->format('j/n/Y G:i') : ''}}">
+                @endif
 
                 @if ($errors->has('data_hora_fim'))
                     <span class="help-block">
