@@ -5814,6 +5814,23 @@ table.membros > tbody{font-size: 13px;}
     padding: 10px;
 }
 
+/*Eventos */
+.show-evento p{margin: 20px 0;}
+    .show-evento p.card > span{
+        padding: 5px 0 5px 5px;
+        margin-right: 20px;
+        border-radius: 5px;}
+        .show-evento p.card > span > span{
+            font-weight: bold;
+            padding: 5px;
+            border-radius: 5px;}
+    .show-evento p > span.datas{background-color: #d0e4f1;}
+    .show-evento p > span.datas > span{background-color: #337ab7;color: #ffffff;}
+    .show-evento p > span.duracao{background-color: #ece3d8;}
+    .show-evento p > span.duracao > span{background-color: #ab7123;color: #ffffff;}
+    .show-evento p > span.comecaem{background-color: #eee0e1;}
+    .show-evento p > span.comecaem > span{background-color: #E63946;color: #ffffff;}
+
 html, body{height: 100%;}
 
 .login-container{
