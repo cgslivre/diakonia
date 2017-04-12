@@ -113,6 +113,18 @@ class EventoController extends Controller
             'Evento: ' . $evento->titulo . ' removido!');
     }
 
+    public function show( $id ){
+        if(Bouncer::denies('evento-view')){
+            abort(403);
+        }
+
+        $evento = Evento::findOrFail($id);
+
+        return view('evento.evento-show')
+            ->with('evento',$evento);
+
+    }
+
 
 
 }
