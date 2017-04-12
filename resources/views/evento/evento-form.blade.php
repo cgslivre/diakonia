@@ -228,14 +228,21 @@
         $.datetimepicker.setLocale('pt-BR');
         $('#data_hora_inicio').datetimepicker({
             format: 'j/n/Y G:i',
-            //format: 'Y-n-j G:i',
             minDate: 0,
             defaultTime:'10:00',
-            closeOnDateSelect:true
+            closeOnDateSelect:true,
+            onChangeDateTime:function( dp, $input ){
+                var dt = $('#data_hora_fim').val();
+                if(!dt){
+                    var h = moment($input.val(),'D/M/YYYY H:mm', true)
+                        .add(3,'hours').format("D/M/YYYY H:mm");
+                    console.log(h);
+                    $('#data_hora_fim').val(h);
+                }
+            }
         });
         $('#data_hora_fim').datetimepicker({
             format: 'j/n/Y G:i',
-            //format: 'Y-n-j G:i',
             minDate: 0,
             defaultTime:'10:00',
             closeOnDateSelect:true
