@@ -16,6 +16,7 @@ class CriaTabelaPublicoAlvo extends Migration
          Schema::create('publico_alvo', function (Blueprint $table) {
              $table->increments('id');
              $table->string('nome')->unique();
+             $table->string('slug');
 
              $table->softDeletes();
          });

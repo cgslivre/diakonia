@@ -57,9 +57,31 @@ class BouncerSeederPermissoes extends Seeder
             'membro-list'
         ]);
 
+        // Papéis para seção Evento
+        Bouncer::allow('role-evento-admin')->to([
+            'evento-view',
+            'evento-edit',
+            'evento-remove'
+        ]);
+
+        Bouncer::allow('role-evento-users')->to([
+            'evento-view'
+        ]);
+
+        // Papéis para Seção Geral
+        Bouncer::allow('role-geral-admin')->to([
+            'geral-create-local',
+            'geral-edit-local',
+            'geral-remove-local'
+        ]);
+
+
+
         $userAdmin = App\User::find(1);
         $userAdmin->assign('role-user-admin');
         $userAdmin->assign('role-membro-admin');
+        $userAdmin->assign('role-evento-admin');
+        $userAdmin->assign('role-geral-admin');
 
     }
 }

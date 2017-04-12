@@ -12,15 +12,15 @@ class PublicoAlvoSeeder extends Seeder
     public function run()
     {
         DB::table('publico_alvo')->insert([
-        ['id' => 1,'nome' => 'Geral'],
-        ['id' => 2,'nome' => 'Homens'],
-        ['id' => 3,'nome' => 'Mulheres'],
-        ['id' => 4,'nome' => 'Jovens'],
-        ['id' => 5,'nome' => 'Líderes'],
-        ['id' => 6,'nome' => 'Discipuladores'],
-        ['id' => 7,'nome' => 'Casais'],
-        ['id' => 8,'nome' => 'Crianças'],
-        ['id' => 9,'nome' => 'Família'],
+        ['id' => 1,'nome' => 'Geral', 'slug'=>'geral'],
+        ['id' => 2,'nome' => 'Homens', 'slug'=>'homens'],
+        ['id' => 3,'nome' => 'Mulheres', 'slug'=>'mulheres'],
+        ['id' => 4,'nome' => 'Jovens', 'slug'=>'jovens'],
+        ['id' => 5,'nome' => 'Líderes', 'slug'=>'lideres'],
+        ['id' => 6,'nome' => 'Discipuladores', 'slug'=>'discipuladores'],
+        ['id' => 7,'nome' => 'Casais', 'slug'=>'casais'],
+        ['id' => 8,'nome' => 'Crianças', 'slug'=>'criancas'],
+        ['id' => 9,'nome' => 'Família', 'slug'=>'familia'],
 
       ]);
     }

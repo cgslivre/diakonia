@@ -11,7 +11,7 @@ class BouncerSeederUpdateTitle extends Seeder
      */
     public function run()
     {
-        // Usuários        
+        // Usuários
         DB::table('roles')->where('name','role-user-users')
             ->update(array('title'=>'Padrão','scope'=>'Usuário','nivel'=>1));
         DB::table('roles')->where('name','role-user-manage')
@@ -53,6 +53,31 @@ class BouncerSeederUpdateTitle extends Seeder
             ->update(array('title'=>'Adicionar Região'));
         DB::table('abilities')->where('name','membro-regiao-remove')
             ->update(array('title'=>'Remover Região'));
+
+        // Eventos
+        DB::table('roles')->where('name','role-evento-users')
+            ->update(array('title'=>'Padrão','scope'=>'Eventos','nivel'=>1));
+        DB::table('roles')->where('name','role-evento-admin')
+            ->update(array('title'=>'Administrador','scope'=>'Eventos','nivel'=>2));
+
+        DB::table('abilities')->where('name','evento-view')
+            ->update(array('title'=>'Ver Eventos'));
+        DB::table('abilities')->where('name','evento-edit')
+            ->update(array('title'=>'Criar e editar Eventos'));
+        DB::table('abilities')->where('name','evento-remove')
+            ->update(array('title'=>'Remover eventos'));
+
+        // Geral
+        DB::table('roles')->where('name','role-geral-admin')
+            ->update(array('title'=>'Administrador','scope'=>'Geral','nivel'=>2));
+
+        DB::table('abilities')->where('name','geral-create-local')
+            ->update(array('title'=>'Criar locais de eventos'));
+        DB::table('abilities')->where('name','geral-edit-local')
+            ->update(array('title'=>'Editar locais de eventos'));
+        DB::table('abilities')->where('name','geral-remove-local')
+            ->update(array('title'=>'Remover locais de eventos'));
+
 
     }
 }
