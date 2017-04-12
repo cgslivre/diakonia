@@ -1,3 +1,4 @@
+{{ Date::setLocale('pt_BR') }}
 {{ Form::hidden('id', $evento->id) }}
 <div>
     <div class="row form-group no-margin-sides">
@@ -36,7 +37,9 @@
             </div>
             <div class="col-md-2">
                 <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
-                        type="text" id="data_hora_inicio">
+                        type="text" id="data_hora_inicio"
+                        value="{{old('data_hora_inicio') ?
+                            Date::parse(old('data_hora_inicio'))->format('j/n/Y G:i') : ''}}">
                 @if ($errors->has('data_hora_inicio'))
                     <span class="help-block">
                         <strong>{{ $errors->first('data_hora_inicio') }}</strong>
@@ -52,6 +55,7 @@
             <div class="col-md-2 {{ $errors->has('email') ? ' has-error' : '' }}">
                 <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
                         type="text" id="data_hora_fim">
+
                 @if ($errors->has('data_hora_fim'))
                     <span class="help-block">
                         <strong>{{ $errors->first('data_hora_fim') }}</strong>
@@ -89,7 +93,9 @@
             <select name="publico_alvo_id" id="publico_alvo_id" class="form-control">
                 <option value="" disabled selected>Selecione o público alvo</option>
                 @foreach ($publicos as $publico)
-                    <option value="{{$publico->id}}">{{$publico->nome}}</option>
+                    <option value="{{$publico->id}}"
+                        {{old('publico_alvo_id') == $publico->id ? 'selected' : ''}}>
+                        {{$publico->nome}}</option>
                 @endforeach
             </select>
             @if ($errors->has('publico_alvo_id'))
@@ -107,7 +113,9 @@
         <div class="col-md-8">
             @foreach ($tipos as $tipo)
             <div class="radio3 radio-check radio-success radio-inline">
-                {{Form::radio('tipo_evento_id', $tipo->id, false, ['id'=>'tipo-evento-'.$tipo->id])}}
+                {{Form::radio('tipo_evento_id', $tipo->id,
+                    old('tipo_evento_id') == $tipo->id ? true : false,
+                    ['id'=>'tipo-evento-'.$tipo->id])}}
                 <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
             </div>
             @endforeach
