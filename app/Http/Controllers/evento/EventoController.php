@@ -31,7 +31,7 @@ class EventoController extends Controller
     public function create(){
         $evento = new Evento;
 
-        $tipos = \App\Model\evento\TipoEvento::all()->sortBy('nome');
+        $tipos = \App\Model\evento\TipoEvento::all();
         $publicos = \App\Model\evento\PublicoAlvo::all()->sortBy('nome');
         $locais = \App\Local::all();
         return view('evento.evento-create')
@@ -53,9 +53,9 @@ class EventoController extends Controller
     }
 
     public function edit( $id ){
-        $evento = Evento::findOrFail($id);        
+        $evento = Evento::findOrFail($id);
 
-        $tipos = \App\Model\evento\TipoEvento::all()->sortBy('nome');
+        $tipos = \App\Model\evento\TipoEvento::all();
         $publicos = \App\Model\evento\PublicoAlvo::all()->sortBy('nome');
         $locais = \App\Local::all();
 
