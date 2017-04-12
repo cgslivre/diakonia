@@ -68,7 +68,9 @@
             <select name="local_id" id="local_id" class="select-local form-control">
                 <option value="" disabled selected>Escolha um local</option>
                 @foreach ($locais as $local)
-                    <option value="{{$local->id}}">{{$local->nome}}</option>
+                    <option value="{{$local->id}}"
+                        {{old('local_id') == $local->id ? 'selected' : ''}}>
+                        {{$local->nome}}</option>
                 @endforeach
             </select>
             @if ($errors->has('local_id'))

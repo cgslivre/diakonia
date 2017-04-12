@@ -9,7 +9,7 @@ class Evento extends Model
 {
     use SoftDeletes;
     protected $table = 'eventos';
-    protected $dates = ['deleted_at','created_at','updated_at'];
+    protected $dates = ['deleted_at','created_at','updated_at','data_hora_inicio','data_hora_fim'];
     protected $with = ['createBy','modifiedBy'];
     protected $fillable = [ 'nome'];
 
