@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use App\Model\evento\Evento;
+use App\Http\Requests\evento\EventoRequest;
 
 
 use Bouncer;
@@ -38,6 +39,10 @@ class EventoController extends Controller
             ->with('tipos',$tipos)
             ->with('locais',$locais)
             ->with('publicos',$publicos);
+    }
+
+    public function store(EventoRequest $request){
+        dd($request);
     }
 
 }

@@ -14,8 +14,8 @@ input.collapse-input[type=checkbox] + label:before {
 
 	.lbl-margin-center{margin-top: 6px;}
 
-select:required:invalid,select:invalid {color: gray;}
 option[value=""][disabled] {display: none;}
+label.required:before{content: '*';color: #E63946;}
 
 .conteudo table > thead > tr >th{text-align: center;}
 

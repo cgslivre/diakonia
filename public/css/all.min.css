@@ -5322,8 +5322,8 @@ input.collapse-input[type=checkbox] + label:before {
 
 	.lbl-margin-center{margin-top: 6px;}
 
-select:required:invalid,select:invalid {color: gray;}
 option[value=""][disabled] {display: none;}
+label.required:before{content: '*';color: #E63946;}
 
 .conteudo table > thead > tr >th{text-align: center;}
 
@@ -5542,7 +5542,7 @@ tags-input .autocomplete .suggestion-item em {
 body{background-color: #f9f9f9;}
 h2{color:#376c8c;}
 .highlighted { background: yellow }
-.required{color:#E63946;}
+span.required{color:#E63946;}
 .name-title-1{font-size: 36px;font-weight: bold;}
 .name-title-2{font-size: 30px;}
 .name-title-3{font-size: 24px;}

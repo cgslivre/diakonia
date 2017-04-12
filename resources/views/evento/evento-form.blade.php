@@ -1,22 +1,20 @@
-@if( $errors->any())
-    @foreach( $errors->all() as $error)
-    <div class="alert alert-danger alert-dismissable alert-important">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-      {{ $error }}
-    </div>
-    @endforeach
-@endif
-
 {{ Form::hidden('id', $evento->id) }}
 <div>
     <div class="row form-group no-margin-sides">
-        <div class="col-md-2 text-right">
-            <label class="control-label" for="titulo">
-                <span class="required">*</span>Título:</label>
-        </div>
-        <div class="col-md-3">
-            {{Form::text('titulo', null,  ['class' => 'form-control',
-                'placeholder'=>'Título do Evento'])}}
+        <div class="{{ $errors->has('titulo') ? ' has-error' : '' }}">
+            <div class="col-md-2 text-right">
+                <label class="control-label required" for="titulo">
+                    Título:</label>
+            </div>
+            <div class="col-md-3">
+                {{Form::text('titulo', null,  ['class' => 'form-control',
+                    'placeholder'=>'Título do Evento'])}}
+                    @if ($errors->has('titulo'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('titulo') }}</strong>
+                        </span>
+                    @endif
+            </div>
         </div>
         <div class="col-md-2 text-right">
             Usar template:
@@ -31,37 +29,40 @@
         </div>
     </div>
     <div class="row form-group no-margin-sides">
-        <div class="col-md-2 text-right">
-            <label class="control-label" for="data_hora_inicio">
-                <span class="required">*</span>Data e Hora Início:</label>
+        <div class="{{ $errors->has('data_hora_inicio') ? ' has-error' : '' }}">
+            <div class="col-md-2 text-right">
+                <label class="control-label required" for="data_hora_inicio">
+                    Data e Hora Início:</label>
+            </div>
+            <div class="col-md-2">
+                <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
+                        type="text" id="data_hora_inicio">
+                @if ($errors->has('data_hora_inicio'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('data_hora_inicio') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
-        <div class="col-md-2">
-            <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_inicio"
-                    type="text" id="data_hora_inicio">
-            @if ($errors->has('data_hora_inicio'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('data_hora_inicio') }}</strong>
-                </span>
-            @endif
-        </div>
-        <div class="col-md-2 text-right">
-            <label class="control-label" for="data_hora_fim">
-                <span class="required">*</span>Data e Hora Fim:</label>
-        </div>
-        <div class="col-md-2">
-            <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
-                    type="text" id="data_hora_fim">
-            @if ($errors->has('data_hora_fim'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('data_hora_fim') }}</strong>
-                </span>
-            @endif
+        <div class="{{ $errors->has('data_hora_fim') ? ' has-error' : '' }}">
+            <div class="col-md-2 text-right">
+                <label class="control-label required" for="data_hora_fim">
+                    Data e Hora Fim:</label>
+            </div>
+            <div class="col-md-2 {{ $errors->has('email') ? ' has-error' : '' }}">
+                <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
+                        type="text" id="data_hora_fim">
+                @if ($errors->has('data_hora_fim'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('data_hora_fim') }}</strong>
+                    </span>
+                @endif
+            </div>
         </div>
     </div>
-    <div class="row form-group no-margin-sides">
+    <div class="row form-group no-margin-sides {{ $errors->has('local_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
-            <label class="control-label" for="local_id">
-                <span class="required">*</span>Local:</label>
+            <label class="control-label required" for="local_id"> Local:</label>
         </div>
         <div class="col-md-3">
             <select name="local_id" id="local_id" class="select-local form-control">
@@ -70,12 +71,17 @@
                     <option value="{{$local->id}}">{{$local->nome}}</option>
                 @endforeach
             </select>
+            @if ($errors->has('local_id'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('local_id') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
-    <div class="row form-group no-margin-sides">
+    <div class="row form-group no-margin-sides{{ $errors->has('publico_alvo_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
-            <label class="control-label" for="publico_alvo_id">
-                <span class="required">*</span>Público Alvo:</label>
+            <label class="control-label required" for="publico_alvo_id">
+                Público Alvo:</label>
         </div>
         <div class="col-md-3">
             <select name="publico_alvo_id" id="publico_alvo_id" class="form-control">
@@ -84,12 +90,17 @@
                     <option value="{{$publico->id}}">{{$publico->nome}}</option>
                 @endforeach
             </select>
+            @if ($errors->has('publico_alvo_id'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('publico_alvo_id') }}</strong>
+                </span>
+            @endif
         </div>
     </div>
-    <div class="row form-group no-margin-sides">
+    <div class="row form-group no-margin-sides{{ $errors->has('tipo_evento_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
-            <label class="control-label" for="tipo_evento_id">
-                <span class="required">*</span>Tipo Evento:</label>
+            <label class="control-label required" for="tipo_evento_id">
+                Tipo Evento:</label>
         </div>
         <div class="col-md-8">
             @foreach ($tipos as $tipo)
@@ -97,8 +108,36 @@
                 {{Form::radio('tipo_evento_id', $tipo->id, false, ['id'=>'tipo-evento-'.$tipo->id])}}
                 <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
             </div>
-        @endforeach
+            @endforeach
+            @if ($errors->has('tipo_evento_id'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('tipo_evento_id') }}</strong>
+                </span>
+            @endif
         </div>
+    </div>
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="descricao">Descrição:</label>
+        </div>
+        <div class="col-md-8">
+            {{Form::textarea('descricao', $tipo->descricao, [
+                'class'=>'form-control',
+                'rows'=>3 ,
+                'placeholder'=>'Insira uma descrição do evento (opcional)'])}}
+        </div>
+    </div>
+
+    <div class="row form-group no-margin-sides">
+        <div class="col-md-2 text-right">
+            <label class="control-label" for="programacao">Programação:</label>
+        </div>
+        <div class="col-md-8">
+            {{Form::textarea('programacao', $tipo->programacao, [
+                'class'=>'form-control',
+                'rows'=>5 ,
+                'placeholder'=>'Detalhes da programação (opcional)'])}}
+            </div>
     </div>
 
     <hr/>
