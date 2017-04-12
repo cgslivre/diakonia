@@ -23,4 +23,16 @@ class Evento extends Model
         return $this->hasOne('App\User', 'id', 'updated_by');
     }
 
+    public function local(){
+        return $this->hasOne('App\Local', 'id', 'local_id');
+    }
+
+    public function publicoAlvo(){
+        return $this->hasOne('App\Model\evento\PublicoAlvo', 'id', 'publico_alvo_id');
+    }
+
+    public function tipoEvento(){
+        return $this->hasOne('App\Model\evento\TipoEvento', 'id', 'tipo_evento_id');
+    }
+
 }
