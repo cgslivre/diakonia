@@ -26,12 +26,20 @@ class EventoController extends Controller
     }
 
     public function index(){
+        if(Bouncer::denies('evento-view')){
+            abort(403);
+        }
+
         $eventos = Evento::all();
 
         return $eventos->pluck('titulo');
     }
 
     public function create(){
+        if(Bouncer::denies('evento-edit')){
+            abort(403);
+        }
+
         $evento = new Evento;
 
         $tipos = \App\Model\evento\TipoEvento::all();
@@ -45,6 +53,10 @@ class EventoController extends Controller
     }
 
     public function store(EventoRequest $request){
+        if(Bouncer::denies('evento-edit')){
+            abort(403);
+        }
+
         $request['created_by'] = Auth::user()->id;
         $request['updated_by'] = Auth::user()->id;
         //dd($request->all());
@@ -56,6 +68,10 @@ class EventoController extends Controller
     }
 
     public function update($id, EventoRequest $request){
+        if(Bouncer::denies('evento-edit')){
+            abort(403);
+        }
+
         $evento = Evento::findOrFail($id);
 
         $request['updated_by'] = Auth::user()->id;
@@ -67,6 +83,10 @@ class EventoController extends Controller
     }
 
     public function edit( $id ){
+        if(Bouncer::denies('evento-edit')){
+            abort(403);
+        }
+
         $evento = Evento::findOrFail($id);
 
         $tipos = \App\Model\evento\TipoEvento::all();
@@ -82,6 +102,10 @@ class EventoController extends Controller
     }
 
     public function destroy( $id ){
+        if(Bouncer::denies('evento-remove')){
+            abort(403);
+        }
+
         $evento = Evento::findOrFail($id);
         $evento->delete();
 
