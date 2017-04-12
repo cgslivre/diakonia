@@ -17,17 +17,19 @@
                     @endif
             </div>
         </div>
-        <div class="col-md-2 text-right">
-            Usar template:
-        </div>
-        <div class="col-md-3">
-            <select id="template-evento" id="" class="form-control" placeholder="Escolher um modelo">
-                <option value="" disabled selected>Escolha um modelo</option>
-                <option>Encontro Geral</option>
-                <option>Encontro de Jovens</option>
-                <option>Retiro Geral</option>
-            </select>
-        </div>
+        @if(!$edicao)
+            <div class="col-md-2 text-right">
+                Usar template:
+            </div>
+            <div class="col-md-3">
+                <select id="template-evento" id="" class="form-control" placeholder="Escolher um modelo">
+                    <option value="" disabled selected>Escolha um modelo</option>
+                    <option>Encontro Geral</option>
+                    <option>Encontro de Jovens</option>
+                    <option>Retiro Geral</option>
+                </select>
+            </div>
+        @endif
     </div>
     <div class="row form-group no-margin-sides">
         <div class="{{ $errors->has('data_hora_inicio') ? ' has-error' : '' }}">
