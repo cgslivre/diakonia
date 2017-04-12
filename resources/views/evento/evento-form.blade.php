@@ -54,7 +54,9 @@
             </div>
             <div class="col-md-2 {{ $errors->has('email') ? ' has-error' : '' }}">
                 <input class="form-control" placeholder="dd/mm/YYYY HH:mm" name="data_hora_fim"
-                        type="text" id="data_hora_fim">
+                        type="text" id="data_hora_fim"
+                        value="{{old('data_hora_fim') ?
+                            Date::parse(old('data_hora_fim'))->format('j/n/Y G:i') : ''}}">
 
                 @if ($errors->has('data_hora_fim'))
                     <span class="help-block">

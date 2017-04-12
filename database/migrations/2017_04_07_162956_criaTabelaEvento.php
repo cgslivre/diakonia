@@ -45,8 +45,8 @@ class CriaTabelaEvento extends Migration
                 ->references('id')
                 ->on('users');
 
-            $table->integer('modified_by')->unsigned()->nullable();
-            $table->foreign('modified_by')
+            $table->integer('updated_by')->unsigned()->nullable();
+            $table->foreign('updated_by')
                 ->references('id')
                 ->on('users');
          });

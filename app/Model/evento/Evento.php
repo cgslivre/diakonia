@@ -11,14 +11,16 @@ class Evento extends Model
     protected $table = 'eventos';
     protected $dates = ['deleted_at','created_at','updated_at','data_hora_inicio','data_hora_fim'];
     protected $with = ['createBy','modifiedBy'];
-    protected $fillable = [ 'nome'];
+    protected $fillable = [ 'titulo', 'data_hora_inicio', 'data_hora_fim',
+        'local_id', 'publico_alvo_id', 'tipo_evento_id', 'descricao' , 'programacao',
+        'created_by', 'updated_by'];
 
     public function createBy(){
         return $this->hasOne('App\User', 'id', 'created_by');
     }
 
     public function modifiedBy(){
-        return $this->hasOne('App\User', 'id', 'modified_by');
+        return $this->hasOne('App\User', 'id', 'updated_by');
     }
 
 }

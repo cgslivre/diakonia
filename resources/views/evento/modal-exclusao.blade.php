@@ -5,7 +5,7 @@
                 <h5 class="modal-title">Remover evento</h4>
             </div>
             <div class="modal-body">
-
+                XXXXXXXXXXXX
             </div>
             <div class="modal-footer">
                 {{ Form::open(['route' => ['evento.destroy', $evento->id], 'method' => 'delete']) }}

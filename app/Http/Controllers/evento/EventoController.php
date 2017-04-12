@@ -42,7 +42,31 @@ class EventoController extends Controller
     }
 
     public function store(EventoRequest $request){
-        dd($request);
+        $request['created_by'] = Auth::user()->id;
+        $request['updated_by'] = Auth::user()->id;
+        //dd($request->all());
+        $evento = Evento::create($request->all());
+
+        return redirect()->route('evento.edit', ['id' => $evento->id])
+            ->with('message', 'Evento salvo!');;
+
     }
+
+    public function edit( $id ){
+        $evento = Evento::findOrFail($id);        
+
+        $tipos = \App\Model\evento\TipoEvento::all()->sortBy('nome');
+        $publicos = \App\Model\evento\PublicoAlvo::all()->sortBy('nome');
+        $locais = \App\Local::all();
+
+        return view('evento.evento-edit')
+            ->with('evento', $evento)
+            ->with('tipos',$tipos)
+            ->with('locais',$locais)
+            ->with('publicos',$publicos);;
+
+    }
+
+
 
 }
