@@ -10,16 +10,16 @@ class Evento extends Model
     use SoftDeletes;
     protected $table = 'eventos';
     protected $dates = ['deleted_at','created_at','updated_at','data_hora_inicio','data_hora_fim'];
-    protected $with = ['createBy','modifiedBy'];
+    protected $with = ['createdBy','updatedBy'];
     protected $fillable = [ 'titulo', 'data_hora_inicio', 'data_hora_fim',
         'local_id', 'publico_alvo_id', 'tipo_evento_id', 'descricao' , 'programacao',
         'created_by', 'updated_by'];
 
-    public function createBy(){
+    public function createdBy(){
         return $this->hasOne('App\User', 'id', 'created_by');
     }
 
-    public function modifiedBy(){
+    public function updatedBy(){
         return $this->hasOne('App\User', 'id', 'updated_by');
     }
 

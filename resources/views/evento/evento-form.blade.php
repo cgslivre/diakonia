@@ -86,12 +86,20 @@
         </div>
         <div class="col-md-3">
             <select name="local_id" id="local_id" class="select-local form-control">
-                <option value="" disabled selected>Escolha um local</option>
-                @foreach ($locais as $local)
-                    <option value="{{$local->id}}"
-                        {{old('local_id') == $local->id ? 'selected' : ''}}>
-                        {{$local->nome}}</option>
-                @endforeach
+                @if($edicao)
+                    @foreach ($locais as $local)
+                        <option value="{{$local->id}}"
+                            {{$evento->local_id == $local->id ? 'selected' : ''}}>
+                            {{$local->nome}}</option>
+                    @endforeach
+                @else
+                    <option value="" disabled selected>Escolha um local</option>
+                    @foreach ($locais as $local)
+                        <option value="{{$local->id}}"
+                            {{old('local_id') == $local->id ? 'selected' : ''}}>
+                            {{$local->nome}}</option>
+                    @endforeach
+                @endif
             </select>
             @if ($errors->has('local_id'))
                 <span class="help-block">
@@ -107,12 +115,20 @@
         </div>
         <div class="col-md-3">
             <select name="publico_alvo_id" id="publico_alvo_id" class="form-control">
-                <option value="" disabled selected>Selecione o público alvo</option>
-                @foreach ($publicos as $publico)
-                    <option value="{{$publico->id}}"
-                        {{old('publico_alvo_id') == $publico->id ? 'selected' : ''}}>
-                        {{$publico->nome}}</option>
-                @endforeach
+                @if($edicao)
+                    @foreach ($publicos as $publico)
+                        <option value="{{$publico->id}}"
+                            {{$evento->publico_alvo_id == $publico->id ? 'selected' : ''}}>
+                            {{$publico->nome}}</option>
+                    @endforeach
+                @else
+                    <option value="" disabled selected>Selecione o público alvo</option>
+                    @foreach ($publicos as $publico)
+                        <option value="{{$publico->id}}"
+                            {{old('publico_alvo_id') == $publico->id ? 'selected' : ''}}>
+                            {{$publico->nome}}</option>
+                    @endforeach
+                @endif
             </select>
             @if ($errors->has('publico_alvo_id'))
                 <span class="help-block">
@@ -166,7 +182,28 @@
             </div>
     </div>
 
+    @if( $edicao )
     <hr/>
+    <p>
+        <small>Criado em:
+            <strong>
+                {{Date::parse($evento->created_at)->format('j/n/Y G:i')}}
+            </strong>, por
+            <strong>{{$evento->createdBy->name}}</strong>.
+        </small>
+    </p>
+    <p>        
+        <small>Última alteração:
+            <strong>
+                {{Date::parse($evento->updated_at)->format('j/n/Y G:i')}}
+            </strong>, por
+            <strong>{{$evento->updatedBy->name}}</strong>.
+        </small>
+    </p>
+    @endif
+
+    <hr/>
+
     <div class="text-center">
         <button class="btn btn-primary margin-r20" type="submit">
             <i class="fa fa-floppy-o" aria-hidden="true"></i> {{$btnAction}}

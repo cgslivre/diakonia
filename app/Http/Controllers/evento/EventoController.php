@@ -52,6 +52,17 @@ class EventoController extends Controller
 
     }
 
+    public function update($id, EventoRequest $request){
+        $evento = Evento::findOrFail($id);
+
+        $request['updated_by'] = Auth::user()->id;
+
+        $evento->update( $request->all());
+
+        return Redirect::route('evento.edit', $id)
+            ->withInput()->with('message', 'Evento atualizado!');
+    }
+
     public function edit( $id ){
         $evento = Evento::findOrFail($id);
 

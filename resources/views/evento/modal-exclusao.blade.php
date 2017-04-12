@@ -5,7 +5,9 @@
                 <h5 class="modal-title">Remover evento</h4>
             </div>
             <div class="modal-body">
-                XXXXXXXXXXXX
+                Remover o evento {{$evento->titulo}}?
+                <p class="destaque">Dia do Evento:
+                    {{Date::parse($evento->data_hora_inicio)->format('j/n/Y G:i')}}</p>
             </div>
             <div class="modal-footer">
                 {{ Form::open(['route' => ['evento.destroy', $evento->id], 'method' => 'delete']) }}
