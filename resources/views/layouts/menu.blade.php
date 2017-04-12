@@ -14,8 +14,13 @@
                 @include('layouts.menus.membros')
             @endcan
 
-            @include('layouts.menus.eventos')
-            @include('layouts.menus.geral')
+            @can('evento-view')
+                @include('layouts.menus.eventos')
+            @endcan
+
+            @if (Auth::user()->isAn('role-geral-admin'))
+                @include('layouts.menus.geral')
+            @endif
 
         </ul>
     </nav>
