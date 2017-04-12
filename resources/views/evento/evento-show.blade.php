@@ -33,9 +33,15 @@
          ?>
         @if( $evento->data_hora_inicio > $today)
         <span class="comecaem">
-            Começa em <span>{{$evento->data_hora_inicio->diffForHumans(null,true)}}</span>
-        </span>
+            Começa em <span>{{$evento->data_hora_inicio->diffForHumans(null,true)}}
+        </span></span>
         @endif
+        <span class="tipo-evento">
+            Tipo <span>{{$evento->tipoEvento->nome}}
+        </span></span>
+        <span class="publico-alvo">
+            Público Alvo <span>{{$evento->publicoAlvo->nome}}
+        </span></span>
 
     </p>
 

@@ -5830,6 +5830,10 @@ table.membros > tbody{font-size: 13px;}
     .show-evento p > span.duracao > span{background-color: #ab7123;color: #ffffff;}
     .show-evento p > span.comecaem{background-color: #eee0e1;}
     .show-evento p > span.comecaem > span{background-color: #E63946;color: #ffffff;}
+    .show-evento p > span.tipo-evento,.show-evento p > span.publico-alvo
+        {background-color: #888888;color: #ffffff;border: 1px solid #888888;}
+    .show-evento p > span.tipo-evento > span, .show-evento p > span.publico-alvo > span
+        {background-color: #f9f9f9;color: #000000;}
 
 html, body{height: 100%;}
 
