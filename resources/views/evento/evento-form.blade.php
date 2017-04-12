@@ -108,6 +108,27 @@
             @endif
         </div>
     </div>
+    <div class="row form-group no-margin-sides{{ $errors->has('tipo_evento_id') ? ' has-error' : '' }}">
+        <div class="col-md-2 text-right">
+            <label class="control-label required" for="tipo_evento_id">
+                Tipo Evento:</label>
+            </div>
+            <div class="col-md-8">
+                @foreach ($tipos as $tipo)
+                    <div class="radio3 radio-check radio-success radio-inline">
+                        {{Form::radio('tipo_evento_id', $tipo->id,
+                            old('tipo_evento_id') == $tipo->id ? true : false,
+                            ['id'=>'tipo-evento-'.$tipo->id])}}
+                            <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
+                        </div>
+                    @endforeach
+                    @if ($errors->has('tipo_evento_id'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('tipo_evento_id') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
     <div class="row form-group no-margin-sides{{ $errors->has('publico_alvo_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
             <label class="control-label required" for="publico_alvo_id">
@@ -133,27 +154,6 @@
             @if ($errors->has('publico_alvo_id'))
                 <span class="help-block">
                     <strong>{{ $errors->first('publico_alvo_id') }}</strong>
-                </span>
-            @endif
-        </div>
-    </div>
-    <div class="row form-group no-margin-sides{{ $errors->has('tipo_evento_id') ? ' has-error' : '' }}">
-        <div class="col-md-2 text-right">
-            <label class="control-label required" for="tipo_evento_id">
-                Tipo Evento:</label>
-        </div>
-        <div class="col-md-8">
-            @foreach ($tipos as $tipo)
-            <div class="radio3 radio-check radio-success radio-inline">
-                {{Form::radio('tipo_evento_id', $tipo->id,
-                    old('tipo_evento_id') == $tipo->id ? true : false,
-                    ['id'=>'tipo-evento-'.$tipo->id])}}
-                <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
-            </div>
-            @endforeach
-            @if ($errors->has('tipo_evento_id'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('tipo_evento_id') }}</strong>
                 </span>
             @endif
         </div>
@@ -192,7 +192,7 @@
             <strong>{{$evento->createdBy->name}}</strong>.
         </small>
     </p>
-    <p>        
+    <p>
         <small>Última alteração:
             <strong>
                 {{Date::parse($evento->updated_at)->format('j/n/Y G:i')}}
@@ -217,3 +217,28 @@
 
     </div>
 </div>
+
+@section('scripts')
+    <script type="text/javascript">
+        $('#template-evento').on('change', function(){
+            var val = this.value;
+            $("input[name='titulo']").val(val);
+        });
+
+        $.datetimepicker.setLocale('pt-BR');
+        $('#data_hora_inicio').datetimepicker({
+            format: 'j/n/Y G:i',
+            //format: 'Y-n-j G:i',
+            minDate: 0,
+            defaultTime:'10:00',
+            closeOnDateSelect:true
+        });
+        $('#data_hora_fim').datetimepicker({
+            format: 'j/n/Y G:i',
+            //format: 'Y-n-j G:i',
+            minDate: 0,
+            defaultTime:'10:00',
+            closeOnDateSelect:true
+        });
+    </script>
+@endsection
