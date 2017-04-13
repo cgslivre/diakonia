@@ -275,7 +275,8 @@ table.membros > tbody{font-size: 13px;}
 }
 
 /*Eventos */
-.show-evento p{margin: 20px 0;}
+.show-evento h3{margin-top: 40px;}
+.show-evento p{margin: 20px 10px;}
     .show-evento p.card > span{
         padding: 5px 0 5px 5px;
         margin-right: 20px;

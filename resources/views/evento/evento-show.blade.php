@@ -42,9 +42,32 @@
         <span class="publico-alvo">
             Público Alvo <span>{{$evento->publicoAlvo->nome}}
         </span></span>
-
     </p>
 
+    @if( $evento->descricao )
+    <h3>Descrição</h3>
+    <p>
+        {{$evento->descricao}}
+    </p>
+    @endif
+
+    <div class="local">
+        <h3>Local</h3>
+        <p><strong>{{$evento->local->nome}}</strong>
+            @if($evento->local->endereco)
+                - {{$evento->local->endereco}}
+            @endif
+        </p>
+        <p>{{$evento->local->cidade}}/{{$evento->local->uf}}</p>
+    </div>
+
+    @if( $evento->programacao )
+        <h3>Programação</h3>
+        <p>
+            {{$evento->programacao}}
+        </p>
+    @endif
+    <hr/>
     <p>
         <small>Criado em:
             <strong>
