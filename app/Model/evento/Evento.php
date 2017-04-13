@@ -4,6 +4,7 @@ namespace App\Model\evento;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 class Evento extends Model
 {
@@ -33,6 +34,26 @@ class Evento extends Model
 
     public function tipoEvento(){
         return $this->hasOne('App\Model\evento\TipoEvento', 'id', 'tipo_evento_id');
+    }
+
+    /**
+     * Escopo para limitar pesquisa apenas aos eventos dos próximos 30 dias
+     * @param  Consulta
+     * @return Eventos dos próximos 30 dias.
+     */
+    public function scopeProximos30Dias($query){
+        return $query->where('data_hora_inicio', '>=', Carbon::now())
+            ->where('data_hora_inicio', '<=', Carbon::now()->addMonth());
+    }
+
+    /**
+     * Escopo para limitar pesquisa aos eventos posteriores a 30 dias, contados
+     * a partir de hoje
+     * @param  Consulta
+     * @return Eventos futuros.
+     */
+    public function scopeApos30Dias($query){
+        return $query->where('data_hora_inicio', '>', Carbon::now()->addMonth());
     }
 
 }
