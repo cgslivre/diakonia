@@ -8,9 +8,10 @@
 @section('content')
 <div class="show-evento">
     <div class="titulo">
-        <h3>
-            {{$evento->titulo}}
-        </h3>
+        <h1>
+            {{$evento->titulo}} <a href="{{route('evento.edit',['id'=>$evento->id])}}"
+                class="btn btn-primary">Editar</a>
+        </h1>
     </div>
 
     <p class="card">
@@ -58,7 +59,7 @@
         </p>
             @if($evento->local->endereco)
                 <p>
-                    {{$evento->local->endereco}}                    
+                    {{$evento->local->endereco}}
                 </p>
             @endif
         <p>{{$evento->local->cidade}}/{{$evento->local->uf}}</p>
