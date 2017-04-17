@@ -208,12 +208,14 @@
         <button class="btn btn-primary margin-r20" type="submit">
             <i class="fa fa-floppy-o" aria-hidden="true"></i> {{$btnAction}}
         </button>
-        @if($edicao)
-            <button class="btn btn-danger" type="button"
-                    data-toggle="modal" data-target="#modalRemoverEvento">
-                <i class="fa fa-trash-o" aria-hidden="true"></i> Remover Evento
-            </button>
-        @endif
+        @can('evento-remove')
+            @if($edicao)
+                <button class="btn btn-danger" type="button"
+                        data-toggle="modal" data-target="#modalRemoverEvento">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> Remover Evento
+                </button>
+            @endif
+        @endcan
 
     </div>
 </div>

@@ -9,8 +9,11 @@
 <div class="show-evento">
     <div class="titulo">
         <h1>
-            {{$evento->titulo}} <a href="{{route('evento.edit',['id'=>$evento->id])}}"
+            {{$evento->titulo}}
+            @can('evento-edit')
+                <a href="{{route('evento.edit',['id'=>$evento->id])}}"
                 class="btn btn-primary">Editar</a>
+            @endcan
         </h1>
     </div>
 
