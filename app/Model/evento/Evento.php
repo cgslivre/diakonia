@@ -53,7 +53,7 @@ class Evento extends Model
      * @return Eventos futuros.
      */
     public function scopeApos30Dias($query){
-        return $query->where('data_hora_inicio', '>', Carbon::now()->addMonth());
+        return $query->where('data_hora_inicio', '>=', Carbon::now()->addMonth());
     }
 
 }

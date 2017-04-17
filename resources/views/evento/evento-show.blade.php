@@ -53,11 +53,14 @@
 
     <div class="local">
         <h3>Local</h3>
-        <p><strong>{{$evento->local->nome}}</strong>
-            @if($evento->local->endereco)
-                - {{$evento->local->endereco}}
-            @endif
+        <p><strong><a target="_blank" href="{{ route('local.show',['id'=>$evento->local->slug])}}">
+            {{$evento->local->nome}} <i class="fa fa-external-link" aria-hidden="true"></i></a></strong>
         </p>
+            @if($evento->local->endereco)
+                <p>
+                    {{$evento->local->endereco}}                    
+                </p>
+            @endif
         <p>{{$evento->local->cidade}}/{{$evento->local->uf}}</p>
     </div>
 

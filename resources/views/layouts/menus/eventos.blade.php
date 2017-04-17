@@ -8,6 +8,10 @@
             <span class="icon fa fa-calendar-plus-o"></span>Criar Evento
         </a></li>
 
+        <li><a href="{{ URL::route('evento.index') }}">
+            <span class="icon fa fa-th-list"></span>Listar Eventos
+        </a></li>
+
 
     </ul>
 </li>
