@@ -21,6 +21,7 @@ class PublicoAlvoSeeder extends Seeder
         ['id' => 7,'nome' => 'Casais', 'slug'=>'casais'],
         ['id' => 8,'nome' => 'Crianças', 'slug'=>'criancas'],
         ['id' => 9,'nome' => 'Família', 'slug'=>'familia'],
+        ['id' => 10,'nome' => 'Adolescentes', 'slug'=>'adolescentes'],
 
       ]);
     }
