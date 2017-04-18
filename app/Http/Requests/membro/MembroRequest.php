@@ -31,7 +31,7 @@ class MembroRequest extends Request
             $rules['nome'] = 'required|min:2|unique:membros,nome,'.$this->id.',id';
         }
         $rules['sexo'] = 'required';
-        $rules['data_nascimento'] = 'required|date_format:"Y-n-j"|before:today';
+        $rules['data_nascimento'] = 'required|date_format:"Y-m-d"|before:today';
         //dd($rules);
         return $rules;
     }
@@ -55,6 +55,9 @@ class MembroRequest extends Request
             $input['data_nascimento'] = Carbon::createFromFormat('j/n/Y', $input['data_nascimento'])
                 ->format('Y-m-d');
         } catch(InvalidArgumentException $x){}
+
+
+
         return $input;
     }
 

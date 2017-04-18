@@ -3,16 +3,17 @@
 namespace App\Http\Controllers\membro;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 
-use App\Http\Requests;
 use Bouncer;
 use Auth;
-use App\Http\Requests\membro\MembroRequest;
 use App\Model\membro\Membro;
 use App\Model\membro\RelacionamentoIgreja;
 use App\Model\membro\RelacionamentoMembro;
+use App\Http\Requests\membro\MembroRequest;
 
 class MembroController extends Controller
 {
@@ -73,6 +74,7 @@ class MembroController extends Controller
         if(Bouncer::denies('membro-edit')){
             abort(403);
         }
+        //dd($request->all());
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
