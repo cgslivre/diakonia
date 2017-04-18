@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GrupoInscricaoSeeder::class);
         $this->call(BouncerSeederPermissoes::class);
+        $this->call(BouncerSeederUpdateTitle::class);
         $this->call(MusicaStaffSeeder::class);
         $this->call(RelacionamentosSeeder::class);
         $this->call(RegioesSeeder::class);
