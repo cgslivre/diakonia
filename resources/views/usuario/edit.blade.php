@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="form-group ">
-                    <label class="col-sm-2 control-label text-right"><a class="btn btn-info"
+                    <label class="col-sm-2 control-label text-right"><a class="btn btn-primary"
                     href="{{action('UsuarioPermissoesController@edit', ['id' => $user->id])}}"
                     role="button">Permissões</a></label>
                   <div class="col-sm-4">
@@ -38,8 +38,6 @@
                 </div>
             </div>
         </div>
-
-
     @endcan
 
 

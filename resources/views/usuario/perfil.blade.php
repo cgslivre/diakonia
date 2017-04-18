@@ -22,7 +22,7 @@
         <div class="col-md-12">
 
           <div class="form-group">
-            <label for="inputEmail" class="col-sm-2 control-label">
+            <label for="inputEmail" class="col-sm-2 control-label required">
               Email
             </label>
             <div class="col-sm-4">
@@ -31,7 +31,7 @@
           </div>
 
           <div class="form-group {{ $errors->has('nome') ? ' has-error' : '' }}">
-            <label for="nome" class="col-sm-2 control-label">
+            <label for="nome" class="col-sm-2 control-label required">
               Nome
             </label>
             <div class="col-sm-4">
@@ -90,7 +90,7 @@
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <button type="submit" class="btn btn-info">
+              <button type="submit" class="btn btn-primary">
                 Atualizar perfil
               </button>
             </div>

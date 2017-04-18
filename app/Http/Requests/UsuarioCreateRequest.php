@@ -31,7 +31,7 @@ class UsuarioCreateRequest extends Request
             'name' => 'required|min:2',
             'avatar' => 'image',
             'email' => 'required|min:3|unique:users|email',
-            'telefone' => 'required|numeric',
+            'telefone' => 'numeric',
             'password' => 'required|min:6|same:password_confirm',
             'password_confirm' => 'same:password'
         ];

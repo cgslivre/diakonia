@@ -22,7 +22,7 @@
 
     <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}"
         ng-class="{'has-error' : usuarioForm.email.$invalid && !usuarioForm.email.$pristine}">
-        {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label'])}}
+        {{ Form::label('email','Email:',['class'=>'col-sm-2 control-label required'])}}
       <div class="col-sm-4">
         <input class="form-control" placeholder="Endereço de email" name="email"
                 type="email" id="email" ng-model="usuario.email" ng-required="true"
@@ -48,7 +48,7 @@
 
     <div class="form-group {{ $errors->has('name') ? ' has-error' : '' }}"
         ng-class="{'has-error' : usuarioForm.name.$invalid && !usuarioForm.name.$pristine}">
-        {{ Form::label('name','Nome:',['class'=>'col-sm-2 control-label'])}}
+        {{ Form::label('name','Nome:',['class'=>'col-sm-2 control-label required'])}}
       <div class="col-sm-4">
 
           <input class="form-control" placeholder="Nome do usuário" name="name" type="text"
@@ -73,8 +73,7 @@
       <div class="col-sm-4">
           <input class="form-control"
           name="telefone" type="text" id="telefone" ng-model="usuario.telefone"
-          ui-mask="(99) 9999-?99999" ui-mask-placeholder-char="_"
-          ng-required="true">
+          ui-mask="(99) 9999-?99999" ui-mask-placeholder-char="_">
           @if ($errors->has('telefone'))
               <span class="help-block">
                   <strong>{{ $errors->first('telefone') }}</strong>
@@ -88,15 +87,7 @@
       </div>
     </div>
 
-    <div class="form-group {{ $errors->has('regiao') ? ' has-error' : '' }}">
-        {{ Form::label('regiao','Região:',['class'=>'col-sm-2 control-label'])}}
-      <div class="col-sm-4">
-        @include('layouts.select-regiao',[
-            'attr'=>['class'=>'form-control '.$regiao],
-            'selected'=>$regiao,
-            'name'=>'regiao'])
-      </div>
-    </div>
+
     @if( $perfil)
         <hr/>
         <p>Caso deseje alterar a senha de acesso, digite a senha atual e a nova senha:</p>
@@ -158,7 +149,7 @@
         <!--<button type="submit" class="btn btn-info" ng-click="criarUsuario(usuario)">-->
           {{-- $submitButton --}}
         <!--</button>-->
-        <button class="btn btn-info"            
+        <button class="btn btn-primary"
             ng-disabled="usuarioForm.$invalid">
             @if( $perfil)
                 Atualizar Perfil

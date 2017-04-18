@@ -25,7 +25,7 @@ class UsuarioUpdateRequest extends Request
     {
         return [
             'name' => 'required|min:2',
-            'telefone' => 'required|numeric',
+            'telefone' => 'numeric',
             'avatar' => 'image'
         ];
     }
