@@ -30,8 +30,8 @@ class EventoController extends Controller
             abort(403);
         }
 
-        $eventosEm30Dias = Evento::proximos30Dias()->get();
-        $eventosDepois30Dias = Evento::apos30Dias()->get();
+        $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
+        $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
 
         return view('evento.evento-index')
             ->with('eventos30Dias', $eventosEm30Dias)
