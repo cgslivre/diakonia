@@ -48,8 +48,7 @@
                     <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></i>
                     <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></i>
                 </a></th>
-                <th>Telefone</th>
-                <th>Região</th>
+                <th>Telefone</th>                
                 @can('user-edit')
                 <th class="text-center col-md-1"><i class="fa fa-pencil-square-o"></i></th>
                 @endcan
@@ -69,7 +68,6 @@
                     <td class="middle-align" ng-bind-html="usuario.email | highlight:criterioDeBusca"></td>
                     <td class="middle-align"
                         ng-bind-html="usuario.telefone | formatPhone | highlight:criterioDeBusca "></td>
-                    <td class="middle-align" ng-bind-html="usuario.regiao | highlight:criterioDeBusca"></td>
                     @can('user-edit')
                     <td class="col-md-1 text-center middle-align">
                         <a href="<% userEditLink(usuario.id) %>" title="Editar Usuário">

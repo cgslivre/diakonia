@@ -10,6 +10,7 @@ use App\Http\Requests\UsuarioCreateRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
 use App\Http\Requests\UsuarioPerfilRequest;
 use Auth;
+use Image;
 use Hash;
 use Validator;
 use Input;
@@ -58,7 +59,8 @@ class UsuarioController extends Controller
         if( Gate::denies('user-create')){
             abort(403);
         }
-        User::create($request->all());
+        $user = User::create($request->all());
+        self::saveAvatar($request['avatar'], $user);
         return redirect('usuarios')->with('message', 'Usuário adicionado!');
     }
 
@@ -68,6 +70,7 @@ class UsuarioController extends Controller
         }
         $user = User::findOrFail($id);
         $user->update( $request->all());
+        self::saveAvatar($request['avatar'], $user);
         return Redirect::back()->withInput()->with('message', 'Usuário atualizado!');
     }
 
@@ -87,6 +90,7 @@ class UsuarioController extends Controller
             $data = Input::except('password');
         }
         $user->update( $data );
+        self::saveAvatar($request['avatar'], $user);
         return Redirect::back()->withInput()->with('message', 'Perfil atualizado!');
 
     }
@@ -124,7 +128,31 @@ class UsuarioController extends Controller
         } else{
             return response()->json(['isValid' => false, 'email' => $email]);
         }
+    }
 
+    private static function saveAvatar($avatar, User $user){
+        if( isset($avatar) ){
+            $file = $avatar;
+            $tempFile = User::TEMP_FILE . $file->getExtension();
 
+            $file->move(User::AVATAR_PATH, $tempFile );
+
+            $avatarPath = User::AVATAR_PATH . '/' . sprintf('%03d',$user->id) . '-avatar-';
+
+            $image = Image::make(User::AVATAR_PATH . '/' . $tempFile )
+                ->widen(250)
+                ->save($avatarPath . User::IMG_SIZE_DEFAULT);
+
+            $image2 = Image::make(User::AVATAR_PATH . '/' . $tempFile )
+                ->widen(150)
+                ->save($avatarPath . User::IMG_SIZE_MED);
+
+            $image3 = Image::make(User::AVATAR_PATH . '/' . $tempFile )
+                ->widen(70)
+                ->save($avatarPath . User::IMG_SIZE_SMALL);
+
+            $user->avatar_path = $avatarPath;
+            $user->save();
+        }
     }
 }

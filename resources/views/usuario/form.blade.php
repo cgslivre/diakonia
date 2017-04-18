@@ -80,13 +80,7 @@
               </span>
           @endif
       </div>
-      <div ng-show="usuarioForm.telefone.$dirty" ng-messages="usuarioForm.telefone.$error">
-          <span ng-message="required" class="help-block">
-              <strong>O telefone é obrigatório.</strong>
-          </span>
-      </div>
     </div>
-
 
     @if( $perfil)
         <hr/>
