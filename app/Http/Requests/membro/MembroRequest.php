@@ -54,7 +54,7 @@ class MembroRequest extends Request
         try{
             $input['data_nascimento'] = Carbon::createFromFormat('j/n/Y', $input['data_nascimento'])
                 ->format('Y-m-d');
-        } catch(InvalidArgumentException $x){}
+        } catch(\InvalidArgumentException $x){}
 
 
 
