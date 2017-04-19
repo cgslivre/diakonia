@@ -70,8 +70,8 @@
 
     @if( $evento->programacao )
         <h3>Programação</h3>
-        <p>
-            {{$evento->programacao}}
+        <p>            
+            {!! nl2br(e($evento->programacao)) !!}
         </p>
     @endif
     <hr/>
