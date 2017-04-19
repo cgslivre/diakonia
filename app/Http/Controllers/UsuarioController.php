@@ -9,6 +9,8 @@ use App\User;
 use App\Http\Requests\UsuarioCreateRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
 use App\Http\Requests\UsuarioPerfilRequest;
+
+use App\Mail\NovoUsuario;
 use Auth;
 use Image;
 use Hash;
@@ -61,6 +63,9 @@ class UsuarioController extends Controller
         }
         $user = User::create($request->all());
         self::saveAvatar($request['avatar'], $user);
+
+        \Mail::to($user)->send(new UsuarioNovo($user));
+
         return redirect('usuarios')->with('message', 'Usuário adicionado!');
     }
 
