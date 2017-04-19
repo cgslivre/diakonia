@@ -80,6 +80,28 @@
             </div>
         </div>
     </div>
+    <div class="row form-group no-margin-sides{{ $errors->has('tipo_evento_id') ? ' has-error' : '' }}">
+        <div class="col-md-2 text-right">
+            <label class="control-label required" for="tipo_evento_id">
+                Tipo Evento:</label>
+            </div>
+            <div class="col-md-8">
+                @foreach ($tipos as $tipo)
+                    <div class="radio3 radio-check radio-success radio-inline">
+                        {{Form::radio('tipo_evento_id', $tipo->id,
+                            old('tipo_evento_id') == $tipo->id ? true : false,
+                            ['id'=>'tipo-evento-'.$tipo->id,
+                             'class'=> 'radio-' . $tipo->slug])}}
+                            <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
+                        </div>
+                    @endforeach
+                    @if ($errors->has('tipo_evento_id'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('tipo_evento_id') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            </div>
     <div class="row form-group no-margin-sides {{ $errors->has('local_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
             <label class="control-label required" for="local_id"> Local:</label>
@@ -108,27 +130,7 @@
             @endif
         </div>
     </div>
-    <div class="row form-group no-margin-sides{{ $errors->has('tipo_evento_id') ? ' has-error' : '' }}">
-        <div class="col-md-2 text-right">
-            <label class="control-label required" for="tipo_evento_id">
-                Tipo Evento:</label>
-            </div>
-            <div class="col-md-8">
-                @foreach ($tipos as $tipo)
-                    <div class="radio3 radio-check radio-success radio-inline">
-                        {{Form::radio('tipo_evento_id', $tipo->id,
-                            old('tipo_evento_id') == $tipo->id ? true : false,
-                            ['id'=>'tipo-evento-'.$tipo->id])}}
-                            <label for="tipo-evento-{{$tipo->id}}">{{$tipo->nome}}</label>
-                        </div>
-                    @endforeach
-                    @if ($errors->has('tipo_evento_id'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('tipo_evento_id') }}</strong>
-                        </span>
-                    @endif
-                </div>
-            </div>
+
     <div class="row form-group no-margin-sides{{ $errors->has('publico_alvo_id') ? ' has-error' : '' }}">
         <div class="col-md-2 text-right">
             <label class="control-label required" for="publico_alvo_id">
@@ -248,6 +250,15 @@
             minDate: 0,
             defaultTime:'10:00',
             closeOnDateSelect:true
+        });
+
+        $('input[type=radio][name=tipo_evento_id]').on('change', function(){
+            // Se for Encontro Geral
+            if( this.value == 1 ){
+                $('#publico_alvo_id').val(1);
+                $('#local_id').val(1);
+            }
+
         });
     </script>
 @endsection
