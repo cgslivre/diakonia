@@ -5,7 +5,7 @@ namespace App\Model\membro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
-use Image;
+
 
 
 class Membro extends Model
@@ -61,45 +61,6 @@ class Membro extends Model
         return $nascimento->diffInYears($hoje, false);
     }
 
-    public function update(array $attributes = [], array $options = []){
-        parent::update($attributes,$options);
 
-        if( array_key_exists('avatar',$attributes ) ){
-            self::saveAvatar($attributes['avatar'], $this);
-        }
-
-        return $this;
-    }
-
-    public static function create( array $attributes = [] ){
-
-        $membro = parent::create($attributes);
-
-        if( array_key_exists('avatar',$attributes ) ){
-            self::saveAvatar($attributes['avatar'], $membro);
-        }
-
-        return $membro;
-    }
-
-    private static function saveAvatar($avatar, Membro $membro){
-        if( isset($avatar) ){
-            $file = $avatar;
-            $tempFile = self::TEMP_FILE . $file->getExtension();
-
-            $file->move(self::AVATAR_PATH, $tempFile );
-
-            // membros/avatar/001-avatar.jpg
-            $avatarPath = self::AVATAR_PATH . '/' . sprintf('%03d',$membro->id) . '-avatar.jpg';
-
-            // Ajusta para 250px de largura
-            $image = Image::make(self::AVATAR_PATH . '/' . $tempFile )
-                ->widen(250)
-                ->save($avatarPath);
-
-            $membro->avatar_path = $avatarPath;
-            $membro->save();
-        }
-    }
 
 }

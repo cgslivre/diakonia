@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 
 use Bouncer;
 use Auth;
+use Image;
 use App\Model\membro\Membro;
 use App\Model\membro\RelacionamentoIgreja;
 use App\Model\membro\RelacionamentoMembro;
@@ -55,7 +56,9 @@ class MembroController extends Controller
         $request['grupo_caseiro_id'] =
             $request['grupo_caseiro_id'] ? $request['grupo_caseiro_id'] : null;
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
+
         $membro = Membro::create($request->all());
+        self::saveAvatar($request['avatar'], $membro);
 
         return redirect()->route('membro.edit', ['id' => $membro->id])
             ->with('message', 'Membro adicionado!');
@@ -80,6 +83,7 @@ class MembroController extends Controller
         $request['telefones'] = self::getTelefonesJson($request['telefone']);
         $membro = Membro::findOrFail($id);
         $membro->update( $request->all());
+        self::saveAvatar($request['avatar'], $membro);
         return Redirect::back()->withInput()->with('message', 'Membro atualizado!');
     }
 
@@ -110,5 +114,27 @@ class MembroController extends Controller
 
         return Redirect::route('membros.lista')->with('message',
             'Membro: ' . $membro->nome . ' removido(a)!');
+    }
+
+
+    private function saveAvatar($avatar, Membro $membro){
+        if( isset($avatar) ){
+            $file = $avatar;
+            $tempFile = Membro::TEMP_FILE . $file->getExtension();
+
+            $file->move(Membro::AVATAR_PATH, $tempFile );
+
+            // membros/avatar/001-avatar.jpg
+            $avatarPath = Membro::AVATAR_PATH . '/'
+                . sprintf('%03d',$membro->id) . '-avatar.jpg';
+
+            // Ajusta para 250px de largura
+            $image = Image::make(Membro::AVATAR_PATH . '/' . $tempFile )
+                ->widen(250)
+                ->save($avatarPath);
+
+            $membro->avatar_path = $avatarPath;
+            $membro->save();
+        }
     }
 }
