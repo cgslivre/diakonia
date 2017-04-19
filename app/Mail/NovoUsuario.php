@@ -6,22 +6,20 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\User;
 
 class NovoUsuario extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $user;
-
+    public $user;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct($user)
     {
-        $this->$user = $user;
+        $this->user = $user;
     }
 
     /**
@@ -31,7 +29,6 @@ class NovoUsuario extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.novo-usuario')
-            ->with('user',$user);
+        return $this->markdown('emails.novo-usuario');
     }
 }

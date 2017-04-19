@@ -1,9 +1,16 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-    </head>
-    <body>
-        <h1>Bem vindo ao Diakonia, {{$user->name}}</h1>
-    </body>
-</html>
+@component('mail::message')
+# Introduction
+
+The body of your message.
+
+@component('mail::panel')
+Painel
+@endcomponent
+
+@component('mail::button', ['url' => ''])
+Button Text
+@endcomponent
+
+Thanks,<br>
+{{ config('app.name') }}
+@endcomponent

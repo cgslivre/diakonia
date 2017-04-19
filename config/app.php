@@ -2,6 +2,7 @@
 
 return [
 
+    'name' => env('APP_NAME','Diakonia'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
