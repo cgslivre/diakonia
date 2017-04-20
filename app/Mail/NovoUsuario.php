@@ -11,7 +11,7 @@ class NovoUsuario extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    protected $user;
     /**
      * Create a new message instance.
      *
@@ -29,6 +29,9 @@ class NovoUsuario extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.novo-usuario');
+        return $this->markdown('emails.novo-usuario')
+            ->with[
+                'user' => $this->user;
+            ];
     }
 }

@@ -1,5 +1,5 @@
 @component('mail::message')
-# Introduction
+# Novo usuário registrado
 
 The body of your message.
 
