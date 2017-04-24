@@ -78,6 +78,16 @@ class BouncerSeederUpdateTitle extends Seeder
         DB::table('abilities')->where('name','geral-remove-local')
             ->update(array('title'=>'Remover locais de eventos'));
 
+        // Material
+        DB::table('roles')->where('name','role-material-curiculo-user')
+        ->update(array('title'=>'Padrão','scope'=>'Material','nivel'=>1));
+        DB::table('roles')->where('name','role-material-curiculo-admin')
+        ->update(array('title'=>'Administrador','scope'=>'Material','nivel'=>2));
+
+        DB::table('abilities')->where('name','material-curriculo-view')
+        ->update(array('title'=>'Ver materiais do currículo de ensino'));
+        DB::table('abilities')->where('name','material-curriculo-edit')
+        ->update(array('title'=>'Adicionar e remover materiais do currículo de ensino'));
 
     }
 }

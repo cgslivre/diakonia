@@ -18,6 +18,10 @@
                 @include('layouts.menus.eventos')
             @endcan
 
+            @can('material-curriculo-view')
+                @include('layouts.menus.material')
+            @endcan
+
             @if (Auth::user()->isAn('role-geral-admin'))
                 @include('layouts.menus.geral')
             @endif

@@ -75,6 +75,16 @@ class BouncerSeederPermissoes extends Seeder
             'geral-remove-local'
         ]);
 
+        // Papéis para Seção Material
+        Bouncer::allow('role-material-curiculo-user')->to([
+            'material-curriculo-view'
+        ]);
+
+        Bouncer::allow('role-material-curiculo-admin')->to([
+            'material-curriculo-view',
+            'material-curriculo-edit',
+        ]);
+
 
 
         $userAdmin = App\User::find(1);
@@ -82,6 +92,7 @@ class BouncerSeederPermissoes extends Seeder
         $userAdmin->assign('role-membro-admin');
         $userAdmin->assign('role-evento-admin');
         $userAdmin->assign('role-geral-admin');
+        $userAdmin->assign('role-material-curiculo-admin');
 
     }
 }
