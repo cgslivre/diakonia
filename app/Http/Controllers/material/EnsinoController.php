@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Model\material\Ensino;
 use Bouncer;
 use App\Model\material\CategoriaEnsino;
+use App\Http\Requests\material\EnsinoRequest;
 
 class EnsinoController extends Controller
 {
@@ -34,6 +35,10 @@ class EnsinoController extends Controller
             ->with('ensino', $ensino)
             ->with('categorias', $categorias);
 
+    }
+
+    public function store( EnsinoRequest $request){
+        dd($request->all());
     }
 
 
