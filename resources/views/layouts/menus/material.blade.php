@@ -6,7 +6,7 @@
     </label>
     <ul class="group-list">
         @can('material-curriculo-edit')
-        <li><a href="{{ URL::route('evento.create') }}">
+        <li><a href="{{ URL::route('material.ensino.create') }}">
             <span class="icon fa fa-plus-square-o"></span>Adicionar Ensino
         </a></li>
         @endcan
