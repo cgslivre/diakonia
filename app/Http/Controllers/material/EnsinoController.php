@@ -38,7 +38,15 @@ class EnsinoController extends Controller
     }
 
     public function store( EnsinoRequest $request){
-        dd($request->all());
+        if(Bouncer::denies('material-curriculo-edit')){
+            abort(403);
+        }
+
+
+    }
+
+    private function saveFile( $file ){
+        
     }
 
 

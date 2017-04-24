@@ -30,7 +30,7 @@
     </div>
     <div class="row form-group no-margin-sides">
         <div class="col-md-2 text-right">
-        <label for="nome" class="control-label">
+        <label for="slug" class="control-label">
             <span class="required">*</span>Identificador:</label>
         </div>
 
@@ -61,7 +61,7 @@
                             {{$categoria->nome}}</option>
                     @endforeach
                 @endif
-            </select>            
+            </select>
         </div>
     </div>
 
@@ -79,3 +79,11 @@
     </div>
 
 </div>
+
+@section('scripts')
+    <script>
+    $('input.titulo').on('input',function(){
+        $('input.slug').val(slug($('input.titulo').val(),{lower: true}));
+    });
+    </script>
+@endsection
