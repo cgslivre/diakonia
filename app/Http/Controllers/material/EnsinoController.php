@@ -5,6 +5,8 @@ namespace App\Http\Controllers\material;
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Model\material\Ensino;
 use Bouncer;
@@ -42,11 +44,23 @@ class EnsinoController extends Controller
             abort(403);
         }
 
+        $ensino = Ensino::create($request->all());
+
+        $file = $request['arquivo'];
+        $extension = $file->getClientOriginalExtension();
+
+        Storage::disk('local')
+            ->put(Ensino::STORAGE_PATH . '/'
+                . $ensino->slug.'.'.$extension,
+            File::get($file));
+
+        dd($file, $extension, $file->getFilename(), $ensino);
+
 
     }
 
     private function saveFile( $file ){
-        
+
     }
 
 
