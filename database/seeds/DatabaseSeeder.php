@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ConsultaMembrosSeeder::class);
         $this->call(PublicoAlvoSeeder::class);
         $this->call(TipoEventoSeeder::class);
+        $this->call(CategoriaEnsinoSeeder::class);
         //Model::reguard();
     }
 }

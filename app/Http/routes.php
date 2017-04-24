@@ -39,13 +39,21 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
-    Route::match(['put','patch'],'/retiros/grupos/ativacao/{grupo}','GrupoInscricaoController@ativacao');
+    Route::match(['put','patch'],'/retiros/grupos/ativacao/{grupo}'
+        ,'GrupoInscricaoController@ativacao');
     Route::get('/retiros/grupos','GrupoInscricaoController@index');
     Route::post('/retiros/grupos','GrupoInscricaoController@salvar');
 
     Route::get('/regioes','RegiaoController@index');
 
     Route::resource('local','LocalController');
+
+    Route::group(['middleware' => 'web','as'=>'material.','prefix'=>'material'], function () {
+        Route::resource('ensino','material\EnsinoController');
+    });
+
+
+
 
 
 });
