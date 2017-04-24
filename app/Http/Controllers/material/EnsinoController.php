@@ -25,6 +25,13 @@ class EnsinoController extends Controller
         $this->middleware('auth');
     }
 
+    public function index(){
+        $ensinos = Ensino::all();
+
+        return view('material.ensino.ensino-index')
+            ->with('ensinos', $ensinos);
+    }
+
     public function create(){
         if(Bouncer::denies('material-curriculo-edit')){
             abort(403);
@@ -47,7 +54,8 @@ class EnsinoController extends Controller
         $ensino = Ensino::create($request->all());
         self::saveFile($request['arquivo'], $ensino);
 
-        dd($ensino);
+        return redirect()->route('material.ensino.index')
+            ->with('message', 'Ensino ' . $ensino->titulo . ' adicionado.');
 
     }
 
