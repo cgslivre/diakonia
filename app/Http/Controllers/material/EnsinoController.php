@@ -45,22 +45,21 @@ class EnsinoController extends Controller
         }
 
         $ensino = Ensino::create($request->all());
+        self::saveFile($request['arquivo'], $ensino);
 
-        $file = $request['arquivo'];
+        dd($ensino);
+
+    }
+
+    private function saveFile( $file , $ensino ){
         $extension = $file->getClientOriginalExtension();
+        $ensino->mime = $file->getClientMimeType();
+        $ensino->save();
 
         Storage::disk('local')
             ->put(Ensino::STORAGE_PATH . '/'
                 . $ensino->slug.'.'.$extension,
             File::get($file));
-
-        dd($file, $extension, $file->getFilename(), $ensino);
-
-
-    }
-
-    private function saveFile( $file ){
-
     }
 
 
