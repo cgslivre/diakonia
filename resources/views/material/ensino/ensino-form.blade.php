@@ -11,17 +11,15 @@
 <div>
     <div class="row form-group no-margin-sides">
         <div class="col-md-2 text-right">
-            <label class="control-label" for="arquivo">
-                <span class="required">*</span>Arquivo:</label>
+            <label class="control-label required" for="arquivo">Arquivo:</label>
         </div>
         <div class="col-md-9">
-            {{ Form::file('arquivo',['id'=>'arquivo']) }}
+            {{ Form::file('arquivo',['id'=>$edicao ? 'arquivo-edit' : 'arquivo']) }}
         </div>
     </div>
     <div class="row form-group no-margin-sides">
         <div class="col-md-2 text-right">
-            <label for="titulo" class="control-label">
-                <span class="required">*</span>Título:</label>
+            <label for="titulo" class="control-label required">Título:</label>
         </div>
         <div class="col-md-9">
             {{Form::text('titulo', null,  ['class' => 'form-control titulo',
@@ -30,8 +28,7 @@
     </div>
     <div class="row form-group no-margin-sides">
         <div class="col-md-2 text-right">
-        <label for="slug" class="control-label">
-            <span class="required">*</span>Identificador:</label>
+        <label for="slug" class="control-label required">Identificador:</label>
         </div>
 
         <div class="col-md-9">

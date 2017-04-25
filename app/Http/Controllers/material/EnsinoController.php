@@ -63,6 +63,19 @@ class EnsinoController extends Controller
 
     }
 
+    public function edit( $id ){
+        if(Bouncer::denies('material-curriculo-edit')){
+            abort(403);
+        }
+
+        $ensino = Ensino::findOrFail($id);
+        $categorias = CategoriaEnsino::all()->sortBy('nome');
+        
+        return view('material.ensino.ensino-edit')
+            ->with('ensino', $ensino)
+            ->with('categorias', $categorias);
+    }
+
     private function saveFile( $file , $ensino ){
         $extension = $file->getClientOriginalExtension();
         $ensino->mime = $file->getClientMimeType();
