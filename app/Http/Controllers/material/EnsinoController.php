@@ -28,7 +28,7 @@ class EnsinoController extends Controller
     public function index(){
         $ensinosAgrupados = Ensino::all()
             ->sortBy( function($ensino){
-                return $ensino->categoria->nome;})
+                return $ensino->categoria->nome . $ensino->titulo;})
             ->groupBy( function($ensino){
                 return $ensino->categoria->nome;});
 
