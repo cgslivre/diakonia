@@ -24,4 +24,8 @@ class Ensino extends Model{
         return $this->hasOne('App\Model\material\CategoriaEnsino', 'id', 'categoria_ensino_id');
     }
 
+    public function scopeSlug($query,$slug){
+        $query->where('slug','=', $slug);
+    }
+
 }
