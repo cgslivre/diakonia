@@ -26,10 +26,14 @@ class EnsinoController extends Controller
     }
 
     public function index(){
-        $ensinos = Ensino::all();
+        $ensinosAgrupados = Ensino::all()
+            ->sortBy( function($ensino){
+                return $ensino->categoria->nome;})
+            ->groupBy( function($ensino){
+                return $ensino->categoria->nome;});
 
         return view('material.ensino.ensino-index')
-            ->with('ensinos', $ensinos);
+            ->with('ensinosAgrupados', $ensinosAgrupados);
     }
 
     public function create(){
