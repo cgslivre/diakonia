@@ -55,10 +55,23 @@ class ConsultaController extends Controller
             abort(404);
         }
 
-        $membros = $this->consultar($consulta);
+        $membrosAgrupados = $this->consultar($consulta)
+            ->groupBy(function($membro){
+                if( $membro->grupo){
+                    return $membro->grupo->nome;
+                } else{
+                    return "Sem grupo";
+                }
+            });
+        $total = 0;
+        foreach ($membrosAgrupados as $membros) {
+            $total += count($membros);
+        }
+        //dd($membrosAgrupados, count($membrosAgrupados), $total);
 
         return view('membro.consulta.show')
-            ->with('membros',$membros)
+            ->with('membrosAgrupados',$membrosAgrupados)
+            ->with('total',$total)
             ->with('consulta',$consulta);
 
     }

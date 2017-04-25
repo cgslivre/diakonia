@@ -46,6 +46,17 @@ span.counter{font-size: 120%;font-weight: bold;}
 .navbar-right > li > a.dropdown-toggle:hover{background-color: #ECEFF4;}
 li.dropdown.profile.open > a{color: #23527c;}
 
+/* +++ Estilos Membros ++++ */
+.dados-consulta > h4{
+    margin-top: 25px;
+    padding: 5px;
+    border-bottom: 1px dotted #ebcac2;}
+    .dados-consulta span.count{
+        font-size: 12px;
+        border-radius: 2px;
+        background-color: #b5d1e6;
+        padding: 2px;
+    }
 
 /* +++ Estilos dos Modals ++++ */
 .modal-header-danger {
