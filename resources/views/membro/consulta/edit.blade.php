@@ -1,8 +1,8 @@
 @extends( 'membro.template-membro')
 @section('nivel2')<li><a href="/membros/consulta">Consulta de Membros</a></li>@stop
-@section('nivel3')<li>Editando: '. $consulta->titulo.'</li>@stop
+@section('nivel3')<li>Editando: {{$consulta->titulo}}</li>@stop
 
-@section('titulo', 'Consulta: ' . $consulta->titulo)
+@section('titulo')Consulta:  {{$consulta->titulo}}@stop
 
 @section('content')
     {{ Form::model($consulta, ['method' => 'PATCH'
@@ -31,7 +31,7 @@
                     <th>Email</th>
                 </tr>
             </thead>
-            <tbody>                
+            <tbody>
                 @foreach( $membros as $membro )
                 <tr>
                     <td>{{$loop->iteration}}</td>

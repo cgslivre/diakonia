@@ -56,6 +56,13 @@ class ConsultaController extends Controller
         }
 
         $membrosAgrupados = $this->consultar($consulta)
+            ->sortBy( function( $membro ){
+                if( $membro->grupo ){
+                    return $membro->grupo->nome . $membro->nome;
+                } else{
+                    return $membro->nome;
+                }
+            })
             ->groupBy(function($membro){
                 if( $membro->grupo){
                     return $membro->grupo->nome;
