@@ -21,6 +21,7 @@
         ])
     {{ Form::close() }}
 @endsection
+@include('material.ensino.modal-exclusao', ['ensino'=>$ensino])
 
 @section('scripts')
 

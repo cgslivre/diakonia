@@ -109,8 +109,17 @@ class EnsinoController extends Controller
         Storage::put($ensino->filePath,File::get($file));
     }
 
+    public function destroy( $id ){
+        if(Bouncer::denies('material-curriculo-edit')){
+            abort(403);
+        }
 
+        $ensino = Ensino::findOrFail($id);
+        Storage::delete($ensino->filePath);
+        $ensino->delete();
 
-
+        return Redirect::route('material.ensino.index')
+            ->with('message', 'Ensino: ' . $ensino->titulo . ' removido!');
+    }
 
 }

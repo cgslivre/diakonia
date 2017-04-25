@@ -11,7 +11,7 @@
         </a></li>
         @endcan
 
-        <li><a href="{{ URL::route('evento.index') }}">
+        <li><a href="{{ URL::route('material.ensino.index') }}">
             <span class="icon fa fa-stack-overflow"></span>Currículo de Ensino
         </a></li>
 

@@ -4,6 +4,11 @@
     <li class="active"><a href="{{ route('material.ensino.index') }}">Currículo de Ensino</a></li>
 @stop
 @section('content')
+    @can('material-curriculo-edit')
+    <a href="{{URL::route('material.ensino.create') }}" class="btn btn-success">
+        <i class="fa fa-plus"></i> Adicionar ensino
+    </a>
+    @endcan
     @forelse ($ensinosAgrupados as $cat => $ensinos)
         <h3>
             {{$cat}}
@@ -26,6 +31,7 @@
         @endforeach
         </ul>
     @empty
+        <hr/>
         <p>Nenhum ensino cadastrado.</p>
     @endforelse
 @endsection
