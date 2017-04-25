@@ -25,6 +25,7 @@ class ConsultaMembroRequest extends Request
     public function rules()
     {
         $rules = $this->rules;
+        //dd($this->idade_minima, $this->idade_maxima);
         if(empty($this->id)){
             $rules['titulo'] = 'required|min:2|unique:consulta_membros';
             $rules['slug'] = 'required|min:2|alpha_dash|unique:consulta_membros';
@@ -36,7 +37,7 @@ class ConsultaMembroRequest extends Request
         $rules['tem_discipulador'] = 'in:S,N';
         $rules['sexo'] = 'in:M,F';
         $rules['idade_minima'] = 'integer';
-        $rules['idade_maxima'] = 'integer';
+        $rules['idade_maxima'] = 'integer|min:' . $this->idade_minima;
 
 
         return $rules;
@@ -50,6 +51,7 @@ class ConsultaMembroRequest extends Request
             'slug.required' => 'É necessário informar um Identificador para a consulta',
             'slug.unique' => 'Identificador já está em uso',
             'slug.alpha_dash' => 'Formato inválido para o Identificador',
+            'idade_maxima.min' => 'A idade máxima deve ser igual ou superior a idade mínima',
 
         ];
     }
