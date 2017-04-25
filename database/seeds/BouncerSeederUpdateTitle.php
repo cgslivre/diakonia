@@ -58,7 +58,7 @@ class BouncerSeederUpdateTitle extends Seeder
         DB::table('roles')->where('name','role-evento-users')
             ->update(array('title'=>'Padrão','scope'=>'Eventos','nivel'=>1));
         DB::table('roles')->where('name','role-evento-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Eventos','nivel'=>2));
+            ->update(array('title'=>'Administrador','scope'=>'Eventos','nivel'=>3));
 
         DB::table('abilities')->where('name','evento-view')
             ->update(array('title'=>'Ver Eventos'));
@@ -69,7 +69,7 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Geral
         DB::table('roles')->where('name','role-geral-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Geral','nivel'=>2));
+            ->update(array('title'=>'Administrador','scope'=>'Geral','nivel'=>3));
 
         DB::table('abilities')->where('name','geral-create-local')
             ->update(array('title'=>'Criar locais de eventos'));
@@ -82,7 +82,7 @@ class BouncerSeederUpdateTitle extends Seeder
         DB::table('roles')->where('name','role-material-curiculo-user')
         ->update(array('title'=>'Padrão','scope'=>'Material','nivel'=>1));
         DB::table('roles')->where('name','role-material-curiculo-admin')
-        ->update(array('title'=>'Administrador','scope'=>'Material','nivel'=>2));
+        ->update(array('title'=>'Administrador','scope'=>'Material','nivel'=>3));
 
         DB::table('abilities')->where('name','material-curriculo-view')
         ->update(array('title'=>'Ver materiais do currículo de ensino'));

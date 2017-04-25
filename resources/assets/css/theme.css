@@ -90,6 +90,7 @@ ul.rolebox{
     border-radius: 4px;
     display: inline-block;
     font-size: 1.2rem;
+    margin: 2px;
     padding: 4px;      }
     .role-box.role-nivel-1{background-color: #a1d1ee;}
     .role-box.role-nivel-2{background-color: #eed064;}
