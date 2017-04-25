@@ -11,6 +11,9 @@ Route::group(['middleware' => 'web','as'=>'evento.','prefix'=>'evento'], functio
     Route::get('publico-alvo','evento\PublicoAlvoController@index')
         ->name('publico-alvo.index');
 
+    Route::get('passado','evento\EventoController@passado')
+        ->name('passado.index');
+
 
 });
 

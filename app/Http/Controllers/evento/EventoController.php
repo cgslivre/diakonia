@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Model\evento\Evento;
 use App\Http\Requests\evento\EventoRequest;
 
+use Carbon\Carbon;
+
 
 use Bouncer;
 use DB;
@@ -36,6 +38,15 @@ class EventoController extends Controller
         return view('evento.evento-index')
             ->with('eventos30Dias', $eventosEm30Dias)
             ->with('eventosApos30Dias', $eventosDepois30Dias);
+    }
+
+    public function passado(){
+
+        $eventos = Evento::where('data_hora_inicio', '<=', Carbon::now())->get()
+            ->sortBy('data_hora_inicio');
+
+        return view('evento.evento-passado')
+            ->with('eventos', $eventos);
     }
 
     public function create(){
