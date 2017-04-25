@@ -43,7 +43,7 @@ class EventoController extends Controller
     public function passado(){
 
         $eventos = Evento::where('data_hora_inicio', '<=', Carbon::now())->get()
-            ->sortBy('data_hora_inicio');
+            ->sortByDesc('data_hora_inicio');
 
         return view('evento.evento-passado')
             ->with('eventos', $eventos);
