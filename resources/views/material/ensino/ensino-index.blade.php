@@ -4,7 +4,7 @@
     <li class="active"><a href="{{ route('material.ensino.index') }}">Currículo de Ensino</a></li>
 @stop
 @section('content')
-    @foreach ($ensinosAgrupados as $cat => $ensinos)
+    @forelse ($ensinosAgrupados as $cat => $ensinos)
         <h3>
             {{$cat}}
         </h3>
@@ -25,5 +25,7 @@
             </li>
         @endforeach
         </ul>
-    @endforeach
+    @empty
+        <p>Nenhum ensino cadastrado.</p>
+    @endforelse
 @endsection

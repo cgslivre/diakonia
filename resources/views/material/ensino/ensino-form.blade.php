@@ -14,7 +14,7 @@
             <label class="control-label required" for="arquivo">Arquivo:</label>
         </div>
         <div class="col-md-9">
-            {{ Form::file('arquivo',['id'=>$edicao ? 'arquivo-edit' : 'arquivo']) }}
+            {{ Form::file($edicao ? 'arquivo-edit' : 'arquivo',['id'=>$edicao ? 'arquivo-edit' : 'arquivo']) }}
         </div>
     </div>
     <div class="row form-group no-margin-sides">

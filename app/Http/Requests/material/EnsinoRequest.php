@@ -28,12 +28,13 @@ class EnsinoRequest extends Request
         if(empty($this->id)){
             $rules['titulo'] = 'required|min:2|unique:ensinos';
             $rules['slug'] = 'required|min:2|alpha_dash|unique:ensinos';
+            $rules['arquivo'] = 'required|file|mimes:pdf|max:7000';
         } else{
+            $rules['arquivo-edit'] = 'file|mimes:pdf|max:7000';
             $rules['titulo'] = 'required|min:2|unique:ensinos,titulo,'.$this->id.',id';
             $rules['slug'] = 'required|min:2|alpha_dash|unique:ensinos,slug,'.$this->id.',id';
         }
 
-        $rules['arquivo'] = 'required|file|mimes:pdf|max:7000';
         $rules['categoria_ensino_id'] = 'required';
 
         return $rules;
@@ -50,6 +51,8 @@ class EnsinoRequest extends Request
             'categoria_ensino_id.required' => 'Escolha uma categoria para o material de ensino',
             'arquivo.mimes' => 'O arquivo deve ser PDF',
             'arquivo.max' => 'O arquivo não deve ultrapassar 7MB',
+            'arquivo-edit.mimes' => 'O arquivo deve ser PDF',
+            'arquivo-edit.max' => 'O arquivo não deve ultrapassar 7MB',
         ];
     }
 

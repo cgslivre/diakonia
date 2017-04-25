@@ -63,6 +63,30 @@ class EnsinoController extends Controller
 
     }
 
+    public function update( $id , EnsinoRequest $request){
+        if(Bouncer::denies('material-curriculo-edit')){
+            abort(403);
+        }
+
+        $ensino = Ensino::findOrFail($id);
+
+        $oldFile = $ensino->filePath;
+        $oldSlug = $ensino->slug;
+
+        $ensino->update( $request->all());
+
+        if( isset($request["arquivo-edit"])){
+            Storage::delete($oldFile);
+            self::saveFile($request['arquivo-edit'], $ensino);
+        } elseif ($oldSlug != $request["slug"]) {
+            Storage::move($oldFile,$ensino->filePath);
+        }
+
+        return Redirect::route('material.ensino.index')
+            ->with('message', 'Ensino: ' . $ensino->titulo . ' atualizado!');
+
+    }
+
     public function edit( $id ){
         if(Bouncer::denies('material-curriculo-edit')){
             abort(403);
@@ -70,7 +94,7 @@ class EnsinoController extends Controller
 
         $ensino = Ensino::findOrFail($id);
         $categorias = CategoriaEnsino::all()->sortBy('nome');
-        
+
         return view('material.ensino.ensino-edit')
             ->with('ensino', $ensino)
             ->with('categorias', $categorias);
@@ -79,13 +103,12 @@ class EnsinoController extends Controller
     private function saveFile( $file , $ensino ){
         $extension = $file->getClientOriginalExtension();
         $ensino->mime = $file->getClientMimeType();
+        $ensino->extension = $extension;
         $ensino->save();
 
-        Storage::disk('local')
-            ->put(Ensino::STORAGE_PATH . '/'
-                . $ensino->slug.'.'.$extension,
-            File::get($file));
+        Storage::put($ensino->filePath,File::get($file));
     }
+
 
 
 

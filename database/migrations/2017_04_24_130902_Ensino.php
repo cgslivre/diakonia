@@ -18,6 +18,7 @@ class Ensino extends Migration
             $table->string('titulo')->unique();
             $table->string('slug')->unique();
             $table->string('mime')->nullable();
+            $table->string('extension')->nullable();
 
             $table->integer('categoria_ensino_id')->unsigned();
             $table->foreign('categoria_ensino_id')

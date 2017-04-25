@@ -12,6 +12,14 @@ class Ensino extends Model{
     protected $fillable = [ 'titulo','slug','categoria_ensino_id'];
     public $timestamps  = false;
 
+    protected $appends = [
+        'file_path'
+    ];
+
+    public function getFilePathAttribute(){
+        return self::STORAGE_PATH . "/" . $this->slug . "." . $this->extension;
+    }
+
     public function categoria(){
         return $this->hasOne('App\Model\material\CategoriaEnsino', 'id', 'categoria_ensino_id');
     }
