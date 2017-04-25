@@ -60,7 +60,7 @@ class ConsultaController extends Controller
                 if( $membro->grupo ){
                     return $membro->grupo->nome . $membro->nome;
                 } else{
-                    return $membro->nome;
+                    return "zz" . $membro->nome;
                 }
             })
             ->groupBy(function($membro){
