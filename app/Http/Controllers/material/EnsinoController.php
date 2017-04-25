@@ -109,6 +109,16 @@ class EnsinoController extends Controller
         Storage::put($ensino->filePath,File::get($file));
     }
 
+    public function show($slug){
+        $ensino = Ensino::slug($slug)->first();
+
+        if( !$ensino ){
+            abort(404);
+        }
+
+        return response()->download(storage_path() . "/app/" . $ensino->filePath);
+    }
+
     public function destroy( $id ){
         if(Bouncer::denies('material-curriculo-edit')){
             abort(403);
