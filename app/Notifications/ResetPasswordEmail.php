@@ -42,6 +42,7 @@ class ResetPasswordEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Solicitação de redefinição de senha')
                     ->line('Recebemos uma **solicitação para redefinir a sua senha**. Você pode redefinir sua senha usando esse link:')
                     ->action('Redefinir senha', url('password/reset', $this->token))
                     ->line('Caso você não tenha solicitado a troca de senha, desconsidere esta mensagem.');
