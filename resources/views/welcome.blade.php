@@ -1,6 +1,14 @@
 @extends( 'template-guest')
 
 @section('conteudo')
+    <style>
+    .conteudo-wrapper > div{
+        width: 45%;
+        display: inline-block;
+        float: left;
+        padding: 40px 10px;
+    }
+    </style>
     <div class="descricao">
         <div class="grego">
             <p><strong>διακονία</strong></p>
@@ -13,8 +21,8 @@
 
     </div>
     <div class="botoes">
-        <a class="btn btn-entrar" href="/home">Entrar</a>
+        <a class="btn btn-entrar" href="{{URL::route('home')}}">Entrar</a>
         <br/>
-        <a class="btn btn-registrar" href="">Registrar novo usuário</a>
+        <a class="btn btn-registrar" href="{{URL::route('register')}}">Registrar novo usuário</a>
     </div>
 @endsection

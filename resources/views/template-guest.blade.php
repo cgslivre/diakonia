@@ -32,12 +32,7 @@
     .wrapper{margin-top: 60px;}
     .logo{background-color:rgba(0, 0, 0, 0.6);padding: 25px 0;}
     .conteudo-wrapper{width: 76%;margin: 0 auto;display: inline-block;}
-    .conteudo-wrapper > div{
-        width: 45%;
-        display: inline-block;
-        float: left;
-        padding: 40px 10px;
-    }
+
     .descricao{
         text-align: left;
         font-size: 1.2rem;
@@ -46,8 +41,7 @@
         background-color:rgba(0, 0, 0, 0.3);
         border: 2px solid transparent;
         border-radius: 2px;    }
-        .descricao p {margin:0;}
-        .grego{}
+        .descricao p {margin:0;}        
         .descricao strong{font-size: 1.9rem;color: #eb8c5d;}
     .botoes{
         margin-top: 30px;
@@ -80,7 +74,13 @@
         border-color: #269abc;}
 
 span.primeiro-acesso{font-weight: bold;font-size: 0.9rem;color: #121313;}
-
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label,
+.has-error .help-block, .has-error .radio, .has-error .radio-inline,
+.has-error.checkbox label, .has-error.checkbox-inline label,
+.has-error.radio label, .has-error.radio-inline label {
+    color: #a94442;
+}
+input{margin:0;}
     </style>
 
   </head>

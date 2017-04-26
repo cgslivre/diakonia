@@ -8,12 +8,6 @@
 
 
 @section('content')
-<!--
-<ol class="breadcrumb">
-  <li><a href="#">Usuários</a></li>
-  <li class="active">Editar Usuário</li>
-</ol>
--->
 <div class="container-fluid" ng-app="usuariosRecord" ng-controller="userEditCtrl">
     {{ Form::model($user, ['method' => 'PATCH' , 'action'=>[$perfil?'UsuarioController@atualizaPerfil':'UsuarioController@update',$user->id]
         ,'files' => true, 'name'=>'usuarioForm'
