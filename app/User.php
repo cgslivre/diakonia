@@ -8,7 +8,7 @@ use Image;
 use Hash;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Illuminate\Notifications\Notifiable;
-use app\Notifications\ResetPasswordEmail;
+use App\Notifications\ResetPasswordEmail;
 
 class User extends Authenticatable
 {
