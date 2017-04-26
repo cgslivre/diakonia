@@ -53,7 +53,7 @@
     margin:0 auto;
     border-radius: 2px;
     display: block;
-    
+
     cursor: pointer;
     transition: all .25s ease;
     font-weight: 400;
@@ -82,6 +82,18 @@ span.primeiro-acesso{font-weight: bold;font-size: 0.9rem;color: #121313;}
     color: #a94442;
 }
 input{margin:0;}
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
     </style>
 
   </head>
