@@ -9,6 +9,7 @@
     <title>Diakonia - Discípulos em Brasília - @yield('titulo')</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     <link href="https://fonts.googleapis.com/css?family=Dosis:200,500,700" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
     <style>
 
@@ -41,7 +42,7 @@
         background-color:rgba(0, 0, 0, 0.3);
         border: 2px solid transparent;
         border-radius: 2px;    }
-        .descricao p {margin:0;}        
+        .descricao p {margin:0;}
         .descricao strong{font-size: 1.9rem;color: #eb8c5d;}
     .botoes{
         margin-top: 30px;
