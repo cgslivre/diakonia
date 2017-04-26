@@ -1,6 +1,5 @@
 @extends('template-guest')
 @include('auth.style')
-@section('conteudo')
 
 @section('conteudo')
 <div class="formulario">
