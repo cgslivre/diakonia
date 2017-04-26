@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Image;
 use Hash;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use HasRolesAndAbilities;
+    use HasRolesAndAbilities, Notifiable;
     const DEFAULT_AVATAR_PATH = 'users/avatar/000-default-';
     const IMG_SIZE_DEFAULT = '250px.jpg';
     const IMG_SIZE_MED = '150px.jpg';
