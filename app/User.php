@@ -8,6 +8,7 @@ use Image;
 use Hash;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Illuminate\Notifications\Notifiable;
+use app\Notifications\ResetPasswordEmail;
 
 class User extends Authenticatable
 {
@@ -93,6 +94,10 @@ class User extends Authenticatable
                 return true;
             }
         });
+    }
+
+    public function sendPasswordResetNotification($token)    {
+        $this->notify(new ResetPasswordEmail($token));
     }
 
 
