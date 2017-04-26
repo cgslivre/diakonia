@@ -30,12 +30,12 @@
         font-weight: bold;
         width: 33.33333333%;}
     .form-group .col-campo{
-        width: 50%;
         float: left;
         position: relative;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+        width: 50%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
     }
 
     .formulario button{font-family: 'Dosis', sans-serif;}
@@ -93,4 +93,5 @@ input.form-control{
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102,175,233,.6);
 }
+.col-md-6 {width: 50%;}
 </style>

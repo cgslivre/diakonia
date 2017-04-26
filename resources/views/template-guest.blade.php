@@ -53,7 +53,7 @@
     margin:0 auto;
     border-radius: 2px;
     display: block;
-    width: 50%;
+    
     cursor: pointer;
     transition: all .25s ease;
     font-weight: 400;
