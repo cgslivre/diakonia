@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function welcome(){
+        if( Auth::guest() ){
+            return view('welcome');
+        } else{
+            return Redirect::route('home');
+        }
+    }
+
 }
