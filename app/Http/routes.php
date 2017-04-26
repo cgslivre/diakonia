@@ -10,9 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middleware' => 'web'], function () {
+    Route::get('/', 'HomeController@welcome');
+    Route::auth();
 });
 
 
@@ -27,17 +27,11 @@ Route::get('/', function () {
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-    Route::get('/retiros', array('as' => 'retiros', function () {
-        return view('retiros/home');
-    }));
-});
+Route::group(['middleware' => ['web','auth']], function () {
 
-Route::group(['middleware' => 'web'], function () {
-    Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/home', 'HomeController@index')
+        ->name('home');
 
     Route::match(['put','patch'],'/retiros/grupos/ativacao/{grupo}'
         ,'GrupoInscricaoController@ativacao');
@@ -48,12 +42,8 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('local','LocalController');
 
-    Route::group(['middleware' => 'web','as'=>'material.','prefix'=>'material'], function () {
-        Route::resource('ensino','material\EnsinoController');
-    });
+});
 
-
-
-
-
+Route::group(['middleware' => 'web','as'=>'material.','prefix'=>'material'], function () {
+    Route::resource('ensino','material\EnsinoController');
 });
