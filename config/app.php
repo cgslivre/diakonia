@@ -155,6 +155,7 @@ return [
         Silber\Bouncer\BouncerServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
+        \Eduardokum\LaravelMailAutoEmbed\Providers\LaravelMailAutoEmbedServiceProvider::class,
 
         /*
          * Application Service Providers...
