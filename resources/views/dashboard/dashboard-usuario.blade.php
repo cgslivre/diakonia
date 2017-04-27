@@ -5,10 +5,10 @@
             aqui</a>
     </div>
 @endif
-@if(isset($data["usuario.usuarios-sem-perfil"]))
 <div class="panel panel-default panel-dashboard">
   <div class="panel-heading">Usuários</div>
   <div class="panel-body">
+      @if(isset($data["usuario.usuarios-sem-perfil"]))
 
           <h4>Usuários sem perfis definidos</h4>
           <p>Os usuário abaixo ainda não possuem nenhum perfil definido, clique nos nomes para
@@ -18,9 +18,9 @@
                   <li><a href="{{ URL::route('usuario.permissoes.edit', $usuario->id) }}">{{$usuario->name}} - {{$usuario->email}}</a></li>
               @endforeach
           </ul>
-
+      @else
+          <div class="alert alert-success alert-important">
+              Todos usuários com pelo menos um perfil definido!</div>
+          @endif
   </div>
 </div>
-@else
-    <div class="alert">Todos usuários com pelo menos um perfil definido!</div>
-@endif
