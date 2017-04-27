@@ -4,5 +4,7 @@
 @stop
 
 @section('content')
-Dashboard
+    @if( $dashboards["user"])
+        @include('dashboard.dashboard-usuario')
+    @endif
 @endsection

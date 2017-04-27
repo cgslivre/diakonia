@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $data = [];
+        $dashboards = self::getDashboards(Auth::user(), $data);
+
+        //dd($data);
+        return view('home')
+            ->with('dashboards', $dashboards)
+            ->with('data', $data);
     }
 
     public function welcome(){
@@ -25,6 +32,32 @@ class HomeController extends Controller
         } else{
             return Redirect::route('home');
         }
+    }
+
+    protected function getDashboards(User $user, &$data){
+        $dashboards = [
+            "user" => false,
+            "evento" => false,
+            "material" => false,
+            "membro" => false,
+        ];
+        if( !isset($user->telefone) || trim($user->telefone) === '' ){
+            $dashboards["user"] = true;
+            $data["usuario.sem-telefone"] = true;
+        }
+
+        if( $user->isAn('role-membro-admin') ){
+            $dashboards["user"] = true;
+            $data["usuario.usuarios-sem-perfil"] = User::whereNotIn('id', function( $query ) {
+                $query->select('entity_id')
+                    ->from('assigned_roles')
+                    ->where('entity_type','=','App\User');
+                })->get();
+        }
+
+
+
+        return $dashboards;
     }
 
 }
