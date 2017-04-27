@@ -5,6 +5,8 @@ use Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\User;
+use App\Model\evento\Evento;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -41,6 +43,8 @@ class HomeController extends Controller
             "material" => false,
             "membro" => false,
         ];
+
+        // Dashboards de Usuário
         if( !isset($user->telefone) || trim($user->telefone) === '' ){
             $dashboards["user"] = true;
             $data["usuario.sem-telefone"] = true;
@@ -54,8 +58,15 @@ class HomeController extends Controller
                     ->where('entity_type','=','App\User');
                 })->get();
             if($usuarios->count() > 0 ) {
-                $data["usuario.usuarios-sem-perfil"] = $usuarios;                
+                $data["usuario.usuarios-sem-perfil"] = $usuarios;
             }
+        }
+
+        // Dashboards de Evento
+        if( $user->can('evento-view')){
+            $dashboards["evento"] = true;
+            $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())->take(5)->get();
+            $data["evento.proximos"] = $eventos;
         }
 
 
