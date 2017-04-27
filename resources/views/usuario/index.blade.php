@@ -11,13 +11,6 @@
         <input type="text" ng-model="criterioDeBusca" class="form-control"
             placeholder="Quem você está buscando..."/>
     </div>
-    @can('user-create')
-    <a href="{{ url('/usuario/create') }}" class="btn btn-success">
-        <i class="fa fa-user-plus"></i> Criar novo usuário
-    </a>
-    @endcan
-
-
 
     <hr/>
     <div ng-controller="usuariosController">
@@ -48,7 +41,7 @@
                     <i class="fa fa-sort-alpha-desc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && direcaoDaOrdenacao"></i>
                     <i class="fa fa-sort-alpha-asc" aria-hidden="true" ng-show="criterioDeOrdenacao=='email' && !direcaoDaOrdenacao"></i>
                 </a></th>
-                <th>Telefone</th>                
+                <th>Telefone</th>
                 @can('user-edit')
                 <th class="text-center col-md-1"><i class="fa fa-pencil-square-o"></i></th>
                 @endcan

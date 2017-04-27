@@ -44,7 +44,7 @@ class UsuarioController extends Controller
     }
 
     public function create(){
-        return view('usuario.create')->with('perfil',false);
+        abort(403);
     }
 
     public function edit( $id ){
@@ -58,15 +58,7 @@ class UsuarioController extends Controller
     }
 
     public function store( UsuarioCreateRequest $request){
-        if( Gate::denies('user-create')){
-            abort(403);
-        }
-        $user = User::create($request->all());
-        self::saveAvatar($request['avatar'], $user);
-
-        \Mail::to($user)->send(new UsuarioNovo($user));
-
-        return redirect('usuarios')->with('message', 'Usuário adicionado!');
+        abort(403);        
     }
 
     public function update($id, UsuarioUpdateRequest $request){
