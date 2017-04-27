@@ -47,12 +47,15 @@ class HomeController extends Controller
         }
 
         if( $user->isAn('role-membro-admin') ){
-            $dashboards["user"] = true;            
-            $data["usuario.usuarios-sem-perfil"] = User::whereNotIn('id', function( $query ) {
+            $dashboards["user"] = true;
+            $usuarios = User::whereNotIn('id', function( $query ) {
                 $query->select('entity_id')
                     ->from('assigned_roles')
                     ->where('entity_type','=','App\User');
                 })->get();
+            if($usuarios->count() > 0 ) {
+                $data["usuario.usuarios-sem-perfil"] = $usuarios;                
+            }
         }
 
 
