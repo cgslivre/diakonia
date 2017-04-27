@@ -29,9 +29,10 @@ class NovoUsuario extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.novo-usuario')
-            ->with([
-                'user' => $this->user
-            ]);
+        return $this->subject('Novo usuário registrado')
+            ->markdown('emails.novo-usuario')
+                ->with([
+                    'user' => $this->user
+                ]);
     }
 }
