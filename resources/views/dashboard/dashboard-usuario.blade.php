@@ -13,9 +13,11 @@
           <p>Os usuário abaixo ainda não possuem nenhum perfil definido, clique nos nomes para
           definir um perfil.</p>
           <ul>
-          @foreach ($data["usuario.usuarios-sem-perfil"] as $usuario)
-            <li><a href="{{ URL::route('usuario.permissoes.edit', $usuario->id) }}">{{$usuario->name}} - {{$usuario->email}}</a></li>
-          @endforeach
+              @forelse ($data["usuario.usuarios-sem-perfil"] as $usuario)
+                  <li><a href="{{ URL::route('usuario.permissoes.edit', $usuario->id) }}">{{$usuario->name}} - {{$usuario->email}}</a></li>
+              @empty
+                  <li>Todos usuário com pelo menos um perfil definido!</li>
+              @endforelse
           </ul>
 
       @endif
