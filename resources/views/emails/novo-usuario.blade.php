@@ -5,7 +5,6 @@ Usuário **{{$user->name}}** foi criado às {{$user->created_at->format('G\hi\m\
 
 * Usuário: **{{$user->name}}**
 * Email: **{{$user->email}}**
-* Telefone: **{{$user->telefone}}**
 
 @component('mail::button',['url'=>config('app.url') . '/usuario/' . $user->id . '/permissoes'])
 Acessar painel de permissões do usuário
