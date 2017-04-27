@@ -5,3 +5,4 @@
 .env
 Homestead.yaml
 Homestead.json
+/public/.htaccess
