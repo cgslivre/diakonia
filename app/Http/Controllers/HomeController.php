@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\User;
 use App\Model\evento\Evento;
+use App\Model\material\Ensino;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -70,6 +71,12 @@ class HomeController extends Controller
             $data["evento.proximos"] = $eventos;
         }
 
+        // Dashboards de Materias
+        if( $user->can('material-curriculo-view')){
+            $dashboards["material"] = true;
+            $ensinos = Ensino::orderBy('id','desc')->take(5)->get();
+            $data["material.ultimos-ensinos"] = $ensinos;
+        }
 
 
         return $dashboards;

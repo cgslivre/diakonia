@@ -12,4 +12,8 @@
         @include('dashboard.dashboard-evento')
     @endif
 
+    @if( $dashboards["material"])
+        @include('dashboard.dashboard-material')
+    @endif
+
 @endsection
