@@ -61,6 +61,8 @@ class HomeController extends Controller
             if($usuarios->count() > 0 ) {
                 $data["usuario.usuarios-sem-perfil"] = $usuarios;
             }
+        } else if($user->roles->count() == 0){
+            $data["usuario.sem-perfil"] = true;
         }
 
         // Dashboards de Evento

@@ -45,10 +45,6 @@ class User extends Authenticatable
         'usuario_roles'
     ];
 
-    public function setPasswordAttribute($value) {
-        $this->attributes['password'] = Hash::make($value);
-    }
-
     public function setTelefoneAttribute($value){
         $this->attributes['telefone'] = preg_replace("/[^0-9]/","",$value);
     }

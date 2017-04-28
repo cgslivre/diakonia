@@ -58,7 +58,7 @@ class UsuarioController extends Controller
     }
 
     public function store( UsuarioCreateRequest $request){
-        abort(403);        
+        abort(403);
     }
 
     public function update($id, UsuarioUpdateRequest $request){
@@ -82,6 +82,7 @@ class UsuarioController extends Controller
                 return Redirect::back()->withErrors($val);
             } else{
                 $data = Input::all();
+                $data["password"] = bcrypt($input["password"]);
             }
         } else{
             $data = Input::except('password');

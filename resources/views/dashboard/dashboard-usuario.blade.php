@@ -5,6 +5,13 @@
             aqui</a>
     </div>
 @endif
+@if(isset($data["usuario.sem-perfil"]))
+    <div class="alert alert-warning alert-important">
+        Você não tem um número de telefone cadastrado. Para atualizar seu perfil clique
+        <a href="{{ URL::route('usuario.perfil') }}">
+            aqui</a>
+    </div>
+@endif
 <div class="panel panel-default panel-dashboard dashboard-usuario">
   <div class="panel-heading"><i class="fa fa-users" aria-hidden="true"></i> Usuários</div>
   <div class="panel-body">
