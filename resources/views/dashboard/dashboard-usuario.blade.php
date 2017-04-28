@@ -5,8 +5,8 @@
             aqui</a>
     </div>
 @endif
-<div class="panel panel-default panel-dashboard">
-  <div class="panel-heading">Usuários</div>
+<div class="panel panel-default panel-dashboard dashboard-usuario">
+  <div class="panel-heading"><i class="fa fa-users" aria-hidden="true"></i> Usuários</div>
   <div class="panel-body">
       @if(isset($data["usuario.usuarios-sem-perfil"]))
 
@@ -15,7 +15,8 @@
           definir um perfil.</p>
           <ul>
               @foreach ($data["usuario.usuarios-sem-perfil"] as $usuario)
-                  <li><a href="{{ URL::route('usuario.permissoes.edit', $usuario->id) }}">{{$usuario->name}} - {{$usuario->email}}</a></li>
+                  <li><i class="fa fa-user" aria-hidden="true"></i>
+                      <a href="{{ URL::route('usuario.permissoes.edit', $usuario->id) }}">{{$usuario->name}} - {{$usuario->email}}</a></li>
               @endforeach
           </ul>
       @else

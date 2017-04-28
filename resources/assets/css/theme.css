@@ -307,3 +307,24 @@ table.membros > tbody{font-size: 13px;}
         {background-color: #888888;color: #ffffff;border: 1px solid #888888;}
     .show-evento p > span.tipo-evento > span, .show-evento p > span.publico-alvo > span
         {background-color: #f9f9f9;color: #000000;}
+
+/*++++ Dashboards ++++*/
+.panel-dashboard{
+    background-color: #ffffff;
+    border-radius: 0;
+    border: none;}
+    .panel-dashboard > .panel-heading{
+        color: #ffffff;
+        font-weight: bold;
+    }
+.dashboard-usuario > .panel-heading{background-color: #337ab7;}
+.dashboard-evento > .panel-heading{background-color: #247929;}
+.panel-dashboard > .panel-body ul{list-style-type: none;}
+.panel-dashboard > .panel-body ul > li {margin-bottom: 10px;}
+span.text-border{
+    border-radius: 2px;
+    background-color: #f9f9f9;
+    padding: 3px;
+    border: 1px dashed #bbb;
+    margin-right: 7px;}
+    span.text-border > span{font-weight: bold;}
