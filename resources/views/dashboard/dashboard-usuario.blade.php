@@ -7,11 +7,10 @@
 @endif
 @if(isset($data["usuario.sem-perfil"]))
     <div class="alert alert-warning alert-important">
-        Você não tem um número de telefone cadastrado. Para atualizar seu perfil clique
-        <a href="{{ URL::route('usuario.perfil') }}">
-            aqui</a>
+        Você não tem nenhum perfil definido pelo administrador do sistema.
     </div>
 @endif
+@can('user-permissions')
 <div class="panel panel-default panel-dashboard dashboard-usuario">
   <div class="panel-heading"><i class="fa fa-users" aria-hidden="true"></i> Usuários</div>
   <div class="panel-body">
@@ -29,6 +28,7 @@
       @else
           <div class="alert alert-success alert-important">
               Todos usuários com pelo menos um perfil definido!</div>
-          @endif
+      @endif
   </div>
 </div>
+@endcan
