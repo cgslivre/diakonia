@@ -3,10 +3,13 @@
 namespace App\Model\material;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
 
-class Ensino extends Model{
+class Ensino extends Model implements AuditableContract{
 
+    use Auditable;
     const STORAGE_PATH = 'curriculo-ensino';
 
     protected $fillable = [ 'titulo','slug','categoria_ensino_id'];
