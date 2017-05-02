@@ -5,10 +5,12 @@ namespace App\Model\evento;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class Evento extends Model
+class Evento extends Model implements AuditableContract
 {
-    use SoftDeletes;
+    use SoftDeletes, Auditable;
     protected $table = 'eventos';
     protected $dates = ['deleted_at','created_at','updated_at','data_hora_inicio','data_hora_fim'];
     protected $with = ['createdBy','updatedBy'];

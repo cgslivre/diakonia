@@ -5,12 +5,15 @@ namespace App\Model\membro;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
 
 
-class Membro extends Model
+class Membro extends Model implements AuditableContract
 {
     use SoftDeletes;
+    use Auditable;
     const AVATAR_PATH = 'img/membro';
     const TEMP_FILE = 'avatar-temp-file.jpg';
     protected $softDelete = true;
@@ -20,6 +23,10 @@ class Membro extends Model
     ];
 
     protected $dates = ['created_at', 'updated_at','data_nascimento'];
+
+    protected $auditExclude = [
+        'avatar_path',
+    ];
 
     /**
      * The attributes that are mass assignable.
