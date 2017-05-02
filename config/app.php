@@ -156,7 +156,7 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
         \Eduardokum\LaravelMailAutoEmbed\Providers\LaravelMailAutoEmbedServiceProvider::class,
-        //OwenIt\Auditing\AuditingServiceProvider::class,
+        OwenIt\Auditing\AuditingServiceProvider::class,
 
         /*
          * Application Service Providers...
