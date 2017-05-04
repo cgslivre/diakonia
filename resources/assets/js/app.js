@@ -130,7 +130,7 @@ comum.directive("dateFormat", function(){
 
                 return ngModelValue;
             }
-            
+
 
             ctrl.$parsers.push(customValidator);
         }

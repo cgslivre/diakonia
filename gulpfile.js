@@ -94,14 +94,14 @@ gulp.task('js', function(done){
 		,paths.bower + '/toastr/toastr.min.js'
 		,paths.bower + '/moment/min/moment.min.js'
 		,paths.bower + '/moment/locale/pt-br.js'
-		,paths.bower + '/datetimepicker/jquery.datetimepicker.min.js'
+		//,paths.bower + '/php-date-formatter/js/php-date-formatter.js'
+		,paths.bower + '/datetimepicker/build/jquery.datetimepicker.full.min.js'
 		,paths.bower + '/select2/dist/js/select2.full.min.js'
 		,paths.bower + '/select2/dist/js/i18n/pt-BR.js'
 		,paths.bower + '/image-picker/image-picker/image-picker.min.js'
 		,paths.bower + '/slug/slug.js'
 		// Definidos
 		,paths.default + '/js/app.js'
-		//,paths.bower + '/php-date-formatter/js/php-date-formatter.js'
 	];
 
 	gulp.src(filesjs)
