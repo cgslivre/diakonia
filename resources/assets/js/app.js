@@ -1,20 +1,3 @@
-/*$(function() {
-  $(".app-container").toggleClass("expanded");
-  $(".navbar-expand-toggle").click(function() {
-    $(".app-container").toggleClass("expanded");
-    return $(".navbar-expand-toggle").toggleClass("fa-rotate-90");
-  });
-  return $(".navbar-right-expand-toggle").click(function() {
-    $(".navbar-right").toggleClass("expanded");
-    return $(".navbar-right-expand-toggle").toggleClass("fa-rotate-90");
-  });
-});
-
-$(function() {
-  return $(".side-menu .nav .dropdown").on('show.bs.collapse', function() {
-    return $(".side-menu .nav .dropdown .collapse").collapse('hide');
-  });
-});*/
 
 $('.alert, hr.mensagem').not('.alert-important').delay(3000).slideUp(300);
 
@@ -147,6 +130,7 @@ comum.directive("dateFormat", function(){
 
                 return ngModelValue;
             }
+            
 
             ctrl.$parsers.push(customValidator);
         }

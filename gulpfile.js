@@ -77,36 +77,31 @@ gulp.task('css', function(done){
 gulp.task('js', function(done){
 	var filesjs = [
 		// Definidos
+		// AngularJS
 		paths.bower + '/angular/angular.min.js'
 		,paths.bower + '/ng-tags-input/ng-tags-input.min.js'
 		,paths.bower + '/angular-resource/angular-resource.min.js'
-		// Testando
-		//,paths.bower + '/angular-moment-picker/dist/angular-moment-picker.min.js'
-		//,paths.bower + '/angular-bootstrap/ui-bootstrap-tpls.js'
-		//,paths.bower + '/angular-bootstrap/ui-bootstrap.js'
-		//,paths.default + '/js/angular/ui-bootstrap-tpls.js'
 		,paths.bower + '/angular-i18n/angular-locale_pt-br.js'
-		// A definir
-		,paths.bower + '/jquery/dist/jquery.min.js'
-		,paths.default + '/js/bootstrap.js'
 		,paths.bower + '/angular-sanitize/angular-sanitize.min.js'
 		,paths.bower + '/angular-messages/angular-messages.min.js'
-		,paths.bower + '/toastr/toastr.min.js'
-		//,paths.bower + '/angular-locale-pt-br/angular-locale_pt-br.js'
-		,paths.bower + '/ng-remote-validate/release/ngRemoteValidate.js'
 		,paths.bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js'
-		//,paths.default + '/js/angular/modules/ui-bootstrap-datepicker.js'
 		,paths.bower + '/angular-ui-mask/dist/mask.min.js'
 		,paths.bower + '/angular-ui-select/dist/select.min.js'
-		,paths.bower + '/moment/min/moment-with-locales.min.js'
-		,paths.bower + '/php-date-formatter/js/php-date-formatter.js'
-		,paths.bower + '/datetimepicker/jquery.datetimepicker.js'
+		,paths.bower + '/ng-remote-validate/release/ngRemoteValidate.js'
+		// JQuery
+		,paths.bower + '/jquery/dist/jquery.min.js'
+		,paths.default + '/js/bootstrap.js'
+		,paths.bower + '/toastr/toastr.min.js'
+		,paths.bower + '/moment/min/moment.min.js'
+		,paths.bower + '/moment/locale/pt-br.js'
+		,paths.bower + '/datetimepicker/jquery.datetimepicker.min.js'
 		,paths.bower + '/select2/dist/js/select2.full.min.js'
 		,paths.bower + '/select2/dist/js/i18n/pt-BR.js'
 		,paths.bower + '/image-picker/image-picker/image-picker.min.js'
 		,paths.bower + '/slug/slug.js'
 		// Definidos
 		,paths.default + '/js/app.js'
+		//,paths.bower + '/php-date-formatter/js/php-date-formatter.js'
 	];
 
 	gulp.src(filesjs)
@@ -157,6 +152,6 @@ gulp.task('watch', gulp.series('ambiente', function(){
 
 
 gulp.task('default',
-	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
+	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular')
 
 );
