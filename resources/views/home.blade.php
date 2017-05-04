@@ -1,6 +1,6 @@
 @extends( 'master')
 @section('nivel1')
-    <li><a href="/membros">Início</a></li>
+    <li><a href="/home">Início</a></li>
 @stop
 
 @section('content')
