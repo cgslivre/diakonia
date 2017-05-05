@@ -24,6 +24,7 @@ class RegioesSeeder extends Seeder
         ['nome'=>'Gama', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
         ['nome'=>'Granja do Torto', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
         ['nome'=>'Guará', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
+        ['nome'=>'Goiânia', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
         ['nome'=>'Itapoã', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
         ['nome'=>'Jardim Botânico', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
         ['nome'=>'Jardim Mangueiral', 'created_at' => \Carbon\Carbon::now(),'updated_at' => \Carbon\Carbon::now()],
