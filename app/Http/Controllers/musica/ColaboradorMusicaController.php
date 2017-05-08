@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\ServicoMusica;
+use App\User;
 
 class ColaboradorMusicaController extends Controller
 {
@@ -28,7 +29,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function create()
     {
-        //
+        $servicos = ServicoMusica::all();
+        $usuarios = User::all();
+        return view('musica.colaboradores.create' , compact( 'servicos','usuarios'));
     }
 
     /**

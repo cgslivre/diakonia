@@ -1,25 +1,25 @@
-<div class="form-group {{ $errors->has('lideranca') ? ' has-error' : '' }}">
+<div class="form-group {{ $errors->has('lider') ? ' has-error' : '' }}">
 
   <div class="col-sm-4 col-sm-offset-2">
       {{-- Form::checkbox('lider', 'isLider', false) --}}
       <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
-            @if(empty($staff))
-                <input type="checkbox" id="lideranca" name="lideranca">
-            @elseif($staff->lideranca)
-                {{ Form::checkbox('lideranca', 'on',null,['id'=>'lideranca']) }}
+            @if(empty($colaborador))
+                <input type="checkbox" id="lider" name="lider">
+            @elseif($colaborador->lider)
+                {{ Form::checkbox('lider', 'on',null,['id'=>'lider']) }}
             @else
-                {{ Form::checkbox('lideranca', null,null,['id'=>'lideranca']) }}
+                {{ Form::checkbox('lider', null,null,['id'=>'lider']) }}
             @endif
 
 
-          <!--<input type="checkbox" id="lideranca" name="lideranca">-->
-          <label for="lideranca">
+          <!--<input type="checkbox" id="lider" name="lider">-->
+          <label for="lider">
               Líder de louvor?
           </label>
       </div>
-    @if ($errors->has('lideranca'))
+    @if ($errors->has('lider'))
         <span class="help-block">
-            <strong>{{ $errors->first('lideranca') }}</strong>
+            <strong>{{ $errors->first('lider') }}</strong>
         </span>
     @endif
     </div>
@@ -31,8 +31,8 @@
       <select multiple="multiple" class="image-picker show-html show-labels" name="servico[]" id="servico">
           @foreach($servicos as $servico)
               <option data-img-src="{{url($servico->iconeSmall)}}" value="{{$servico->id}}"
-                  @if(!empty($staff))
-                      @if(in_array($servico->id,$staff->servicosArray))
+                  @if(!empty($colaborador))
+                      @if(in_array($servico->id,$colaborador->servicosArray))
                             selected
                       @endif
                   @endif
@@ -54,11 +54,11 @@
           <button class="btn btn-info">
               <i class="fa fa-check" aria-hidden="true"></i> {{  $submitButton }}
           </button>
-          @if(!empty($staff))
-              <a href="{{ URL::route('musica.staff.remover', $staff->id) }}"
+          @if(!empty($colaborador))
+              {{-- <a href="{{ URL::route('musica.colaborador.remover', $colaborador->id) }}"
                  class="btn btn-danger">
                  <i class="fa fa-trash" aria-hidden="true"></i> Remover
-              </a>
+              </a> --}}
 
           @endif
       </div>

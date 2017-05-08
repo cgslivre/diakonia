@@ -1,14 +1,18 @@
 @extends( 'musica.template-musica')
 
-@section('nivel2')<li class="active"><a href="/musica/staff">Equipe</a></li>@stop
+@section('nivel2')
+    <li class="active"><a href="{{route('musica.colaborador.index')}}">
+    Equipe de Música</a></li>
+@stop
+
 @section('nivel3')<li class="active">Novo membro da equipe de música</li>@stop
 
 
 @section('content')
 
     <div class="container-fluid">
-        {{ Form::open(array('url' => 'musica/staff', 'class'=> 'form-horizontal',
-            'name'=>'musicaStaffForm')) }}
+        {{ Form::open(array('route' => 'musica.colaborador.store', 'class'=> 'form-horizontal',
+            'name'=>'colaboradorMusicaForm')) }}
 
             <div class="form-group {{ $errors->has('usuario') ? ' has-error' : '' }}">
                 {{ Form::label('usuario','Membro da equipe:',['class'=>'col-sm-2 control-label'])}}
@@ -16,11 +20,7 @@
                   <select class="select-usuario-staff" name="usuario">
                       <option value=""></option>
                       @foreach($usuarios as $usuario)
-                          @if($usuariosCadastrados->contains($usuario->id))
-                              <option disabled="disabled" value="{{ $usuario->id}}">{{ $usuario->name}} (Usuário já cadastrado)</option>
-                          @else
-                              <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
-                          @endif
+                        <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
                       @endforeach
                   </select>
                 @if ($errors->has('usuario'))
@@ -31,7 +31,7 @@
                 </div>
             </div>
 
-            @include('musica.staff.form',[
+            @include('musica.colaboradores.form',[
                 'submitButton'=>'Adicionar membro na equipe de música'
                 ])
 
