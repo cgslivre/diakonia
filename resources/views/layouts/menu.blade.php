@@ -18,6 +18,8 @@
                 @include('layouts.menus.eventos')
             @endcan
 
+            @include('layouts.menus.musica')
+
             @can('material-curriculo-view')
                 @include('layouts.menus.material')
             @endcan
