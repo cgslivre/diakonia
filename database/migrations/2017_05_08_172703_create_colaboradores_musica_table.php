@@ -16,6 +16,7 @@ class CreateColaboradoresMusicaTable extends Migration
         Schema::create('colaboradores_musica', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->softDeletes();
             $table->boolean('lider')->default(false);;
 
             $table->integer('user_id')->unsigned()->index();

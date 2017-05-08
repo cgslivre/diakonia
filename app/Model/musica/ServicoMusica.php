@@ -4,18 +4,18 @@ namespace App\Model\musica;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MusicaServico extends Model
+class ServicoMusica extends Model
 {
-    protected $table = 'musica_servicos';
+    protected $table = 'servicos_musica';
     public $timestamps  = false;
 
     protected $appends = [
         'icone', 'icone_small','icone_big'
     ];
 
-    public function staff(){
-        return $this->belongsToMany('App\Model\musica\MusicaStaff',
-            'musica_staff_servico','musica_servico_id','musica_staff_id');
+    public function colaboradores(){
+        return $this->belongsToMany('App\Model\musica\ColaboradorMusica',
+            'colaborador_servicos_musica','servico_musica_id','colaborador_musica_id');
     }
 
     public function getIconeAttribute(){

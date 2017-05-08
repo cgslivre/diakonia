@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(SituacaoRetiroSeeder::class);
         $this->call(LocalSeed::class);
-        $this->call(ServicosMusica::class);
+        $this->call(ServicosMusicaSeeder::class);
         $this->call(GrupoInscricaoSeeder::class);
         $this->call(BouncerSeederPermissoes::class);
         $this->call(BouncerSeederUpdateTitle::class);
