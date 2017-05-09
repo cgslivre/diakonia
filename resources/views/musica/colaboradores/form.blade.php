@@ -55,11 +55,10 @@
               <i class="fa fa-check" aria-hidden="true"></i> {{  $submitButton }}
           </button>
           @if(!empty($colaborador))
-              {{-- <a href="{{ URL::route('musica.colaborador.remover', $colaborador->id) }}"
-                 class="btn btn-danger">
-                 <i class="fa fa-trash" aria-hidden="true"></i> Remover
-              </a> --}}
-
+              <button class="btn btn-danger" type="button"
+                      data-toggle="modal" data-target="#modalRemoverColaboradorMusica">
+                  <i class="fa fa-trash-o" aria-hidden="true"></i> Remover Colaborador
+              </button>
           @endif
       </div>
   </div>

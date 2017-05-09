@@ -32,7 +32,15 @@
             {{ Form::close() }}
         </div>
 
-
+        @component('layouts.geral.modal-exclusao')
+            @slot('modalId')modalRemoverColaboradorMusica @endslot
+            @slot('modalTitle')Remover Colaborador (Música) @endslot
+            @slot('deleteRoute')
+                musica.colaborador.destroy
+            @endslot
+            @slot('deleteId'){{$colaborador->id}} @endslot
+            Remover o colaborador {{$colaborador->user->name}}?
+        @endcomponent
 
 
 

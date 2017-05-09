@@ -89,7 +89,7 @@ class ColaboradorMusicaController extends Controller
      */
     public function update(ColaboradorMusicaRequest $request, $id)
     {
-        $colaborador = colaboradorMusica::findOrFail($id);
+        $colaborador = ColaboradorMusica::findOrFail($id);
         $input = $request->all();
         $colaborador->lider = $input['lider'];
         $colaborador->save();
@@ -105,8 +105,30 @@ class ColaboradorMusicaController extends Controller
      * @param  \App\Model\model\ColaboradorMusica  $colaboradorMusica
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ColaboradorMusica $colaboradorMusica)
-    {
-        //
+    public function destroy($id){
+        $colaborador = ColaboradorMusica::findOrFail( $id );
+        $colaborador->delete();
+        return Redirect::route('musica.colaborador.index')
+            ->with('message', 'Usuário removido da equipe de música!');
     }
+
+    // public function staffByServico($servico_id){
+    //
+    //     $staff = DB::table('musica_staff_servico')
+    //         ->join('musica_staff', 'musica_staff_servico.musica_staff_id','=','musica_staff.id')
+    //         ->join('users','musica_staff.user_id','=','users.id')
+    //         ->select(['musica_staff_servico.*',
+    //             'musica_staff.*',
+    //             'users.name',
+    //             'users.email',
+    //             'users.avatar_path',
+    //             'users.telefone',
+    //             'users.regiao']);
+    //     $id = intval($servico_id);
+    //     if( $id > 0){
+    //         $staff = $staff->where('musica_servico_id','=',$id);
+    //     }
+    //     return $staff->orderBy('users.name', 'asc')->get();
+    //
+    // }
 }
