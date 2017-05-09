@@ -30,7 +30,7 @@ class ColaboradorMusicaRequest extends Request
             $rules['user_id'] = 'required|unique:colaboradores_musica';
         } else{
             // Atualização
-            $rules['user_id'] = 'required|unique:colaboradores_musica,user_id,'.$this->id.',id';
+            $rules['user_id'] = 'unique:colaboradores_musica,user_id,'.$this->id.',id';
         }
         $rules['servico'] = 'array|required';
 

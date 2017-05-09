@@ -13,8 +13,8 @@
             {{ Form::model($colaborador, ['method' => 'PATCH',
                 'route' => ['musica.colaborador.update',$colaborador->id],
                 'class'=> 'form-horizontal',
-                'name'=>'musicaStaffForm']) }}
-
+                'name'=>'colaboradorMusicaForm']) }}
+                {{ Form::hidden('id', $colaborador->id) }}
                 <div class="form-group">
                     <div class="col-sm-2 text-right">
                     <img src="{{ URL($colaborador->user->avatarPathSmall()) }}" alt="" />

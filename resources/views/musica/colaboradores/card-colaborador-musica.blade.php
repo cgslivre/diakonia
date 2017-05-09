@@ -1,4 +1,4 @@
-<div class="card-staff musica">
+<div class="card-colaborador musica">
     <div class="avatar">
         <img src="{{ URL($colaborador->user->avatarPathSmall()) }}" alt="" />
     </div>

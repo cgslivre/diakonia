@@ -87,9 +87,16 @@ class ColaboradorMusicaController extends Controller
      * @param  \App\Model\model\ColaboradorMusica  $colaboradorMusica
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ColaboradorMusica $colaboradorMusica)
+    public function update(ColaboradorMusicaRequest $request, $id)
     {
-        //
+        $colaborador = colaboradorMusica::findOrFail($id);
+        $input = $request->all();
+        $colaborador->lider = $input['lider'];
+        $colaborador->save();
+        $colaborador->servicos()->sync($input['servico']);
+
+        return Redirect::route('musica.colaborador.index')
+            ->with('message', 'Membro da equipe de música atualizado!');
     }
 
     /**
