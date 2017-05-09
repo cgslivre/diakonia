@@ -121,16 +121,7 @@ gulp.task('angular', function(done){
 	]).pipe(size({showFiles: true, title: "AngularJS (Usuários):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-users-module.min.js'))
-	.pipe(gulp.dest('public/js/users'));
-
-	// Música
-	gulp.src([
-		paths.default + '/js/musica/MusicaEventoModule.js',
-		paths.default + '/js/musica/MusicaEscalaModule.js'
-	]).pipe(size({showFiles: true, title: "AngularJS (Música Evento):"}))
-	.pipe(config.production ? uglify(): util.noop())
-	.pipe(concat('app-musica-module.min.js'))
-	.pipe(gulp.dest('public/js/musica'));
+	.pipe(gulp.dest('public/js/users'));	
 
 	gulp.src([
 		paths.default + '/js/membro/MembroModule.js'

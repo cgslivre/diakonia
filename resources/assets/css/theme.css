@@ -189,19 +189,20 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -moz-border-radius: 7px 7px 7px 7px;
     -webkit-border-radius: 7px 7px 7px 7px;
     float:left;}
-    .card-colaborador .avatar, .escala-staff .avatar{
+    .card-colaborador .avatar, .escala-musica .avatar{
+    .card-colaborador .avatar, .escala-musica .avatar{
         width: 70px;
         float: left;}
-        .card-colaborador .avatar img, .escala-staff .avatar img{
+        .card-colaborador .avatar img, .escala-musica .avatar img{
             border-radius: 50px;
             -moz-border-radius: 50px;
             -webkit-border-radius: 50px;}
-    .card-colaborador .dados, .escala-staff .dados{margin-left: 76px;}
-        .card-colaborador .dados p, .escala-staff .dados p{margin: 0;}
-    .card-colaborador .dados .nome,.escala-staff .dados .nome{font-weight: bold;}
+    .card-colaborador .dados, .escala-musica .dados{margin-left: 76px;}
+        .card-colaborador .dados p, .escala-musica .dados p{margin: 0;}
+    .card-colaborador .dados .nome,.escala-musica .dados .nome{font-weight: bold;}
     .card-colaborador .dados .lider{font-weight: bold;color: #E63946; }
 
-.escala-staff{
+.escala-musica{
     margin: 4px;
     display: inline-block;
     padding: 4px 14px 4px 3px;
@@ -212,15 +213,10 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -webkit-border-radius: 7px;
     background: url("../img/FFFFFF-0.5.png") repeat;
     float: left;}
-    .escala-staff:hover{cursor: pointer;}
+    .escala-musica:hover{cursor: pointer;}
 
 .option-selected{ border: 2px solid #1288c3; background: url("../img/yellow-0.5.png") repeat; }
 
-.add-staff{
-    border: 1px solid #a7bbb1;
-    padding: 10px;
-    float:left;
-}
 
 .add-servico{
     border-radius: 7px;
