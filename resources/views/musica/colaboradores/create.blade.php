@@ -14,18 +14,18 @@
         {{ Form::open(array('route' => 'musica.colaborador.store', 'class'=> 'form-horizontal',
             'name'=>'colaboradorMusicaForm')) }}
 
-            <div class="form-group {{ $errors->has('usuario') ? ' has-error' : '' }}">
-                {{ Form::label('usuario','Membro da equipe:',['class'=>'col-sm-2 control-label'])}}
+            <div class="form-group {{ $errors->has('user_id') ? ' has-error' : '' }}">
+                {{ Form::label('user_id','Membro da equipe:',['class'=>'col-sm-2 control-label'])}}
               <div class="col-sm-4">
-                  <select class="select-usuario-staff" name="usuario">
+                  <select class="select-usuario-staff" name="user_id">
                       <option value=""></option>
                       @foreach($usuarios as $usuario)
                         <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
                       @endforeach
                   </select>
-                @if ($errors->has('usuario'))
+                @if ($errors->has('user_id'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('usuario') }}</strong>
+                        <strong>{{ $errors->first('user_id') }}</strong>
                     </span>
                 @endif
                 </div>

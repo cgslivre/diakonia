@@ -12,7 +12,7 @@
                     alt="{{ $servico->descricao }}" /> {{ $servico->descricao }}</h4>
             </div>
             <div class="panel-body">
-                @forelse( $servico->colaboradores as $musico )
+                @forelse( $servico->colaboradores as $colaborador )
                     @include('musica.colaboradores.card-colaborador-musica',
                         ['colaborador'=>$colaborador])
                 @empty
@@ -22,6 +22,11 @@
         </div>
     @endforeach
 
+    <div class="fixed-action-btn">
+        <a href="{{ route('musica.colaborador.create') }}" title="Adicionar colaborador"
+        class="btn-floating btn-large btn-primary">
+        <i class="fa fa-user-plus fa-2x"></i>
+    </a>
 @endsection
 
 @section('scripts')

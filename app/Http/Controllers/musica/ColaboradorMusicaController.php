@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\musica;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Http\Controllers\Controller;
 use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\ServicoMusica;
+use App\Http\Requests\musica\ColaboradorMusicaRequest;
 use App\User;
 
 class ColaboradorMusicaController extends Controller
@@ -40,9 +42,18 @@ class ColaboradorMusicaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ColaboradorMusicaRequest $request)
     {
-        //
+        $input = $request->all();
+        $colaborador = new ColaboradorMusica;
+        $colaborador->user_id = $input['user_id'];
+        $colaborador->lider = $input['lider'];
+        $colaborador->save();
+
+        $colaborador->servicos()->attach($input['servico']);
+
+        return Redirect::route('musica.colaborador.index')
+            ->with('message', 'Membro da equipe de música adicionado!');
     }
 
     /**
