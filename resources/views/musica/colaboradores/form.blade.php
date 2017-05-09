@@ -32,7 +32,7 @@
           @foreach($servicos as $servico)
               <option data-img-src="{{url($servico->iconeSmall)}}" value="{{$servico->id}}"
                   @if(!empty($colaborador))
-                      @if(in_array($servico->id,$colaborador->servicosArray))
+                      @if(in_array($servico->id,$colaborador->servicos->pluck('id')->toArray()))
                             selected
                       @endif
                   @endif
@@ -51,7 +51,7 @@
 <div class="form-group">
   <div class="col-sm-offset-2 col-sm-10">
       <div class="btn-group">
-          <button class="btn btn-info">
+          <button class="btn btn-primary">
               <i class="fa fa-check" aria-hidden="true"></i> {{  $submitButton }}
           </button>
           @if(!empty($colaborador))

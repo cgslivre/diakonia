@@ -17,7 +17,7 @@
             <div class="form-group {{ $errors->has('user_id') ? ' has-error' : '' }}">
                 {{ Form::label('user_id','Membro da equipe:',['class'=>'col-sm-2 control-label'])}}
               <div class="col-sm-4">
-                  <select class="select-usuario-staff" name="user_id">
+                  <select class="select-usuario-colaborador" name="user_id">
                       <option value=""></option>
                       @foreach($usuarios as $usuario)
                         <option value="{{ $usuario->id}}">{{ $usuario->name}}</option>
@@ -49,7 +49,7 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".select-usuario-staff").select2({
+            $(".select-usuario-colaborador").select2({
                 placeholder: 'Escolha um dos usuários cadastrados',
                 allowClear: true,
                 width: '100%'

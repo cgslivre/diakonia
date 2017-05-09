@@ -73,9 +73,11 @@ class ColaboradorMusicaController extends Controller
      * @param  \App\Model\model\ColaboradorMusica  $colaboradorMusica
      * @return \Illuminate\Http\Response
      */
-    public function edit(ColaboradorMusica $colaboradorMusica)
-    {
-        //
+    public function edit($id){
+
+        $colaborador = colaboradorMusica::findOrFail($id);
+        $servicos = ServicoMusica::all();
+        return view('musica.colaboradores.edit', compact('colaborador','servicos'));
     }
 
     /**
