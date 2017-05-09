@@ -5,6 +5,14 @@
 @stop
 
 @section('content')
+    <div class="legenda">
+        Legenda: 
+        <span class="sem-escala">
+            <i class="fa fa-circle" aria-hidden="true"></i> Sem Escala
+        </span>
+    </div>
+
+
     <h2>Eventos nos próximos 30 dias</h2>
     @forelse ($eventos30Dias as $evento)
         @include('musica.escala.card-evento',['evento'=>$evento])

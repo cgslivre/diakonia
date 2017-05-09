@@ -7,4 +7,8 @@ Route::group(['middleware' => 'web', 'as'=>'musica.', 'prefix'=>'musica'], funct
     Route::get('eventos','musica\EscalaMusicaController@eventos')
         ->name('eventos');
 
+    //Route::resource('escala','musica\EscalaMusicaController');
+    Route::get('escala/{evento}/create','musica\EscalaMusicaController@create')
+        ->name('escala.create');
+
 });

@@ -17,6 +17,7 @@ class Evento extends Model implements AuditableContract
     protected $fillable = [ 'titulo', 'data_hora_inicio', 'data_hora_fim',
         'local_id', 'publico_alvo_id', 'tipo_evento_id', 'descricao' , 'programacao',
         'created_by', 'updated_by'];
+    protected $appends = ['status_escala_musica'];
 
     public function createdBy(){
         return $this->hasOne('App\User', 'id', 'created_by');
@@ -38,6 +39,12 @@ class Evento extends Model implements AuditableContract
         return $this->hasOne('App\Model\evento\TipoEvento', 'id', 'tipo_evento_id');
     }
 
+    public function escalaMusica(){
+        return $this->hasOne('App\Model\musica\EscalaMusica', 'id', 'escala_musica_id');
+    }
+
+
+
     /**
      * Escopo para limitar pesquisa apenas aos eventos dos próximos 30 dias
      * @param  Consulta
@@ -56,6 +63,14 @@ class Evento extends Model implements AuditableContract
      */
     public function scopeApos30Dias($query){
         return $query->where('data_hora_inicio', '>=', Carbon::now()->addMonth());
+    }
+
+    public function getStatusEscalaMusicaAttribute(){
+        if( $this->escalaMusica == NULL ){
+            return "sem-escala";
+        } else{
+            return "escala-ok";
+        }
     }
 
 }

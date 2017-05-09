@@ -241,11 +241,11 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     float: left;
 }
 
-.sem-escala{
-    border: 1px solid #E63946;
+div.sem-escala{
+    border: 2px solid #E63946;
     color: #E63946;
-    background-color: #eed3d5;
 }
+span.sem-escala{color: #E63946;}
 
 .descricao-servico{font-weight: bold;}
 
