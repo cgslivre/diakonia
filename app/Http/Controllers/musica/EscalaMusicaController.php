@@ -33,9 +33,11 @@ class EscalaMusicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($evento_id)
     {
-        //
+        $evento = Evento::findOrFail($evento_id);
+        return view('musica.escala.create')
+            ->with('evento', $evento);
     }
 
     /**
