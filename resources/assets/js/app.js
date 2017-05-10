@@ -1,5 +1,9 @@
 
 $('.alert, hr.mensagem').not('.alert-important').delay(3000).slideUp(300);
+$(".telefone-mask").text(function(i, text) {
+        text = text.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        return text;
+    });
 
 function formatPhone( input ){
     if( input == null || input.length == 0 ){

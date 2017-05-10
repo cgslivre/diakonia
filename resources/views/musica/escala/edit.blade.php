@@ -15,7 +15,7 @@
         <div class="row add-servico">
             <div class="linha-servico">
 
-                <div class="col-md-1 text-center no-margin">
+                <div class="col-md-2 text-center no-margin">
                     <img alt="Líder" src="{{URL('img/musica/lider.svg')}}" class="lider-icon"/>
                     <p class="text-center descricao-servico no-margin">
                         Líder
@@ -40,7 +40,7 @@
         @foreach ($servicos as $servico)
             <div class="row add-servico">
                 <div class="linha-servico">
-                    <div class="col-md-1 text-center no-margin">
+                    <div class="col-md-2 text-center no-margin">
                         <img alt="{{ $servico->descricao }}"
                         src="{{URL($servico->iconeSmall)}}"/>
                         <p class="text-center descricao-servico no-margin">
@@ -49,12 +49,16 @@
                     </div>
                     <div class="col-md-8 no-margin">
                         @if( count($servico->colaboradores) > 0 )
+                            @foreach ($servico->colaboradores as $colaborador)
+                                @include('musica.escala.card-colaborador-musica',
+                                    ['colaborador'=>$colaborador])
+                            @endforeach
                             <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
                                 title="Adicionar serviço" class="btn-floating btn-large btn-primary">
                             <i class="fa fa-user-plus fa-2x"></i>
                         </a>
                         @else
-                            Nenhum colaborador para este serviço.
+                            <p style="line-height: 128px;">Nenhum colaborador para este serviço.</p>
                         @endif
                     </div>
                 </div>
