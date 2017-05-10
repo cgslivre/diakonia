@@ -9,10 +9,11 @@
                 @forelse ($lideres as $lider)
                     {{ Form::open(['route' => ['musica.escala.lider.update', $evento->id], 'method' => 'post']) }}
                     {{ Form::hidden('lider_id', $lider->id) }}
+                    @isset($escala->id)
+                        {{ Form::hidden('escala_id', $escala->id) }}
+                    @endisset
                     <li>
-                        @isset($escala)
-                            {{ Form::hidden('escala_id', $escala->id) }}
-                        @endisset
+                        {{-- {{$escala}} --}}
                         {{$lider->user->name}}
                     </li>
                     {{ Form::close() }}

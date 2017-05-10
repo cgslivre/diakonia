@@ -75,22 +75,24 @@ class EscalaMusicaController extends Controller
 
     public function updateLider(Request $request, $id)
     {
+        $lider = ColaboradorMusica::findOrFail($request["lider_id"]);
+        $evento = Evento::findOrFail($id);
         if(isset($request["escala_id"])){
             // Já existe a escala
+            $escala = EscalaMusica::findOrFail($request["escala_id"]);
         } else{
-            $lider = ColaboradorMusica::findOrFail($request["lider_id"]);
-            $evento = Evento::findOrFail($id);
             $escala = new EscalaMusica;
-            $escala->lider_id = $lider->id;
-            $escala->evento_id = $evento->id;
-            $escala->save();
-            $evento->escala_musica_id = $escala->id;
-            $evento->save();
-
-            // Salvar e redirecionar para edição
-            return Redirect::route('musica.escala.edit', [$id, $escala->id])
-                ->with('message', 'Líder atualizado!');
         }
+
+        $escala->lider_id = $lider->id;
+        $escala->evento_id = $evento->id;
+        $escala->save();
+        $evento->escala_musica_id = $escala->id;
+        $evento->save();
+
+        // Salvar e redirecionar para edição
+        return Redirect::route('musica.escala.edit', [$id, $escala->id])
+            ->with('message', 'Líder atualizado!');
     }
 
     /**

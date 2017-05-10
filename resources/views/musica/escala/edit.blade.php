@@ -48,11 +48,13 @@
                         </p>
                     </div>
                     <div class="col-md-8 no-margin">
+                        @forelse ($escala->tarefas->where('servico_id',$servico->id) as $tarefa)
+                            @include('musica.escala.card-colaborador-musica',
+                                ['colaborador'=>$tarefa->colaborador])
+                        @empty
+                            
+                        @endforelse
                         @if( count($servico->colaboradores) > 0 )
-                            @foreach ($servico->colaboradores as $colaborador)
-                                @include('musica.escala.card-colaborador-musica',
-                                    ['colaborador'=>$colaborador])
-                            @endforeach
                                 <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
                                     title="Adicionar colaborador" class="btn-primary btn-add-colaborador">
                                 <i class="fa fa-user-plus fa-2x"></i>

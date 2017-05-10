@@ -32,7 +32,10 @@ class ColaboradorMusicaController extends Controller
     public function create()
     {
         $servicos = ServicoMusica::all();
-        $usuarios = User::all();
+        $usuarios = User::query()->whereNotIn('id', function( $query){
+            $query->select('user_id')
+                ->from('colaboradores_musica');
+            })->orderBy('name','ASC')->get();
         return view('musica.colaboradores.create' , compact( 'servicos','usuarios'));
     }
 
@@ -112,5 +115,5 @@ class ColaboradorMusicaController extends Controller
             ->with('message', 'Usuário removido da equipe de música!');
     }
 
-    
+
 }
