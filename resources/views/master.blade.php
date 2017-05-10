@@ -48,6 +48,7 @@
     {{ HTML::script('js/app.min.js') }}
 
     @yield('scripts')
+    @stack('scripts-1')
 
   </body>
 </html>

@@ -215,7 +215,14 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     .escala-colaborador:hover{cursor: pointer;}
 
 .option-selected{ border: 2px solid #1288c3; background: url("../img/yellow-0.5.png") repeat; }
-
+.lider-icon{width: 70px;}
+.linha-servico{
+    display: flex;
+    margin: 10px;
+    padding: 5px 0;
+    border: 1px solid #acd2eb;
+    border-radius: 2px;
+}
 
 .add-servico{
     border-radius: 7px;

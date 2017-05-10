@@ -11,6 +11,15 @@
 @section('content')
     @include('musica.escala.evento-detalhe',['evento'=>$evento])
 
+    <button class="btn btn-primary" type="button"
+            data-toggle="modal" data-target="#modalLider">
+        <i class="fa fa-street-view" aria-hidden="true"></i> Líder
+    </button>
+
+    @include('musica.escala.modal-lider',[
+        'lideres'=>$lideres
+        ,'evento'=>$evento])
+
 
 @endsection
 
