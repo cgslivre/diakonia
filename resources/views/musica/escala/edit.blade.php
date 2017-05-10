@@ -41,24 +41,14 @@
             <div class="row add-servico">
                 <div class="linha-servico">
                     <div class="col-md-1 text-center no-margin">
-                        <img alt="Líder" src="{{URL('img/musica/lider.svg')}}" class="lider-icon"/>
+                        <img alt="{{ $servico->descricao }}"
+                        src="{{URL($servico->iconeSmall)}}" class="lider-icon"/>
                         <p class="text-center descricao-servico no-margin">
-                            Líder
+                            {{ $servico->descricao }}
                         </p>
                     </div>
                     <div class="col-md-8 no-margin">
-                        <div class="escala-colaborador">
-                            <div class="avatar">
-                                <img src="{{URL($escala->lider->user->avatarPathSmall())}}" alt="" />
-                            </div>
-                            <div class="dados">
-                                <p class="nome">{{$escala->lider->user->name}}</p>
-                                <button class="btn btn-primary" type="button"
-                                data-toggle="modal" data-target="#modalLider">
-                                 Alterar
-                                </button>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

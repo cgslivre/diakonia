@@ -218,7 +218,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 .lider-icon{width: 70px;}
 .linha-servico{
     display: flex;
-    margin: 10px;
+    margin: 0 10px;
     padding: 5px 0;
     border: 1px solid #acd2eb;
     border-radius: 2px;
@@ -228,7 +228,6 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    margin-bottom: 12px;
     padding: 6px;
 }
 .servico-odd{background-color: #e0e9ed;}
