@@ -229,6 +229,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
     padding: 6px;
+    margin: 0;
 }
 .servico-odd{background-color: #e0e9ed;}
 .servico-even{background-color: #e2f0f6;}
@@ -247,11 +248,17 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     float: left;
 }
 
+.legenda >span{margin-right: 10px;}
 div.sem-escala{
     border: 2px solid #E63946;
     color: #E63946;
 }
 span.sem-escala{color: #E63946;}
+div.escala-ok{
+    border: 1px solid #1288c3;
+    color: #1288c3;
+}
+span.escala-ok{color: #1288c3;}
 
 .descricao-servico{font-weight: bold;}
 

@@ -6,9 +6,12 @@
 
 @section('content')
     <div class="legenda">
-        Legenda: 
+        Legenda:
         <span class="sem-escala">
             <i class="fa fa-circle" aria-hidden="true"></i> Sem Escala
+        </span>
+        <span class="escala-ok">
+            <i class="fa fa-circle" aria-hidden="true"></i> Escala definida
         </span>
     </div>
 
