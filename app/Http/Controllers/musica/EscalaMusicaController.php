@@ -9,6 +9,7 @@ use App\Model\evento\Evento;
 use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\EscalaMusica;
 use App\Model\musica\ServicoMusica;
+use App\Model\musica\Tarefa;
 
 class EscalaMusicaController extends Controller
 {
@@ -20,6 +21,32 @@ class EscalaMusicaController extends Controller
         return view('musica.escala.eventos')
             ->with('eventos30Dias', $eventosEm30Dias)
             ->with('eventosApos30Dias', $eventosDepois30Dias);
+    }
+
+    public function addTarefa($escala_id, $servico_id){
+        $escala = EscalaMusica::findOrFail($escala_id);
+        $servico = ServicoMusica::findOrFail($servico_id);
+
+        return view('musica.escala.add-tarefa')
+            ->with('escala', $escala)
+            ->with('servico', $servico);
+    }
+
+    public function addTarefaAction(Request $request, $escala_id, $servico_id){
+        $col = ColaboradorMusica::findOrFail($request["colaborador_id"]);
+        $escala = EscalaMusica::findOrFail($escala_id);
+        $servico = ServicoMusica::findOrFail($servico_id);
+
+        $tarefa = new Tarefa;
+        $tarefa->escala_id = $escala->id;
+        $tarefa->colaborador_id = $col->id;
+        $tarefa->servico_id = $servico->id;
+
+        $tarefa->save();
+
+        return Redirect::route('musica.escala.edit', [$escala->evento->id, $escala->id])
+            ->with('message', 'Líder atualizado!');
+
     }
 
     /**
@@ -57,6 +84,8 @@ class EscalaMusicaController extends Controller
             $escala->lider_id = $lider->id;
             $escala->evento_id = $evento->id;
             $escala->save();
+            $evento->escala_musica_id = $escala->id;
+            $evento->save();
 
             // Salvar e redirecionar para edição
             return Redirect::route('musica.escala.edit', [$id, $escala->id])

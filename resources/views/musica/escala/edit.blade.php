@@ -42,13 +42,20 @@
                 <div class="linha-servico">
                     <div class="col-md-1 text-center no-margin">
                         <img alt="{{ $servico->descricao }}"
-                        src="{{URL($servico->iconeSmall)}}" class="lider-icon"/>
+                        src="{{URL($servico->iconeSmall)}}"/>
                         <p class="text-center descricao-servico no-margin">
                             {{ $servico->descricao }}
                         </p>
                     </div>
                     <div class="col-md-8 no-margin">
-                        
+                        @if( count($servico->colaboradores) > 0 )
+                            <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
+                                title="Adicionar serviço" class="btn-floating btn-large btn-primary">
+                            <i class="fa fa-user-plus fa-2x"></i>
+                        </a>
+                        @else
+                            Nenhum colaborador para este serviço.
+                        @endif
                     </div>
                 </div>
             </div>

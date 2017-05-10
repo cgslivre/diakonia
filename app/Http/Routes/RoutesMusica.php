@@ -12,7 +12,11 @@ Route::group(['middleware' => 'web', 'as'=>'musica.', 'prefix'=>'musica'], funct
         ->name('escala.create');
     Route::get('escala/{evento}/{escala}/edit','musica\EscalaMusicaController@edit')
         ->name('escala.edit');
-    Route::match(['post','put','patch'],'escala/{evento}/lider/update','musica\EscalaMusicaController@updateLider')
-        ->name('escala.lider.update');
+    Route::get('escala/{escala}/tarefa/{servico}/add','musica\EscalaMusicaController@addTarefa')
+        ->name('escala.tarefa.add');
+    Route::match(['post','put','patch'],'escala/{escala}/tarefa/{servico}/add',
+        'musica\EscalaMusicaController@addTarefaAction')->name('escala.tarefa.store');
+    Route::match(['post','put','patch'],'escala/{evento}/lider/update',
+        'musica\EscalaMusicaController@updateLider')->name('escala.lider.update');
 
 });
