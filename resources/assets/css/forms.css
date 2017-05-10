@@ -89,6 +89,13 @@ border-radius: 50%; */
 ul.lideres{list-style: none;padding-left: 10px;}
 ul.lideres li{cursor: pointer;padding: 5px;margin: 2px;border: 1px solid #adcbed;border-radius: 4px;}
 ul.lideres li:hover{cursor: pointer;background-color: #adcbed;font-weight: bold;}
+
+div.add-servico-colaborador{
+	border: 1px solid #adcbed;}
+	div.add-servico-colaborador form{
+		display: inline;
+	}
+
 .add-servico-colaborador > div {display: inline;}
 
 .middle-div{
