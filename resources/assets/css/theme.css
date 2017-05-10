@@ -220,8 +220,8 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     margin: 0 10px;
     padding: 5px 0;
     border: 1px solid #acd2eb;
-    border-radius: 2px;
-}
+    border-radius: 2px;}
+    .linha-servico > div > div.card-colaborador{margin-right: 15px;}
 
 .add-servico{
     border-radius: 7px;

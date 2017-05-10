@@ -53,10 +53,10 @@
                                 @include('musica.escala.card-colaborador-musica',
                                     ['colaborador'=>$colaborador])
                             @endforeach
-                            <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
-                                title="Adicionar serviço" class="btn-floating btn-large btn-primary">
-                            <i class="fa fa-user-plus fa-2x"></i>
-                        </a>
+                                <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
+                                    title="Adicionar colaborador" class="btn-primary btn-add-colaborador">
+                                <i class="fa fa-user-plus fa-2x"></i>
+                                </a>
                         @else
                             <p style="line-height: 128px;">Nenhum colaborador para este serviço.</p>
                         @endif

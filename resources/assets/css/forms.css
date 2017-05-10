@@ -75,6 +75,16 @@ table.grupo-caseiro, table.regiao{width: auto;}
     width: 56px;
     height: 56px;}
 
+.btn-add-colaborador{
+	display: inline-block;
+	text-align: center;
+	width: 56px;
+transform: translate(0,50%);
+height: 56px;
+line-height: 56px;
+border-radius: 50%; */
+}
+
 /* Música */
 ul.lideres{list-style: none;padding-left: 10px;}
 ul.lideres li{cursor: pointer;padding: 5px;margin: 2px;border: 1px solid #adcbed;border-radius: 4px;}
