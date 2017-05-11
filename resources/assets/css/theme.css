@@ -200,7 +200,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     .card-colaborador .dados .nome,.escala-colaborador .dados .nome{font-weight: bold;}
     .card-colaborador .dados .lider{font-weight: bold;color: #E63946; }
 
-.escala-colaborador{
+.escala-colaborador, .card-colaborador{
     margin: 4px;
     display: inline-block;
     padding: 4px 14px 4px 3px;
@@ -209,12 +209,12 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    background: url("../img/FFFFFF-0.5.png") repeat;
+    background-color: #fff;
+    /*background: url("../img/FFFFFF-0.5.png") repeat;*/
     float: left;}
     .escala-colaborador:hover{cursor: pointer;}
 
 .option-selected{ border: 2px solid #1288c3; background: url("../img/yellow-0.5.png") repeat; }
-.lider-icon{width: 70px;}
 .linha-servico{
     display: flex;
     margin: 0 10px;
@@ -227,6 +227,13 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;}
     .linha-servico > div > div.card-colaborador{margin-right: 15px;}
+    .linha-servico.lider{background-color: #f2f1c8;}
+    .linha-servico.lider > .col-md-2{
+        background-color: #1288c3;
+        color: #fff;
+        padding: 5px 0;}
+.lider-icon{width: 70px;}
+
 
 .add-servico{
     border-radius: 7px;

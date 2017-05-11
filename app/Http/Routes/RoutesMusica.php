@@ -10,7 +10,7 @@ Route::group(['middleware' => 'web', 'as'=>'musica.', 'prefix'=>'musica'], funct
     //Route::resource('escala','musica\EscalaMusicaController');
     Route::get('escala/{evento}/create','musica\EscalaMusicaController@create')
         ->name('escala.create');
-    Route::get('escala/{evento}/{escala}/edit','musica\EscalaMusicaController@edit')
+    Route::get('escala/{escala}/edit','musica\EscalaMusicaController@edit')
         ->name('escala.edit');
     Route::get('escala/{escala}/tarefa/{servico}/add','musica\EscalaMusicaController@addTarefa')
         ->name('escala.tarefa.add');

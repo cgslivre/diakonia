@@ -13,7 +13,7 @@
 
     <div class="escala-musica">
         <div class="row add-servico">
-            <div class="linha-servico">
+            <div class="linha-servico lider">
 
                 <div class="col-md-2 text-center no-margin">
                     <img alt="Líder" src="{{URL('img/musica/lider.svg')}}" class="lider-icon"/>
@@ -22,7 +22,7 @@
                     </p>
                 </div>
                 <div class="col-md-8 no-margin">
-                    <div class="escala-colaborador">
+                    <div class="escala-colaborador middle-div">
                         <div class="avatar">
                             <img src="{{URL($escala->lider->user->avatarPathSmall())}}" alt="" />
                         </div>
@@ -52,7 +52,7 @@
                             @include('musica.escala.card-colaborador-musica',
                                 ['colaborador'=>$tarefa->colaborador])
                         @empty
-                            
+
                         @endforelse
                         @if( count($servico->colaboradores) > 0 )
                                 <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"

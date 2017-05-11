@@ -46,7 +46,7 @@ class EscalaMusicaController extends Controller
 
         $tarefa->save();
 
-        return Redirect::route('musica.escala.edit', [$escala->evento->id, $escala->id])
+        return Redirect::route('musica.escala.edit', $escala->id)
             ->with('message', 'Líder atualizado!');
 
     }
@@ -93,7 +93,7 @@ class EscalaMusicaController extends Controller
         $evento->save();
 
         // Salvar e redirecionar para edição
-        return Redirect::route('musica.escala.edit', [$id, $escala->id])
+        return Redirect::route('musica.escala.edit', $escala->id)
             ->with('message', 'Líder atualizado!');
     }
 
@@ -125,15 +125,14 @@ class EscalaMusicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($evento_id, $escala_id)
+    public function edit($escala_id)
     {
-        $evento = Evento::findOrFail($evento_id);
         $escala = EscalaMusica::findOrFail($escala_id);
         $lideres = ColaboradorMusica::lideres()->get();
         $servicos = ServicoMusica::all();
 
         return view('musica.escala.edit')
-            ->with('evento', $evento)
+            ->with('evento', $escala->evento)
             ->with('servicos', $servicos)
             ->with('escala', $escala)
             ->with('lideres', $lideres);

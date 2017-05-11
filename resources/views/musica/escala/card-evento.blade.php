@@ -10,7 +10,7 @@
     <a href="{{URL::route('musica.escala.create',$evento->id)}}" class="btn btn-success" title="Adicionar Escala">
         <i class="fa fa-plus"></i>  Adicionar escala</a>
     @elseif ($evento->statusEscalaMusica == "escala-ok")
-        <a href="{{URL::route('musica.escala.edit',[$evento->id, $evento->escalaMusica->id])}}"
+        <a href="{{URL::route('musica.escala.edit',$evento->escalaMusica->id)}}"
             class="btn btn-primary" title="Adicionar Escala">
             <i class="fa fa-pencil"></i>  Alterar escala</a>
     @endif

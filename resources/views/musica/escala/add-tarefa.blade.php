@@ -8,7 +8,7 @@
 
 @section('nivel3')
     <li class="active">
-        <a href="{{URL::route('musica.escala.edit',[$escala->evento->id, $escala->id])}}">
+        <a href="{{URL::route('musica.escala.edit',$escala->id)}}">
         Escala dia: {{
         Date::parse($escala->evento->data_hora_inicio)->format('j/m/Y')}}</a></li>
 @stop
