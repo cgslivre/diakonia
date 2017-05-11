@@ -10,7 +10,7 @@
 
 @section('content')
     @include('musica.escala.evento-detalhe',['evento'=>$evento])
-
+    <hr/>
     <div class="escala-musica">
         <div class="row add-servico">
             <div class="linha-servico lider">

@@ -307,7 +307,7 @@ table.membros > tbody{font-size: 13px;}
 
 /*Eventos */
 .show-evento h3{margin-top: 40px;}
-.show-evento p{margin: 20px 10px;}
+.show-evento p{margin: 20px 10px;line-height: 30px;}
     .show-evento p.card > span{
         padding: 5px 0 5px 5px;
         margin-right: 20px;
@@ -326,6 +326,10 @@ table.membros > tbody{font-size: 13px;}
         {background-color: #888888;color: #ffffff;border: 1px solid #888888;}
     .show-evento p > span.tipo-evento > span, .show-evento p > span.publico-alvo > span
         {background-color: #f9f9f9;color: #000000;}
+
+    .show-evento.escala > p{margin: 0;}
+    .show-evento.escala > p.titulo{font-size: 1.8rem;}
+    .show-evento.escala > p.titulo > span{font-weight: bold;}
 
 /*++++ Dashboards ++++*/
 .panel-dashboard{
