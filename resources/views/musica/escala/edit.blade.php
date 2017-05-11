@@ -25,10 +25,12 @@
                     @include('musica.escala.card-colaborador-musica',
                         ['colaborador'=>$escala->lider ,
                          'removerButton' => false])
-                    <button class="btn btn-primary" type="button"
-                    data-toggle="modal" data-target="#modalLider">
-                    Alterar
-                </button>
+                         <div class="alterar-lider">
+                             <button class="btn btn-primary" type="button"
+                             data-toggle="modal" data-target="#modalLider">
+                             Alterar
+                         </button>
+                         </div>
                 </div>
             </div>
         </div>

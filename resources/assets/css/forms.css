@@ -93,7 +93,12 @@ table.grupo-caseiro, table.regiao{width: auto;}
     right: 0;
 	font-size: 20px;
     top: 0;
-    line-height: 75px;	}
+    line-height: 75px;}
+	.btn-add-colaborador:hover{
+		background-color: #449d44;
+	    border-color: #398439;
+		color:#fff;
+	}
 
 /* Música */
 ul.lideres{list-style: none;padding-left: 10px;}
