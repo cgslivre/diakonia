@@ -206,13 +206,14 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
         border-top-right-radius: 7px;
         font-weight: bold;
         position: absolute;
+        font-size: 12px;
         top: -1px;
         right: -1px;
         color: #ffffff;
-        width: 22px;
-        line-height: 22px;
-        text-align: center;
-        height: 22px;}
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;}
         .card-colaborador .dados button.remover-colaborador:hover{
             background-color: #c82834;
         }
