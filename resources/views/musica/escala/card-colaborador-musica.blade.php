@@ -15,7 +15,7 @@
             <a href="{{ URL::route('musica.colaborador.edit', $colaborador->id) }}">
                 {{ $colaborador->user->name }}</a>
         </p>
-        <p class="telefone-mask">{{ $colaborador->user->telefone }}</p>
+        <p class="telefone-mask telefone">{{ $colaborador->user->telefone }}</p>
 
     </div>
 

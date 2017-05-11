@@ -85,10 +85,15 @@ table.grupo-caseiro, table.regiao{width: auto;}
 .btn-add-colaborador{
 	display: inline-block;
 	text-align: center;
-	transform: translate(0,50%);
-	/*width: 56px;
-	height: 56px;	*/
-	}
+	height: 100%;
+    width: 44px;
+    background-color: #229d2a;
+	color: #ffffff;
+    position: absolute;
+    right: 0;
+	font-size: 20px;
+    top: 0;
+    line-height: 75px;	}
 
 /* Música */
 ul.lideres{list-style: none;padding-left: 10px;}
@@ -121,6 +126,6 @@ div.add-servico-colaborador{
 .add-servico-colaborador > div {display: inline;}
 
 .middle-div{
-	transform: translate(0,-50%);
-	top: 50%;
+	/*transform: translate(0,-50%);
+	top: 50%;*/
 }

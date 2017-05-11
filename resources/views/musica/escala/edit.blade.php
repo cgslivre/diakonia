@@ -25,7 +25,7 @@
                     @include('musica.escala.card-colaborador-musica',
                         ['colaborador'=>$escala->lider ,
                          'removerButton' => false])
-                    <button class="btn btn-primary btn-add-colaborador" type="button"
+                    <button class="btn btn-primary" type="button"
                     data-toggle="modal" data-target="#modalLider">
                     Alterar
                 </button>
@@ -37,28 +37,27 @@
                 <div class="linha-servico">
                     <div class="col-md-2 text-center no-margin">
                         <img alt="{{ $servico->descricao }}"
-                        src="{{URL($servico->iconeSmall)}}"/>
+                        src="{{URL($servico->iconeSmall)}}" class="servico-icon"/>
                         <p class="text-center descricao-servico no-margin">
                             {{ $servico->descricao }}
                         </p>
+                        @if( count($servico->colaboradores) > 0 )
+
+                            <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
+                                title="Adicionar colaborador" class="btn-add-colaborador">
+                            <i class="fa fa-plus-square" aria-hidden="true"></i> </a>
+                        @endif
                     </div>
-                    <div class="col-md-8 no-margin">
+                    <div class="col-md-10 no-margin">
                         @forelse ($escala->tarefas->where('servico_id',$servico->id) as $tarefa)
                             @include('musica.escala.card-colaborador-musica',
                                 ['colaborador'=>$tarefa->colaborador,
                                  'tarefa'=>$tarefa,
                                  'removerButton' => true])
                         @empty
-
+                            <p class="nenhum-escalado">Ninguém escalado para este serviço</p>
                         @endforelse
-                        @if( count($servico->colaboradores) > 0 )
-                                <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
-                                    title="Adicionar colaborador" class="btn btn-primary btn-add-colaborador">
-                                <i class="fa fa-user-plus"></i> Adicionar
-                                </a>
-                        @else
-                            <p style="line-height: 128px;">Nenhum colaborador para este serviço.</p>
-                        @endif
+
                     </div>
                 </div>
             </div>
