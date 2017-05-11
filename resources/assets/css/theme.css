@@ -221,7 +221,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     background-color: #efefef;
     border-radius: 10px;}
     .linha-servico > .col-md-2{
-        padding: 0;
+        padding: 5px 0;
         background-color: #b4d6e7;
         color: #1288c3;
         border-top-left-radius: 10px;
@@ -230,8 +230,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     .linha-servico.lider{background-color: #f2f1c8;}
     .linha-servico.lider > .col-md-2{
         background-color: #1288c3;
-        color: #fff;
-        padding: 5px 0;}
+        color: #fff;}
 .lider-icon{width: 70px;}
 
 
