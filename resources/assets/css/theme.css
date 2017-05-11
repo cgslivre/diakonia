@@ -198,7 +198,24 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     .card-colaborador .dados, .escala-colaborador .dados{margin-left: 76px;}
         .card-colaborador .dados p, .escala-colaborador .dados p{margin: 0;}
     .card-colaborador .dados .nome,.escala-colaborador .dados .nome{font-weight: bold;}
+    .card-colaborador .dados .nome{margin-right: 22px;}
     .card-colaborador .dados .lider{font-weight: bold;color: #E63946; }
+    .card-colaborador .dados button.remover-colaborador{
+        background-color: #E63946;
+        border: 1px solid #E63946;
+        border-top-right-radius: 7px;
+        font-weight: bold;
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        color: #ffffff;
+        width: 22px;
+        line-height: 22px;
+        text-align: center;
+        height: 22px;}
+        .card-colaborador .dados button.remover-colaborador:hover{
+            background-color: #c82834;
+        }
 
 .escala-colaborador, .card-colaborador{
     margin: 4px;

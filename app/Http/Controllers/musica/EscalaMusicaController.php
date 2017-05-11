@@ -51,6 +51,11 @@ class EscalaMusicaController extends Controller
 
     }
 
+    public function deleteTarefaAction($tarefa_id){
+        $tarefa = Tarefa::findOrFail($tarefa_id);
+        dd($tarefa);
+    }
+
     /**
      * Display a listing of the resource.
      *

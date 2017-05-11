@@ -23,7 +23,8 @@
                 </div>
                 <div class="col-md-8 no-margin">
                     @include('musica.escala.card-colaborador-musica',
-                        ['colaborador'=>$escala->lider])
+                        ['colaborador'=>$escala->lider ,
+                         'removerButton' => false])
                     <button class="btn btn-primary btn-add-colaborador" type="button"
                     data-toggle="modal" data-target="#modalLider">
                     Alterar
@@ -44,7 +45,9 @@
                     <div class="col-md-8 no-margin">
                         @forelse ($escala->tarefas->where('servico_id',$servico->id) as $tarefa)
                             @include('musica.escala.card-colaborador-musica',
-                                ['colaborador'=>$tarefa->colaborador])
+                                ['colaborador'=>$tarefa->colaborador,
+                                 'tarefa'=>$tarefa,
+                                 'removerButton' => true])
                         @empty
 
                         @endforelse
