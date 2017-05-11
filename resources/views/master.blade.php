@@ -32,8 +32,8 @@
     @include('header')
 
    <hr class="divider">
-   @include('layouts.mensagens')
    <div class="conteudo">
+     @include('layouts.mensagens')
      @yield('content')
    </div>
 

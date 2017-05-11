@@ -1,6 +1,13 @@
 /* Definições Gerais */
 .table tbody{font-size: 15px;}
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
+
+.alert{
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	font-weight: bold;}
+	.alert.bg-success{color: #3c763d;}
 /* Páginas da seção MEMBROS */
 /* Estilo botão para expandir/retrair o painel*/
 input.collapse-input[type=checkbox] { display:none; } /* to hide the checkbox itself */
