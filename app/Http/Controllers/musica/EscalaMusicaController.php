@@ -26,9 +26,11 @@ class EscalaMusicaController extends Controller
     public function addTarefa($escala_id, $servico_id){
         $escala = EscalaMusica::findOrFail($escala_id);
         $servico = ServicoMusica::findOrFail($servico_id);
+        $colaboradoresServico = $escala->tarefas->pluck('colaborador_id')->toArray();
 
         return view('musica.escala.add-tarefa')
             ->with('escala', $escala)
+            ->with('colaboradoresServico', $colaboradoresServico)
             ->with('servico', $servico);
     }
 

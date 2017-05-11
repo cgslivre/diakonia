@@ -218,9 +218,14 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 .linha-servico{
     display: flex;
     margin: 0 10px;
-    padding: 5px 0;
-    border: 1px solid #acd2eb;
-    border-radius: 2px;}
+    background-color: #efefef;
+    border-radius: 10px;}
+    .linha-servico > .col-md-2{
+        padding: 0;
+        background-color: #b4d6e7;
+        color: #1288c3;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;}
     .linha-servico > div > div.card-colaborador{margin-right: 15px;}
 
 .add-servico{
@@ -228,8 +233,8 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
     padding: 6px;
-    margin: 0;
-}
+    margin: 0;}
+
 .servico-odd{background-color: #e0e9ed;}
 .servico-even{background-color: #e2f0f6;}
 
@@ -260,6 +265,7 @@ div.escala-ok{
 span.escala-ok{color: #1288c3;}
 
 .descricao-servico{font-weight: bold;}
+
 
 .loading{font-weight: bold;color:#1288c3;}
 

@@ -31,25 +31,34 @@
     </strong>
     <hr/>
     @forelse ($servico->colaboradores as $colaborador)
-        <div class="add-servico-colaborador">
-            {{-- Dados do colaborador --}}
-            <div>
-                <img src="{{ URL($colaborador->user->avatarPathSmall()) }}" alt="" />
-                {{ $colaborador->user->name }}
+        <div class="row add-servico-colaborador
+            {{in_array($colaborador->id, $colaboradoresServico) ?
+                 'escalado' : 'nao-escalado'}}">
+            <div class="col-md-2">
+                {{-- Dados do colaborador --}}
+                <div class="colaborador-data">
+                    <img src="{{ URL($colaborador->user->avatarPathSmall()) }}"
+                    alt="{{ $colaborador->user->name }}" class="colaborador"/>
+                    {{ $colaborador->user->name }}
+                </div>
             </div>
             {{-- Dados de outras escalas --}}
             <div>
 
             </div>
             {{-- Ações --}}
-            <div>
-                {{ Form::open(['route' => ['musica.escala.tarefa.store', $escala->id, $servico->id]
-                    , 'method' => 'post']) }}
-                {{ Form::hidden('colaborador_id', $colaborador->id) }}
-                <button class="btn btn-primary">
-                    <i class="fa fa-check" aria-hidden="true"></i> Adicionar à escala
-                </button>
-                {{ Form::close() }}
+            <div class="tarefa-action">
+                @if (!in_array($colaborador->id, $colaboradoresServico))
+                    {{ Form::open(['route' => ['musica.escala.tarefa.store', $escala->id, $servico->id]
+                        , 'method' => 'post']) }}
+                        {{ Form::hidden('colaborador_id', $colaborador->id) }}
+                    <button class="btn btn-primary">
+                        <i class="fa fa-check" aria-hidden="true"></i> Adicionar à escala
+                    </button>
+                    {{ Form::close() }}
+                @else
+                    <span class="escalado">Já escalado</span>
+                @endif
             </div>
         </div>
     @empty
