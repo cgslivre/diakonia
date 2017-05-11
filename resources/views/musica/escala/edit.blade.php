@@ -22,18 +22,12 @@
                     </p>
                 </div>
                 <div class="col-md-8 no-margin">
-                    <div class="escala-colaborador middle-div">
-                        <div class="avatar">
-                            <img src="{{URL($escala->lider->user->avatarPathSmall())}}" alt="" />
-                        </div>
-                        <div class="dados">
-                            <p class="nome">{{$escala->lider->user->name}}</p>
-                            <button class="btn btn-primary" type="button"
-                            data-toggle="modal" data-target="#modalLider">
-                             Alterar
-                            </button>
-                        </div>
-                    </div>
+                    @include('musica.escala.card-colaborador-musica',
+                        ['colaborador'=>$escala->lider])
+                    <button class="btn btn-primary btn-add-colaborador" type="button"
+                    data-toggle="modal" data-target="#modalLider">
+                    Alterar
+                </button>
                 </div>
             </div>
         </div>
@@ -56,8 +50,8 @@
                         @endforelse
                         @if( count($servico->colaboradores) > 0 )
                                 <a href="{{ route('musica.escala.tarefa.add',[$escala->id, $servico->id]) }}"
-                                    title="Adicionar colaborador" class="btn-primary btn-add-colaborador">
-                                <i class="fa fa-user-plus fa-2x"></i>
+                                    title="Adicionar colaborador" class="btn btn-primary btn-add-colaborador">
+                                <i class="fa fa-user-plus"></i> Adicionar
                                 </a>
                         @else
                             <p style="line-height: 128px;">Nenhum colaborador para este serviço.</p>
