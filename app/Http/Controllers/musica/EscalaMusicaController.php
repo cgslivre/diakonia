@@ -47,7 +47,7 @@ class EscalaMusicaController extends Controller
         $tarefa->save();
 
         return Redirect::route('musica.escala.edit', $escala->id)
-            ->with('message', $col->user->name . ' escalado para o serviço de '
+            ->with('message', $col->user->name . ' escalado(a) para o serviço de '
                 . $servico->descricao);
 
     }
@@ -58,7 +58,7 @@ class EscalaMusicaController extends Controller
 
         return Redirect::route('musica.escala.edit', $tarefa->escala->id)
             ->with('message', $tarefa->colaborador->user->name .
-                ' removido do serviço ' . $tarefa->servico->descricao);
+                ' removido(a) do serviço ' . $tarefa->servico->descricao);
     }
 
     /**
