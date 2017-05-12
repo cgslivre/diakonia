@@ -299,12 +299,13 @@ div.escala-ok{
 span.escala-ok{color: #1288c3;}
 .descricao-servico{font-weight: bold;}
 
-.publicacao .tarefa{padding: 5px;}
+.publicacao .tarefa{padding: 5px;margin-right: 40px;}
 .publicacao .tarefa.even{background-color: #eceff4;}
 .publicacao .tarefa.odd{background-color: #e0e5ec;}
-.tarefa .servico{border: 1px dotted #ededed;display: inline-block;width: 150px;}
+.publicacao .tarefa.lider{background-color: #597090;color: #ffffff;}
+.tarefa .servico{display: inline-block;width: 150px;}
 .tarefa .servico > img.servico-icon{height: 48px;}
-.tarefa .colaborador{border: 1px dotted #ededed;display: inline;padding-right: 15px;}
+.tarefa .colaborador{display: inline;padding-right: 15px;}
     .tarefa .colaborador .avatar{display: inline;}
     .tarefa .colaborador .avatar > img{height: 48px;border-radius: 10px;}
 

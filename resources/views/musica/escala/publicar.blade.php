@@ -36,6 +36,22 @@
     @endforeach
 
     <h3>Serviços definidos:</h3>
+    <div class="tarefa lider">
+        <div class="servico">
+            <img alt="Líder"
+            src="{{URL('img/musica/lider.svg')}}" class="servico-icon"/>
+            <span class="text-center descricao-servico no-margin">
+                Líder
+            </span>
+        </div>
+        <div class="colaborador">
+        <div class="avatar">
+            <img src="{{ URL($escala->lider->user->avatarPathSmall()) }}"
+                 alt="{{$escala->lider->user->name}}" />
+        </div>
+        {{$escala->lider->user->name}}
+        </div>
+    </div>
     @foreach ($escala->tarefas->sortBy('servico_id')->groupBy('servico_id') as $servico_id => $tarefas)
         <div class="tarefa {{$loop->index % 2 == 0 ? 'even' : 'odd'}}">
             @php
@@ -45,7 +61,7 @@
                 <img alt="{{ $servico->descricao }}"
                 src="{{URL($servico->iconeSmall)}}" class="servico-icon"/>
                 <span class="text-center descricao-servico no-margin">
-                    {{ $servico->descricao }}:
+                    {{ $servico->descricao }}
                 </span>
             </div>
             @foreach ($tarefas as $tarefa)
