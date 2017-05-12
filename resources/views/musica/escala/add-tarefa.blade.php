@@ -52,6 +52,7 @@
                     {{ Form::open(['route' => ['musica.escala.tarefa.store', $escala->id, $servico->id]
                         , 'method' => 'post']) }}
                         {{ Form::hidden('colaborador_id', $colaborador->id) }}
+                        {{ Form::hidden('servico_id', $servico->id) }}
                     <button class="btn btn-primary">
                         <i class="fa fa-check" aria-hidden="true"></i> Adicionar à escala
                     </button>

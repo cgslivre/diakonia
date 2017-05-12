@@ -34,10 +34,10 @@ class EscalaMusicaController extends Controller
             ->with('servico', $servico);
     }
 
-    public function addTarefaAction(Request $request, $escala_id, $servico_id){
+    public function addTarefaAction(Request $request, $escala_id){
         $col = ColaboradorMusica::findOrFail($request["colaborador_id"]);
         $escala = EscalaMusica::findOrFail($escala_id);
-        $servico = ServicoMusica::findOrFail($servico_id);
+        $servico = ServicoMusica::findOrFail($request["servico_id"]);
 
         $tarefa = new Tarefa;
         $tarefa->escala_id = $escala->id;

@@ -1,7 +1,7 @@
 <?php
 
 
-Route::group(['middleware' => 'web', 'as'=>'musica.', 'prefix'=>'musica'], function () {
+Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica'], function () {
     Route::resource('colaborador','musica\ColaboradorMusicaController');
 
     Route::get('eventos','musica\EscalaMusicaController@eventos')
@@ -14,7 +14,7 @@ Route::group(['middleware' => 'web', 'as'=>'musica.', 'prefix'=>'musica'], funct
         ->name('escala.edit');
     Route::get('escala/{escala}/tarefa/{servico}/add','musica\EscalaMusicaController@addTarefa')
         ->name('escala.tarefa.add');
-    Route::match(['post','put','patch'],'escala/{escala}/tarefa/{servico}/add',
+    Route::match(['post','put','patch'],'escala/{escala}/tarefa/servico/add',
         'musica\EscalaMusicaController@addTarefaAction')->name('escala.tarefa.store');
     Route::delete('tarefa/{tarefa}/delete','musica\EscalaMusicaController@deleteTarefaAction')
         ->name('escala.tarefa.delete');
