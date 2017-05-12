@@ -1,6 +1,7 @@
 <div class="card-colaborador musica middle-div">
     <div class="avatar">
-        <img src="{{ URL($colaborador->user->avatarPathSmall()) }}" alt="" />
+        <img src="{{ URL($colaborador->user->avatarPathSmall()) }}"
+             alt="{{$colaborador->user->name}}" />
     </div>
     <div class="dados">
         @if ($removerButton)

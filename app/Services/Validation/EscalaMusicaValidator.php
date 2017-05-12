@@ -74,11 +74,7 @@ class EscalaMusicaValidator
             $this->warnings[] = "Mais de uma pessoa escalada para projetar as letras das músicas";
         }
 
-
-
-
-
-        // $this->errors[] = ServicoMusica::VOCAL;
+        // dd($quantidade);
 
     }
 }

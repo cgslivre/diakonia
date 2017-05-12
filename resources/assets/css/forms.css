@@ -7,7 +7,9 @@
     border: 1px solid transparent;
     border-radius: 4px;
 	font-weight: bold;}
-	.alert.bg-success{color: #3c763d;}
+	.alert.bg-success{color: #3c763d;border: 1px solid #67cc69;}
+	.alert.bg-warning{color: #63581a;border: 1px solid #e0d17b;}
+	.alert.bg-danger{color: #7d1f1f;border: 1px solid #de9494;}
 /* Páginas da seção MEMBROS */
 /* Estilo botão para expandir/retrair o painel*/
 input.collapse-input[type=checkbox] { display:none; } /* to hide the checkbox itself */
@@ -129,8 +131,4 @@ div.add-servico-colaborador{
 
 
 .add-servico-colaborador > div {display: inline;}
-
-.middle-div{
-	/*transform: translate(0,-50%);
-	top: 50%;*/
-}
+.escala.publicacao .alert{margin-bottom: 5px;}

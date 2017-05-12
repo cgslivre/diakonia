@@ -65,9 +65,11 @@ class EscalaMusicaController extends Controller
     public function publish($escala_id){
         $escala = EscalaMusica::findOrFail($escala_id);
         $validacao = new EscalaMusicaValidator($escala);
+        $servicos = ServicoMusica::all();
 
         return view('musica.escala.publicar')
             ->with('escala', $escala)
+            ->with('servicos', $servicos)
             ->with('validacao', $validacao);
     }
 

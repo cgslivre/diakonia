@@ -9,6 +9,7 @@ class Tarefa extends Model
     protected $table = 'tarefas_escala_musica';
     public $timestamps  = true;
 
+
     public function escala(){
         return $this->hasOne('App\Model\musica\EscalaMusica','id','escala_id');
     }

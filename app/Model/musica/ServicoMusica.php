@@ -12,8 +12,8 @@ class ServicoMusica extends Model
     const BAIXO     = 4;
     const TECLADO   = 5;
     const BATERIA   = 6;
-    const MESA      = 1;
-    const PROJECAO  = 1;
+    const MESA      = 7;
+    const PROJECAO  = 8;
 
     protected $table = 'servicos_musica';
     public $timestamps  = false;
