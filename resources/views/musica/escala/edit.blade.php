@@ -15,7 +15,7 @@
         <div class="row add-servico">
             <div class="linha-servico lider">
 
-                <div class="col-md-2 text-center no-margin">
+                <div class="col-md-3 text-center no-margin">
                     <img alt="Líder" src="{{URL('img/musica/lider.svg')}}" class="lider-icon"/>
                     <p class="text-center descricao-servico no-margin">
                         Líder
@@ -37,7 +37,7 @@
         @foreach ($servicos as $servico)
             <div class="row add-servico">
                 <div class="linha-servico">
-                    <div class="col-md-2 text-center no-margin">
+                    <div class="col-md-3 text-center no-margin">
                         <img alt="{{ $servico->descricao }}"
                         src="{{URL($servico->iconeSmall)}}" class="servico-icon"/>
                         <p class="text-center descricao-servico no-margin">
@@ -65,6 +65,13 @@
             </div>
         @endforeach
     </div>
+
+    <hr/>
+    <div class="text-center">
+        <a href="{{URL::route('musica.escala.publish',$escala->id)}}" class="btn btn-success">
+            Publicar escala</a>
+    </div>
+
 
 
 

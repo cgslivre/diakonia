@@ -11,10 +11,14 @@
 @section('content')
     @include('musica.escala.evento-detalhe',['evento'=>$evento])
 
-    <button class="btn btn-primary" type="button"
-            data-toggle="modal" data-target="#modalLider">
-        <i class="fa fa-street-view" aria-hidden="true"></i> Líder
+    <hr/>
+    <p>
+        Escolha o líder da escala
+        <button class="btn btn-primary" type="button"
+        data-toggle="modal" data-target="#modalLider">
+        <i class="fa fa-street-view" aria-hidden="true"></i> Selecionar Líder
     </button>
+    </p>
 
     @include('musica.escala.modal-lider',[
         'lideres'=>$lideres

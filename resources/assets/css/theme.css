@@ -239,7 +239,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     margin: 0 10px;
     background-color: #efefef;
     border-radius: 10px;}
-    .linha-servico > .col-md-2{
+    .linha-servico > .col-md-3{
         padding: 5px 0;
         text-align: left;
         background-color: #b4d6e7;
@@ -248,7 +248,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
         border-bottom-left-radius: 10px;}
     .linha-servico > div > div.card-colaborador{margin-right: 15px;}
     .linha-servico.lider{background-color: #f2f1c8;}
-    .linha-servico.lider > .col-md-2{
+    .linha-servico.lider > .col-md-3{
         background-color: #1288c3;
         color: #fff;}
     .linha-servico .servico-icon{height: 74px;margin-left: 10px;}

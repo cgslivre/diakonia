@@ -10,6 +10,7 @@ use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\EscalaMusica;
 use App\Model\musica\ServicoMusica;
 use App\Model\musica\Tarefa;
+use App\Services\Validation\EscalaMusicaValidator;
 
 class EscalaMusicaController extends Controller
 {
@@ -59,6 +60,12 @@ class EscalaMusicaController extends Controller
         return Redirect::route('musica.escala.edit', $tarefa->escala->id)
             ->with('message', $tarefa->colaborador->user->name .
                 ' removido(a) do serviço ' . $tarefa->servico->descricao);
+    }
+
+    public function publish($escala_id){
+        $escala = EscalaMusica::findOrFail($escala_id);
+        $validacao = new EscalaMusicaValidator($escala);
+        dd($escala, $escala->tarefas, $validacao);
     }
 
     /**

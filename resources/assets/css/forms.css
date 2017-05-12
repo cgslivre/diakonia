@@ -113,7 +113,7 @@ div.add-servico-colaborador{
 		font-weight: bold;	}
 	div.add-servico-colaborador img.colaborador{
 		border-radius: 4px;}
-	div.add-servico-colaborador > .col-md-2{
+	div.add-servico-colaborador > .col-md-3{
 		padding-left: 0;}
 	div.add-servico-colaborador > .tarefa-action{
 		line-height: 70px;}

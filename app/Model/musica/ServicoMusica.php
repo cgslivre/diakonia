@@ -6,6 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServicoMusica extends Model
 {
+    const VOCAL     = 1;
+    const VIOLAO    = 2;
+    const GUITARRA  = 3;
+    const BAIXO     = 4;
+    const TECLADO   = 5;
+    const BATERIA   = 6;
+    const MESA      = 1;
+    const PROJECAO  = 1;
+
     protected $table = 'servicos_musica';
     public $timestamps  = false;
 

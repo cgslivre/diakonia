@@ -13,6 +13,8 @@ class EscalaMusica extends Model
         'created_at', 'updated_at', 'lider_id', 'evento_id',
     ];
 
+    protected $dates = ['created_at', 'updated_at','publicado_em'];
+
     public function lider(){
         return $this->hasOne('App\Model\musica\ColaboradorMusica','id','lider_id');
     }
