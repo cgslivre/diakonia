@@ -68,8 +68,8 @@
 
     <hr/>
     <div class="text-center">
-        <a href="{{URL::route('musica.escala.publish',$escala->id)}}" class="btn btn-success">
-            Publicar escala</a>
+        <a href="{{URL::route('musica.escala.analisar',$escala->id)}}" class="btn btn-success">
+            <i class="fa fa-check-circle" aria-hidden="true"></i> Publicar escala</a>
     </div>
 
 

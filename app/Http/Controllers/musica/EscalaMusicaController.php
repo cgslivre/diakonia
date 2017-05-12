@@ -73,6 +73,14 @@ class EscalaMusicaController extends Controller
             ->with('validacao', $validacao);
     }
 
+    public function publishAction($escala_id){
+        $escala = EscalaMusica::findOrFail($escala_id);
+        $escala->publicado_em = \Carbon\Carbon::now();
+        $escala->save();
+        return Redirect::route('musica.eventos')
+            ->with('message', 'Escala publicada');
+    }
+
     /**
      * Display a listing of the resource.
      *

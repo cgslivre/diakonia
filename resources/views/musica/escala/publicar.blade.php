@@ -77,7 +77,21 @@
             @endforeach
         </div>
     @endforeach
+    </div>
 
+    <hr/>
+
+
+    <div class="text-center">
+        <a href="{{URL::route('musica.escala.edit',$escala->id)}}" class="btn btn-primary">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Alterar escala
+        </a>
+        {{ Form::open(['route' => ['musica.escala.publicar', $escala->id]
+            , 'method' => 'post']) }}
+        <button class="btn btn-success">
+            <i class="fa fa-check-circle" aria-hidden="true"></i> Confirmar publicação da escala
+        </button>
+        {{ Form::close() }}
     </div>
 @endsection
 
