@@ -68,8 +68,10 @@ class Evento extends Model implements AuditableContract
     public function getStatusEscalaMusicaAttribute(){
         if( $this->escalaMusica == NULL ){
             return "sem-escala";
+        } elseif($this->escalaMusica->publicado_em == NULL ){
+            return "escala-criada";
         } else{
-            return "escala-ok";
+            return "escala-publicada";
         }
     }
 

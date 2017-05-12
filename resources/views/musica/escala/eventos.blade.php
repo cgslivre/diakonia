@@ -8,10 +8,13 @@
     <div class="legenda">
         Legenda:
         <span class="sem-escala">
-            <i class="fa fa-circle" aria-hidden="true"></i> Sem Escala
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Sem Escala
         </span>
-        <span class="escala-ok">
-            <i class="fa fa-circle" aria-hidden="true"></i> Escala definida
+        <span class="escala-criada">
+            <i class="fa fa-cog" aria-hidden="true"></i> Escala definida
+        </span>
+        <span class="escala-publicada">
+            <i class="fa fa-check-circle" aria-hidden="true"></i> Escala definida
         </span>
     </div>
 

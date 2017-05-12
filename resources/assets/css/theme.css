@@ -287,16 +287,10 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 }
 
 .legenda >span{margin-right: 10px;}
-div.sem-escala{
-    border: 2px solid #E63946;
-    color: #E63946;
-}
-span.sem-escala{color: #E63946;}
-div.escala-ok{
-    border: 1px solid #1288c3;
-    color: #1288c3;
-}
-span.escala-ok{color: #1288c3;}
+
+span.sem-escala, i.sem-escala{color: #E63946;}
+span.escala-criada, i.escala-criada{color: #d19227;}
+span.escala-publicada, i.escala-publicada{color: #20911f;}
 .descricao-servico{font-weight: bold;}
 
 .publicacao .tarefa{padding: 5px;margin-right: 40px;}
