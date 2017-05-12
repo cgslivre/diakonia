@@ -12,7 +12,7 @@
 
         @endif
         <p class="nome">
-            <a href="{{ URL::route('musica.colaborador.edit', $colaborador->id) }}">
+            <a href="{{ URL::route('usuario.show', $colaborador->user->id) }}">
                 {{ $colaborador->user->name }}</a>
         </p>
         <p class="telefone-mask telefone">{{ $colaborador->user->telefone }}</p>
