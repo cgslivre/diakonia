@@ -39,7 +39,7 @@
                 <div class="colaborador-data">
                     <img src="{{ URL($colaborador->user->avatarPathSmall()) }}"
                     alt="{{ $colaborador->user->name }}" class="colaborador"/>
-                    {{ $colaborador->user->name }}
+                    <div class="nome">{{ $colaborador->user->name }}</div>
                 </div>
             </div>
             {{-- Dados de outras escalas --}}

@@ -113,9 +113,12 @@ div.add-servico-colaborador{
 	border: 1px solid #adcbed;}
 	div.add-servico-colaborador .colaborador-data{
 		font-weight: bold;	}
+        div.add-servico-colaborador .colaborador-data > .nome{
+            padding: 15px 0 0 5px;display: flex;
+        }
 	div.add-servico-colaborador img.colaborador{
-		border-radius: 4px;}
-	div.add-servico-colaborador > .col-md-3{
+		border-radius: 4px;float: left;vertical-align: middle;}
+	div.add-servico-colaborador > .col-md-3, div.add-servico-colaborador > .col-md-2{
 		padding-left: 0;}
 	div.add-servico-colaborador > .tarefa-action{
 		line-height: 70px;}
