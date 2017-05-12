@@ -271,11 +271,11 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 
 .servico-odd{background-color: #e0e9ed;}
 .servico-even{background-color: #e2f0f6;}
-
 .sem-usuario{vertical-align: middle;display: inline-block;}
-
-
 .img-servico-index{width: 48px;height:48px;}
+
+.escala.publicacao{padding-left: 25px;}
+.escala.publicacao h3{font-size: 1.7rem;font-weight: bold;color: #337ab7;}
 
 .status-escala{
     border-radius: 4px;

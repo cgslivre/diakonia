@@ -13,7 +13,7 @@
         Date::parse($escala->evento->data_hora_inicio)->format('j/m/Y')}}</a></li>
 @stop
 @section('nivel4')
-    <li>
+    <li class="active">
         Adicionar serviço à escala
     </li>
 @stop
