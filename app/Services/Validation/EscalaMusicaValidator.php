@@ -27,14 +27,22 @@ class EscalaMusicaValidator
         $this->errors = [];
         $this->warnings = [];
 
-        $count = [];
+        $quantidade = [];
 
         foreach (ServicoMusica::all() as $servico) {
-            $count[] = [$servico->id =>
-                $escala->tarefas->where('servico_id', $servico->id)->count()];
+            $quantidade[$servico->id] =
+                $escala->tarefas->where('servico_id', $servico->id)->count();
         }
 
-        dd($count);
+        if( $quantidade[ServicoMusica::VOCAL] == 0 ){
+            $this->errors[] = "Ninguém escalado para o vocal.";
+        } elseif( $quantidade[ServicoMusica::VOCAL] == 1){
+            $this->warnings[] = "Apenas uma pessoa escalada para o vocal";
+        }
+
+        dd($quantidade, $quantidade[ServicoMusica::VOCAL]);
+
+
 
         // $this->errors[] = ServicoMusica::VOCAL;
 
