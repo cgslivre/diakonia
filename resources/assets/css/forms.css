@@ -122,6 +122,9 @@ div.add-servico-colaborador{
 		padding-left: 0;}
 	div.add-servico-colaborador > .tarefa-action{
 		line-height: 70px;}
+	div.add-servico-colaborador > .tarefa-action .outros-servicos{
+    border: 1px solid #e6d939; display: inline;padding: 10px; border-radius: 4px;
+		}
 	div.add-servico-colaborador form{
 		display: inline;}
 	div.add-servico-colaborador.escalado{
@@ -131,6 +134,7 @@ div.add-servico-colaborador{
 		font-style: italic;
 		color: #666;
 	}
+
 
 
 .add-servico-colaborador > div {display: inline;}

@@ -11,10 +11,10 @@
             <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Sem Escala
         </span>
         <span class="escala-criada">
-            <i class="fa fa-cog" aria-hidden="true"></i> Escala definida
+            <i class="fa fa-cog" aria-hidden="true"></i> Escala definida (não publicada)
         </span>
         <span class="escala-publicada">
-            <i class="fa fa-check-circle" aria-hidden="true"></i> Escala definida
+            <i class="fa fa-check-circle" aria-hidden="true"></i> Escala definida e publicada
         </span>
     </div>
 

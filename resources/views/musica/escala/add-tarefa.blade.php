@@ -43,9 +43,8 @@
                 </div>
             </div>
             {{-- Dados de outras escalas --}}
-            <div>
 
-            </div>
+            <div></div>
             {{-- Ações --}}
             <div class="tarefa-action">
                 @if (!in_array($colaborador->id, $colaboradoresServico))
@@ -57,6 +56,16 @@
                         <i class="fa fa-check" aria-hidden="true"></i> Adicionar à escala
                     </button>
                     {{ Form::close() }}
+
+                    @if ($escala->tarefas->where('colaborador_id',$colaborador->id)->count() > 0 )
+                      <div class="outros-servicos">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        Já escalado(a) em outro serviço:
+                        @foreach ($escala->tarefas->where('colaborador_id',$colaborador->id) as $tarefa)
+                          {{$tarefa->servico->descricao}}@if (!$loop->last), @endif
+                        @endforeach
+                      </div>
+                    @endif
                 @else
                     <span class="escalado">Já escalado</span>
                 @endif
