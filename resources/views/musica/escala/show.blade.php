@@ -14,7 +14,10 @@
 
     <div class="escala publicacao">
 
-
+    <p>Publicada em: <strong>
+        {{Date::parse($evento->publicado_em)
+            ->format('j \d\e F \d\e Y, G\hi')}}</p>
+    </strong>
     <h3>Serviços definidos:</h3>
     <div class="tarefa lider">
         <div class="servico">

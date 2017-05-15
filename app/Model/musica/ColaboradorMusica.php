@@ -3,9 +3,13 @@
 namespace App\Model\musica;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class ColaboradorMusica extends Model
+
+class ColaboradorMusica extends Model implements AuditableContract
 {
+    use Auditable;
     protected $table = 'colaboradores_musica';
     protected $softDelete = true;
 

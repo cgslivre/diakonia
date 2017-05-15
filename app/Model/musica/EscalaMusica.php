@@ -3,9 +3,12 @@
 namespace App\Model\musica;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class EscalaMusica extends Model
+class EscalaMusica extends Model implements AuditableContract
 {
+    use Auditable;
     protected $table = 'escalas_musica';
     protected $softDelete = false;
 

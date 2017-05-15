@@ -3,9 +3,12 @@
 namespace App\Model\musica;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class Tarefa extends Model
+class Tarefa extends Model implements AuditableContract
 {
+    use Auditable;
     protected $table = 'tarefas_escala_musica';
     public $timestamps  = true;
 
