@@ -1,8 +1,13 @@
 @extends( 'musica.template-musica')
 
 @section('nivel2')
-    <li class="active">Escalas de Música</li>
+    <li class="active"><a href="{{route('musica.eventos')}}">
+    Escalas de Música </a></li>
 @stop
+@if ($colaborador)
+    @section('nivel3')<li class="active">Minhas escalas </li>@stop
+@endif
+
 
 @section('content')
     <div class="legenda">
@@ -23,13 +28,21 @@
     @forelse ($eventos30Dias as $evento)
         @include('musica.escala.card-evento',['evento'=>$evento])
     @empty
-        Nenhum evento
+        @if ($colaborador)
+            Não está escalado(a) em nenhum evento nos próximos 30 dias
+        @else
+            Nenhum evento
+        @endif
     @endforelse
     <h2>Eventos após 30 dias</h2>
     @forelse ($eventosApos30Dias as $evento)
         @include('musica.escala.card-evento',['evento'=>$evento])
     @empty
-        Nenhum evento
+        @if ($colaborador)
+            Não está escalado(a) em nenhum evento após 30 dias
+        @else
+            Nenhum evento
+        @endif
     @endforelse
 
 @endsection

@@ -20,19 +20,28 @@ class EscalaMusicaController extends Controller
             abort(403);
         }
         if( $colaborador ){
+
             $eventosEm30Dias = Evento::proximos30Dias()
-                ->whereIn('id', function( $query){
+                ->whereIn('id', function( $query) use ($colaborador){
                     $query->select('escala_id')
                         ->from('tarefas_escala_musica')
-                        ->where('colaborador_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULADOR);
+                        ->where('colaborador_id','=',$colaborador);
                 })->get()->sortBy('data_hora_inicio');
 
+            $eventosDepois30Dias = Evento::apos30Dias()
+                ->whereIn('id', function( $query) use ($colaborador){
+                    $query->select('escala_id')
+                        ->from('tarefas_escala_musica')
+                        ->where('colaborador_id','=',$colaborador);
+                })->get()->sortBy('data_hora_inicio');
+            $colaborador = ColaboradorMusica::findOrFail($colaborador);
         } else{
             $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
             $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
         }
 
         return view('musica.escala.eventos')
+            ->with('colaborador', $colaborador)
             ->with('eventos30Dias', $eventosEm30Dias)
             ->with('eventosApos30Dias', $eventosDepois30Dias);
     }
