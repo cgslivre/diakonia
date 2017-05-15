@@ -10,6 +10,9 @@
 
 
 @section('content')
+    @if ($colaborador)
+    <p class="na-escala">Escalas de <strong>{{$colaborador->user->name}}</strong></p>
+    @endif
     <div class="legenda">
         Legenda:
         <span class="sem-escala">

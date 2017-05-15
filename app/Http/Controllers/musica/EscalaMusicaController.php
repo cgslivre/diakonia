@@ -12,6 +12,7 @@ use App\Model\musica\ServicoMusica;
 use App\Model\musica\Tarefa;
 use App\Services\Validation\EscalaMusicaValidator;
 use Bouncer;
+use Auth;
 
 class EscalaMusicaController extends Controller
 {
@@ -92,10 +93,12 @@ class EscalaMusicaController extends Controller
     }
 
     public function publish($escala_id){
-        if(Bouncer::denies('musica-escala-edit')){
+        $escala = EscalaMusica::findOrFail($escala_id);
+
+        if(Bouncer::denies('musica-escala-edit') &&
+            Auth::user()->id != $escala->lider_id){
             abort(403);
         }
-        $escala = EscalaMusica::findOrFail($escala_id);
         if( $escala->publicada ){
             abort(403);
         }

@@ -19,7 +19,7 @@
             ->format('j \d\e F \d\e Y, G\hi')}}</p>
     </strong>
     <h3>Serviços definidos:</h3>
-    <div class="tarefa lider">
+    <div class="tarefa lider {{$escala->lider->user->id == Auth::user()->id ? 'na-escala' : ''}}">
         <div class="servico">
             <img alt="Líder"
             src="{{URL('img/musica/lider.svg')}}" class="servico-icon"/>

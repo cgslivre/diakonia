@@ -306,6 +306,7 @@ span.escala-publicada, i.escala-publicada{color: #20911f;}
     .tarefa .colaborador .avatar{display: inline;}
     .tarefa .colaborador .avatar > img{height: 48px;border-radius: 10px;}
 
+.escala p.important{padding: 5px;border-radius: 5px;background-color: #337ab7;color:#ffffff;font-weight: bold;}
 
 .loading{font-weight: bold;color:#1288c3;}
 
