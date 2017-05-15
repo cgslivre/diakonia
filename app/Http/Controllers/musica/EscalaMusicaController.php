@@ -22,14 +22,14 @@ class EscalaMusicaController extends Controller
         if( $colaborador ){
 
             $eventosEm30Dias = Evento::proximos30Dias()
-                ->whereIn('id', function( $query) use ($colaborador){
+                ->whereIn('escala_musica_id', function( $query) use ($colaborador){
                     $query->select('escala_id')
                         ->from('tarefas_escala_musica')
                         ->where('colaborador_id','=',$colaborador);
                 })->get()->sortBy('data_hora_inicio');
 
             $eventosDepois30Dias = Evento::apos30Dias()
-                ->whereIn('id', function( $query) use ($colaborador){
+                ->whereIn('escala_musica_id', function( $query) use ($colaborador){
                     $query->select('escala_id')
                         ->from('tarefas_escala_musica')
                         ->where('colaborador_id','=',$colaborador);
