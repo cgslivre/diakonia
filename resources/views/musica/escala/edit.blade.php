@@ -70,10 +70,12 @@
     <div class="text-center">
         <a href="{{URL::route('musica.escala.analisar',$escala->id)}}" class="btn btn-success">
             <i class="fa fa-check-circle" aria-hidden="true"></i> Publicar escala</a>
-        <button class="btn btn-danger" type="button"
-                data-toggle="modal" data-target="#modalRemoverEscala">
-            Remover escala
-        </button>
+        @can('musica-escala-remove')
+            <button class="btn btn-danger" type="button"
+                    data-toggle="modal" data-target="#modalRemoverEscala">
+                Remover escala
+            </button>
+        @endcan
     </div>
 
 
