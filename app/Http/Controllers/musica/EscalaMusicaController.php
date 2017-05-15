@@ -11,11 +11,14 @@ use App\Model\musica\EscalaMusica;
 use App\Model\musica\ServicoMusica;
 use App\Model\musica\Tarefa;
 use App\Services\Validation\EscalaMusicaValidator;
+use Bouncer;
 
 class EscalaMusicaController extends Controller
 {
-    public function eventos()
-    {
+    public function eventos(){
+        if(Bouncer::denies('musica-escala-view')){
+            abort(403);
+        }
         $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
         $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
 
@@ -37,6 +40,9 @@ class EscalaMusicaController extends Controller
     }
 
     public function addTarefaAction(Request $request, $escala_id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $col = ColaboradorMusica::findOrFail($request["colaborador_id"]);
         $escala = EscalaMusica::findOrFail($escala_id);
         $servico = ServicoMusica::findOrFail($request["servico_id"]);
@@ -55,6 +61,9 @@ class EscalaMusicaController extends Controller
     }
 
     public function deleteTarefaAction($tarefa_id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $tarefa = Tarefa::findOrFail($tarefa_id);
         $tarefa->delete();
 
@@ -64,6 +73,9 @@ class EscalaMusicaController extends Controller
     }
 
     public function publish($escala_id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $escala = EscalaMusica::findOrFail($escala_id);
         if( $escala->publicada ){
             abort(403);
@@ -78,6 +90,9 @@ class EscalaMusicaController extends Controller
     }
 
     public function publishAction($escala_id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $escala = EscalaMusica::findOrFail($escala_id);
         $escala->publicado_em = \Carbon\Carbon::now();
         $escala->save();
@@ -91,8 +106,10 @@ class EscalaMusicaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($evento_id)
-    {
+    public function create($evento_id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $evento = Evento::findOrFail($evento_id);
         $lideres = ColaboradorMusica::lideres()->get();
         return view('musica.escala.create')
@@ -100,8 +117,10 @@ class EscalaMusicaController extends Controller
             ->with('lideres', $lideres);
     }
 
-    public function updateLider(Request $request, $id)
-    {
+    public function updateLider(Request $request, $id){
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $lider = ColaboradorMusica::findOrFail($request["lider_id"]);
         $evento = Evento::findOrFail($id);
         if(isset($request["escala_id"])){
@@ -130,6 +149,9 @@ class EscalaMusicaController extends Controller
      */
     public function show($escala_id)
     {
+        if(Bouncer::denies('musica-escala-view')){
+            abort(403);
+        }
         $escala = EscalaMusica::findOrFail($escala_id);
         if( !$escala->publicada ){
             abort(403);
@@ -149,6 +171,9 @@ class EscalaMusicaController extends Controller
      */
     public function edit($escala_id)
     {
+        if(Bouncer::denies('musica-escala-edit')){
+            abort(403);
+        }
         $escala = EscalaMusica::findOrFail($escala_id);
         $lideres = ColaboradorMusica::lideres()->get();
         $servicos = ServicoMusica::all();
@@ -169,6 +194,9 @@ class EscalaMusicaController extends Controller
      */
     public function destroy($id)
     {
+        if(Bouncer::denies('musica-escala-remove')){
+            abort(403);
+        }
         $escala = EscalaMusica::findOrFail($id);
         $evento = $escala->evento;
         $evento->escala_musica_id = null;

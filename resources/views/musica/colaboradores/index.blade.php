@@ -22,11 +22,13 @@
         </div>
     @endforeach
 
+    @can('musica-colaborador-edit')
     <div class="fixed-action-btn">
         <a href="{{ route('musica.colaborador.create') }}" title="Adicionar colaborador"
         class="btn-floating btn-large btn-primary">
         <i class="fa fa-user-plus fa-2x"></i>
     </a>
+    @endcan
 @endsection
 
 @section('scripts')

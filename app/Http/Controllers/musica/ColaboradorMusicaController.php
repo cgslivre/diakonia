@@ -9,6 +9,7 @@ use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\ServicoMusica;
 use App\Http\Requests\musica\ColaboradorMusicaRequest;
 use App\User;
+use Bouncer;
 
 class ColaboradorMusicaController extends Controller
 {
@@ -76,7 +77,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function show(ColaboradorMusica $colaboradorMusica)
     {
-        //
+        if(Bouncer::denies('musica-colaborador-view')){
+            abort(403);
+        }
     }
 
     /**
