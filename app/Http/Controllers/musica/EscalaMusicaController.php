@@ -159,6 +159,9 @@ class EscalaMusicaController extends Controller
     public function destroy($id)
     {
         $escala = EscalaMusica::findOrFail($id);
+        $evento = $escala->evento;
+        $evento->escala_musica_id = null;
+        $evento->save();
         $escala->delete();
         return Redirect::route('musica.eventos')
             ->with('message', 'Escala removida');
