@@ -20,6 +20,7 @@ class CreateTarefasEscalaMusicaTable extends Migration
             $table->integer('escala_id')->unsigned()->index();
             $table->foreign('escala_id')
                 ->references('id')
+                ->onDelete('cascade')
                 ->on('escalas_musica');
 
             $table->integer('colaborador_id')->unsigned()->index();
