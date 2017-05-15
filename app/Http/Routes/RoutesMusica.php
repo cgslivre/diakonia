@@ -16,6 +16,8 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
         ->name('escala.analisar');
     Route::match(['post','put','patch'],'escala/{escala}/publicar',
         'musica\EscalaMusicaController@publishAction')->name('escala.publicar');
+    Route::delete('escala/{escala}/delete','musica\EscalaMusicaController@destroy')
+        ->name('escala.destroy');
     Route::get('escala/{escala}/tarefa/{servico}/add','musica\EscalaMusicaController@addTarefa')
         ->name('escala.tarefa.add');
     Route::match(['post','put','patch'],'escala/{escala}/tarefa/servico/add',

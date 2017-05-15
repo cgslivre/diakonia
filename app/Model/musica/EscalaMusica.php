@@ -13,6 +13,8 @@ class EscalaMusica extends Model
         'created_at', 'updated_at', 'lider_id', 'evento_id',
     ];
 
+    protected $appends = ['publicada'];
+
     protected $dates = ['created_at', 'updated_at','publicado_em'];
 
     public function lider(){
@@ -26,4 +28,9 @@ class EscalaMusica extends Model
     public function tarefas(){
         return $this->hasMany('App\Model\musica\Tarefa','escala_id');
     }
+
+    public function getPublicadaAttribute(){
+        return $this->publicado_em == NULL ? false : true;
+    }
+
 }
