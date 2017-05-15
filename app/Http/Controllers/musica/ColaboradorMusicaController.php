@@ -19,6 +19,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function index()
     {
+        if(Bouncer::denies('musica-colaborador-view')){
+            abort(403);
+        }
         $equipe = ColaboradorMusica::all();
         $servicos = ServicoMusica::all();
         return view('musica.colaboradores.index' , compact( 'equipe','servicos'));
@@ -31,6 +34,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function create()
     {
+        if(Bouncer::denies('musica-colaborador-edit')){
+            abort(403);
+        }
         $servicos = ServicoMusica::all();
         $usuarios = User::query()->whereNotIn('id', function( $query){
             $query->select('user_id')
@@ -47,6 +53,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function store(ColaboradorMusicaRequest $request)
     {
+        if(Bouncer::denies('musica-colaborador-edit')){
+            abort(403);
+        }
         $input = $request->all();
         $colaborador = new ColaboradorMusica;
         $colaborador->user_id = $input['user_id'];
@@ -77,7 +86,9 @@ class ColaboradorMusicaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id){
-
+        if(Bouncer::denies('musica-colaborador-edit')){
+            abort(403);
+        }
         $colaborador = colaboradorMusica::findOrFail($id);
         $servicos = ServicoMusica::all();
         return view('musica.colaboradores.edit', compact('colaborador','servicos'));
@@ -92,6 +103,9 @@ class ColaboradorMusicaController extends Controller
      */
     public function update(ColaboradorMusicaRequest $request, $id)
     {
+        if(Bouncer::denies('musica-colaborador-edit')){
+            abort(403);
+        }
         $colaborador = ColaboradorMusica::findOrFail($id);
         $input = $request->all();
         $colaborador->lider = $input['lider'];
@@ -109,6 +123,9 @@ class ColaboradorMusicaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
+        if(Bouncer::denies('musica-colaborador-remove')){
+            abort(403);
+        }
         $colaborador = ColaboradorMusica::findOrFail( $id );
         $colaborador->delete();
         return Redirect::route('musica.colaborador.index')
