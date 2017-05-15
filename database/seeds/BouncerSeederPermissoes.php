@@ -85,6 +85,21 @@ class BouncerSeederPermissoes extends Seeder
             'material-curriculo-edit',
         ]);
 
+        // Papéis para Seção Música
+        Bouncer::allow('role-musica-user')->to([
+            'musica-colaborador-view',
+            'musica-escala-view',
+        ]);
+
+        Bouncer::allow('role-musica-admin')->to([
+            'musica-colaborador-view',
+            'musica-escala-view',
+            'musica-colaborador-edit',
+            'musica-colaborador-remove',
+            'musica-escala-edit',
+            'musica-escala-remove'
+        ]);
+
 
 
         $userAdmin = App\User::find(1);
@@ -93,6 +108,7 @@ class BouncerSeederPermissoes extends Seeder
         $userAdmin->assign('role-evento-admin');
         $userAdmin->assign('role-geral-admin');
         $userAdmin->assign('role-material-curiculo-admin');
+        $userAdmin->assign('role-musica-admin');
 
     }
 }
