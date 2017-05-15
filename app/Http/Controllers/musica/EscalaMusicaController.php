@@ -125,9 +125,14 @@ class EscalaMusicaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($escala_id)
     {
-        //
+        $servicos = ServicoMusica::all();
+        $escala = EscalaMusica::findOrFail($escala_id);
+        return view('musica.escala.show')
+            ->with('evento', $escala->evento)
+            ->with('servicos', $servicos)
+            ->with('escala', $escala);
     }
 
     /**

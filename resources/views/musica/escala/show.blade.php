@@ -6,34 +6,14 @@
     Escalas de Música </a></li>
 @stop
 
-@section('nivel3')
-    <li class="active">
-        <a href="{{URL::route('musica.escala.edit',$escala->id)}}">
-        Escala dia: {{
-        Date::parse($escala->evento->data_hora_inicio)->format('j/M/Y')}}</a></li>
-@stop
-@section('nivel4')
-    <li class="active">
-        Publicar escala
-    </li>
-@stop
+@section('nivel3')<li class="active">Escala de música</li>@stop
 
 @section('content')
+    @include('musica.escala.evento-detalhe',['evento'=>$escala->evento])
+    <hr/>
 
     <div class="escala publicacao">
-        <h3>Escala para o dia {{Date::parse($escala->evento->data_hora_inicio)->format('j/M/Y')}}</h3>
 
-    @foreach ($validacao->errors as $error)
-        <div class="alert bg-danger alert-important">
-          <i class="fa fa-ban" aria-hidden="true"></i> {{$error}}
-        </div>
-    @endforeach
-
-    @foreach ($validacao->warnings as $warning)
-        <div class="alert bg-warning alert-important">
-          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> {{$warning}}
-        </div>
-    @endforeach
 
     <h3>Serviços definidos:</h3>
     <div class="tarefa lider">
@@ -79,20 +59,6 @@
     @endforeach
     </div>
 
-    <hr/>
-
-
-    <div class="text-center">
-        <a href="{{URL::route('musica.escala.edit',$escala->id)}}" class="btn btn-primary">
-            <i class="fa fa-arrow-left" aria-hidden="true"></i> Alterar escala
-        </a>
-        {{ Form::open(['route' => ['musica.escala.publicar', $escala->id]
-            , 'method' => 'post']) }}
-        <button class="btn btn-success">
-            <i class="fa fa-check-circle" aria-hidden="true"></i> Confirmar publicação da escala
-        </button>
-        {{ Form::close() }}
-    </div>
 @endsection
 
 @section('scripts')

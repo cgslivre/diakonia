@@ -35,10 +35,5 @@
 
 
 
-    <p class="local">
-        Local: <strong><a target="_blank" href="{{ route('local.show',['id'=>$evento->local->slug])}}">
-            {{$evento->local->nome}} <i class="fa fa-external-link" aria-hidden="true"></i></a></strong>
-    </p>
-
 
 </div>{{-- Fim div.show-evento --}}

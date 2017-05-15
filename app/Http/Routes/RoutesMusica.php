@@ -12,6 +12,8 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
         ->name('escala.create');
     Route::get('escala/{escala}/edit','musica\EscalaMusicaController@edit')
         ->name('escala.edit');
+    Route::get('escala/{escala}','musica\EscalaMusicaController@show')
+        ->name('escala.show');
     Route::get('escala/{escala}/publicar','musica\EscalaMusicaController@publish')
         ->name('escala.analisar');
     Route::match(['post','put','patch'],'escala/{escala}/publicar',

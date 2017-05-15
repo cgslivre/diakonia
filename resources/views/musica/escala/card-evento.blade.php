@@ -16,15 +16,15 @@
     </p>
     <p class="dias-restando">{{ $evento->data_hora_inicio->diffForHumans() }}</p>
     @if($evento->statusEscalaMusica == "sem-escala")
-    <a href="{{URL::route('musica.escala.create',$evento->id)}}" class="btn btn-success" title="Adicionar Escala">
+    <a href="{{URL::route('musica.escala.create',$evento->id)}}" class="btn btn-primary" title="Adicionar Escala">
         <i class="fa fa-plus"></i>  Adicionar escala</a>
     @elseif ($evento->statusEscalaMusica == "escala-criada")
-        <a href="{{URL::route('musica.escala.edit',$evento->escalaMusica->id)}}"
-            class="btn btn-primary" title="Adicionar Escala">
-            <i class="fa fa-pencil"></i>  Alterar escala</a>
+        <a href="{{URL::route('musica.escala.analisar',$evento->escalaMusica->id)}}"
+            class="btn btn-success" title="Publicar Escala">
+            <i class="fa fa-feed"></i>  Publicar escala</a>
     @elseif ($evento->statusEscalaMusica == "escala-publicada")
-        <a href="{{URL::route('musica.escala.edit',$evento->escalaMusica->id)}}"
-            class="btn btn-primary" title="Adicionar Escala">
-            <i class="fa fa-pencil"></i>  Alterar escala</a>
+        <a href="{{URL::route('musica.escala.show',$evento->escalaMusica->id)}}"
+            class="btn btn-primary" title="Ver Escala">
+            <i class="fa fa-eye"></i>  Ver escala</a>
     @endif
 </div>
