@@ -84,7 +84,13 @@
             musica.escala.destroy
         @endslot
         @slot('deleteId'){{$escala->id}} @endslot
-        Remover a escala?
+        <h4>Deseja remover a escala?</h4>
+        @if ($escala->publicada)
+            <p><strong>Atenção: </strong>A escala já foi publica.</p>
+                <p>
+            Os participantes da escala receberão um email informando o cancelamento da
+            escala</p>
+        @endif
     @endcomponent
 
 
