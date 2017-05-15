@@ -60,6 +60,7 @@ class ColaboradorMusicaController extends Controller
         $input = $request->all();
         $colaborador = new ColaboradorMusica;
         $colaborador->user_id = $input['user_id'];
+        $colaborador->id = $input['user_id'];
         $colaborador->lider = $input['lider'];
         $colaborador->save();
 

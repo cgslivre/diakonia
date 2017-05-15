@@ -4,7 +4,7 @@
 Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica'], function () {
     Route::resource('colaborador','musica\ColaboradorMusicaController');
 
-    Route::get('eventos','musica\EscalaMusicaController@eventos')
+    Route::get('eventos/{colaborador?}','musica\EscalaMusicaController@eventos')
         ->name('eventos');
 
     //Route::resource('escala','musica\EscalaMusicaController');

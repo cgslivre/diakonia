@@ -15,12 +15,22 @@ use Bouncer;
 
 class EscalaMusicaController extends Controller
 {
-    public function eventos(){
+    public function eventos($colaborador = null){
         if(Bouncer::denies('musica-escala-view')){
             abort(403);
         }
-        $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
-        $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
+        if( $colaborador ){
+            $eventosEm30Dias = Evento::proximos30Dias()
+                ->whereIn('id', function( $query){
+                    $query->select('escala_id')
+                        ->from('tarefas_escala_musica')
+                        ->where('colaborador_id','=',Relacionamento::ID_RELACIONAMENTO_DISCIPULADOR);
+                })->get()->sortBy('data_hora_inicio');
+
+        } else{
+            $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
+            $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
+        }
 
         return view('musica.escala.eventos')
             ->with('eventos30Dias', $eventosEm30Dias)

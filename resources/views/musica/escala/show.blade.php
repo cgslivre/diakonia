@@ -61,6 +61,31 @@
         </div>
     @endforeach
     </div>
+    <hr/>
+    <div class="text-center">
+        @can('musica-escala-remove')
+            <button class="btn btn-danger" type="button"
+                    data-toggle="modal" data-target="#modalRemoverEscala">
+                Remover escala
+            </button>
+        @endcan
+    </div>
+
+    @component('layouts.geral.modal-exclusao')
+        @slot('modalId')modalRemoverEscala @endslot
+        @slot('modalTitle')Remover Escala de Música @endslot
+        @slot('deleteRoute')
+            musica.escala.destroy
+        @endslot
+        @slot('deleteId'){{$escala->id}} @endslot
+        <h4>Deseja remover a escala?</h4>
+        @if ($escala->publicada)
+            <p><strong>Atenção: </strong>A escala já foi publica.</p>
+                <p>
+            Os participantes da escala receberão um email informando o cancelamento da
+            escala</p>
+        @endif
+    @endcomponent
 
 @endsection
 
