@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTarefasEscalaMusicaTable extends Migration
+class CreateImpedimentoEscalaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateTarefasEscalaMusicaTable extends Migration
      */
     public function up()
     {
-        Schema::create('tarefas_escala_musica', function (Blueprint $table) {
+        Schema::create('impedimento_escala', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('token',60)->index();
+            $table->dateTime('resolvido_em')->nullable()->index();
 
             $table->integer('escala_id')->unsigned()->index();
             $table->foreign('escala_id')
@@ -30,10 +30,6 @@ class CreateTarefasEscalaMusicaTable extends Migration
                 ->references('id')
                 ->on('colaboradores_musica');
 
-            $table->integer('servico_id')->unsigned()->index();
-            $table->foreign('servico_id')
-                ->references('id')
-                ->on('servicos_musica');
         });
     }
 
@@ -44,6 +40,6 @@ class CreateTarefasEscalaMusicaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tarefas_escala_musica');
+        Schema::dropIfExists('impedimento_escala');
     }
 }

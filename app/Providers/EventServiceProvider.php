@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
-use App\Model\musica\Tarefa;
+use App\Model\musica\EscalaMusica;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -35,8 +35,8 @@ class EventServiceProvider extends ServiceProvider
         parent::boot();
 
         // Atualiza Token da tarefa
-        Tarefa::saving( function( $tarefa ) {
-            $tarefa->token = str_random(50);
+        EscalaMusica::saving( function( $escala ) {
+            $escala->token = str_random(50);
         });
     }
 }
