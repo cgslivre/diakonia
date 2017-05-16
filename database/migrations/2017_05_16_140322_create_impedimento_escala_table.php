@@ -40,6 +40,6 @@ class CreateImpedimentoEscalaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('impedimento_escala');
+        Schema::dropIfExists('impedimento_escala_musica');
     }
 }

@@ -15,9 +15,7 @@ class CreateTarefasEscalaMusicaTable extends Migration
     {
         Schema::create('tarefas_escala_musica', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
-
-            $table->string('token',60)->index();
+            $table->timestamps();            
 
             $table->integer('escala_id')->unsigned()->index();
             $table->foreign('escala_id')
