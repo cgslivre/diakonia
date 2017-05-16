@@ -13,6 +13,7 @@ use App\Model\musica\Tarefa;
 use App\Services\Validation\EscalaMusicaValidator;
 use Bouncer;
 use Auth;
+use App\Events\musica\EscalaPublicada;
 
 class EscalaMusicaController extends Controller
 {
@@ -118,6 +119,8 @@ class EscalaMusicaController extends Controller
         $escala = EscalaMusica::findOrFail($escala_id);
         $escala->publicado_em = \Carbon\Carbon::now();
         $escala->save();
+
+        event( new EscalaPublicada($escala));
         return Redirect::route('musica.eventos')
             ->with('message', 'Escala publicada');
     }
