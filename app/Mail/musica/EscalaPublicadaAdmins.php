@@ -34,7 +34,7 @@ class EscalaPublicadaAdmins extends Mailable
         return $this->subject('Escala de música publicada')
             ->markdown('emails.musica.escala-publicada-admins')
                 ->with([
-                    'escala' => $this->escala
+                    'escala' => $this->escala,
                     'admin' => $this->admin
                 ]);
     }
