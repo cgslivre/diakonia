@@ -21,6 +21,7 @@ class EscalaPublicadaAdmins extends Mailable
     public function __construct($escala, $admin)
     {
         $this->escala = $escala;
+        
         $this->admin = $admin;
     }
 
