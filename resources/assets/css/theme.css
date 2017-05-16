@@ -302,9 +302,12 @@ span.escala-publicada, i.escala-publicada{color: #20911f;}
 .publicacao .tarefa.lider{background-color: #597090;color: #ffffff;}
 .tarefa .servico{display: inline-block;width: 150px;}
 .tarefa .servico > img.servico-icon{height: 48px;}
-.tarefa .colaborador{display: inline;padding-right: 15px;}
+.tarefa .colaborador{display: inline-block;padding-right: 15px;}
     .tarefa .colaborador .avatar{display: inline;}
     .tarefa .colaborador .avatar > img{height: 48px;border-radius: 10px;}
+    .tarefa .colaborador.escalado{
+        border: 2px dotted #906a59;padding: 3px 6px; border-radius: 3px;font-weight: bold;}
+        .tarefa .colaborador.escalado.lider{border: 2px dotted #e4cdc2;}
 
 .escala p.important{padding: 5px;border-radius: 5px;background-color: #337ab7;color:#ffffff;font-weight: bold;}
 

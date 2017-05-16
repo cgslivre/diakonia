@@ -46,7 +46,8 @@
                 Líder
             </span>
         </div>
-        <div class="colaborador">
+        <div class="colaborador {{
+            $escala->lider_id == Auth::user()->id ? 'escalado lider': ''}}">
             <div class="avatar">
                 <img src="{{ URL($escala->lider->user->avatarPathSmall()) }}"
                      alt="{{$escala->lider->user->name}}" />
@@ -67,8 +68,8 @@
                 </span>
             </div>
             @foreach ($tarefas as $tarefa)
-                <div class="colaborador">
-
+                <div class="colaborador {{
+                    $tarefa->colaborador_id == Auth::user()->id ? 'escalado': ''}}">
                 <div class="avatar">
                     <img src="{{ URL($tarefa->colaborador->user->avatarPathSmall()) }}"
                          alt="{{$tarefa->colaborador->user->name}}" />
