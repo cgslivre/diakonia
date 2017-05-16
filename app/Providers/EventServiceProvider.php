@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\UserRegister' => [
             'App\Listeners\NotifyAdminsNewUser',
         ],
+        'App\Events\musica\NovaEscalaMusica' => [
+            'App\Listeners\musica\NotifyAdminNovaEscala',
+            'App\Listeners\musica\NotifyColaboradoresNovaEscala',
+        ]
     ];
 
     /**
