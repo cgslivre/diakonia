@@ -17,7 +17,7 @@ Escala de Música publicada
 @endforeach
 
 {{--  Ver escala --}}
-@component('mail::button',['url'=>config('app.url') . '/usuario/' . $user->id . '/permissoes'])
+@component('mail::button',['url'=>config('app.url') . '/musica/escala/' . $escala->id ])
 Ver escala
 @endcomponent
 

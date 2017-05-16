@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Silber\Bouncer\Database\Role;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\musica\EscalaPublicadaAdmins;
+use Log;
 
 class NotifyAdminNovaEscala
 {
@@ -28,7 +29,8 @@ class NotifyAdminNovaEscala
      * @param  NovaEscalaMusica  $event
      * @return void
      */
-    public function handle(EscalaPublicada $event)
+    public function handle(EscalaPublicada $event){
+       
         $roleAdmin = Role::where('name','role-musica-admin')->first();
         $admins = $roleAdmin->users()->get();
         foreach ($admins as $user) {
