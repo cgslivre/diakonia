@@ -83,7 +83,10 @@
     </div>
 
     <hr/>
-
+    <p class="escala info"><span>Atenção:</span> ao confirmar a publicação da escala
+    um email será enviado para cada participante da escala com os detalhes do evento e
+    o serviço solicitado.</p>
+    <hr/>
 
     <div class="text-center">
         <a href="{{URL::route('musica.escala.edit',$escala->id)}}" class="btn btn-primary">
