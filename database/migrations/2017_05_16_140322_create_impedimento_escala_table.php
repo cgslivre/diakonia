@@ -13,7 +13,7 @@ class CreateImpedimentoEscalaTable extends Migration
      */
     public function up()
     {
-        Schema::create('impedimento_escala', function (Blueprint $table) {
+        Schema::create('impedimento_escala_musica', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
 
