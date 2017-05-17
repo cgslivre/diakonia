@@ -21,6 +21,7 @@ class EscalaMusicaController extends Controller
         if(Bouncer::denies('musica-escala-view')){
             abort(403);
         }
+        $admin = Bouncer::allows('musica-escala-edit');
         if( $colaborador ){
 
             $eventosEm30Dias = Evento::proximos30Dias()
@@ -38,8 +39,14 @@ class EscalaMusicaController extends Controller
                 })->get()->sortBy('data_hora_inicio');
             $colaborador = ColaboradorMusica::findOrFail($colaborador);
         } else{
-            $eventosEm30Dias = Evento::proximos30Dias()->get()->sortBy('data_hora_inicio');
-            $eventosDepois30Dias = Evento::apos30Dias()->get()->sortBy('data_hora_inicio');
+            $eventosEm30Dias = Evento::proximos30Dias()
+                ->when(!$admin, function( $query ) {
+                    return $query->whereNotNull('escala_musica_id');
+                })->get()->sortBy('data_hora_inicio');
+            $eventosDepois30Dias = Evento::apos30Dias()
+                ->when(!$admin, function( $query ) {
+                    return $query->whereNotNull('escala_musica_id');
+                })->get()->sortBy('data_hora_inicio');
         }
 
         return view('musica.escala.eventos')
