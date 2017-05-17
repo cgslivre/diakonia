@@ -28,5 +28,9 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
         ->name('escala.tarefa.delete');
     Route::match(['post','put','patch'],'escala/{evento}/lider/update',
         'musica\EscalaMusicaController@updateLider')->name('escala.lider.update');
+    Route::match(['post','put','patch'],'escala/{escala}/impedimento/create',
+        'musica\ImpedimentoEscalaMusicaController@create')->name('escala.impedimento.create');
+    Route::delete('escala/{escala}/impedimento/destroy',
+        'musica\ImpedimentoEscalaMusicaController@destroy')->name('escala.impedimento.destroy');
 
 });

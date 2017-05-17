@@ -17,8 +17,6 @@ class CreateImpedimentoEscalaTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->dateTime('resolvido_em')->nullable()->index();
-
             $table->integer('escala_id')->unsigned()->index();
             $table->foreign('escala_id')
                 ->references('id')

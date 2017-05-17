@@ -6,6 +6,7 @@
         $is_lider = false;
     }
 
+
 @endphp
 <div class="card-evento musica {{$evento->statusEscalaMusica}}">
     <div class="data text-center">
@@ -47,4 +48,14 @@
                 <i class="fa fa-eye"></i>  Ver escala</a>
             @endcan
         @endif
+        @if ($colaborador)
+            <button class="btn btn-danger" type="button"
+                    data-toggle="modal" data-target="#modalRegistrarImpedimento">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
+            </button>
+        @endif
 </div>
+
+@include('musica.escala.modal-registrar-impedimento',[
+    'colaborador'=>$colaborador
+    ,'escala'=>$evento->escala])

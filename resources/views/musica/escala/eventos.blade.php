@@ -29,7 +29,10 @@
 
     <h2>Eventos nos próximos 30 dias</h2>
     @forelse ($eventos30Dias as $evento)
-        @include('musica.escala.card-evento',['evento'=>$evento])
+        @include('musica.escala.card-evento',[
+            'evento'=>$evento,
+            'colaborador'=>$colaborador,
+        ])
     @empty
         @if ($colaborador)
             Não está escalado(a) em nenhum evento nos próximos 30 dias
@@ -39,7 +42,10 @@
     @endforelse
     <h2>Eventos após 30 dias</h2>
     @forelse ($eventosApos30Dias as $evento)
-        @include('musica.escala.card-evento',['evento'=>$evento])
+        @include('musica.escala.card-evento',[
+            'evento'=>$evento,
+            'colaborador'=>$colaborador,
+        ])
     @empty
         @if ($colaborador)
             Não está escalado(a) em nenhum evento após 30 dias
