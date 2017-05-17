@@ -17,7 +17,9 @@ class CreateColaboradoresMusicaTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
-            $table->boolean('lider')->default(false);;
+            $table->boolean('lider')->default(false);
+
+            $table->string('token',20)->index();
 
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')
