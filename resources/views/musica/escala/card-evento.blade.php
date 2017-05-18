@@ -53,9 +53,16 @@
                     data-toggle="modal" data-target="#modalRegistrarImpedimento">
                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
             </button>
+            <button class="btn btn-success" type="button"
+                    data-toggle="modal" data-target="#modalRemoverImpedimento">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Remover Impedimento
+            </button>
         @endif
 </div>
 
 @include('musica.escala.modal-registrar-impedimento',[
+    'colaborador'=>$colaborador
+    ,'escala'=>$evento->escala])
+@include('musica.escala.modal-remover-impedimento',[
     'colaborador'=>$colaborador
     ,'escala'=>$evento->escala])

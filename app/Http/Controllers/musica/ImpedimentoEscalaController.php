@@ -11,7 +11,7 @@ use App\Model\musica\ImpedimentoEscala;
 use Bouncer;
 use Auth;
 
-class ImpedimentoEscalaMusicaController extends Controller{
+class ImpedimentoEscalaController extends Controller{
 
     public function create(Request $request, $escala_id){
 
@@ -26,5 +26,19 @@ class ImpedimentoEscalaMusicaController extends Controller{
         return Redirect::route('musica.eventos', $colaborador->id)
             ->with('message', 'Impedimento registrado!');
     }
+
+    public function destroy(Request $request, $escala_id){
+
+        $colaborador = ColaboradorMusica::findOrFail($request["colaborador_id"]);
+
+        $impedimentos = ImpedimentoEscala::where('escala_id',$escala_id)
+            ->where('colaborador_id', $colaborador->id)->delete();
+
+        // Salvar e redirecionar para edição
+        return Redirect::route('musica.eventos', $colaborador->id)
+            ->with('message', 'Impedimento removido!');
+    }
+
+
 
 }
