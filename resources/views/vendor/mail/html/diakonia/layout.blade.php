@@ -23,6 +23,7 @@
             }
         }
     </style>
+    @include('vendor.mail.html.diakonia.css')
 
     <table class="wrapper" width="100%" cellpadding="0" cellspacing="0">
         <tr>
