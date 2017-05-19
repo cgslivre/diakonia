@@ -5,6 +5,7 @@ namespace App\Listeners\musica;
 use App\Events\musica\EscalaPublicada;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Mail\musica\EscalaPublicadaColaborador;
 
 class NotifyColaboradoresNovaEscala
 {
@@ -26,6 +27,12 @@ class NotifyColaboradoresNovaEscala
      */
     public function handle(EscalaPublicada $event)
     {
-        //
+        $colaboradores = $escala->tarefas->map( function($item){
+          return $item->colaborador->user;}
+          )->push($escala->lider->user)->unique();
+          foreach ($colaboradores as $user) {
+              Mail::to($user)
+                ->send(new EscalaPublicadaColaborador($event->escala, $user));
+          }
     }
 }

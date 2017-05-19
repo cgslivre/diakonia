@@ -59,10 +59,11 @@
             </button>
         @endif
 </div>
-
-@include('musica.escala.modal-registrar-impedimento',[
+@if ($colaborador)  
+  @include('musica.escala.modal-registrar-impedimento',[
     'colaborador'=>$colaborador
     ,'escala'=>$evento->escala])
-@include('musica.escala.modal-remover-impedimento',[
-    'colaborador'=>$colaborador
-    ,'escala'=>$evento->escala])
+    @include('musica.escala.modal-remover-impedimento',[
+      'colaborador'=>$colaborador
+      ,'escala'=>$evento->escala])
+@endif
