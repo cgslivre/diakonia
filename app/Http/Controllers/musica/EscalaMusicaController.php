@@ -237,4 +237,13 @@ class EscalaMusicaController extends Controller
         return Redirect::route('musica.eventos')
             ->with('message', 'Escala removida');
     }
+
+    public function publishTest($id){
+        $escala = EscalaMusica::findOrFail($id);
+        $user = \App\User::find(19);
+        return view('emails.musica.escala-publicada-colaboradores')
+            ->with('escala', $escala)
+            ->with('user', $user);
+
+    }
 }

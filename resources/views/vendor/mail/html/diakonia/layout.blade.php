@@ -3,7 +3,6 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    {{Html::style('css/email-default.css')}}
 </head>
 <body>
     <style>
@@ -30,8 +29,8 @@
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0">
                     @include('vendor.mail.html.diakonia.header', [
-                        'url' => '',
-                        'slot' => ''
+                        'url' => config('app.url'),
+                        'slot' => 'Diakonia'
                     ])
 
                     <!-- Email Body -->
@@ -49,7 +48,7 @@
                     </tr>
 
                     @include('vendor.mail.html.diakonia.footer', [
-                        'slot' => ''
+                        'slot' => 'Diakonia'
                     ])
                 </table>
             </td>

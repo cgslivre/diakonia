@@ -47,7 +47,7 @@ h2 {
     color: #2F3133;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 0;
+    margin-top: 15px;
     text-align: left;
 }
 
@@ -279,4 +279,8 @@ img {
     font-size: 15px;
     text-align: center;
 }
+
+p.evento{margin: 0;}
+p.evento span{font-weight: bold;color: #457B9D;}
+
 </style>

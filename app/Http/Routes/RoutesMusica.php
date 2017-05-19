@@ -33,4 +33,7 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
     Route::match(['post','put','patch'],'escala/{escala}/impedimento/destroy',
         'musica\ImpedimentoEscalaController@destroy')->name('escala.impedimento.destroy');
 
+    Route::get('escala/{escala}/publicar-teste','musica\EscalaMusicaController@publishTest')
+        ->name('escala.analisar.test');
+
 });
