@@ -16,7 +16,8 @@
         "guzzlehttp/guzzle": "^6.2",
         "eduardokum/laravel-mail-auto-embed": "^1.0",
         "owen-it/laravel-auditing": "^4.0",
-        "laracademy/interactive-make": "^0.8.0"
+        "laracademy/interactive-make": "^0.8.0",
+        "fedeisas/laravel-mail-css-inliner": "^2.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
