@@ -10,13 +10,27 @@
     <p class="evento"><span>Hora:</span> {{Date::parse($escala->evento->data_hora_inicio)->format('G\hi')}}</p>
 
     <h2>Escala</h2>
-    <table>
-        @foreach ($escala->tarefas->sortBy('servico_id')->groupBy('servico_id') as $tarefas)
-        <tr>
-            <td>
-                {{$tarefas->first()->servico->descricao}}
+    <table class="escala">
+        <tr class="lider">
+            <td class="servico-img">
+                <img alt="Líder"
+                src="{{URL('img/musica/lider.svg')}}"/>
             </td>
-            <td>
+            <td class="servico-dsc">Líder</td>
+            <td class="colaboradores">
+                {{$escala->lider->user->name}}
+            </td>
+        </tr>
+        @foreach ($escala->tarefas->sortBy('servico_id')->groupBy('servico_id') as $tarefas)
+        <tr class="{{$loop->index % 2 == 0 ? 'even' : 'odd'}}">
+            <td class="servico-img">
+                <img alt="{{ $tarefas->first()->servico->descricao }}"
+                src="{{URL($tarefas->first()->servico->iconeSmall)}}"/>
+            </td>
+            <td class="servico-dsc">
+                {{ $tarefas->first()->servico->descricao }}
+            </td>
+            <td class="colaboradores">
                 {{$tarefas->map(function($item){return $item->colaborador->user->name;})->implode(', ')}}
             </td>
         </tr>

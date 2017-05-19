@@ -282,5 +282,14 @@ img {
 
 p.evento{margin: 0;}
 p.evento span{font-weight: bold;color: #457B9D;}
+table.escala{width: 100%;}
+table.escala tr td{padding: 4px 0;}
+table.escala td.servico-img {text-align: center;}
+table.escala td.servico-img img{height: 42px;}
+table.escala td.servico-dsc {padding-left: 4px; font-weight: bold;font-size: 90%;}
+table.escala td.colaboradores {padding-left: 4px;}
+table.escala tr.lider {background-color: #457B9D;color: #ffffff;}
+table.escala tr.odd{background-color: #e0e9ed;}
+table.escala tr.even{background-color: #f0f5f7;}
 
 </style>
