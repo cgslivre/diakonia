@@ -28,8 +28,8 @@
             <td align="center">
                 <table class="content" width="100%" cellpadding="0" cellspacing="0">
                     @include('vendor.mail.html.diakonia.header', [
-                        $url => '',
-                        $slot => ''
+                        'url' => '',
+                        'slot' => ''
                     ])
 
                     <!-- Email Body -->
@@ -47,7 +47,7 @@
                     </tr>
 
                     @include('vendor.mail.html.diakonia.footer', [
-                        $slot => ''
+                        'slot' => ''
                     ])
                 </table>
             </td>
