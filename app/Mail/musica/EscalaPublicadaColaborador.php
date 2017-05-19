@@ -33,7 +33,7 @@ class EscalaPublicadaColaborador extends Mailable
     public function build()
     {
         return $this->subject('Escala de música publicada')
-            ->markdown('emails.musica.escala-publicada-colaboradores')
+            ->view('emails.musica.escala-publicada-colaboradores')
                 ->with([
                     'escala' => $this->escala,
                     'user' => $this->user
