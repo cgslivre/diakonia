@@ -282,8 +282,9 @@ img {
 
 p.evento{margin: 0;}
 p.evento span{font-weight: bold;color: #457B9D;}
-table.escala{width: 100%;}
+table.escala{width: 100%;border-collapse: collapse;}
 table.escala tr td{padding: 4px 0;}
+table.escala tr.escalado{border: 2px solid #bf8329;}
 table.escala td.servico-img {text-align: center;}
 table.escala td.servico-img img{height: 42px;}
 table.escala td.servico-dsc {padding-left: 4px; font-weight: bold;font-size: 90%;}

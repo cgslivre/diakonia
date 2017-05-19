@@ -11,7 +11,7 @@
 
     <h2>Escala</h2>
     <table class="escala">
-        <tr class="lider">
+        <tr class="lider {{$escala->lider_id == $user->id ? 'escalado' : ''}}">
             <td class="servico-img">
                 <img alt="Líder"
                 src="{{URL('img/musica/lider.svg')}}"/>
@@ -22,7 +22,9 @@
             </td>
         </tr>
         @foreach ($escala->tarefas->sortBy('servico_id')->groupBy('servico_id') as $tarefas)
-        <tr class="{{$loop->index % 2 == 0 ? 'even' : 'odd'}}">
+        <tr class="{{$loop->index % 2 == 0 ? 'even' : 'odd'}} {{
+            $tarefas->contains('colaborador_id',$user->id) ? ' escalado' : ''
+        }}">
             <td class="servico-img">
                 <img alt="{{ $tarefas->first()->servico->descricao }}"
                 src="{{URL($tarefas->first()->servico->iconeSmall)}}"/>
