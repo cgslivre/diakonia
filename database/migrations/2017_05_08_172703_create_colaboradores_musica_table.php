@@ -19,7 +19,7 @@ class CreateColaboradoresMusicaTable extends Migration
             $table->softDeletes();
             $table->boolean('lider')->default(false);
 
-            $table->string('token',20)->index();
+            $table->string('token',5)->index();
 
             $table->integer('user_id')->unsigned()->index();
             $table->foreign('user_id')

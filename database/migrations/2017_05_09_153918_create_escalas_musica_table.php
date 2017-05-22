@@ -17,7 +17,7 @@ class CreateEscalasMusicaTable extends Migration
             $table->increments('id');
             $table->timestamps();
 
-            $table->string('token',30)->index();
+            $table->string('token',6)->index();
 
             $table->dateTime('publicado_em')->nullable();
 

@@ -37,11 +37,11 @@ class EventServiceProvider extends ServiceProvider
 
         // Atualiza Token da Escala Música
         EscalaMusica::saving( function( $escala ) {
-            $escala->token = str_random(20);
+            $escala->token = str_random(5);
         });
         // Atualiza Token do Colaborador
         ColaboradorMusica::saving( function( $colaborador ) {
-            $colaborador->token = str_random(10);
+            $colaborador->token = str_random(4);
         });
     }
 }
