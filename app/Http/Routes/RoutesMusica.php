@@ -32,7 +32,11 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
         'musica\ImpedimentoEscalaController@create')->name('escala.impedimento.create');
     Route::match(['post','put','patch'],'escala/{escala}/impedimento/destroy',
         'musica\ImpedimentoEscalaController@destroy')->name('escala.impedimento.destroy');
+    Route::get('escala/impedimento/{t_escala}/{t_colaborador}','musica\ImpedimentoEscalaController@tokenCreate')
+        ->name('escala.impedimento.create.token');
 
+
+    // Remover após testes
     Route::get('escala/{escala}/publicar-teste','musica\EscalaMusicaController@publishTest')
         ->name('escala.analisar.test');
 

@@ -39,6 +39,10 @@ class ImpedimentoEscalaController extends Controller{
             ->with('message', 'Impedimento removido!');
     }
 
+    public function tokenCreate( $escala_token, $colaborador_token ){
+        dd( $escala_token, $colaborador_token);
+    }
+
 
 
 }

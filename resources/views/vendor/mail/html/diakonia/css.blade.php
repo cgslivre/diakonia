@@ -165,6 +165,8 @@ img {
     text-align: center;
 }
 
+.footer td{color: #fff;}
+
 /* Tables */
 
 .table table {

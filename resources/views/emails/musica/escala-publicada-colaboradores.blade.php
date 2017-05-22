@@ -36,7 +36,16 @@
                 {{$tarefas->map(function($item){return $item->colaborador->user->name;})->implode(', ')}}
             </td>
         </tr>
-
         @endforeach
     </table>
+    <hr/>
+    <h2>Em caso de impedimento:</h2>
+    <p>Se, por algum motivo, você não pode participar da escala neste dia, avise o líder clicando no
+        link abaixo.</p>
+    @include('vendor.mail.html.diakonia.button', [
+        'url' => config('app.url'),
+        'color' => 'red',
+        'slot' => 'Informar impedimento'
+    ])
+
 @endsection
