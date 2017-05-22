@@ -30,7 +30,8 @@
         {{$servico->descricao}}
     </strong>
     <hr/>
-    @forelse ($servico->colaboradores as $colaborador)
+    @forelse ($servico->colaboradores->sortBy(function($col){
+      return str_slug($col->user->name);}) as $colaborador)
         <div class="row add-servico-colaborador
             {{in_array($colaborador->id, $colaboradoresServico) ?
                  'escalado' : 'nao-escalado'}}">

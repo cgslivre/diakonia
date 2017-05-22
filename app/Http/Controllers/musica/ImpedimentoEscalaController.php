@@ -43,6 +43,17 @@ class ImpedimentoEscalaController extends Controller{
         dd( $escala_token, $colaborador_token);
     }
 
+    public function token( $token ){
+      // 5 Caracters = EscalaMusica
+      // 4 Caracters = ColaboradorMusica
+      if( strlen($token) != 9 ){
+        abort(404);
+      }
+
+      $token_escala = substr($token, 0 , 5);
+      $token_colaborador = substr($token, 5);
+    }
+
 
 
 }
