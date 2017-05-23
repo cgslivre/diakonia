@@ -6,6 +6,7 @@ var cleanCSS = require('gulp-clean-css');
 var size = require('gulp-size');
 var rm = require('gulp-rimraf');
 var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
 
 var paths = {
 	'default' : 'resources/assets',
@@ -54,6 +55,7 @@ gulp.task('css', function(done){
 		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
 		,paths.bower + '/toastr/toastr.min.css'
+		,paths.bower + '/toolbar/jquery.toolbar.css'
 
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
@@ -96,6 +98,7 @@ gulp.task('js', function(done){
 		,paths.bower + '/select2/dist/js/select2.full.min.js'
 		,paths.bower + '/select2/dist/js/i18n/pt-BR.js'
 		,paths.bower + '/image-picker/image-picker/image-picker.min.js'
+		,paths.bower + '/toolbar/jquery.toolbar.js'
 		// Javascript
 		,paths.bower + '/moment/min/moment.min.js'
 		,paths.bower + '/moment/locale/pt-br.js'
@@ -107,7 +110,10 @@ gulp.task('js', function(done){
 		//.pipe(expect({ checkRealFile: true, verbose: true },filesjs))
 		.pipe(size({showFiles: true, title: "Javascript:: "}))
 		.pipe(concat('app.min.js'))
-		.pipe(config.production ? uglify(): util.noop())
+		.pipe(config.production ? uglify().on('error', function(err) {
+gutil.log(gutil.colors.red('[Error]'), err.toString());
+this.emit('end');
+}): util.noop())
 		.pipe(gulp.dest('public/js'));
 
 	done();
@@ -121,7 +127,7 @@ gulp.task('angular', function(done){
 	]).pipe(size({showFiles: true, title: "AngularJS (Usuários):"}))
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-users-module.min.js'))
-	.pipe(gulp.dest('public/js/users'));	
+	.pipe(gulp.dest('public/js/users'));
 
 	gulp.src([
 		paths.default + '/js/membro/MembroModule.js'

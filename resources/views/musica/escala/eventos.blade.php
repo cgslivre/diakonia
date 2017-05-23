@@ -53,11 +53,27 @@
             Nenhum evento
         @endif
     @endforelse
+    <a data-toolbar="content-option" class="btn-toolbar btn-toolbar-primary"><i class="fa fa-cog"></i></a>
+
+    <div id="toolbar-options" class="hidden">
+       <a href="#" class="btn "><i class="fa fa-car"></i></a>
+       <a href="#" class="btn "><i class="fa fa-plane"></i></a>
+       <a href="#" class="btn "><i class="fa fa-bicycle"></i></a>
+    </div>
 
 @endsection
 
 @section('scripts')
 
+<script type="text/javascript">
+    $(".btn-toolbar").toolbar({
+        content: '#toolbar-options',
+        position: 'right',
+        style: 'primary',
+        event: 'click',
+        hideOnClick: true,
+    })
+</script>
 
 
 @endsection

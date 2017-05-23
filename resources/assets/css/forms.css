@@ -1,6 +1,13 @@
 /* Definições Gerais */
 .table tbody{font-size: 15px;}
 .table tbody>tr>td.middle-align,.table tbody>tr>th.middle-align{vertical-align: middle;}
+.tool-container, .tool-item, .btn-toolbar {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+.btn-toolbar{border-radius: 2px;padding: 6px;}
 
 .alert{
     padding: 15px;
@@ -139,3 +146,18 @@ div.add-servico-colaborador{
 
 .add-servico-colaborador > div {display: inline;}
 .escala.publicacao .alert{margin-bottom: 5px;}
+
+.escala-info div{
+    display: inline-block;
+    margin-right: 1px;
+    padding: 6px;
+    border-radius: 1px;
+    width: 32px;
+    text-align: center;}
+.status-escala{color: #ffffff;}
+    .status-escala.sem-escala{background-color: #E63946;}
+    .status-escala.escala-criada{background-color: #d19227;}
+    .status-escala.escala-publicada{background-color: #20911f;}
+.escala-info .impedimento{
+    background-color: #ebd59e;
+}
