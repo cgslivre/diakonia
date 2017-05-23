@@ -35,11 +35,11 @@
             <i class="fa fa-plus"></i>  Adicionar escala</a>
             @endcan
         @elseif ($evento->statusEscalaMusica == "escala-criada")
-            @if($is_lider || Bouncer::allows('musica-escala-edit'))
+            @can('musica-escala-edit')
             <a href="{{URL::route('musica.escala.analisar',$evento->escalaMusica->id)}}"
                 class="btn btn-success" title="Publicar Escala">
                 <i class="fa fa-feed"></i>  Publicar escala</a>
-            @endif
+            @endcan
 
         @elseif ($evento->statusEscalaMusica == "escala-publicada")
             @can('musica-escala-view')
@@ -59,7 +59,7 @@
             </button>
         @endif
 </div>
-@if ($colaborador)  
+@if ($colaborador)
   @include('musica.escala.modal-registrar-impedimento',[
     'colaborador'=>$colaborador
     ,'escala'=>$evento->escala])
