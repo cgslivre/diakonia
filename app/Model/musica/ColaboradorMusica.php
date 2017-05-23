@@ -31,12 +31,7 @@ class ColaboradorMusica extends Model implements AuditableContract
         return $query->where('lider', '=', true );
     }
 
-    // public function getServicosArrayAttribute(){
-    //     $arr = [];
-    //     $servicos = $this->servicos;
-    //     foreach ($servicos as $servico) {
-    //         $arr[] = $servico->id;
-    //     }
-    //     return $arr;
-    // }
+    public function scopeToken($query,$token){
+        $query->where('token','=', $token);
+    }
 }

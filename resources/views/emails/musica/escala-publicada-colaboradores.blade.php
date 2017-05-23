@@ -43,7 +43,7 @@
     <p>Se, por algum motivo, você não pode participar da escala neste dia, avise o líder clicando no
         link abaixo.</p>
     @include('vendor.mail.html.diakonia.button', [
-        'url' => config('app.url'),
+        'url' => config('app.url') . '/musica/escala/impedimento/' . $escala->token . '/' . $user->colaboradorMusica->token,
         'color' => 'red',
         'slot' => 'Informar impedimento'
     ])

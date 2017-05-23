@@ -36,4 +36,8 @@ class EscalaMusica extends Model implements AuditableContract
         return $this->publicado_em == NULL ? false : true;
     }
 
+    public function scopeToken($query,$token){
+        $query->where('token','=', $token);
+    }
+
 }

@@ -17,10 +17,11 @@ class ImpedimentoEscalaController extends Controller{
 
         $colaborador = ColaboradorMusica::findOrFail($request["colaborador_id"]);
 
-        $impedimento = new ImpedimentoEscala;
-        $impedimento->escala_id = $escala_id;
-        $impedimento->colaborador_id = $colaborador->id;
-        $impedimento->save();
+        // $impedimento = new ImpedimentoEscala;
+        // $impedimento->escala_id = $escala_id;
+        // $impedimento->colaborador_id = $colaborador->id;
+        // $impedimento->save();
+        self::saveImpedimento($escala_id,$colaborador->id );
 
         // Salvar e redirecionar para edição
         return Redirect::route('musica.eventos', $colaborador->id)
@@ -40,7 +41,22 @@ class ImpedimentoEscalaController extends Controller{
     }
 
     public function tokenCreate( $escala_token, $colaborador_token ){
-        dd( $escala_token, $colaborador_token);
+        $escala = EscalaMusica::token($escala_token)->first();
+        $colaborador = ColaboradorMusica::token($colaborador_token)->first();
+
+        if( $escala == NULL || $colaborador == NULL){
+            abort(404);
+        }
+
+        self::saveImpedimento($escala->id,$colaborador->id );
+
+    }
+
+    private function saveImpedimento( $escala_id , $colaborador_id ){
+        $impedimento = new ImpedimentoEscala;
+        $impedimento->escala_id = $escala_id;
+        $impedimento->colaborador_id = $colaborador->id;
+        $impedimento->save();
     }
 
 
