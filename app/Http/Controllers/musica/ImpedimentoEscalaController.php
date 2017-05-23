@@ -40,22 +40,11 @@ class ImpedimentoEscalaController extends Controller{
             ->with('message', 'Impedimento removido!');
     }
 
-    public function tokenCreate( $escala_token, $colaborador_token ){
-        $escala = EscalaMusica::token($escala_token)->first();
-        $colaborador = ColaboradorMusica::token($colaborador_token)->first();
-
-        if( $escala == NULL || $colaborador == NULL){
-            abort(404);
-        }
-
-        self::saveImpedimento($escala->id,$colaborador->id );
-
-    }
 
     private function saveImpedimento( $escala_id , $colaborador_id ){
         $impedimento = new ImpedimentoEscala;
         $impedimento->escala_id = $escala_id;
-        $impedimento->colaborador_id = $colaborador->id;
+        $impedimento->colaborador_id = $colaborador_id;
         $impedimento->save();
     }
 
@@ -69,14 +58,18 @@ class ImpedimentoEscalaController extends Controller{
       $token_escala = substr($token, 0 , 5);
       $token_colaborador = substr($token, 5);
 
-      $escala = EscalaMusica::find(1);
-      $colaborador = ColaboradorMusica::find(2);
+      $escala = EscalaMusica::token($token_escala)->first();
+      $colaborador = ColaboradorMusica::token($token_colaborador)->first();
+
+      self::saveImpedimento($escala->id,$colaborador->id );
 
       if( $escala->lider_id == $colaborador->id){
         // Líder tem impedimento
       } else{
-        
+
       }
+
+      return "Impedimento registrado.";
 
 
     }

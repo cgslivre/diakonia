@@ -240,7 +240,7 @@ class EscalaMusicaController extends Controller
 
     public function publishTest($id){
         $escala = EscalaMusica::findOrFail($id);
-        $user = \App\User::find(19);
+        $user = \App\User::find(18);
         return view('emails.musica.escala-publicada-colaboradores')
             ->with('escala', $escala)
             ->with('user', $user);
