@@ -51,7 +51,18 @@ class ImpedimentoEscalaController extends Controller{
       }
 
       $token_escala = substr($token, 0 , 5);
-      $token_colaborador = substr($token, 5);      
+      $token_colaborador = substr($token, 5);
+
+      $escala = EscalaMusica::find(1);
+      $colaborador = ColaboradorMusica::find(2);
+
+      if( $escala->lider_id == $colaborador->id){
+        // Líder tem impedimento
+      } else{
+        
+      }
+
+
     }
 
 
