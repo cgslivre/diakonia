@@ -281,9 +281,10 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 
 span.sem-escala, i.sem-escala{color: #E63946;}
 .card-evento.sem-escala{border: 2px solid #E63946;background-color: #f2e5e6;}
-.card-evento.sem-escala p.titulo a{color: #E63946;}
+.card-evento.sem-escala p.titulo{color: #E63946;}
 span.escala-criada, i.escala-criada{color: #d19227;}
 .card-evento.escala-criada{border: 2px solid #d19227;background-color: #f5f0e9;}
+.card-evento.escala-criada p.titulo{color: #d19227;}
 span.escala-publicada, i.escala-publicada{color: #20911f;}
 .descricao-servico{font-weight: bold;}
 

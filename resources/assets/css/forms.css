@@ -7,7 +7,7 @@
     box-sizing: content-box;
 }
 
-.btn-toolbar{border-radius: 2px;padding: 6px;}
+
 
 .alert{
     padding: 15px;
@@ -147,6 +147,7 @@ div.add-servico-colaborador{
 .add-servico-colaborador > div {display: inline;}
 .escala.publicacao .alert{margin-bottom: 5px;}
 
+.escala-info{display: inline-block;}
 .escala-info div{
     display: inline-block;
     margin-right: 1px;
@@ -162,3 +163,4 @@ div.add-servico-colaborador{
 .escala-info .usuario-impedido{background-color: #e4a192;}
 .escala-info .escalado{background-color: #1978e7;color:#fff;}
 .escala-info .lider{background-color: #213496;color:#edecc5;}
+.btn-toolbar{border-radius: 2px;padding: 6px;display: inline-block;margin-left: 1px;}

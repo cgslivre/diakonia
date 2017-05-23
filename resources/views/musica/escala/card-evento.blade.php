@@ -19,59 +19,15 @@
         <p class="dia">{{ $evento->data_hora_inicio->day }}</p>
         <p class="mes">{{ Date::make($evento->data_hora_inicio)->format('F') }}</p>
     </div>
-    <p class="titulo"><a href="{{URL::route('evento.show',$evento->id)}}">{{$evento->titulo}}</a>
-        
-{{--
-        @if ($is_lider)
-            <i class="fa fa-street-view lider" aria-hidden="true"></i>
-        @endif --}}
-
-    </p>
+    <p class="titulo">{{$evento->titulo}}</p>
     <p class="dias-restando">{{ $evento->data_hora_inicio->diffForHumans() }}</p>
     @include('musica.escala.status-escala', [
         'evento' => $evento,
         'user' => Auth::user()
     ])
-    {{-- @if($evento->statusEscalaMusica == "sem-escala")
-        @can('musica-escala-edit')
-            <a href="{{URL::route('musica.escala.create',$evento->id)}}"
-                class="btn btn-primary" title="Adicionar Escala">
-                <i class="fa fa-plus"></i>  Adicionar escala</a>
-        @endcan
-    @elseif ($evento->statusEscalaMusica == "escala-criada")
-        @can('musica-escala-edit')
-        <a href="{{URL::route('musica.escala.analisar',$evento->escalaMusica->id)}}"
-            class="btn btn-success" title="Publicar Escala">
-            <i class="fa fa-feed"></i>  Publicar escala</a>
-        @endcan
+    @include('musica.escala.botoes-escala', [
+        'evento' => $evento,
+        'user' => Auth::user()
+    ])
 
-    @elseif ($evento->statusEscalaMusica == "escala-publicada")
-        @can('musica-escala-view')
-        <a href="{{URL::route('musica.escala.show',$evento->escalaMusica->id)}}"
-            class="btn btn-primary" title="Ver Escala">
-            <i class="fa fa-eye"></i>  Ver escala</a>
-        @endcan
-    @endif
-    @if ($colaborador)
-        @if( $impedido)
-            <button class="btn btn-success" type="button"
-                data-toggle="modal" data-target="#modalRemoverImpedimento">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Remover Impedimento
-            </button>
-        @else
-            <button class="btn btn-danger" type="button"
-                data-toggle="modal" data-target="#modalRegistrarImpedimento">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
-            </button>
-        @endif
-    @endif --}}
 </div>
-
-{{-- @if ($colaborador)
-  @include('musica.escala.modal-registrar-impedimento',[
-    'colaborador'=>$colaborador
-    ,'escala'=>$evento->escala])
-    @include('musica.escala.modal-remover-impedimento',[
-      'colaborador'=>$colaborador
-      ,'escala'=>$evento->escala])
-@endif --}}
