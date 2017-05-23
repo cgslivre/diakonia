@@ -51,7 +51,7 @@ class ImpedimentoEscalaController extends Controller{
       }
 
       $token_escala = substr($token, 0 , 5);
-      $token_colaborador = substr($token, 5);
+      $token_colaborador = substr($token, 5);      
     }
 
 
