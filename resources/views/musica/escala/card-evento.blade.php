@@ -6,8 +6,13 @@
         $is_lider = false;
     }
 
-
+    if( $evento->escalaMusica != NULL ){
+        $impedido = $evento->escalaMusica->impedimentos->contains('colaborador_id',Auth::user()->id);
+    } else{
+        $impedido = false;
+    }
 @endphp
+
 <div class="card-evento musica {{$evento->statusEscalaMusica}}">
     <div class="data text-center">
         {{ Date::setLocale('pt_BR') }}
@@ -31,8 +36,9 @@
     <p class="dias-restando">{{ $evento->data_hora_inicio->diffForHumans() }}</p>
         @if($evento->statusEscalaMusica == "sem-escala")
             @can('musica-escala-edit')
-        <a href="{{URL::route('musica.escala.create',$evento->id)}}" class="btn btn-primary" title="Adicionar Escala">
-            <i class="fa fa-plus"></i>  Adicionar escala</a>
+                <a href="{{URL::route('musica.escala.create',$evento->id)}}"
+                    class="btn btn-primary" title="Adicionar Escala">
+                    <i class="fa fa-plus"></i>  Adicionar escala</a>
             @endcan
         @elseif ($evento->statusEscalaMusica == "escala-criada")
             @can('musica-escala-edit')
@@ -49,14 +55,17 @@
             @endcan
         @endif
         @if ($colaborador)
-            <button class="btn btn-danger" type="button"
-                    data-toggle="modal" data-target="#modalRegistrarImpedimento">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
-            </button>
-            <button class="btn btn-success" type="button"
+            @if( $impedido)
+                <button class="btn btn-success" type="button"
                     data-toggle="modal" data-target="#modalRemoverImpedimento">
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Remover Impedimento
-            </button>
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Remover Impedimento
+                </button>
+            @else
+                <button class="btn btn-danger" type="button"
+                    data-toggle="modal" data-target="#modalRegistrarImpedimento">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
+                </button>
+            @endif
         @endif
 </div>
 @if ($colaborador)

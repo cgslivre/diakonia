@@ -32,6 +32,10 @@ class EscalaMusica extends Model implements AuditableContract
         return $this->hasMany('App\Model\musica\Tarefa','escala_id');
     }
 
+    public function impedimentos(){
+        return $this->hasMany('App\Model\musica\ImpedimentoEscala','escala_id');
+    }
+
     public function getPublicadaAttribute(){
         return $this->publicado_em == NULL ? false : true;
     }
