@@ -158,6 +158,7 @@ div.add-servico-colaborador{
     .status-escala.sem-escala{background-color: #E63946;}
     .status-escala.escala-criada{background-color: #d19227;}
     .status-escala.escala-publicada{background-color: #20911f;}
-.escala-info .impedimento{
-    background-color: #ebd59e;
-}
+.escala-info .impedimento{background-color: #ebd59e;}
+.escala-info .usuario-impedido{background-color: #e4a192;}
+.escala-info .escalado{background-color: #1978e7;color:#fff;}
+.escala-info .lider{background-color: #213496;color:#edecc5;}

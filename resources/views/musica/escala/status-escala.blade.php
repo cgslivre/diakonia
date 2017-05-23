@@ -15,11 +15,34 @@
     </div>
 
     @isset($evento->escalaMusica)
+        {{-- O usuário está nesta escala? --}}
+        @if ($evento->escalaMusica->tarefas->contains('colaborador_id',$user->id) ||
+            $evento->escalaMusica->lider_id == $user->id )
+            <div class="escalado">
+                <i class="fa fa-hand-peace-o" aria-hidden="true"
+                    title="Você está escalado"></i>
+            </div>
+        @endif
+
+        {{-- O usuário é o líder da escala? --}}
+        @if ($evento->escalaMusica->lider_id == $user->id)
+            <div class="lider">
+                <i class="fa fa-star" aria-hidden="true"
+                    title="Você é o líder da escala"></i>
+            </div>
+        @endif
         {{-- Há impedimentos na escala? --}}
         @if( $evento->escalaMusica->impedimentos->count() > 0)
             <div class="impedimento">
                 <i class="fa fa-hand-paper-o" aria-hidden="true"
                     title="Nem todos colaboradores podem particiar desta escala"></i>
+            </div>
+        @endif
+        {{-- O usuário declarou-se impedido para este dia --}}
+        @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))
+            <div class="usuario-impedido">
+                <i class="fa fa-thumbs-down" aria-hidden="true"
+                    title="Você declarou-se impedido de participar desta escala"></i>
             </div>
         @endif
     @endisset
