@@ -35,6 +35,9 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
     Route::get('escala/impedimento/{t_escala}/{t_colaborador}','musica\ImpedimentoEscalaController@tokenCreate')
         ->name('escala.impedimento.create.token');
 
+    Route::get('escala/impedimento/{token}','musica\ImpedimentoEscalaController@token')
+        ->name('escala.impedimento.token');
+
 
     // Remover após testes
     Route::get('escala/{escala}/publicar-teste','musica\EscalaMusicaController@publishTest')

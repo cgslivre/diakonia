@@ -59,6 +59,28 @@ class ImpedimentoEscalaController extends Controller{
         $impedimento->save();
     }
 
+    public function token( $token ){
+      // 5 Caracters = EscalaMusica
+      // 4 Caracters = ColaboradorMusica
+      if( strlen($token) != 9 ){
+        abort(404);
+      }
+
+      $token_escala = substr($token, 0 , 5);
+      $token_colaborador = substr($token, 5);
+
+      $escala = EscalaMusica::find(1);
+      $colaborador = ColaboradorMusica::find(2);
+
+      if( $escala->lider_id == $colaborador->id){
+        // Líder tem impedimento
+      } else{
+        
+      }
+
+
+    }
+
 
 
 }
