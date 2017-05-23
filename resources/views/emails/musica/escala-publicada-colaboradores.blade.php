@@ -44,8 +44,11 @@
     </table>
     <hr/>
     <h2>Em caso de impedimento:</h2>
-    <p>Se, por algum motivo, você não pode participar da escala neste dia, avise o líder clicando no
-        link abaixo.</p>
+
+    <p>Se, por algum motivo, você não pode participar da escala neste dia, avise o <strong>
+        {{ $user->id == $escala->lider_id ? "administrador" : "líder"}}
+    </strong> clicando no link abaixo.</p>
+
     @include('vendor.mail.html.diakonia.button', [
         'url' => config('app.url') . '/musica/escala/impedimento/' . $escala->token . $user->colaboradorMusica->token,
         'color' => 'red',
