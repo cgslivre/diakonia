@@ -1,11 +1,16 @@
-<a id="toolbar-btn-{{$evento->id}}" data-toolbar="content-option" class="btn-toolbar">
+<a id="toolbar-btn-{{$evento->id}}" data-toolbar="content-option"
+    data-toolbar-animation="bounce" class="btn-toolbar">
     <i class="fa fa-cog"></i>
 </a>
 
 <div id="toolbar-evento-{{$evento->id}}" class="hidden">
-   <a href="#" class="btn " title="Carro"><i class="fa fa-car"></i></a>
-   <a href="#" class="btn "><i class="fa fa-plane"></i></a>
-   <a href="#" class="btn "><i class="fa fa-bicycle"></i></a>
+   <a href="{{URL::route('evento.show',$evento->id)}}" title="Ver detalhes do evento">
+       <i class="fa fa-calendar-o"></i></a>
+   <a href="#" title="Ver escala"><i class="fa fa-eye"></i></a>
+   <a href="#" title="Criar escala"><i class="fa fa-plus"></i></a>
+   <a href="#" title="Publicar escala"><i class="fa fa-feed"></i></a>
+   <a href="#" title="Não posso particiar"><i class="fa fa-thumbs-down"></i></a>
+   <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a>
 </div>
 
 @section('scripts')
@@ -15,6 +20,11 @@
     $('#toolbar-btn-{{$evento->id}}').toolbar({
         content: '#toolbar-evento-{{$evento->id}}',
         position: 'right',
+        event: 'click',
+        hideOnClick: true
+    });
+    $('.tool-item').on( "click", function() {
+        window.location = $(this).attr('href');
     });
     </script>
 @endsection
