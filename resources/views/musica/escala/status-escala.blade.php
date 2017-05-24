@@ -32,7 +32,9 @@
             </div>
         @endif
         {{-- Há impedimentos na escala? --}}
-        @if( $evento->escalaMusica->impedimentos->count() > 0)
+        @if (!empty($evento->escalaMusica->impedimentos->pluck('colaborador_id')
+                ->intersect($evento->escalaMusica->tarefas->pluck('colaborador_id')
+                ->push($evento->escalaMusica->lider_id))))
             <div class="impedimento">
                 <i class="fa fa-hand-paper-o" aria-hidden="true"
                     title="Nem todos colaboradores podem particiar desta escala"></i>
