@@ -47,12 +47,12 @@ gulp.task('css', function(done){
 
 		paths.default + '/css/bootstrap-reset.css'
 		,paths.default + '/css/bootstrap.css'
+		,paths.default + '/css/checkbox3.css'
 		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
 		,paths.bower + '/angular-ui-select/dist/select.min.css'
-		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
 		,paths.bower + '/toastr/toastr.min.css'
 		,paths.bower + '/toolbar/jquery.toolbar.css'
