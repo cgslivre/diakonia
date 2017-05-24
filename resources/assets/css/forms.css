@@ -164,3 +164,7 @@ div.add-servico-colaborador{
 .escala-info .escalado{background-color: #1978e7;color:#fff;}
 .escala-info .lider{background-color: #213496;color:#edecc5;}
 .btn-toolbar{border-radius: 2px;padding: 6px;display: inline-block;margin-left: 1px;}
+
+.modal .escala-info{display: block;}
+.modal .escala-info div{display: inline-block;}
+.modal-body.ajuda div{margin-bottom: 5px;}

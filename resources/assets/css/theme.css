@@ -385,3 +385,5 @@ span.text-border{
     border: 1px dashed #bbb;
     margin-right: 7px;}
     span.text-border > span{font-weight: bold;}
+
+.modal .ajuda h4{color: #337ab7; font-size: 1.4rem;margin-top: 8px;}
