@@ -91,9 +91,10 @@
     </div>
 
     <hr/>
-    @if (!empty($escala->impedimentos->pluck('colaborador_id')
+
+    @if ($escala->impedimentos->pluck('colaborador_id')
             ->intersect($escala->tarefas->pluck('colaborador_id')
-            ->push($escala->lider_id))))
+            ->push($escala->lider_id))->isNotEmpty())
         <div class="alert bg-warning alert-important">
             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             Um ou mais colaboradores não podem participar desta escala.
