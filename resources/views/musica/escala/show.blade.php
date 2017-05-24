@@ -32,6 +32,9 @@
                 <img src="{{ URL($escala->lider->user->avatarPathSmall()) }}"
                      alt="{{$escala->lider->user->name}}" />
             </div>
+            @if ($escala->impedimentos->contains('colaborador_id',$escala->lider_id))
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"
+            @endif
             {{$escala->lider->user->name}}
         </div>
     </div>
@@ -54,6 +57,10 @@
                     <img src="{{ URL($tarefa->colaborador->user->avatarPathSmall()) }}"
                          alt="{{$tarefa->colaborador->user->name}}" />
                 </div>
+                @if ($escala->impedimentos->contains('colaborador_id',$tarefa->colaborador_id))
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"
+                        title="Não pode participar neste dia"></i>
+                @endif
                 {{$tarefa->colaborador->user->name}}
                 </div>
 
