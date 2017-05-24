@@ -1,8 +1,8 @@
 @extends( 'layouts.guest.master')
 @section('titulo')
-    Impedimento Criado
+    Impedimento informado
 @endsection
 
 @section('content')
-    Ok, padawan
+    Ok, o líder foi avisado que você não pode participar neste dia.
 @endsection
