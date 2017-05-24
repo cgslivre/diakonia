@@ -207,7 +207,10 @@ class EscalaMusicaController extends Controller
             abort(403);
         }
         $escala = EscalaMusica::findOrFail($escala_id);
-        $lideres = ColaboradorMusica::lideres()->get();
+        $lideres = ColaboradorMusica::lideres()->get()->sortBy(
+            function($item){
+                return str_slug($item->user->name);
+            });
         $servicos = ServicoMusica::all();
 
         return view('musica.escala.edit')

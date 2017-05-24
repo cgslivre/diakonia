@@ -9,12 +9,24 @@
                 @forelse ($lideres as $lider)
                     {{ Form::open(['route' => ['musica.escala.lider.update', $evento->id], 'method' => 'post']) }}
                     {{ Form::hidden('lider_id', $lider->id) }}
-                    @isset($escala->id)
+                    @if(isset($escala->id))
                         {{ Form::hidden('escala_id', $escala->id) }}
-                    @endisset
-                    <li>
-                        {{-- {{$escala}} --}}
+                        @if ($escala->lider_id == $lider->id)
+                            <li class="escalado">
+                        @else
+                            <li class="link">
+                        @endif
+
+                        @if ($escala->impedimentos->contains('colaborador_id',$lider->id))
+                            <i class="fa fa-exclamation-triangle impedimento" aria-hidden="true"
+                                title="Não pode participar neste dia"></i>
+                        @endif
+                    @else
+                        <li class="link">
+                    @endif
+
                         {{$lider->user->name}}
+
                     </li>
                     {{ Form::close() }}
                 @empty
@@ -30,7 +42,7 @@
 </div>
 @push('scripts-1')
 <script type="text/javascript">
-    $('ul.lideres > form > li').on( "click", function() {
+    $('ul.lideres > form > li.link').on( "click", function() {
       console.log( $( this ).text() );
        $(this).closest("form").submit();
       //console.log($(this).closest("form"));

@@ -111,8 +111,14 @@ table.grupo-caseiro, table.regiao{width: auto;}
 
 /* Música */
 ul.lideres{list-style: none;padding-left: 10px;}
-ul.lideres li{cursor: pointer;padding: 5px;margin: 2px;border: 1px solid #adcbed;border-radius: 4px;}
-ul.lideres li:hover{cursor: pointer;background-color: #adcbed;font-weight: bold;}
+ul.lideres li.link{cursor: pointer;padding: 5px;margin: 2px;border: 1px solid #adcbed;border-radius: 4px;}
+ul.lideres li.escalado{
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #eeeeee;
+    border-radius: 4px;
+    background-color: #b3b3b3;}
+ul.lideres li.link:hover{cursor: pointer;background-color: #adcbed;font-weight: bold;}
 
 div.add-servico-colaborador{
 	margin: 0 20px 5px 0;
