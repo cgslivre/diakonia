@@ -7,7 +7,6 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
     Route::get('eventos/{colaborador?}','musica\EscalaMusicaController@eventos')
         ->name('eventos');
 
-    //Route::resource('escala','musica\EscalaMusicaController');
     Route::get('escala/{evento}/create','musica\EscalaMusicaController@create')
         ->name('escala.create');
     Route::get('escala/{escala}/edit','musica\EscalaMusicaController@edit')
@@ -35,12 +34,15 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
     Route::get('escala/impedimento/{t_escala}/{t_colaborador}','musica\ImpedimentoEscalaController@tokenCreate')
         ->name('escala.impedimento.create.token');
 
-    Route::get('escala/impedimento/{token}','musica\ImpedimentoEscalaController@token')
-        ->name('escala.impedimento.token');
 
 
     // Remover após testes
     Route::get('testing','musica\EscalaMusicaController@testing')
         ->name('escala.testing');
 
+});
+
+Route::group(['middleware' => ['web'], 'as'=>'musica.', 'prefix'=>'musica'], function () {
+    Route::get('escala/impedimento/{token}','musica\ImpedimentoEscalaController@token')
+    ->name('escala.impedimento.token');
 });

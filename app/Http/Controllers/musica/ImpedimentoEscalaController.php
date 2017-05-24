@@ -57,7 +57,23 @@ class ImpedimentoEscalaController extends Controller{
       $escala = EscalaMusica::token($token_escala)->first();
       $colaborador = ColaboradorMusica::token($token_colaborador)->first();
 
-      self::saveImpedimento($escala->id,$colaborador->id );
+      $titulo = "";
+      $mensagem = "";
+
+      if( $escala->tarefas->contains('colaborador_id',$colaborador->id) ||
+          $evento->escalaMusica->lider_id == $user->id){
+            if( $escala->impedimentos->contains('colaborador_id',$colaborador->id)){
+                $titulo = "Impedimento informado";
+                $mensagem = "Impedimento já registrado.";
+            } else{
+                self::saveImpedimento($escala->id,$colaborador->id );
+                $titulo = "Impedimento informado";
+                $mensagem = "Impedimento registrado. O líder da escala irá receber uma notificação.";
+            }
+      } else{
+          $titulo = "Oooops";
+          $mensagem = "Você não está nesta escala";
+      }
 
       if( $escala->lider_id == $colaborador->id){
         // Líder tem impedimento
@@ -65,7 +81,9 @@ class ImpedimentoEscalaController extends Controller{
 
       }
 
-      return "Impedimento registrado.";
+      return view('musica.escala.guest-impedimento-registrado')
+                ->with('titulo',$titulo)
+                ->with('mensagem', $mensagem);
 
 
     }

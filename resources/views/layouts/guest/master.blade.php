@@ -11,9 +11,9 @@
 
     <title>Diakonia - Discípulos em Brasília</title>
 
-    <link rel="icon" href="img/favicon-32px.png" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/favicon-32px.png')}}" />
+    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
     {{Html::style('css/guest.min.css')}}
 </head>
 
@@ -35,7 +35,7 @@
                 </div>
             </div>
             @yield('content')
-            
+
         </div>
     </section>
 
