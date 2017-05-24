@@ -40,7 +40,7 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
 
 
     // Remover após testes
-    Route::get('escala/{escala}/publicar-teste','musica\EscalaMusicaController@publishTest')
-        ->name('escala.analisar.test');
+    Route::get('testing','musica\EscalaMusicaController@testing')
+        ->name('escala.testing');
 
 });

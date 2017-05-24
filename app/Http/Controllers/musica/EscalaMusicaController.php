@@ -238,12 +238,14 @@ class EscalaMusicaController extends Controller
             ->with('message', 'Escala removida');
     }
 
-    public function publishTest($id){
-        $escala = EscalaMusica::findOrFail($id);
-        $user = \App\User::find(18);
-        return view('emails.musica.escala-publicada-colaboradores')
-            ->with('escala', $escala)
-            ->with('user', $user);
+    public function testing(){
+        // $escala = EscalaMusica::findOrFail($id);
+        // $user = \App\User::find(18);
+        // return view('emails.musica.escala-publicada-colaboradores')
+        //     ->with('escala', $escala)
+        //     ->with('user', $user);
+
+        return view('musica.escala.guest-impedimento-registrado');
 
     }
 }

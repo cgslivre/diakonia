@@ -72,6 +72,20 @@ gulp.task('css', function(done){
 		.pipe(config.production ? cleanCSS(): util.noop())
 		.pipe(gulp.dest('public/css'));
 
+	var files = [
+
+		paths.default + '/css/bootstrap-reset.css'
+		,paths.default + '/css/bootstrap.css'
+		,paths.default + '/css/guest.css'
+	];
+	gulp.src(files)
+		.pipe(expect({ checkRealFile: true, verbose: true },files))
+		.pipe(size({showFiles: true, title: "CSS:: "}))
+		.pipe(concat('guest.min.css'))
+		.pipe(config.production ? cleanCSS(): util.noop())
+		.pipe(gulp.dest('public/css'));
+
+
 	done();
 
 });
