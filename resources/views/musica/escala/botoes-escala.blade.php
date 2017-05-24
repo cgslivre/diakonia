@@ -36,17 +36,20 @@
    @endif
 
    @isset($evento->escalaMusica)
-       @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))
-           {{-- <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a> --}}
-           <a href="#" title="Posso particiar" class="modal-link remover-impedimento">
-               <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-           </a>
-       @else
-           <a href="#" title="Não posso particiar" class="modal-link criar-impedimento"
+       @if ($evento->escalaMusica->tarefas->contains('colaborador_id',$user->id) ||
+           $evento->escalaMusica->lider_id == $user->id )
+           @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))
+               {{-- <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a> --}}
+               <a href="#" title="Posso particiar" class="modal-link remover-impedimento">
+                   <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+               </a>
+           @else
+               <a href="#" title="Não posso particiar" class="modal-link criar-impedimento"
                escala="{{$evento->escalaMusica->id}}" colaborador="{{$user->id}}"
                data-evento="{{Date::parse($evento->data_hora_inicio)->format('j/M/Y')}}">
                <i class="fa fa-thumbs-down"></i></a>
-
+               
+           @endif
        @endif
    @endisset
 </div>
