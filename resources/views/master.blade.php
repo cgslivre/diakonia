@@ -8,9 +8,9 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Diakonia - Discípulos em Brasília - @yield('titulo')</title>
     {{--<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">--}}
-    <link rel="icon" href="img/favicon-32px.png" />
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/favicon-32px.png')}}" />
+    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('img/favicon.ico')}}" type="image/x-icon">
     {{Html::style('css/all.min.css')}}
 
   </head>
