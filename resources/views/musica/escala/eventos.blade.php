@@ -54,9 +54,7 @@
         @endif
     @endforelse
 
-    {{-- @include('musica.escala.modal-remover-impedimento',[
-        'colaborador'=>$colaborador
-        ,'escala'=>$evento->escala]) --}}
+    @include('musica.escala.modal-remover-impedimento')
     @include('musica.escala.modal-registrar-impedimento')
 
 
@@ -68,9 +66,6 @@
 <script type="text/javascript">
 
 $(".criar-impedimento").click(function(){
-    // var nomeGrupo = $(this).html();
-    // $('#nomeEdicao').val(nomeGrupo);
-    //
     var id = $(this).attr("escala");
 
     $('#c_imp_dt_evento').html($(this).attr("data-evento"));
@@ -82,6 +77,20 @@ $(".criar-impedimento").click(function(){
     $('#frmCriarImpedimento').attr('action',url);
     $('#modalRegistrarImpedimento').modal('toggle');
 });
+
+$(".remover-impedimento").click(function(){
+    var id = $(this).attr("escala");
+
+    $('#c_imp_dt_evento').html($(this).attr("data-evento"));
+    $('#imp_colaborador_id').val($(this).attr("colaborador"));
+    var url = $('#frmRemoverImpedimento').attr('action');
+    var m = "musica";
+    url = url.substr(0,url.lastIndexOf(m)+m.length) + "/escala/" + id + "/impedimento/destroy";
+    //console.log(url);
+    $('#frmRemoverImpedimento').attr('action',url);
+    $('#modalRemoverImpedimento').modal('toggle');
+});
+
 </script>
 
 @endsection

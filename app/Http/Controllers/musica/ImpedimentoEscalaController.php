@@ -17,10 +17,6 @@ class ImpedimentoEscalaController extends Controller{
 
         $colaborador = ColaboradorMusica::findOrFail($request["imp_colaborador_id"]);
 
-        // $impedimento = new ImpedimentoEscala;
-        // $impedimento->escala_id = $escala_id;
-        // $impedimento->colaborador_id = $colaborador->id;
-        // $impedimento->save();
         self::saveImpedimento($escala_id,$colaborador->id );
 
         // Salvar e redirecionar para edição
@@ -30,7 +26,7 @@ class ImpedimentoEscalaController extends Controller{
 
     public function destroy(Request $request, $escala_id){
 
-        $colaborador = ColaboradorMusica::findOrFail($request["colaborador_id"]);
+        $colaborador = ColaboradorMusica::findOrFail($request["imp_colaborador_id"]);
 
         $impedimentos = ImpedimentoEscala::where('escala_id',$escala_id)
             ->where('colaborador_id', $colaborador->id)->delete();
