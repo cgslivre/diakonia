@@ -37,9 +37,16 @@
 
    @isset($evento->escalaMusica)
        @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))
-           <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a>
+           {{-- <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a> --}}
+           <a href="#" title="Posso particiar" class="modal-link remover-impedimento">
+               <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+           </a>
        @else
-           <a href="#" title="Não posso particiar"><i class="fa fa-thumbs-down"></i></a>
+           <a href="#" title="Não posso particiar" class="modal-link criar-impedimento"
+               escala="{{$evento->escalaMusica->id}}" colaborador="{{$user->id}}"
+               data-evento="{{Date::parse($evento->data_hora_inicio)->format('j/M/Y')}}">
+               <i class="fa fa-thumbs-down"></i></a>
+
        @endif
    @endisset
 </div>
@@ -48,39 +55,15 @@
     @parent
 
     <script type="text/javascript">
+    // console.log('botoes-{{$evento->id}}');
     $('#toolbar-btn-{{$evento->id}}').toolbar({
         content: '#toolbar-evento-{{$evento->id}}',
         position: 'right',
         event: 'click',
         hideOnClick: true
     });
-    $('.tool-item').on( "click", function() {
+    $('.tool-item').not('.modal-link').on( "click", function() {
         window.location = $(this).attr('href');
     });
     </script>
 @endsection
-{{--
-
-
-@if ($colaborador)
-    @if( $impedido)
-        <button class="btn btn-success" type="button"
-            data-toggle="modal" data-target="#modalRemoverImpedimento">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Remover Impedimento
-        </button>
-    @else
-        <button class="btn btn-danger" type="button"
-            data-toggle="modal" data-target="#modalRegistrarImpedimento">
-            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Registrar Impedimento
-        </button>
-    @endif
-@endif --}}
-
-{{-- @if ($colaborador)
-  @include('musica.escala.modal-registrar-impedimento',[
-    'colaborador'=>$colaborador
-    ,'escala'=>$evento->escala])
-    @include('musica.escala.modal-remover-impedimento',[
-      'colaborador'=>$colaborador
-      ,'escala'=>$evento->escala])
-@endif --}}

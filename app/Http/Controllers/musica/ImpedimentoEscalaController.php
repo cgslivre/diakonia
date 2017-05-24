@@ -15,7 +15,7 @@ class ImpedimentoEscalaController extends Controller{
 
     public function create(Request $request, $escala_id){
 
-        $colaborador = ColaboradorMusica::findOrFail($request["colaborador_id"]);
+        $colaborador = ColaboradorMusica::findOrFail($request["imp_colaborador_id"]);
 
         // $impedimento = new ImpedimentoEscala;
         // $impedimento->escala_id = $escala_id;
