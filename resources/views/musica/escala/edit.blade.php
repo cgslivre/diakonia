@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-8 no-margin">
                     @include('musica.escala.card-colaborador-musica',
-                        ['colaborador'=>$escala->lider ,
+                        ['colaborador'=>$escala->lider ,                         
                          'removerButton' => false])
                          <div class="alterar-lider">
                              <button class="btn btn-primary" type="button"

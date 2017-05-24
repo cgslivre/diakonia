@@ -33,7 +33,7 @@
                      alt="{{$escala->lider->user->name}}" />
             </div>
             @if ($escala->impedimentos->contains('colaborador_id',$escala->lider_id))
-                <i class="fa fa-exclamation-triangle" aria-hidden="true"
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
             @endif
             {{$escala->lider->user->name}}
         </div>

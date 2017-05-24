@@ -13,6 +13,10 @@
 
         @endif
         <p class="nome">
+            @if ($escala->impedimentos->contains('colaborador_id',$colaborador->id))
+                <i class="fa fa-exclamation-triangle impedimento" aria-hidden="true"
+                    title="Não pode participar neste dia"></i>
+            @endif
             <a href="{{ URL::route('usuario.show', $colaborador->user->id) }}">
                 {{ $colaborador->user->name }}</a>
         </p>
