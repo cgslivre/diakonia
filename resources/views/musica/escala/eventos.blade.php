@@ -1,30 +1,27 @@
 @extends( 'musica.template-musica')
 
+@if ($colaborador)
+    @section('nivel2')
+        <li class="active"><a href="{{route('musica.eventos', $colaborador->id)}}">
+        Minhas escalas </a></li>
+    @stop
+@else
 @section('nivel2')
     <li class="active"><a href="{{route('musica.eventos')}}">
     Escalas de Música </a></li>
 @stop
-@if ($colaborador)
-    @section('nivel3')<li class="active">Minhas escalas </li>@stop
 @endif
+
 
 
 @section('content')
     @if ($colaborador)
-    <p class="na-escala">Escalas de <strong>{{$colaborador->user->name}}</strong></p>
+    <h4 class="na-escala">Escalas de <strong>{{$colaborador->user->name}}</strong></h4>
     @endif
-    <div class="legenda">
-        Legenda:
-        <span class="sem-escala">
-            <i class="fa fa-exclamation-circle" aria-hidden="true"></i> Sem Escala
-        </span>
-        <span class="escala-criada">
-            <i class="fa fa-cog" aria-hidden="true"></i> Escala salva (não publicada)
-        </span>
-        <span class="escala-publicada">
-            <i class="fa fa-check-circle" aria-hidden="true"></i> Escala definida e publicada
-        </span>
-    </div>
+    <button class="btn btn-default">
+        <i class="fa fa-question-circle" aria-hidden="true"></i> Ajuda
+    </button>
+    
 
 
     <h2>Eventos nos próximos 30 dias</h2>
