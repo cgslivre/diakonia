@@ -18,10 +18,10 @@
     @if ($colaborador)
     <h4 class="na-escala">Escalas de <strong>{{$colaborador->user->name}}</strong></h4>
     @endif
-    <button class="btn btn-default">
+    <button class="btn btn-default" data-toggle="modal" data-target="#modalAjudaEscala">
         <i class="fa fa-question-circle" aria-hidden="true"></i> Ajuda
     </button>
-    
+
 
 
     <h2>Eventos nos próximos 30 dias</h2>
@@ -53,6 +53,7 @@
 
     @include('musica.escala.modal-remover-impedimento')
     @include('musica.escala.modal-registrar-impedimento')
+    @include('musica.escala.modal-ajuda')
 
 
 
