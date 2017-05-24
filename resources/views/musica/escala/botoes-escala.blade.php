@@ -6,11 +6,42 @@
 <div id="toolbar-evento-{{$evento->id}}" class="hidden">
    <a href="{{URL::route('evento.show',$evento->id)}}" title="Ver detalhes do evento">
        <i class="fa fa-calendar-o"></i></a>
-   <a href="#" title="Ver escala"><i class="fa fa-eye"></i></a>
-   <a href="#" title="Criar escala"><i class="fa fa-plus"></i></a>
-   <a href="#" title="Publicar escala"><i class="fa fa-feed"></i></a>
-   <a href="#" title="Não posso particiar"><i class="fa fa-thumbs-down"></i></a>
-   <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a>
+   @if ($evento->statusEscalaMusica == "sem-escala")
+       @can('musica-escala-edit')
+           {{--
+           - Quando não houver escala criada para o evento
+           - Quando o usuário for admin de música
+           --}}
+           <a href="{{URL::route('musica.escala.create',$evento->id)}}"
+                title="Criar escala"><i class="fa fa-plus"></i></a>
+        @endcan
+   @elseif ($evento->statusEscalaMusica == "escala-criada")
+       @can('musica-escala-edit')
+           {{--
+           - Quando houver escala criada mas não publicada
+           - Quando o usuário for admin de música
+           --}}
+           <a href="{{URL::route('musica.escala.analisar',$evento->escalaMusica->id)}}"
+                title="Publicar escala"><i class="fa fa-feed"></i></a>
+        @endcan
+   @else
+       {{--
+           - Escala já publicada
+           - Usuário com perfil padrão de música
+       --}}
+       @can('musica-escala-view')
+           <a href="{{URL::route('musica.escala.show',$evento->escalaMusica->id)}}"
+                title="Ver escala"><i class="fa fa-eye"></i></a>
+       @endcan
+   @endif
+
+   @isset($evento->escalaMusica)
+       @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))
+           <a href="#" title="Posso particiar"><i class="fa fa-thumbs-up"></i></a>
+       @else
+           <a href="#" title="Não posso particiar"><i class="fa fa-thumbs-down"></i></a>
+       @endif
+   @endisset
 </div>
 
 @section('scripts')
@@ -28,26 +59,9 @@
     });
     </script>
 @endsection
-{{-- @if($evento->statusEscalaMusica == "sem-escala")
-    @can('musica-escala-edit')
-        <a href="{{URL::route('musica.escala.create',$evento->id)}}"
-            class="btn btn-primary" title="Adicionar Escala">
-            <i class="fa fa-plus"></i>  Adicionar escala</a>
-    @endcan
-@elseif ($evento->statusEscalaMusica == "escala-criada")
-    @can('musica-escala-edit')
-    <a href="{{URL::route('musica.escala.analisar',$evento->escalaMusica->id)}}"
-        class="btn btn-success" title="Publicar Escala">
-        <i class="fa fa-feed"></i>  Publicar escala</a>
-    @endcan
+{{--
 
-@elseif ($evento->statusEscalaMusica == "escala-publicada")
-    @can('musica-escala-view')
-    <a href="{{URL::route('musica.escala.show',$evento->escalaMusica->id)}}"
-        class="btn btn-primary" title="Ver Escala">
-        <i class="fa fa-eye"></i>  Ver escala</a>
-    @endcan
-@endif
+
 @if ($colaborador)
     @if( $impedido)
         <button class="btn btn-success" type="button"

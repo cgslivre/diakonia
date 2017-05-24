@@ -27,7 +27,7 @@ class NotifyColaboradoresNovaEscala
      */
     public function handle(EscalaPublicada $event)
     {
-        $colaboradores = $escala->tarefas->map( function($item){
+        $colaboradores = $event->escala->tarefas->map( function($item){
           return $item->colaborador->user;}
           )->push($escala->lider->user)->unique();
           foreach ($colaboradores as $user) {
