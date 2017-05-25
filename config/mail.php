@@ -107,7 +107,7 @@ return [
     |
     */
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
+    'sendmail' => env('SENDMAIL_PATH', '/usr/sbin/sendmail -bs'),
 
     'markdown' => [
       'theme' => 'default',
