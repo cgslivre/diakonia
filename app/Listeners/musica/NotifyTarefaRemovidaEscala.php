@@ -6,6 +6,7 @@ use App\Events\musica\TarefaEscalaRemovida;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\musica\TarefaRemovidaEscala;
 
 class NotifyTarefaRemovidaEscala
 {
@@ -27,6 +28,13 @@ class NotifyTarefaRemovidaEscala
      */
     public function handle(TarefaEscalaRemovida $event)
     {
-        //
+        $tarefa = $event->tarefa;
+
+        $user = $tarefa->colaborador->user;
+        Mail::to($user)->send(new TarefaRemovidaEscala($tarefa));
+
+        $lider = $tarefa->escala->lider->user;
+
+
     }
 }

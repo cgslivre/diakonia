@@ -15,6 +15,7 @@ use Bouncer;
 use Auth;
 use App\Events\musica\EscalaPublicada;
 use App\Events\musica\TarefaEscalaAdicionada;
+use App\Events\musica\TarefaEscalaRemovida;
 
 
 class EscalaMusicaController extends Controller
@@ -84,7 +85,9 @@ class EscalaMusicaController extends Controller
 
         $tarefa->save();
 
-        event(new TarefaEscalaAdicionada($tarefa));
+        if( $escala->publicada){
+            event(new TarefaEscalaAdicionada($tarefa));
+        }
 
         return Redirect::route('musica.escala.edit', $escala->id)
             ->with('message', $col->user->name . ' escalado(a) para o serviço de '
@@ -98,6 +101,11 @@ class EscalaMusicaController extends Controller
         }
         $tarefa = Tarefa::findOrFail($tarefa_id);
         $tarefa->delete();
+
+        if( $tarefa->escala->publicada){
+            event(new TarefaEscalaRemovida($tarefa));
+        }
+
 
         return Redirect::route('musica.escala.edit', $tarefa->escala->id)
             ->with('message', $tarefa->colaborador->user->name .

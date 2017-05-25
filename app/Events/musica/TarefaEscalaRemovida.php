@@ -15,6 +15,8 @@ class TarefaEscalaRemovida
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    public $tarefa;
+    
     /**
      * Create a new event instance.
      *
