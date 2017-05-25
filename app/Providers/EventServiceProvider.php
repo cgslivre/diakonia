@@ -32,6 +32,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\musica\EscalaLiderTrocado' => [
             'App\Listeners\musica\NotifyEscalaLiderTrocado',
         ],
+        'App\Events\musica\ImpedimentoEscalaEvent' => [
+            'App\Listeners\musica\NotifyImpedimentoEscala',
+        ],
     ];
 
     /**
