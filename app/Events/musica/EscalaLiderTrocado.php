@@ -12,19 +12,21 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 use App\Model\musica\EscalaMusica;
 
-class EscalaLiderAlterado
+class EscalaLiderTrocado
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $escala;
+    public $antigoLider;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(EscalaMusica $escala){
+    public function __construct(EscalaMusica $escala, $antigoLider){
         $this->escala = $escala;
+        $this->antigoLider = $antigoLider;
     }
 
     /**

@@ -16,6 +16,7 @@ use Auth;
 use App\Events\musica\EscalaPublicada;
 use App\Events\musica\TarefaEscalaAdicionada;
 use App\Events\musica\TarefaEscalaRemovida;
+use App\Events\musica\EscalaLiderTrocado;
 
 
 class EscalaMusicaController extends Controller
@@ -174,11 +175,18 @@ class EscalaMusicaController extends Controller
             $escala = new EscalaMusica;
         }
 
+        $antigoLider = $escala->lider;
+
         $escala->lider_id = $lider->id;
         $escala->evento_id = $evento->id;
         $escala->save();
+        $escala->load('lider');
         $evento->escala_musica_id = $escala->id;
         $evento->save();
+
+        if( $escala->publicada ){
+            event(new EscalaLiderTrocado($escala, $antigoLider));
+        }
 
         // Salvar e redirecionar para edição
         return Redirect::route('musica.escala.edit', $escala->id)

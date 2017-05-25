@@ -29,8 +29,8 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\musica\TarefaEscalaRemovida' => [
             'App\Listeners\musica\NotifyTarefaRemovidaEscala',
         ],
-        'App\Events\musica\EscalaLiderAlterado' => [
-            'App\Listeners\musica\NotifyEscalaLiderAlterado',
+        'App\Events\musica\EscalaLiderTrocado' => [
+            'App\Listeners\musica\NotifyEscalaLiderTrocado',
         ],
     ];
 
