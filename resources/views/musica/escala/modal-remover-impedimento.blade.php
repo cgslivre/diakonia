@@ -11,7 +11,7 @@
             </div>
             <div class="modal-footer">
                 {{ Form::open(['id'=>'frmRemoverImpedimento','method' => 'post']) }}
-                     <input name="imp_colaborador_id" id="imp_colaborador_id" type="hidden">
+                     <input name="imp_colaborador_id_rem" id="imp_colaborador_id_rem" type="hidden">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                 <button class="btn btn-success" type="submit">Sim, estou disponível</button>
                 {{ Form::close() }}

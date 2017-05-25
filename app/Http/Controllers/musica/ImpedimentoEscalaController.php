@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Model\musica\ColaboradorMusica;
 use App\Model\musica\EscalaMusica;
 use App\Model\musica\ImpedimentoEscala;
+use App\Events\musica\ImpedimentoEscalaEvent;
 use Bouncer;
 use Auth;
 
@@ -26,7 +27,7 @@ class ImpedimentoEscalaController extends Controller{
 
     public function destroy(Request $request, $escala_id){
 
-        $colaborador = ColaboradorMusica::findOrFail($request["imp_colaborador_id"]);
+        $colaborador = ColaboradorMusica::findOrFail($request["imp_colaborador_id_rem"]);
 
         $impedimentos = ImpedimentoEscala::where('escala_id',$escala_id)
             ->where('colaborador_id', $colaborador->id)->delete();
@@ -42,6 +43,10 @@ class ImpedimentoEscalaController extends Controller{
         $impedimento->escala_id = $escala_id;
         $impedimento->colaborador_id = $colaborador_id;
         $impedimento->save();
+
+        if( $impedimento->escala->publicada){
+            event( new ImpedimentoEscalaEvent($impedimento));            
+        }
     }
 
     public function token( $token ){

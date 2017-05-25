@@ -2,7 +2,7 @@
 
 namespace App\Listeners\musica;
 
-use App\Events\musica\ImpedimentoEscala;
+use App\Events\musica\ImpedimentoEscalaEvent;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
@@ -28,7 +28,7 @@ class NotifyImpedimentoEscala
      * @param  ImpedimentoEscala  $event
      * @return void
      */
-    public function handle(ImpedimentoEscala $event)
+    public function handle(ImpedimentoEscalaEvent $event)
     {
         $impedimento = $event->impedimento;
 
@@ -41,6 +41,8 @@ class NotifyImpedimentoEscala
                 Mail::to($user)->send(new EscalaTemLiderImpedido($impedimento,$user));
             }
         } else{
+            $lider = $impedimento->escala->lider->user;
+            Mail::to($lider)->send(new EscalaTemImpedimento($impedimento,$lider));
 
         }
     }

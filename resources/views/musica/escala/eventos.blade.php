@@ -67,7 +67,9 @@ $(".criar-impedimento").click(function(){
     var id = $(this).attr("escala");
 
     $('#c_imp_dt_evento').html($(this).attr("data-evento"));
-    $('#imp_colaborador_id').val($(this).attr("colaborador"));
+    $('input#imp_colaborador_id').val($(this).attr("colaborador"));
+    console.log($(this).attr("colaborador"));
+    console.log($('input#imp_colaborador_id').val());
     var url = $('#frmCriarImpedimento').attr('action');
     var m = "musica";
     url = url.substr(0,url.lastIndexOf(m)+m.length) + "/escala/" + id + "/impedimento/create";
@@ -80,7 +82,7 @@ $(".remover-impedimento").click(function(){
     var id = $(this).attr("escala");
 
     $('#c_imp_dt_evento').html($(this).attr("data-evento"));
-    $('#imp_colaborador_id').val($(this).attr("colaborador"));
+    $('input#imp_colaborador_id_rem').val($(this).attr("colaborador"));
     var url = $('#frmRemoverImpedimento').attr('action');
     var m = "musica";
     url = url.substr(0,url.lastIndexOf(m)+m.length) + "/escala/" + id + "/impedimento/destroy";

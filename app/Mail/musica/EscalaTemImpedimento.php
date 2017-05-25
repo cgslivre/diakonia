@@ -12,15 +12,17 @@ class EscalaTemImpedimento extends Mailable
     use Queueable, SerializesModels;
 
     protected $impedimento;
+    protected $lider;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($impedimento)
+    public function __construct($impedimento, $lider)
     {
         $this->impedimento = $impedimento;
+        $this->lider = $lider;
     }
 
     /**
@@ -34,7 +36,8 @@ class EscalaTemImpedimento extends Mailable
             $this->impedimento->escala->evento->data_hora_inicio->format('d/m/Y'))
             ->markdown('emails.musica.escala-impedimento')
                 ->with([
-                    'impedimento' => $this->impedimento
+                    'impedimento' => $this->impedimento,
+                    'lider' => $this->lider
                 ]);;
     }
 }
