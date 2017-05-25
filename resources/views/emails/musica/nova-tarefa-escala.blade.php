@@ -16,7 +16,7 @@ líder clicando no link abaixo:
 {{--  Ver escala --}}
 @component('mail::button',['url' => config('app.url') . '/musica/escala/impedimento/' .
   $tarefa->escala->token . $tarefa->colaborador->token, 'color'=>'red' ])
-Ver escala
+Informar impedimento
 @endcomponent
 
 
