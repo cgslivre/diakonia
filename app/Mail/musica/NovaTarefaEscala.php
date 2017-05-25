@@ -32,7 +32,7 @@ class NovaTarefaEscala extends Mailable
     {
 
         return $this->subject('Você foi incluído na escala do dia ' .
-            $tarefa->escala->evento->data_hora_inicio->format('d/m/Y'))
+            $this->tarefa->escala->evento->data_hora_inicio->format('d/m/Y'))
                 ->markdown('emails.musica.nova-tarefa-escala')
                     ->with([
                         'tarefa' => $this->tarefa
