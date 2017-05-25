@@ -76,8 +76,13 @@
         </div>
     @endif
     <div class="text-center">
+      @if ($escala->publicada)
+        <a href="" class="btn btn-success disabled">
+          <i class="fa fa-check-circle" aria-hidden="true"></i> Escala já publicada</a>
+      @else
         <a href="{{URL::route('musica.escala.analisar',$escala->id)}}" class="btn btn-success">
-            <i class="fa fa-check-circle" aria-hidden="true"></i> Publicar escala</a>
+          <i class="fa fa-check-circle" aria-hidden="true"></i> Publicar escala</a>
+      @endif
         @can('musica-escala-remove')
             <button class="btn btn-danger" type="button"
                     data-toggle="modal" data-target="#modalRemoverEscala">
