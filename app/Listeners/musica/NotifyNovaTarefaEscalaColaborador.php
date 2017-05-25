@@ -27,6 +27,7 @@ class NotifyNovaTarefaEscalaColaborador
      */
     public function handle(TarefaEscalaAdicionada $event)
     {
-        //
+        $user = $event->tarefa->colaborador->user;
+        Mail::to($user)->send(new EscalaPublicadaAdmins($event->tarefa));
     }
 }
