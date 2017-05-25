@@ -50,7 +50,8 @@
     </strong> clicando no link abaixo.</p>
 
     @include('vendor.mail.html.diakonia.button', [
-        'url' => config('app.url') . '/musica/escala/impedimento/' . $escala->token . $user->colaboradorMusica->token,
+        'url' => config('app.url') . '/musica/escala/impedimento/' . 
+          $escala->token . $user->colaboradorMusica->token,
         'color' => 'red',
         'slot' => 'Informar impedimento'
     ])
