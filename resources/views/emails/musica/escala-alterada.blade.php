@@ -1,12 +1,7 @@
 {{ Date::setLocale('pt_BR') }}
 @extends( 'vendor.mail.html.diakonia.layout')
 @section('content')
-    <p>Olá, <strong>{{$user->name}}</strong></p>
-    @if( $user->id == $escala->lider_id )
-        <p>Você foi selecionado(a) para ser o <strong>líder</strong> da escala de música:</p>
-    @else
-        <p>Você foi selecionado(a) para a escala de música:</p>
-    @endif
+    <p>A escala abaixo foi alterada:</p>
 
     <h2>Evento</h2>
     <p class="evento"><span>{{$escala->evento->titulo}}</span></p>
