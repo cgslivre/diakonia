@@ -14,6 +14,8 @@ use App\Services\Validation\EscalaMusicaValidator;
 use Bouncer;
 use Auth;
 use App\Events\musica\EscalaPublicada;
+use App\Events\musica\TarefaEscalaAdicionada;
+
 
 class EscalaMusicaController extends Controller
 {
@@ -81,6 +83,8 @@ class EscalaMusicaController extends Controller
         $tarefa->servico_id = $servico->id;
 
         $tarefa->save();
+
+        event(new TarefaEscalaAdicionada($tarefa));
 
         return Redirect::route('musica.escala.edit', $escala->id)
             ->with('message', $col->user->name . ' escalado(a) para o serviço de '
