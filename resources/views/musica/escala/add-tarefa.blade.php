@@ -70,6 +70,13 @@
                 @else
                     <span class="escalado">Já escalado</span>
                 @endif
+
+                @if ($escala->impedimentos->contains('colaborador_id',$colaborador->id))
+                  <div class="impedimento">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Não poderá participar neste dia
+                  </div>
+                @endif
             </div>
         </div>
     @empty

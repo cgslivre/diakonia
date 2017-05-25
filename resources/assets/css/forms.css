@@ -138,6 +138,11 @@ div.add-servico-colaborador{
 	div.add-servico-colaborador > .tarefa-action .outros-servicos{
     border: 1px solid #e6d939; display: inline;padding: 10px; border-radius: 4px;
 		}
+	div.add-servico-colaborador > .tarefa-action .impedimento{
+    border: 1px solid #e6d939;
+    background-color: #e6e86f;
+    display: inline;padding: 10px;
+    border-radius: 4px;		}
 	div.add-servico-colaborador form{
 		display: inline;}
 	div.add-servico-colaborador.escalado{
