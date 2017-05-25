@@ -22,7 +22,14 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\musica\EscalaPublicada' => [
             'App\Listeners\musica\NotifyAdminNovaEscala',
             'App\Listeners\musica\NotifyColaboradoresNovaEscala',
-        ]
+        ],
+        'App\Events\musica\TarefaEscalaAdicionada' => [
+            'App\Listeners\musica\NotifyNovaTarefaEscalaColaborador',
+            'App\Listeners\musica\NotifyEscalaAlteradaLider',
+        ],
+        'App\Events\musica\TarefaEscalaRemovida' => [
+            'App\Listeners\musica\NotifyTarefaRemovidaEscala',
+        ],
     ];
 
     /**

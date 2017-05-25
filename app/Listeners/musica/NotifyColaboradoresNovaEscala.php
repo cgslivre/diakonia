@@ -31,9 +31,9 @@ class NotifyColaboradoresNovaEscala
         $colaboradores = $event->escala->tarefas->map( function($item){
           return $item->colaborador->user;}
           )->push($event->escala->lider->user)->unique();
-          foreach ($colaboradores as $user) {
-              Mail::to($user)
-                ->send(new EscalaPublicadaColaborador($event->escala, $user));
-          }
+        foreach ($colaboradores as $user) {
+          Mail::to($user)
+            ->send(new EscalaPublicadaColaborador($event->escala, $user));
+        }
     }
 }
