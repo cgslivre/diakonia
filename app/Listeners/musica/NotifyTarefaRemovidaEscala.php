@@ -7,6 +7,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\musica\TarefaRemovidaEscala;
+use App\Mail\musica\EscalaAlterada;
 
 class NotifyTarefaRemovidaEscala
 {
@@ -34,7 +35,7 @@ class NotifyTarefaRemovidaEscala
         Mail::to($user)->send(new TarefaRemovidaEscala($tarefa));
 
         $lider = $tarefa->escala->lider->user;
-
+        Mail::to($lider)->send(new EscalaAlterada($event->tarefa->escala));
 
     }
 }
