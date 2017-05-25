@@ -36,6 +36,11 @@
    @endif
 
    @isset($evento->escalaMusica)
+     @if( Bouncer::allows('musica-escala-edit') ||
+       $evento->escalaMusica->lider_id == $user->id)
+       <a href="{{URL::route('musica.escala.edit',$evento->escalaMusica->id)}}"
+            title="Alterar escala"><i class="fa fa-retweet"></i></a>
+     @endif
        @if ($evento->escalaMusica->tarefas->contains('colaborador_id',$user->id) ||
            $evento->escalaMusica->lider_id == $user->id )
            @if ($evento->escalaMusica->impedimentos->contains('colaborador_id',$user->id))

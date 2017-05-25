@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-8 no-margin">
                     @include('musica.escala.card-colaborador-musica',
-                        ['colaborador'=>$escala->lider ,                         
+                        ['colaborador'=>$escala->lider ,
                          'removerButton' => false])
                          <div class="alterar-lider">
                              <button class="btn btn-primary" type="button"
@@ -67,6 +67,14 @@
     </div>
 
     <hr/>
+    @if ($escala->impedimentos->pluck('colaborador_id')
+            ->intersect($escala->tarefas->pluck('colaborador_id')
+            ->push($escala->lider_id))->isNotEmpty())
+        <div class="alert bg-warning alert-important">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            Um ou mais colaboradores não podem participar desta escala.
+        </div>
+    @endif
     <div class="text-center">
         <a href="{{URL::route('musica.escala.analisar',$escala->id)}}" class="btn btn-success">
             <i class="fa fa-check-circle" aria-hidden="true"></i> Publicar escala</a>
