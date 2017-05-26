@@ -35,6 +35,9 @@ class EventServiceProvider extends ServiceProvider
         'App\Events\musica\ImpedimentoEscalaEvent' => [
             'App\Listeners\musica\NotifyImpedimentoEscala',
         ],
+        'App\Events\musica\EscalaRemovida' => [
+            'App\Listeners\musica\NotifyEscalaRemovida',
+        ],
     ];
 
     /**
