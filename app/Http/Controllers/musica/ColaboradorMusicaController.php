@@ -10,6 +10,7 @@ use App\Model\musica\ServicoMusica;
 use App\Http\Requests\musica\ColaboradorMusicaRequest;
 use App\User;
 use Bouncer;
+use DB;
 
 class ColaboradorMusicaController extends Controller
 {
@@ -134,6 +135,32 @@ class ColaboradorMusicaController extends Controller
         $colaborador->delete();
         return Redirect::route('musica.colaborador.index')
             ->with('message', 'Usuário removido da equipe de música!');
+    }
+
+    public function historico($colaborador_id, $escala_id = null){
+        if(Bouncer::denies('musica-colaborador-view')){
+            abort(403);
+        }
+
+        if( $escala_id == NULL){
+            return self::historicoColaborador($colaborador_id);
+        } else{
+            return self::historicoReferencia($colaborador_id, $escala_id);
+        }
+
+
+    }
+
+    protected function historicoReferencia($colaborador_id, $escala_id){
+        $result = DB::select( DB::raw("SELECT * FROM escalas_musica WHERE id = :escala_id"), [
+            'escala_id' => $escala_id
+        ]);
+        return $result;
+    }
+
+    protected function historicoColaborador($colaborador_id){
+        return "tudo";
+
     }
 
 

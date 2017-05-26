@@ -17,6 +17,7 @@ use App\Events\musica\EscalaPublicada;
 use App\Events\musica\TarefaEscalaAdicionada;
 use App\Events\musica\TarefaEscalaRemovida;
 use App\Events\musica\EscalaLiderTrocado;
+use App\Events\musica\EscalaRemovida;
 
 
 class EscalaMusicaController extends Controller
@@ -257,6 +258,9 @@ class EscalaMusicaController extends Controller
         $evento->escala_musica_id = null;
         $evento->save();
         $escala->delete();
+
+        event(new EscalaRemovida( $escala));
+
         return Redirect::route('musica.eventos')
             ->with('message', 'Escala removida');
     }
