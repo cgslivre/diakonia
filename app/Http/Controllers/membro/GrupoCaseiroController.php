@@ -56,10 +56,11 @@ class GrupoCaseiroController extends Controller
       return redirect('membro/grupo-caseiro')->with('message', 'Grupo Caseiro adicionado!');
     }
 
-    public function atualizar(GrupoCaseiro $grupo, Request $request){
+    public function atualizar($grupo_id, Request $request){
         if(Bouncer::denies('membro-grupo-edit')){
             abort(403);
         }
+        $grupo = GrupoCaseiro::findOrFail($grupo_id);
         $request["nome"] = $request["nomeEdicao"];
 
         $validator = Validator::make($request->all(), [
