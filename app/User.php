@@ -9,10 +9,12 @@ use Hash;
 use Silber\Bouncer\Database\HasRolesAndAbilities;
 use Illuminate\Notifications\Notifiable;
 use App\Notifications\ResetPasswordEmail;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class User extends Authenticatable
+class User extends Authenticatable implements AuditableContract
 {
-    use HasRolesAndAbilities, Notifiable;
+    use HasRolesAndAbilities, Notifiable, Auditable;
     const DEFAULT_AVATAR_PATH = 'users/avatar/000-default-';
     const IMG_SIZE_DEFAULT = '250px.jpg';
     const IMG_SIZE_MED = '150px.jpg';
@@ -30,6 +32,10 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'email', 'password','telefone'
+    ];
+
+    protected $auditExclude = [
+        'remember_token', 'password', 'avatar_path'
     ];
 
     /**

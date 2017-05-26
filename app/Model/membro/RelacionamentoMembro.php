@@ -4,9 +4,12 @@ namespace App\Model\membro;
 
 use Illuminate\Database\Eloquent\Model;
 use Log;
+use OwenIt\Auditing\Auditable;
+use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class RelacionamentoMembro extends Model
+class RelacionamentoMembro extends Model  implements AuditableContract
 {
+    use Auditable;
     protected $table = 'relacionamento_membros';
     public $timestamps  = false;
 
