@@ -79,11 +79,15 @@ class ColaboradorMusicaController extends Controller
      * @param  \App\Model\model\ColaboradorMusica  $colaboradorMusica
      * @return \Illuminate\Http\Response
      */
-    public function show(ColaboradorMusica $colaboradorMusica)
+    public function show($id)
     {
         if(Bouncer::denies('musica-colaborador-view')){
             abort(403);
         }
+
+        $colaborador = ColaboradorMusica::findOrFail($id);
+        return view('musica.colaboradores.show', compact('colaborador'));
+
     }
 
     /**
@@ -229,7 +233,7 @@ class ColaboradorMusicaController extends Controller
         $result = DB::select(DB::raw("SELECT * FROM (
 (
   SELECT
-  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m') AS data
   , e.data_hora_inicio
   , e.escala_musica_id
   , CASE
@@ -249,7 +253,7 @@ class ColaboradorMusicaController extends Controller
 ) UNION
 (
 SELECT
-  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m') AS data
   , e.data_hora_inicio
   , e.escala_musica_id
   , CASE

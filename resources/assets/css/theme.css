@@ -387,3 +387,11 @@ span.text-border{
     span.text-border > span{font-weight: bold;}
 
 .modal .ajuda h4{color: #337ab7; font-size: 1.4rem;margin-top: 8px;}
+
+.historico table { border-collapse: collapse; }
+.historico tr { display: block; float: left;}
+.historico th, .historico td { display: block; border: 1px solid #f9f9f9;  padding: 4px;}
+.historico td{text-align: center;}
+.historico tr.escalado > td{background-color: #b0e0af;}
+.historico tr.nao-escalado > td{background-color: #cdcdcd;}
+.historico tr.lider > td{background-color: #337ab7;color:#d1b127; }
