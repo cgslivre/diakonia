@@ -51,7 +51,8 @@
                 </span>
             </div>
             @foreach ($tarefas as $tarefa)
-                <div class="colaborador">
+                <div class="colaborador {{
+                    $tarefa->colaborador_id == Auth::user()->id ? 'escalado': ''}}">
 
                 <div class="avatar">
                     <img src="{{ URL($tarefa->colaborador->user->avatarPathSmall()) }}"
