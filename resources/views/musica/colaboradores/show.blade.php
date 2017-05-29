@@ -75,8 +75,17 @@
 
                     var url = $(this).attr("data-url");
                     var table = $(this).children('table');
+                    var depois = 0;
                     $.getJSON(url, function( data ){
                         for( var i = 0 ; i < data.length ; i++){
+
+                            if( data[i].referencia == 'depois'){
+                                depois++;
+                            }
+
+                            if( depois == 1 ){
+                                table.append("<tr class='hoje'><td>&nbsp;</td><td class='status'>&nbsp;</td></tr>");
+                            }
                             var escalado = "";
                             if( data[i].escalado == "escalado"){
                                 escalado = '<i class="fa fa-check" aria-hidden="true"></i>';
@@ -88,7 +97,8 @@
 
                             table.append("<tr class='" + data[i].escalado + "'><td>"+ data[i].data
                             + "</td><td class='status'>"
-                            + escalado +"</td></tr>")
+                            + escalado +"</td></tr>");
+
                         }
                     });
 

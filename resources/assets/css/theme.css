@@ -395,3 +395,4 @@ span.text-border{
 .historico tr.escalado > td.status{background-color: #b0e0af;}
 .historico tr.nao-escalado > td.status{background-color: #cdcdcd;}
 .historico tr.lider > td.status{background-color: #337ab7;color:#d1b127; }
+.historico tr.hoje td.status{background-color:#97D0C7; }
