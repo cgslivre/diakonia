@@ -14,6 +14,8 @@ use DB;
 
 class ColaboradorMusicaController extends Controller
 {
+    public $LIMIT_QUERY_HISTORICO_REFERENCIA = "5";
+    public $LIMIT_QUERY_HISTORICO_COLABORADOR = "5";
     /**
      * Display a listing of the resource.
      *
@@ -161,13 +163,13 @@ class ColaboradorMusicaController extends Controller
               , CASE WHEN (SELECT COUNT(1)
                   FROM tarefas_escala_musica t
             	  WHERE t.escala_id = e.escala_musica_id
-                  AND t.colaborador_id = $colaborador_id) > 0 THEN 'E' ELSE 'NE' END AS escalado
+                  AND t.colaborador_id = :colaborador_id1) > 0 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
               , 'antes' AS referencia
               FROM eventos e
               WHERE e.escala_musica_id IS NOT NULL
-                AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = 5)
+                AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id1)
               ORDER BY e.data_hora_inicio DESC
-              LIMIT 5
+              LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
               )
             UNION
             (
@@ -177,11 +179,11 @@ class ColaboradorMusicaController extends Controller
                 , e.escala_musica_id
                 , CASE WHEN (SELECT COUNT(1)
                   FROM tarefas_escala_musica t
-            	  WHERE t.escala_id = 1
-                  AND t.colaborador_id = $colaborador_id) > 0 THEN 'E' ELSE 'NE' END AS escalado
+            	  WHERE t.escala_id = :escala_id2
+                  AND t.colaborador_id = :colaborador_id2) > 0 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
             	, 'atual' AS referencia
             FROM eventos e
-            WHERE e.escala_musica_id = 5
+            WHERE e.escala_musica_id = :escala_id3
             )
             UNION
             (
@@ -192,17 +194,23 @@ class ColaboradorMusicaController extends Controller
               , CASE WHEN (SELECT COUNT(1)
                   FROM tarefas_escala_musica t
             	  WHERE t.escala_id = e.escala_musica_id
-                  AND t.colaborador_id = $colaborador_id) > 0 THEN 'E' ELSE 'NE' END AS escalado
+                  AND t.colaborador_id = :colaborador_id3) > 0 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
               , 'depois' AS referencia
               FROM eventos e
               WHERE e.escala_musica_id IS NOT NULL
-                AND e.data_hora_inicio > (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = 5)
+                AND e.data_hora_inicio > (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id4)
               ORDER BY e.data_hora_inicio
-              LIMIT 5
+              LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
               )
             ) AS C ORDER BY data_hora_inicio"), [
-            'escala_id' => $escala_id,
-            'colaborador_id' => $colaborador_id
+            'escala_id1' => $escala_id,
+            'escala_id2' => $escala_id,
+            'escala_id3' => $escala_id,
+            'escala_id4' => $escala_id,
+            'colaborador_id1' => $colaborador_id,
+            'colaborador_id2' => $colaborador_id,
+            'colaborador_id3' => $colaborador_id,
+
         ]);
         return $result;
     }

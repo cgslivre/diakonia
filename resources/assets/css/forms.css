@@ -181,3 +181,22 @@ div.add-servico-colaborador{
 .modal-body.ajuda div{margin-bottom: 5px;}
 .escala-info .btn-acao{color: #02baf2;background-color: #364347;}
 .escala-info .toolbar-btn-ajuda{color: #b2c6cd;background-color: #5e696d;margin-left: 10px;}
+
+.add-servico-colaborador .historico{margin-right: 15px;}
+    .historico ul{
+        list-style: none;
+        display: inline;
+        padding: 0;
+        -webkit-padding-start: 0;}
+        .historico ul li{
+            display: inline-block;
+            margin: 0;
+            line-height: 30px;
+            border: 1px solid #f9f9f9;
+            width: 30px;
+            min-width: 30px;
+            height: 30px;
+            text-align: center;}
+        .historico li.escalado{background-color: #2a8629;color: #FFFFFF;}
+        .historico li.atual{border: 1px solid #bb2c0d;}
+        .historico li.nao-escalado{background-color: #bac1ba;color: #888888;}

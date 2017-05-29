@@ -43,9 +43,17 @@
                     <div class="nome">{{ $colaborador->user->name }}</div>
                 </div>
             </div>
-            {{-- Dados de outras escalas --}}
 
-            <div></div>
+            {{-- Dados de outras escalas --}}
+            <div class="historico" escala="{{$escala->id}}" colaborador="{{$colaborador->id}}"
+                data-url="{{route('musica.colaborador.historico', [$colaborador->id, $escala->id])}}">
+                <span class="loading">
+                    <i class="fa fa-spin fa-spinner" aria-hidden="true"></i>
+                    Carregando
+                </span>
+                <ul></ul>
+            </div>
+
             {{-- Ações --}}
             <div class="tarefa-action">
                 @if (!in_array($colaborador->id, $colaboradoresServico))
@@ -77,7 +85,8 @@
                     Não poderá participar neste dia
                   </div>
                 @endif
-            </div>
+            </div> {{-- Fim ação  --}}
+
         </div>
     @empty
         Nenhum colaborador cadastrado
@@ -86,5 +95,37 @@
 @endsection
 
 @section('scripts')
+    @parent
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.historico').each( function(){
+                var id_escala = $(this).attr("escala");
+                var id_colaborador = $(this).attr("colaborador");
+                var url = $(this).attr("data-url");
+                var ul = $(this).children('ul');
+                // console.log(url);
+                $.getJSON(url, function( data ){
+                    for( var i = 0 ; i < data.length ; i++){
+                        //console.log(data[i]);
+                        var escalado = "";
+                        if( data[i].escalado == "escalado"){
+                            escalado = '<i class="fa fa-check" aria-hidden="true"></i>';
+                        } else{
+                            escalado = '<i class="fa fa-circle-thin" aria-hidden="true"></i>';
+                        }
+
+                        ul.append('<li title="' + data[i].data +  '" class="'
+                            + data[i].escalado + ' ' +  data[i].referencia +'">'
+                            + escalado +'</li>');
+                    }
+                });
+                // console.log(id_escala + "**" + id_colaborador);
+                $(this).children('.loading').hide();
+
+            });
+        });
+
+    </script>
 
 @endsection
