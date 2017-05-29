@@ -149,8 +149,18 @@ class ColaboradorMusicaController extends Controller
         } else{
             return self::historicoReferencia($colaborador_id, $escala_id);
         }
+    }
 
+    public function historicoLider($lider_id, $escala_id = null){
+        if(Bouncer::denies('musica-colaborador-view')){
+            abort(403);
+        }
 
+        if( $escala_id == NULL){
+            return self::historicoColaborador($lider_id);
+        } else{
+            return self::historicoLiderReferencia($lider_id, $escala_id);
+        }
     }
 
     protected function historicoReferencia($colaborador_id, $escala_id){
@@ -218,6 +228,59 @@ class ColaboradorMusicaController extends Controller
     protected function historicoColaborador($colaborador_id){
         return "tudo";
 
+    }
+
+    protected function historicoLiderReferencia($lider_id, $escala_id){
+        $result = DB::select(DB::raw("SELECT * FROM
+((
+  SELECT
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  , e.data_hora_inicio
+  , e.escala_musica_id
+  , CASE WHEN em.lider_id = :lider_id1 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
+  , 'antes' AS referencia
+  FROM eventos e
+  INNER JOIN escalas_musica em
+	ON e.escala_musica_id = em.id
+    AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id1)
+  ORDER BY e.data_hora_inicio DESC
+  LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
+) UNION
+(
+  SELECT
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  , e.data_hora_inicio
+  , e.escala_musica_id
+  , CASE WHEN em.lider_id = :lider_id2 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
+  , 'atual' AS referencia
+  FROM eventos e
+  INNER JOIN escalas_musica em
+	ON e.escala_musica_id = em.id
+  WHERE e.escala_musica_id = :escala_id2
+) UNION
+(
+  SELECT
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  , e.data_hora_inicio
+  , e.escala_musica_id
+  , CASE WHEN em.lider_id = :lider_id3 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
+  , 'antes' AS referencia
+  FROM eventos e
+  INNER JOIN escalas_musica em
+	ON e.escala_musica_id = em.id
+    AND e.data_hora_inicio > (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id3)
+  ORDER BY e.data_hora_inicio DESC
+  LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
+)) AS S ORDER BY data_hora_inicio
+"),[
+            'escala_id1' => $escala_id,
+            'escala_id2' => $escala_id,
+            'escala_id3' => $escala_id,
+            'lider_id1' => $lider_id,
+            'lider_id2' => $lider_id,
+            'lider_id3' => $lider_id,
+        ]);
+        return $result;
     }
 
 

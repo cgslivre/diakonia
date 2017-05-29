@@ -45,4 +45,6 @@ SELECT
   ORDER BY e.data_hora_inicio
   LIMIT 5
   ) 
-) AS C ORDER BY data_hora_inicio
+) AS C ORDER BY data_hora_inicio;
+
+
