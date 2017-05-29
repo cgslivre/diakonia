@@ -21,6 +21,11 @@
                               <i class="fa fa-star" aria-hidden="true"></i> Líder
                           </span>
                       @endif
+                      @can('musica-colaborador-edit')
+                      <a href="{{ URL::route('musica.colaborador.edit', $colaborador->id) }}"
+                          class="btn btn-default">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+                      @endcan
                   </div>
                 </div>
 

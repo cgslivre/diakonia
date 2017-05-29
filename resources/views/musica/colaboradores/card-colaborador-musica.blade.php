@@ -5,7 +5,7 @@
     <div class="dados">
         <p class="nome">
             @can('musica-colaborador-edit')
-            <a href="{{ URL::route('musica.colaborador.edit', $colaborador->id) }}">
+            <a href="{{ URL::route('musica.colaborador.show', $colaborador->id) }}">
                 {{ $colaborador->user->name }}</a>
             @endcan
             @cannot('musica-colaborador-edit')
