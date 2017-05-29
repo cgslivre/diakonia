@@ -82,7 +82,7 @@
                             }
 
                             table.append("<tr class='" + data[i].escalado + "'><td>"+ data[i].data
-                            + "</td><td>"
+                            + "</td><td class='status'>"
                             + escalado +"</td></tr>")
                         }
                     });
