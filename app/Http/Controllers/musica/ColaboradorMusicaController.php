@@ -151,15 +151,15 @@ class ColaboradorMusicaController extends Controller
         }
     }
 
-    public function historicoLider($lider_id, $escala_id = null){
+    public function historicoLider($lider_id, $evento_id = null){
         if(Bouncer::denies('musica-colaborador-view')){
             abort(403);
         }
 
-        if( $escala_id == NULL){
+        if( $evento_id == NULL){
             return self::historicoColaborador($lider_id);
         } else{
-            return self::historicoLiderReferencia($lider_id, $escala_id);
+            return self::historicoLiderReferencia($lider_id, $evento_id);
         }
     }
 
@@ -230,7 +230,7 @@ class ColaboradorMusicaController extends Controller
 
     }
 
-    protected function historicoLiderReferencia($lider_id, $escala_id){
+    protected function historicoLiderReferencia($lider_id, $evento_id){
         $result = DB::select(DB::raw("SELECT * FROM
 ((
   SELECT
@@ -242,7 +242,7 @@ class ColaboradorMusicaController extends Controller
   FROM eventos e
   INNER JOIN escalas_musica em
 	ON e.escala_musica_id = em.id
-    AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id1)
+    AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE id = :evento_id1)
   ORDER BY e.data_hora_inicio DESC
   LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
 ) UNION
@@ -254,9 +254,9 @@ class ColaboradorMusicaController extends Controller
   , CASE WHEN em.lider_id = :lider_id2 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
   , 'atual' AS referencia
   FROM eventos e
-  INNER JOIN escalas_musica em
+  LEFT JOIN escalas_musica em
 	ON e.escala_musica_id = em.id
-  WHERE e.escala_musica_id = :escala_id2
+  WHERE e.id = :evento_id2
 ) UNION
 (
   SELECT
@@ -268,14 +268,14 @@ class ColaboradorMusicaController extends Controller
   FROM eventos e
   INNER JOIN escalas_musica em
 	ON e.escala_musica_id = em.id
-    AND e.data_hora_inicio > (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = :escala_id3)
+    AND e.data_hora_inicio > (SELECT data_hora_inicio FROM eventos WHERE id = :evento_id3)
   ORDER BY e.data_hora_inicio DESC
   LIMIT $this->LIMIT_QUERY_HISTORICO_REFERENCIA
 )) AS S ORDER BY data_hora_inicio
 "),[
-            'escala_id1' => $escala_id,
-            'escala_id2' => $escala_id,
-            'escala_id3' => $escala_id,
+            'evento_id1' => $evento_id,
+            'evento_id2' => $evento_id,
+            'evento_id3' => $evento_id,
             'lider_id1' => $lider_id,
             'lider_id2' => $lider_id,
             'lider_id3' => $lider_id,

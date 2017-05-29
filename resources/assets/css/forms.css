@@ -112,7 +112,7 @@ table.grupo-caseiro, table.regiao{width: auto;}
 /* Música */
 ul.lideres{list-style: none;padding-left: 10px;}
 ul.lideres li.link{cursor: pointer;padding: 5px;margin: 2px;border: 1px solid #adcbed;border-radius: 4px;}
-ul.lideres li.escalado{
+ul.lideres li.na-escala{
     padding: 5px;
     margin: 2px;
     border: 1px solid #eeeeee;
@@ -183,6 +183,7 @@ div.add-servico-colaborador{
 .escala-info .toolbar-btn-ajuda{color: #b2c6cd;background-color: #5e696d;margin-left: 10px;}
 
 .add-servico-colaborador .historico{margin-right: 15px;}
+ul.lideres li .historico{display: inline-block;}
     .historico ul{
         list-style: none;
         display: inline;
@@ -197,6 +198,7 @@ div.add-servico-colaborador{
             min-width: 30px;
             height: 30px;
             text-align: center;}
-        .historico li.escalado{background-color: #2a8629;color: #FFFFFF;}
+        .historico li.escalado , ul.lideres li .historico li.escalado
+        , ul.lideres li.escalado .historico li.escalado{background-color: #2a8629;color: #FFFFFF;}
         .historico li.atual{border: 1px solid #bb2c0d;}
         .historico li.nao-escalado{background-color: #bac1ba;color: #888888;}

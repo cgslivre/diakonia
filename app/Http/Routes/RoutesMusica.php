@@ -7,7 +7,7 @@ Route::group(['middleware' => ['web','auth'], 'as'=>'musica.', 'prefix'=>'musica
     //     ->('colaborador.historico');
     Route::get('colaborador/historico/{colaborador}/{escala?}','musica\ColaboradorMusicaController@historico')
         ->name('colaborador.historico');
-    Route::get('lider/historico/{lider}/{escala?}','musica\ColaboradorMusicaController@historicoLider')
+    Route::get('lider/historico/{lider}/{evento?}','musica\ColaboradorMusicaController@historicoLider')
         ->name('lider.historico');
 
     Route::get('eventos/{colaborador?}','musica\EscalaMusicaController@eventos')

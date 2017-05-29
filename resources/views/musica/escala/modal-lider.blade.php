@@ -12,7 +12,7 @@
                     @if(isset($escala->id))
                         {{ Form::hidden('escala_id', $escala->id) }}
                         @if ($escala->lider_id == $lider->id)
-                            <li class="escalado">
+                            <li class="na-escala">
                         @else
                             <li class="link">
                         @endif
@@ -24,8 +24,16 @@
                     @else
                         <li class="link">
                     @endif
-
                         {{$lider->user->name}}
+                        {{-- Dados de outras escalas --}}
+                        <div class="historico" evento="{{$evento->id}}" lider="{{$lider->id}}"
+                            data-url="{{route('musica.lider.historico', [$lider->id, $evento->id])}}">
+                            <span class="loading">
+                                <i class="fa fa-spin fa-spinner" aria-hidden="true"></i>
+                                Carregando
+                            </span>
+                            <ul></ul>
+                        </div>
 
                     </li>
                     {{ Form::close() }}
@@ -47,5 +55,34 @@
        $(this).closest("form").submit();
       //console.log($(this).closest("form"));
     });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.historico').each( function(){
+            
+            var url = $(this).attr("data-url");
+            var ul = $(this).children('ul');
+            // console.log(url);
+            $.getJSON(url, function( data ){
+                for( var i = 0 ; i < data.length ; i++){
+                    //console.log(data[i]);
+                    var escalado = "";
+                    if( data[i].escalado == "escalado"){
+                        escalado = '<i class="fa fa-check" aria-hidden="true"></i>';
+                    } else{
+                        escalado = '<i class="fa fa-circle-thin" aria-hidden="true"></i>';
+                    }
+
+                    ul.append('<li title="' + data[i].data +  '" class="'
+                        + data[i].escalado + ' ' +  data[i].referencia +'">'
+                        + escalado +'</li>');
+                }
+            });
+            // console.log(id_escala + "**" + id_colaborador);
+            $(this).children('.loading').hide();
+
+        });
+    });
+
 </script>
 @endpush

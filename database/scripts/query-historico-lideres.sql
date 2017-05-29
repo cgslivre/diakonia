@@ -9,7 +9,7 @@ SELECT * FROM
   FROM eventos e 
   INNER JOIN escalas_musica em
 	ON e.escala_musica_id = em.id  
-    AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE escala_musica_id = 5)
+    AND e.data_hora_inicio < (SELECT data_hora_inicio FROM eventos WHERE id = 5)
   ORDER BY e.data_hora_inicio DESC
   LIMIT 5
 ) UNION
@@ -21,9 +21,9 @@ SELECT * FROM
   , CASE WHEN em.lider_id = 19 THEN 'escalado' ELSE 'nao-escalado' END AS escalado
   , 'atual' AS referencia
   FROM eventos e 
-  INNER JOIN escalas_musica em
+  LEFT JOIN escalas_musica em
 	ON e.escala_musica_id = em.id      
-  WHERE e.escala_musica_id = 5
+  WHERE e.id = 5
 ) UNION
 (
   SELECT 
