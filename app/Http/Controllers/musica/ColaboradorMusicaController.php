@@ -14,7 +14,7 @@ use DB;
 
 class ColaboradorMusicaController extends Controller
 {
-    public $LIMIT_QUERY_HISTORICO_REFERENCIA = "5";
+    public $LIMIT_QUERY_HISTORICO_REFERENCIA = "3";
     public $LIMIT_QUERY_HISTORICO_COLABORADOR = "5";
     /**
      * Display a listing of the resource.
@@ -226,7 +226,53 @@ class ColaboradorMusicaController extends Controller
     }
 
     protected function historicoColaborador($colaborador_id){
-        return "tudo";
+        $result = DB::select(DB::raw("SELECT * FROM (
+(
+  SELECT
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  , e.data_hora_inicio
+  , e.escala_musica_id
+  , CASE
+	  WHEN em.lider_id = :colaborador_id1 THEN 'lider'
+      WHEN (SELECT COUNT(1)
+      FROM tarefas_escala_musica t
+	  WHERE t.escala_id = e.escala_musica_id
+      AND t.colaborador_id = :colaborador_id2) > 0 THEN 'escalado'
+      ELSE 'nao-escalado' END AS escalado
+  , 'antes' AS referencia
+  FROM eventos e
+  INNER JOIN escalas_musica em
+	ON e.escala_musica_id = em.id
+    AND e.data_hora_inicio < NOW()
+  ORDER BY e.data_hora_inicio DESC
+  LIMIT $this->LIMIT_QUERY_HISTORICO_COLABORADOR
+) UNION
+(
+SELECT
+  DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS data
+  , e.data_hora_inicio
+  , e.escala_musica_id
+  , CASE
+	  WHEN em.lider_id = :colaborador_id3 THEN 'lider'
+      WHEN (SELECT COUNT(1)
+      FROM tarefas_escala_musica t
+	  WHERE t.escala_id = e.escala_musica_id
+      AND t.colaborador_id = :colaborador_id4) > 0 THEN 'escalado'
+      ELSE 'nao-escalado' END AS escalado
+  , 'depois' AS referencia
+  FROM eventos e
+  INNER JOIN escalas_musica em
+	ON e.escala_musica_id = em.id
+    AND e.data_hora_inicio > NOW()
+  ORDER BY e.data_hora_inicio DESC
+  LIMIT $this->LIMIT_QUERY_HISTORICO_COLABORADOR
+) ) AS S ORDER BY data_hora_inicio"),[
+    'colaborador_id1' => $colaborador_id,
+    'colaborador_id2' => $colaborador_id,
+    'colaborador_id3' => $colaborador_id,
+    'colaborador_id4' => $colaborador_id,
+        ]);
+        return $result;
 
     }
 
