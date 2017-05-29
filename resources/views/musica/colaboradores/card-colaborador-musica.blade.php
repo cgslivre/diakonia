@@ -4,18 +4,16 @@
     </div>
     <div class="dados">
         <p class="nome">
-            @can('musica-colaborador-edit')
+            @can('musica-colaborador-view')
             <a href="{{ URL::route('musica.colaborador.show', $colaborador->id) }}">
                 {{ $colaborador->user->name }}</a>
             @endcan
-            @cannot('musica-colaborador-edit')
-                {{ $colaborador->user->name }}
-            @endcannot
+
         </p>
         <p class="email">{{ $colaborador->user->email }}</p>
         @if($colaborador->lider)
             <p class="lider">
-                <i class="fa fa-street-view" aria-hidden="true"></i> Líder
+                <i class="fa fa-star" aria-hidden="true"></i> Líder
             </p>
         @endif
     </div>
