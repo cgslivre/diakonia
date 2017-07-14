@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EscalaNaoMaisLider extends Mailable
+class EscalaNaoMaisLider extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -22,6 +22,7 @@ class EscalaNaoMaisLider extends Mailable
     {
         $this->escala = $escala;
         $this->antigoLider = $antigoLider;
+        $this->onQueue('emails');
     }
 
     /**

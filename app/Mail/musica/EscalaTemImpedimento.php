@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EscalaTemImpedimento extends Mailable
+class EscalaTemImpedimento extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -23,6 +23,7 @@ class EscalaTemImpedimento extends Mailable
     {
         $this->impedimento = $impedimento;
         $this->lider = $lider;
+        $this->onQueue('emails');
     }
 
     /**

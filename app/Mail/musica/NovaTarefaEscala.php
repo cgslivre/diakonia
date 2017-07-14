@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NovaTarefaEscala extends Mailable
+class NovaTarefaEscala extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -20,7 +20,7 @@ class NovaTarefaEscala extends Mailable
     public function __construct($tarefa)
     {
         $this->tarefa = $tarefa;
-
+        $this->onQueue('emails');
     }
 
     /**

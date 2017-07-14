@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EscalaPublicadaAdmins extends Mailable
+class EscalaPublicadaAdmins extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -21,8 +21,8 @@ class EscalaPublicadaAdmins extends Mailable
     public function __construct($escala, $admin)
     {
         $this->escala = $escala;
-        
         $this->admin = $admin;
+        $this->onQueue('emails');
     }
 
     /**
