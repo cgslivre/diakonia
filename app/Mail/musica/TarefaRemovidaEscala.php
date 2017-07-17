@@ -7,11 +7,12 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TarefaRemovidaEscala extends Mailable implements ShouldQueue
+class TarefaRemovidaEscala extends Mailable// implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
     protected $tarefa;
+    protected $evento;
     /**
      * Create a new message instance.
      *
@@ -19,7 +20,8 @@ class TarefaRemovidaEscala extends Mailable implements ShouldQueue
      */
     public function __construct($tarefa)
     {
-        $this->tarefa = $tarefa;
+        $this->evento = $tarefa->escala->evento->toArray();
+        $this->tarefa = $tarefa->toArray();
         $this->onQueue('emails');
     }
 
@@ -30,11 +32,16 @@ class TarefaRemovidaEscala extends Mailable implements ShouldQueue
      */
     public function build()
     {
-        return $this->subject('Você foi removido(a) da escala do dia ' .
-            $this->tarefa->escala->evento->data_hora_inicio->format('d/m/Y'))
+        $dhi = new \Carbon\Carbon($this->evento["data_hora_inicio"]);
+        $dt = $dhi->format('d/m/Y');
+        return $this->subject('Você foi removido(a) da escala do dia ' . $dt)
                 ->markdown('emails.musica.tarefa-escala-removida')
                     ->with([
-                        'tarefa' => $this->tarefa
+                        'dia' => $dt,
+                        'hora' => $dhi->format('G\hi'),
+                        'titulo' => $dhi->format('G\hi'),
+                        'servico' => $this->tarefa["servico"]["descricao"],
+                        'usuario' => $this->tarefa["colaborador"]["user"]["name"]
                     ]);
     }
 }

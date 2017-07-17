@@ -10,6 +10,7 @@ class Tarefa extends Model implements AuditableContract
 {
     use Auditable;
     protected $table = 'tarefas_escala_musica';
+    protected $with = ['servico','colaborador'];
     public $timestamps  = true;
 
 
