@@ -15,3 +15,5 @@ php artisan migrate
 
 ### Verificar o cron
 `crontab -l`
+
+`grep CRON /var/log/syslog`
