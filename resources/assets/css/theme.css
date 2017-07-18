@@ -188,6 +188,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -moz-border-radius: 7px 7px 7px 7px;
     -webkit-border-radius: 7px 7px 7px 7px;
     float:left;}
+    .card-colaborador.na-escala{border: 3px solid #20ab65;}
     .card-colaborador .avatar, .escala-colaborador .avatar{
         width: 70px;
         float: left;}

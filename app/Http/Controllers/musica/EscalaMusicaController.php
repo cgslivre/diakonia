@@ -73,11 +73,14 @@ class EscalaMusicaController extends Controller
     }
 
     public function addTarefaAction(Request $request, $escala_id){
-        if(Bouncer::denies('musica-escala-edit')){
-            abort(403);
-        }
-        $col = ColaboradorMusica::findOrFail($request["colaborador_id"]);
         $escala = EscalaMusica::findOrFail($escala_id);
+
+        if( !(Bouncer::allows('musica-escala-edit') ||
+         $escala->lider_id == Auth::user()->id) ){
+             abort(403);
+         }
+
+        $col = ColaboradorMusica::findOrFail($request["colaborador_id"]);
         $servico = ServicoMusica::findOrFail($request["servico_id"]);
 
         $tarefa = new Tarefa;
@@ -98,10 +101,13 @@ class EscalaMusicaController extends Controller
     }
 
     public function deleteTarefaAction($tarefa_id){
-        if(Bouncer::denies('musica-escala-edit')){
-            abort(403);
-        }
         $tarefa = Tarefa::findOrFail($tarefa_id);
+
+        if( !(Bouncer::allows('musica-escala-edit') ||
+         $tarefa->escala->lider_id == Auth::user()->id) ){
+             abort(403);
+        }
+        
         $tarefa->delete();
 
         if( $tarefa->escala->publicada){
@@ -224,10 +230,11 @@ class EscalaMusicaController extends Controller
      */
     public function edit($escala_id)
     {
-        if(Bouncer::denies('musica-escala-edit')){
-            abort(403);
-        }
         $escala = EscalaMusica::findOrFail($escala_id);
+        if( !(Bouncer::allows('musica-escala-edit') ||
+         $escala->lider_id == Auth::user()->id) ){
+             abort(403);
+         }
         $lideres = ColaboradorMusica::lideres()->get()->sortBy(
             function($item){
                 return str_slug($item->user->name);

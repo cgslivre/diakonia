@@ -1,4 +1,4 @@
-<div class="card-colaborador musica middle-div">
+<div class="card-colaborador musica middle-div {{$colaborador->user->id == Auth::user()->id ? "na-escala" : ""}}">
     <div class="avatar">
         <img src="{{ URL($colaborador->user->avatarPathSmall()) }}"
              alt="{{$colaborador->user->name}}" />
