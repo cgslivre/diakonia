@@ -7,7 +7,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class TarefaRemovidaEscala extends Mailable// implements ShouldQueue
+class TarefaRemovidaEscala extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
@@ -39,7 +39,7 @@ class TarefaRemovidaEscala extends Mailable// implements ShouldQueue
                     ->with([
                         'dia' => $dt,
                         'hora' => $dhi->format('G\hi'),
-                        'titulo' => $dhi->format('G\hi'),
+                        'titulo' => $this->evento["titulo"],
                         'servico' => $this->tarefa["servico"]["descricao"],
                         'usuario' => $this->tarefa["colaborador"]["user"]["name"]
                     ]);

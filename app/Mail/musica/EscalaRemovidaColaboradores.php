@@ -11,7 +11,7 @@ class EscalaRemovidaColaboradores extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
-    protected $escala;
+    protected $evento;
     protected $user;
     /**
      * Create a new message instance.
@@ -20,7 +20,7 @@ class EscalaRemovidaColaboradores extends Mailable implements ShouldQueue
      */
     public function __construct($escala, $user)
     {
-        $this->escala = $escala;
+        $this->evento = $escala->evento->toArray();
         $this->user = $user;
         $this->onQueue('emails');
     }
@@ -30,12 +30,16 @@ class EscalaRemovidaColaboradores extends Mailable implements ShouldQueue
      *
      * @return $this
      */
-    public function build()
-    {
+    public function build(){
+        $dhi = new \Carbon\Carbon($this->evento["data_hora_inicio"]);
+        $dt = $dhi->format('d/m/Y');
+
         return $this->subject('Escala de música cancelada!')
             ->markdown('emails.musica.escala-cancelada')
                 ->with([
-                    'escala' => $this->escala,
+                    'dia' => $dt,
+                    'hora' => $dhi->format('G\hi'),
+                    'titulo' => $this->evento["titulo"],
                     'user' => $this->user
                 ]);
     }

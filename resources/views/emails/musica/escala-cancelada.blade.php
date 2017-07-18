@@ -1,12 +1,12 @@
 @component('mail::message')
 Escala de Música cancelada
 ========
-**{{$user->name}}**, a escala do dia **{{$escala->evento->data_hora_inicio->format('d/m/Y')}}** foi cancelada.
+**{{$user->name}}**, a escala do dia **{{$dia}}** foi cancelada.
 
 ## Evento
-**{{$escala->evento->titulo}}**, dia **
-  {{$escala->evento->data_hora_inicio->format('d/m/Y')}}** às **
-  {{$escala->evento->data_hora_inicio->format('G\hi')}}**.
+**{{$titulo}}**, dia **
+  {{$dia}}** às **
+  {{$hora}}**.
 
 
 

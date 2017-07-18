@@ -17,13 +17,15 @@ class EscalaRemovida
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $escala;
+    public $colaboradores;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(EscalaMusica $escala){
+    public function __construct(EscalaMusica $escala, $colaboradores){
         $this->escala = $escala;
+        $this->colaboradores = $colaboradores;
     }
 
     /**

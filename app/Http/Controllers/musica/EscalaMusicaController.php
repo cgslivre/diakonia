@@ -254,12 +254,19 @@ class EscalaMusicaController extends Controller
             abort(403);
         }
         $escala = EscalaMusica::findOrFail($id);
+        // Replicação para manter informações após a deleção do objeto
+        $escala_cp = $escala->replicate();
+        $ts = $escala->tarefas;
         $evento = $escala->evento;
         $evento->escala_musica_id = null;
         $evento->save();
         $escala->delete();
 
-        event(new EscalaRemovida( $escala));
+        $colaboradores = $ts->map( function($item){
+            return $item->colaborador->user;})
+            ->push($escala_cp->lider->user)->unique();
+
+        event(new EscalaRemovida( $escala_cp, $colaboradores));
 
         return Redirect::route('musica.eventos')
             ->with('message', 'Escala removida');
