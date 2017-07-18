@@ -375,6 +375,7 @@ table.membros > tbody{font-size: 13px;}
     }
 .dashboard-usuario > .panel-heading{background-color: #337ab7;}
 .dashboard-evento > .panel-heading{background-color: #247929;}
+.dashboard-musica > .panel-heading{background-color: #793924;}
 .dashboard-material > .panel-heading{background-color: #9c8408;}
 .panel-dashboard > .panel-body ul{list-style-type: none;}
 .panel-dashboard > .panel-body ul > li {margin-bottom: 10px;}

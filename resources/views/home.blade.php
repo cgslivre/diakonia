@@ -12,6 +12,10 @@
         @include('dashboard.dashboard-evento')
     @endif
 
+    @if( $dashboards["musica"])
+        @include('dashboard.dashboard-musica')
+    @endif
+
     @if( $dashboards["material"])
         @include('dashboard.dashboard-material')
     @endif

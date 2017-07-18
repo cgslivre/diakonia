@@ -73,6 +73,15 @@ class HomeController extends Controller
             $data["evento.proximos"] = $eventos;
         }
 
+        // Dashboards de Evento
+        if( $user->can('musica-escala-view')){
+            $dashboards["musica"] = true;
+            
+            // $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())
+            //     ->take(5)->get()->sortBy('data_hora_inicio');
+            // $data["evento.proximos"] = $eventos;
+        }
+
         // Dashboards de Materias
         if( $user->can('material-curriculo-view')){
             $dashboards["material"] = true;
