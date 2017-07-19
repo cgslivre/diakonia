@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use Auth;
+use DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\User;
@@ -78,6 +79,21 @@ class HomeController extends Controller
         if( $user->can('musica-escala-view')){
             $dashboards["musica"] = true;
 
+            $data["musica.proximas-escalas"] =
+                DB::select("
+                    select e.titulo, e.escala_musica_id, e.data_hora_inicio ,
+                    DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS dia
+                    from eventos e
+                    inner join escalas_musica em on e.escala_musica_id = em.id
+                    where e.data_hora_inicio > NOW()
+                    AND (
+                        em.lider_id = :user1
+                        OR
+                        :user2 in (select colaborador_id from tarefas_escala_musica where escala_id = em.id)
+                    ) ORDER BY e.data_hora_inicio",[
+                        'user1' => Auth::user()->id,
+                        'user2' => Auth::user()->id,
+                    ]);
             // $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())
             //     ->take(5)->get()->sortBy('data_hora_inicio');
             // $data["evento.proximos"] = $eventos;
