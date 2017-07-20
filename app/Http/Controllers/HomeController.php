@@ -90,13 +90,14 @@ class HomeController extends Controller
                         em.lider_id = :user1
                         OR
                         :user2 in (select colaborador_id from tarefas_escala_musica where escala_id = em.id)
-                    ) ORDER BY e.data_hora_inicio",[
+                    ) ORDER BY e.data_hora_inicio LIMIT 5",[
                         'user1' => Auth::user()->id,
                         'user2' => Auth::user()->id,
                     ]);
-            // $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())
-            //     ->take(5)->get()->sortBy('data_hora_inicio');
-            // $data["evento.proximos"] = $eventos;
+        }
+        if( $user->can('musica-escala-edit')){
+            $data["musica.eventos-sem-escala"] = Evento::proximos30dias()
+                ->whereNull('escala_musica_id')->take(5)->get()->sortBy('data_hora_inicio');
         }
 
         // Dashboards de Materias

@@ -27,5 +27,28 @@
           </div>
       @endif
 
+      @if (count($data["musica.eventos-sem-escala"]) > 0)
+          <div class="alert alert-warning alert-important">
+            <p class="alert-header text-danger">
+                <i class="fa fa-exclamation-circle text-danger" aria-hidden="true" title="Sem escala"></i>
+                Eventos sem escala</p>
+            <ul>
+        @foreach ($data["musica.eventos-sem-escala"] as $evento)
+            <li>
+                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                <a href="{{URL::route('musica.escala.create',$evento->id)}}">
+                {{$evento->titulo}}</a>
+                <span class="text-border">
+                    {{Date::parse($evento->data_hora_inicio)
+                        ->format('l, j \d\e F \d\e Y')}}
+                </span>
+                <span class="text-border">{{ $evento->data_hora_inicio->diffForHumans() }}</span>
+
+            </li>
+        @endforeach
+    </ul>
+        </div>
+      @endif
+
   </div>
 </div>
