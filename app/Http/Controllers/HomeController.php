@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Model\evento\Evento;
 use App\Model\material\Ensino;
+use App\Model\musica\EscalaMusica;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -98,7 +99,14 @@ class HomeController extends Controller
         if( $user->can('musica-escala-edit')){
             $data["musica.eventos-sem-escala"] = Evento::proximos30dias()
                 ->whereNull('escala_musica_id')->take(5)->get()->sortBy('data_hora_inicio');
+
+            $data["musica.escalas-nao-publicadas"] = EscalaMusica::join('eventos', function($join){
+                $join->on('eventos.escala_musica_id','=','escalas_musica.id');
+            })->select('escalas_musica.*')->where('data_hora_inicio','>=',\Carbon\Carbon::now())
+                    ->whereNull('publicado_em')->take(5)->get();
         }
+
+
 
         // Dashboards de Materias
         if( $user->can('material-curriculo-view')){

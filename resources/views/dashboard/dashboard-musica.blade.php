@@ -46,7 +46,30 @@
 
             </li>
         @endforeach
-    </ul>
+            </ul>
+        </div>
+      @endif
+
+      @if (count($data["musica.escalas-nao-publicadas"]) > 0)
+          <div class="alert alert-warning alert-important">
+            <p class="alert-header">
+                <i class="fa fa-exclamation-circle" aria-hidden="true" title="Sem escala"></i>
+                Escalas ainda não publicadas</p>
+            <ul>
+        @foreach ($data["musica.escalas-nao-publicadas"] as $escala)
+            <li>
+                <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                <a href="{{URL::route('musica.escala.edit',$escala->id)}}">
+                {{$escala->evento->titulo}}</a>
+                <span class="text-border">
+                    {{Date::parse($escala->evento->data_hora_inicio)
+                        ->format('l, j \d\e F \d\e Y')}}
+                </span>
+                <span class="text-border">{{ $escala->evento->data_hora_inicio->diffForHumans() }}</span>
+
+            </li>
+        @endforeach
+            </ul>
         </div>
       @endif
 
