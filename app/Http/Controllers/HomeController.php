@@ -94,17 +94,39 @@ class HomeController extends Controller
                 ) ORDER BY e.data_hora_inicio LIMIT 5",[
                     'user1' => Auth::user()->id,
                     'user2' => Auth::user()->id,
-                ]);
-                if( $user->can('musica-escala-edit')){
-                    $data["musica.eventos-sem-escala"] = Evento::proximos30dias()
-                    ->whereNull('escala_musica_id')->take(5)->get()->sortBy('data_hora_inicio');
+            ]);
+            if( $user->can('musica-escala-edit')){
+                $data["musica.eventos-sem-escala"] = Evento::proximos30dias()
+                ->whereNull('escala_musica_id')->take(5)->get()->sortBy('data_hora_inicio');
 
-                    $data["musica.escalas-nao-publicadas"] = EscalaMusica::join('eventos', function($join){
-                        $join->on('eventos.escala_musica_id','=','escalas_musica.id');
-                    })->select('escalas_musica.*')->where('data_hora_inicio','>=',\Carbon\Carbon::now())
-                    ->whereNull('publicado_em')->take(5)->get();
-                }
+                $data["musica.escalas-nao-publicadas"] = EscalaMusica::join('eventos', function($join){
+                    $join->on('eventos.escala_musica_id','=','escalas_musica.id');
+                })->select('escalas_musica.*')->where('data_hora_inicio','>=',\Carbon\Carbon::now())
+                ->whereNull('publicado_em')->take(5)->get();
             }
+
+            $data["musica.impedimentos"] =
+                DB::select("
+                select
+                    distinct (iem.colaborador_id)
+                    , em.id
+                    , u.name
+                    , e.titulo
+                    , DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS dia
+                    , e.data_hora_inicio
+                from tarefas_escala_musica tem
+                inner join escalas_musica em on tem.escala_id = em.id
+                inner join impedimento_escala_musica iem on em.id = iem.escala_id
+                inner join eventos e on em.evento_id = e.id
+                inner join users u on iem.colaborador_id = u.id
+                where e.data_hora_inicio > NOW()
+                and em.lider_id = :lider
+                ORDER BY e.data_hora_inicio
+                limit 10",[
+                        'lider' => Auth::user()->id
+            ]);
+        }
+
 
 
 
