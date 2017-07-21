@@ -108,21 +108,22 @@ class HomeController extends Controller
             $data["musica.impedimentos"] =
                 DB::select("
                 select
-                    distinct (iem.colaborador_id)
-                    , em.id
-                    , u.name
-                    , e.titulo
-                    , DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS dia
-                    , e.data_hora_inicio
-                from tarefas_escala_musica tem
-                inner join escalas_musica em on tem.escala_id = em.id
-                inner join impedimento_escala_musica iem on em.id = iem.escala_id
-                inner join eventos e on em.evento_id = e.id
+                   em.id as escala_id
+                   , u.name
+                   , e.titulo
+                   , e.data_hora_inicio
+                   , DATE_FORMAT(e.data_hora_inicio,'%d/%m/%Y') AS dia
+                from impedimento_escala_musica iem
                 inner join users u on iem.colaborador_id = u.id
+                inner join escalas_musica em on iem.escala_id = em.id
+                inner join eventos e on em.evento_id = e.id
                 where e.data_hora_inicio > NOW()
                 and em.lider_id = :lider
-                ORDER BY e.data_hora_inicio
-                limit 10",[
+                and iem.colaborador_id in
+                   (select colaborador_id
+                    from tarefas_escala_musica
+                    where escala_id = em.id )
+                limit 10;",[
                         'lider' => Auth::user()->id
             ]);
         }

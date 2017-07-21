@@ -88,10 +88,10 @@
                 <ul>
                     @foreach ($data["musica.impedimentos"] as $imp)
                         <li>
-                            <i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+                            <i class="fa fa-ban alert-danger" aria-hidden="true"></i>
                             <span class="text-border text-info">{{$imp->name}}</span> não pode participar no dia
                             <span class="text-border text-info">{{$imp->dia}}</span>
-                            <a href="{{URL::route('musica.escala.edit',$imp->id)}}" class="btn btn-default">
+                            <a href="{{URL::route('musica.escala.edit',$imp->escala_id)}}" class="btn btn-default">
                                 <i class="fa fa-retweet"></i> Escolher substituto(a)</a>
                         </li>
                     @endforeach
