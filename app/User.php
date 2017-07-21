@@ -98,6 +98,10 @@ class User extends Authenticatable implements AuditableContract
         });
     }
 
+    public function colaboradorMusica(){
+        return $this->hasOne('App\Model\musica\ColaboradorMusica','id','id');
+    }
+
     public function sendPasswordResetNotification($token)    {
         $this->notify(new ResetPasswordEmail($token));
     }

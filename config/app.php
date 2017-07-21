@@ -157,6 +157,8 @@ return [
         Laravel\Tinker\TinkerServiceProvider::class,
         \Eduardokum\LaravelMailAutoEmbed\Providers\LaravelMailAutoEmbedServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
+        Laracademy\Commands\MakeServiceProvider::class,
+        Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
 
         /*
          * Application Service Providers...

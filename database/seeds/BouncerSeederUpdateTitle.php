@@ -89,5 +89,23 @@ class BouncerSeederUpdateTitle extends Seeder
         DB::table('abilities')->where('name','material-curriculo-edit')
         ->update(array('title'=>'Adicionar e remover materiais do currículo de ensino'));
 
+        // Música
+        DB::table('roles')->where('name','role-musica-user')
+        ->update(array('title'=>'Padrão','scope'=>'Música','nivel'=>1));
+        DB::table('roles')->where('name','role-musica-admin')
+        ->update(array('title'=>'Administrador','scope'=>'Música','nivel'=>3));
+
+        DB::table('abilities')->where('name','musica-colaborador-view')
+        ->update(array('title'=>'Ver os colaboradores da música'));
+        DB::table('abilities')->where('name','musica-escala-view')
+        ->update(array('title'=>'Ver escalas'));
+        DB::table('abilities')->where('name','musica-colaborador-edit')
+        ->update(array('title'=>'Adicionar/Editar colaborador'));
+        DB::table('abilities')->where('name','musica-colaborador-remove')
+        ->update(array('title'=>'Remover colaborador'));
+        DB::table('abilities')->where('name','musica-escala-edit')
+        ->update(array('title'=>'Editar/Publicar escalas de música'));
+        DB::table('abilities')->where('name','musica-escala-remove')
+        ->update(array('title'=>'Remover escalas de música'));
     }
 }

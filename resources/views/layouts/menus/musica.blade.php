@@ -1,15 +1,24 @@
-<li class="panel panel-default dropdown">
-  <a data-toggle="collapse" href="#dropdown-musica">
-      <span class="icon fa fa-music"></span><span class="title">Música</span>
-  </a>
-  <!-- Dropdown level 1 -->
-  <div id="dropdown-musica" class="panel-collapse collapse">
-    <div class="panel-body">
-      <ul class="nav navbar-nav">
-        <li><a href="{{ URL::route('musica.calendario') }}"><span class="icon fa fa-calendar"></span> Calendário</a></li>
-        <li><a href="{{ URL::route('evento.index') }}"><span class="icon fa fa-calendar-o"></span> Eventos</a></li>
-        <li><a href="{{ URL::route('staff.index') }}"><span class="icon fa fa-users"></span> Equipe</a></li>
-      </ul>
-    </div>
-  </div>
+<li>
+    <input id="group-musica" type="checkbox" hidden />
+    <label for="group-musica">
+        <span class="seta fa fa-angle-right"></span>
+        <span class="icon fa fa-music"></span>Música
+    </label>
+    <ul class="group-list">
+
+        <li><a href="{{ URL::route('musica.colaborador.index') }}">
+            <span class="icon fa fa-users"></span>Colaboradores
+        </a></li>
+
+        @can('musica-escala-edit')
+        <li><a href="{{ URL::route('musica.eventos') }}">
+            <span class="icon fa fa-calendar"></span>Eventos
+        </a></li>
+        @endcan
+
+        <li><a href="{{ URL::route('musica.eventos',Auth::user()->id) }}">
+            <span class="icon fa fa-calendar-check-o"></span>Minhas Escalas
+        </a></li>
+
+    </ul>
 </li>

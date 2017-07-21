@@ -24,6 +24,9 @@ span.counter{font-size: 120%;font-weight: bold;}
     transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
 
+.alert > .alert-header{border-bottom: 1px solid; margin-bottom: 7px;}
+.fa.alert-danger{padding: 3px;background-color: #E63946; color: #fff;} 
+
 .sexo-M{color: #228bec;}
 .sexo-F{color: #d071e8;}
 
@@ -179,8 +182,7 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
         -webkit-filter: grayscale(0);}
 
 
-.card-staff{
-    margin: 6px;
+.card-colaborador{
     display: inline-block;
     border: 1px solid #a7bbb1;
     padding: 4px 14px 4px 3px;
@@ -189,19 +191,39 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     -moz-border-radius: 7px 7px 7px 7px;
     -webkit-border-radius: 7px 7px 7px 7px;
     float:left;}
-    .card-staff .avatar, .escala-staff .avatar{
+    .card-colaborador.na-escala{border: 3px solid #20ab65;}
+    .card-colaborador .avatar, .escala-colaborador .avatar{
         width: 70px;
         float: left;}
-        .card-staff .avatar img, .escala-staff .avatar img{
+        .card-colaborador .avatar img, .escala-colaborador .avatar img{
             border-radius: 50px;
             -moz-border-radius: 50px;
             -webkit-border-radius: 50px;}
-    .card-staff .dados, .escala-staff .dados{margin-left: 76px;}
-        .card-staff .dados p, .escala-staff .dados p{margin: 0;}
-    .card-staff .dados .nome,.escala-staff .dados .nome{font-weight: bold;}
-    .card-staff .dados .lider{font-weight: bold;color: #E63946; }
+    .card-colaborador .dados, .escala-colaborador .dados{margin-left: 76px;}
+        .card-colaborador .dados p, .escala-colaborador .dados p{margin: 0;}
+    .card-colaborador .dados .nome,.escala-colaborador .dados .nome{font-weight: bold;}
+    .card-colaborador .dados .nome{margin-right: 22px;}
+    .card-colaborador .dados .telefone{font-size: 80%;}
+    .card-colaborador .dados .lider{font-weight: bold;color: #E63946; }
+    .card-colaborador .dados button.remover-colaborador{
+        background-color: #E63946;
+        border: 1px solid #E63946;
+        border-top-right-radius: 7px;
+        font-weight: bold;
+        position: absolute;
+        font-size: 12px;
+        top: -1px;
+        right: -1px;
+        color: #ffffff;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;}
+        .card-colaborador .dados button.remover-colaborador:hover{
+            background-color: #c82834;
+        }
 
-.escala-staff{
+.escala-colaborador, .card-colaborador{
     margin: 4px;
     display: inline-block;
     padding: 4px 14px 4px 3px;
@@ -210,49 +232,83 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    background: url("../img/FFFFFF-0.5.png") repeat;
+    background-color: #fff;
+    /*background: url("../img/FFFFFF-0.5.png") repeat;*/
     float: left;}
-    .escala-staff:hover{cursor: pointer;}
+    .escala-colaborador:hover{cursor: pointer;}
 
 .option-selected{ border: 2px solid #1288c3; background: url("../img/yellow-0.5.png") repeat; }
+.linha-servico{
+    display: flex;
+    margin: 0 10px;
+    background-color: #efefef;
+    border-radius: 10px;}
+    .linha-servico > .col-md-3{
+        padding: 5px 0;
+        text-align: left;
+        background-color: #b4d6e7;
+        color: #1288c3;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;}
+    .linha-servico > div > div.card-colaborador{margin-right: 15px;}
+    .linha-servico.lider{background-color: #f2f1c8;}
+    .linha-servico.lider > .col-md-3{
+        background-color: #1288c3;
+        color: #fff;}
+    .linha-servico .servico-icon{height: 74px;margin-left: 10px;}
+    .linha-servico p.descricao-servico{display: inline-block;}
+    .linha-servico p.nenhum-escalado{
+        line-height: 70px;
+        font-style: italic;
+        color: #777;
+    }
+.lider-icon{width: 70px;}
+.alterar-lider{line-height: 80px;}
 
-.add-staff{
-    border: 1px solid #a7bbb1;
-    padding: 10px;
-    float:left;
-}
 
 .add-servico{
     border-radius: 7px;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
-    margin-bottom: 12px;
     padding: 6px;
-}
+    margin: 0;}
+
 .servico-odd{background-color: #e0e9ed;}
 .servico-even{background-color: #e2f0f6;}
-
 .sem-usuario{vertical-align: middle;display: inline-block;}
-.staff-selecionados{line-height: 96px;}
-
 .img-servico-index{width: 48px;height:48px;}
 
-.status-escala{
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
-    padding: 4px;
-    font-weight: bold;
-    float: left;
-}
+.escala.publicacao{padding-left: 25px;}
+.escala.publicacao h3{font-size: 1.7rem;font-weight: bold;color: #337ab7;}
 
-.sem-escala{
-    border: 1px solid #E63946;
-    color: #E63946;
-    background-color: #eed3d5;
-}
+.legenda >span{margin-right: 10px;}
 
+span.sem-escala, i.sem-escala{color: #E63946;}
+.card-evento.sem-escala{border: 2px solid #E63946;background-color: #f2e5e6;}
+.card-evento.sem-escala p.titulo{color: #E63946;}
+span.escala-criada, i.escala-criada, i.impedimento{color: #d19227;}
+.card-evento.escala-criada{border: 2px solid #d19227;background-color: #f5f0e9;}
+.card-evento.escala-criada p.titulo{color: #d19227;}
+span.escala-publicada, i.escala-publicada{color: #20911f;}
 .descricao-servico{font-weight: bold;}
+
+.publicacao .tarefa{padding: 5px;margin-right: 40px;}
+.publicacao .tarefa.even{background-color: #eceff4;}
+.publicacao .tarefa.odd{background-color: #e0e5ec;}
+.publicacao .tarefa.lider{background-color: #597090;color: #ffffff;}
+.tarefa .servico{display: inline-block;width: 150px;}
+.tarefa .servico > img.servico-icon{height: 48px;}
+.tarefa .colaborador{display: inline-block;padding-right: 15px;}
+    .tarefa .colaborador .avatar{display: inline;}
+    .tarefa .colaborador .avatar > img{height: 48px;border-radius: 10px;}
+    .tarefa .colaborador.escalado{
+        border: 2px dotted #906a59;padding: 3px 6px; border-radius: 3px;font-weight: bold;}
+        .tarefa .colaborador.escalado.lider{border: 2px dotted #e4cdc2;}
+
+.escala p.important{padding: 5px;border-radius: 5px;background-color: #337ab7;color:#ffffff;font-weight: bold;}
+
+p.escala.info{padding-left: 25px;}
+p.escala.info > span{font-weight: bold;}
 
 .loading{font-weight: bold;color:#1288c3;}
 
@@ -288,7 +344,7 @@ table.membros > tbody{font-size: 13px;}
 
 /*Eventos */
 .show-evento h3{margin-top: 40px;}
-.show-evento p{margin: 20px 10px;}
+.show-evento p{margin: 20px 10px;line-height: 30px;}
     .show-evento p.card > span{
         padding: 5px 0 5px 5px;
         margin-right: 20px;
@@ -308,6 +364,10 @@ table.membros > tbody{font-size: 13px;}
     .show-evento p > span.tipo-evento > span, .show-evento p > span.publico-alvo > span
         {background-color: #f9f9f9;color: #000000;}
 
+    .show-evento.escala > p{margin: 0;}
+    .show-evento.escala > p.titulo{font-size: 1.8rem;}
+    .show-evento.escala > p.titulo > span{font-weight: bold;}
+
 /*++++ Dashboards ++++*/
 .panel-dashboard{
     background-color: #ffffff;
@@ -319,6 +379,7 @@ table.membros > tbody{font-size: 13px;}
     }
 .dashboard-usuario > .panel-heading{background-color: #337ab7;}
 .dashboard-evento > .panel-heading{background-color: #247929;}
+.dashboard-musica > .panel-heading{background-color: #793924;}
 .dashboard-material > .panel-heading{background-color: #9c8408;}
 .panel-dashboard > .panel-body ul{list-style-type: none;}
 .panel-dashboard > .panel-body ul > li {margin-bottom: 10px;}
@@ -329,3 +390,14 @@ span.text-border{
     border: 1px dashed #bbb;
     margin-right: 7px;}
     span.text-border > span{font-weight: bold;}
+
+.modal .ajuda h4{color: #337ab7; font-size: 1.4rem;margin-top: 8px;}
+
+.historico table { border-collapse: collapse; }
+.historico tr { display: block; float: left;}
+.historico th, .historico td { display: block; border: 1px solid #f9f9f9;  padding: 4px;}
+.historico td{text-align: center;}
+.historico tr.escalado > td.status{background-color: #b0e0af;}
+.historico tr.nao-escalado > td.status{background-color: #cdcdcd;}
+.historico tr.lider > td.status{background-color: #337ab7;color:#d1b127; }
+.historico tr.hoje td.status{background-color:#97D0C7; }

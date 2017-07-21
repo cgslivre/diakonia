@@ -11,7 +11,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('membro/grupo-caseiro','membro\GrupoCaseiroController@salvar');
     Route::post('membro/grupo-caseiro/{grupo}','membro\GrupoCaseiroController@atualizar');
     Route::delete('membro/grupo-caseiro/{grupo}','membro\GrupoCaseiroController@remover')
-        ->name('membros.grupo-caseiro.remover');;
+        ->name('membros.grupo-caseiro.remover');
 
     // Relacionamentos
     Route::post('membro/remover-relacionamento','membro\RelacionamentoController@removeRelacionamento');

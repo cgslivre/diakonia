@@ -6,6 +6,7 @@ var cleanCSS = require('gulp-clean-css');
 var size = require('gulp-size');
 var rm = require('gulp-rimraf');
 var uglify = require('gulp-uglify');
+var gutil = require('gulp-util');
 
 var paths = {
 	'default' : 'resources/assets',
@@ -46,14 +47,15 @@ gulp.task('css', function(done){
 
 		paths.default + '/css/bootstrap-reset.css'
 		,paths.default + '/css/bootstrap.css'
+		,paths.default + '/css/checkbox3.css'
 		,paths.bower + '/components-font-awesome/css/font-awesome.min.css'
 
 		,paths.bower + '/datetimepicker/jquery.datetimepicker.css'
 		,paths.bower + '/select2/dist/css/select2.min.css'
 		,paths.bower + '/angular-ui-select/dist/select.min.css'
-		,paths.bower + '/checkbox3/dist/checkbox3.min.css'
 		,paths.bower + '/image-picker/image-picker/image-picker.css'
 		,paths.bower + '/toastr/toastr.min.css'
+		,paths.bower + '/toolbar/jquery.toolbar.css'
 
 		,paths.default + '/css/main.css'
 		,paths.default + '/css/forms.css'
@@ -70,6 +72,20 @@ gulp.task('css', function(done){
 		.pipe(config.production ? cleanCSS(): util.noop())
 		.pipe(gulp.dest('public/css'));
 
+	var files = [
+
+		paths.default + '/css/bootstrap-reset.css'
+		,paths.default + '/css/bootstrap.css'
+		,paths.default + '/css/guest.css'
+	];
+	gulp.src(files)
+		.pipe(expect({ checkRealFile: true, verbose: true },files))
+		.pipe(size({showFiles: true, title: "CSS:: "}))
+		.pipe(concat('guest.min.css'))
+		.pipe(config.production ? cleanCSS(): util.noop())
+		.pipe(gulp.dest('public/css'));
+
+
 	done();
 
 });
@@ -77,35 +93,30 @@ gulp.task('css', function(done){
 gulp.task('js', function(done){
 	var filesjs = [
 		// Definidos
+		// AngularJS
 		paths.bower + '/angular/angular.min.js'
 		,paths.bower + '/ng-tags-input/ng-tags-input.min.js'
 		,paths.bower + '/angular-resource/angular-resource.min.js'
-		// Testando
-		//,paths.bower + '/angular-moment-picker/dist/angular-moment-picker.min.js'
-		//,paths.bower + '/angular-bootstrap/ui-bootstrap-tpls.js'
-		//,paths.bower + '/angular-bootstrap/ui-bootstrap.js'
-		//,paths.default + '/js/angular/ui-bootstrap-tpls.js'
 		,paths.bower + '/angular-i18n/angular-locale_pt-br.js'
-		// A definir
-		,paths.bower + '/jquery/dist/jquery.min.js'
-		,paths.default + '/js/bootstrap.js'
 		,paths.bower + '/angular-sanitize/angular-sanitize.min.js'
 		,paths.bower + '/angular-messages/angular-messages.min.js'
-		,paths.bower + '/toastr/toastr.min.js'
-		//,paths.bower + '/angular-locale-pt-br/angular-locale_pt-br.js'
-		,paths.bower + '/ng-remote-validate/release/ngRemoteValidate.js'
 		,paths.bower + '/angular-bootstrap/ui-bootstrap-tpls.min.js'
-		//,paths.default + '/js/angular/modules/ui-bootstrap-datepicker.js'
 		,paths.bower + '/angular-ui-mask/dist/mask.min.js'
 		,paths.bower + '/angular-ui-select/dist/select.min.js'
-		,paths.bower + '/moment/min/moment-with-locales.min.js'
-		,paths.bower + '/php-date-formatter/js/php-date-formatter.js'
-		,paths.bower + '/datetimepicker/jquery.datetimepicker.js'
+		,paths.bower + '/ng-remote-validate/release/ngRemoteValidate.js'
+		// JQuery
+		,paths.bower + '/jquery/dist/jquery.min.js'
+		,paths.default + '/js/bootstrap.js'
+		,paths.bower + '/toastr/toastr.min.js'
+		,paths.bower + '/datetimepicker/build/jquery.datetimepicker.full.min.js'
 		,paths.bower + '/select2/dist/js/select2.full.min.js'
 		,paths.bower + '/select2/dist/js/i18n/pt-BR.js'
 		,paths.bower + '/image-picker/image-picker/image-picker.min.js'
+		,paths.bower + '/toolbar/jquery.toolbar.js'
+		// Javascript
+		,paths.bower + '/moment/min/moment.min.js'
+		,paths.bower + '/moment/locale/pt-br.js'
 		,paths.bower + '/slug/slug.js'
-		// Definidos
 		,paths.default + '/js/app.js'
 	];
 
@@ -113,7 +124,10 @@ gulp.task('js', function(done){
 		//.pipe(expect({ checkRealFile: true, verbose: true },filesjs))
 		.pipe(size({showFiles: true, title: "Javascript:: "}))
 		.pipe(concat('app.min.js'))
-		.pipe(config.production ? uglify(): util.noop())
+		.pipe(config.production ? uglify().on('error', function(err) {
+gutil.log(gutil.colors.red('[Error]'), err.toString());
+this.emit('end');
+}): util.noop())
 		.pipe(gulp.dest('public/js'));
 
 	done();
@@ -128,15 +142,6 @@ gulp.task('angular', function(done){
 	.pipe(config.production ? uglify(): util.noop())
 	.pipe(concat('app-users-module.min.js'))
 	.pipe(gulp.dest('public/js/users'));
-
-	// Música
-	gulp.src([
-		paths.default + '/js/musica/MusicaEventoModule.js',
-		paths.default + '/js/musica/MusicaEscalaModule.js'
-	]).pipe(size({showFiles: true, title: "AngularJS (Música Evento):"}))
-	.pipe(config.production ? uglify(): util.noop())
-	.pipe(concat('app-musica-module.min.js'))
-	.pipe(gulp.dest('public/js/musica'));
 
 	gulp.src([
 		paths.default + '/js/membro/MembroModule.js'
@@ -157,6 +162,6 @@ gulp.task('watch', gulp.series('ambiente', function(){
 
 
 gulp.task('default',
-	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular', 'watch')
+	gulp.series('ambiente', 'fonts', 'css', 'js', 'angular')
 
 );

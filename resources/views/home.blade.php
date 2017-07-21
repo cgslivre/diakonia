@@ -1,6 +1,6 @@
 @extends( 'master')
 @section('nivel1')
-    <li><a href="/membros">Início</a></li>
+    <li><a href="/home">Início</a></li>
 @stop
 
 @section('content')
@@ -10,6 +10,10 @@
 
     @if( $dashboards["evento"])
         @include('dashboard.dashboard-evento')
+    @endif
+
+    @if( $dashboards["musica"])
+        @include('dashboard.dashboard-musica')
     @endif
 
     @if( $dashboards["material"])

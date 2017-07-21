@@ -1,22 +1,9 @@
-/*$(function() {
-  $(".app-container").toggleClass("expanded");
-  $(".navbar-expand-toggle").click(function() {
-    $(".app-container").toggleClass("expanded");
-    return $(".navbar-expand-toggle").toggleClass("fa-rotate-90");
-  });
-  return $(".navbar-right-expand-toggle").click(function() {
-    $(".navbar-right").toggleClass("expanded");
-    return $(".navbar-right-expand-toggle").toggleClass("fa-rotate-90");
-  });
-});
-
-$(function() {
-  return $(".side-menu .nav .dropdown").on('show.bs.collapse', function() {
-    return $(".side-menu .nav .dropdown .collapse").collapse('hide');
-  });
-});*/
 
 $('.alert, hr.mensagem').not('.alert-important').delay(3000).slideUp(300);
+$(".telefone-mask").text(function(i, text) {
+        text = text.replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
+        return text;
+    });
 
 function formatPhone( input ){
     if( input == null || input.length == 0 ){
@@ -147,6 +134,7 @@ comum.directive("dateFormat", function(){
 
                 return ngModelValue;
             }
+
 
             ctrl.$parsers.push(customValidator);
         }
