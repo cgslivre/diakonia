@@ -72,7 +72,7 @@ class HomeController extends Controller
         if( $user->can('evento-view')){
             $dashboards["evento"] = true;
             $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())
-            ->take(5)->get()->sortBy('data_hora_inicio');
+            ->orderBy('data_hora_inicio')->take(5)->get();
             $data["evento.proximos"] = $eventos;
         }
 
