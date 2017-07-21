@@ -8,7 +8,7 @@
         "php": ">=5.5.9",
         "laravel/framework": "5.4.*",
         "laravelcollective/html": "5.4.*",
-        "doctrine/dbal" : "dev-master",
+        "doctrine/dbal" : "~2.5",
         "intervention/image": "dev-master",
         "silber/bouncer": "v1.0.0-beta.2",
         "jenssegers/date": "^3.2",
