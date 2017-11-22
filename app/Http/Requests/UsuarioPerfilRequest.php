@@ -49,7 +49,7 @@ class UsuarioPerfilRequest extends Request
         ];
     }
 
-    public function all(){
+    public function all($keys = null){
         $input = parent::all();
         $input['telefone'] = preg_replace("/[^0-9]/","",$input['telefone']);
         return $input;

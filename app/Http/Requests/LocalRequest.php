@@ -47,7 +47,7 @@ class LocalRequest extends Request
         ];
     }
 
-    public function all(){
+    public function all($keys = null){
         $input = parent::all();
 
         $loc = [];

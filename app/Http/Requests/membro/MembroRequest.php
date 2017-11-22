@@ -49,7 +49,7 @@ class MembroRequest extends Request
         ];
     }
 
-    public function all(){
+    public function all($keys = null){
         $input = parent::all();
         try{
             $input['data_nascimento'] = Carbon::createFromFormat('j/n/Y', $input['data_nascimento'])

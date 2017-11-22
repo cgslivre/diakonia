@@ -47,7 +47,7 @@ class ColaboradorMusicaRequest extends Request
         ];
     }
 
-    public function all(){
+    public function all($keys = null){
         $input = parent::all();
 
         if( array_key_exists('lider', $input)

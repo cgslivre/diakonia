@@ -51,7 +51,7 @@ class EventoRequest extends Request
         ];
     }
 
-    public function all(){
+    public function all($keys = null){
         $input = parent::all();
 
         if($input['data_hora_inicio']){
