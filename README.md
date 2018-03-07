@@ -44,3 +44,16 @@ Alterar a configuração no `php.ini`:
 ```
 sendmail_path = /usr/bin/env catchmail -f some@from.address
 ```
+
+- Configurar atalhos para `artisan` (PHP) no `.bashrc`
+```
+alias artisan='php artisan'
+alias tinker='php artisan tinker'
+```
+
+- Criar tabelas e popular com dados básicos
+> Necessita da base já criada e arquivo .env devidamente configurado
+```
+artisan migrate:install
+artisan migrate --seed
+```
