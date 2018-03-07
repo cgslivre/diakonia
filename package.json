@@ -9,6 +9,7 @@
     "gulp-size": "^2.1.0",
     "gulp-uglify": "^2.0.0",
     "run-sequence": "^1.2.2"
-  }
-
+  },
+  "dependencies": {},
+  "optionalDependencies": {}
 }
