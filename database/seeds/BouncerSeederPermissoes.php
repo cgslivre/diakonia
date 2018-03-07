@@ -98,17 +98,7 @@ class BouncerSeederPermissoes extends Seeder
             'musica-colaborador-remove',
             'musica-escala-edit',
             'musica-escala-remove'
-        ]);
-
-
-
-        $userAdmin = App\User::find(1);
-        $userAdmin->assign('role-user-admin');
-        $userAdmin->assign('role-membro-admin');
-        $userAdmin->assign('role-evento-admin');
-        $userAdmin->assign('role-geral-admin');
-        $userAdmin->assign('role-material-curiculo-admin');
-        $userAdmin->assign('role-musica-admin');
+        ]);        
 
     }
 }
