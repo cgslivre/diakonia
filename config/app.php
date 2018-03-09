@@ -153,11 +153,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         /**
          * Bibliotecas externas
-         */        
-        Laravel\Tinker\TinkerServiceProvider::class,
-        OwenIt\Auditing\AuditingServiceProvider::class,
-        Laracademy\Commands\MakeServiceProvider::class,
-        Fedeisas\LaravelMailCssInliner\LaravelMailCssInlinerServiceProvider::class,
+         */                
 
         /*
          * Application Service Providers...
