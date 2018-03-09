@@ -31,7 +31,7 @@
 
         @foreach ($rolesGroup as $roles)
             <div class="panel panel-default permissoes">
-              <div class="panel-heading"><strong>{{ $roles->first()->scope }}</strong></div>
+              <div class="panel-heading"><strong>{{ $roles->first()->group }}</strong></div>
               <div class="panel-body">
                 @foreach ($roles as $role)
                     <div class="row">
@@ -51,7 +51,7 @@
                     <div class="col-md-9">
                         {{Form::open(array('action' => ['UsuarioPermissoesController@update',$user->id]
                             ,'name'=>'frm-edit-permissoes'))}}
-                            {{ Form::hidden('scope',  $roles->first()->scope) }}
+                            {{ Form::hidden('group',  $roles->first()->group) }}
                             <div class="checkbox3 checkbox-success checkbox-inline checkbox-check  checkbox-round">
                                 <input type="radio" name="permissao"
                                 value="" id="nenhum" checked>

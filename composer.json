@@ -7,14 +7,14 @@
     "require": {
         "php": ">=7.1",
         "laravel/framework": "5.6.*",
-        "laravelcollective/html": "5.5.*",
-        "doctrine/dbal": "~2.5",
+        "laravelcollective/html": "5.6.*",
+        "doctrine/dbal": "~2.6",
         "intervention/image": "dev-master",
-        "silber/bouncer": "v1.0.0-beta.4",
+        "silber/bouncer": "v1.0.0-rc.1",
         "jenssegers/date": "3.3.*",
         "laravel/tinker": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
-        "owen-it/laravel-auditing": "^4.1",
+        "owen-it/laravel-auditing": "^6.0",
         "laracademy/interactive-make": "1.*",
         "fedeisas/laravel-mail-css-inliner": "^2.0"
     },
@@ -24,7 +24,7 @@
         "phpunit/phpunit": "~7.0",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
-        "laravel/homestead": "^3.0"
+        "laravel/homestead": "^7.0"
     },
     "autoload": {
         "classmap": [
@@ -53,7 +53,7 @@
             "php artisan optimize"
         ],
         "post-update-cmd": [
-            "php artisan optimize"
+
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",

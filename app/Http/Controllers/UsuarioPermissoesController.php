@@ -30,8 +30,8 @@ class UsuarioPermissoesController extends Controller
         if( Gate::denies('user-permissions')){
             abort(403);
         }
-        $rolesGroup = Bouncer::role()->all()->sortBy('nivel')->sortBy('scope')
-            ->groupBy('scope');
+        $rolesGroup = Bouncer::role()->all()->sortBy('nivel')->sortBy('group')
+            ->groupBy('group');
         $user = User::findOrFail($id);
         return view('usuario.permissoes-edit')->with('user',$user)->with('rolesGroup',$rolesGroup);
     }
@@ -42,10 +42,10 @@ class UsuarioPermissoesController extends Controller
         }
         $user = User::findOrFail($id);
 
-        $scope = $request->input('scope');
+        $group = $request->input('group');
         $roleChecked = $request->input('permissao');
 
-        $roles = \Silber\Bouncer\Database\Role::where('scope',$scope)->get();
+        $roles = \Silber\Bouncer\Database\Role::where('group',$group)->get();
         foreach ($roles as $role) {
             if( $role->name == $roleChecked ){
                 $user->assign($role->name);
