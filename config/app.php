@@ -149,9 +149,11 @@ return [
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
-        Illuminate\View\ViewServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,        
         Intervention\Image\ImageServiceProvider::class,
+        /**
+         * Bibliotecas externas
+         */
         Silber\Bouncer\BouncerServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
         Laravel\Tinker\TinkerServiceProvider::class,
@@ -193,9 +195,7 @@ return [
         'DB'        => Illuminate\Support\Facades\DB::class,
         'Eloquent'  => Illuminate\Database\Eloquent\Model::class,
         'Event'     => Illuminate\Support\Facades\Event::class,
-        'File'      => Illuminate\Support\Facades\File::class,
-        'Form'      => Collective\Html\FormFacade::class,
-        'Html'      => Collective\Html\HtmlFacade::class,
+        'File'      => Illuminate\Support\Facades\File::class,        
         'Input'     => Illuminate\Support\Facades\Input::class,
         'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
@@ -217,6 +217,9 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        /**
+         * Bibliotecas externas
+         */
         'Bouncer'   => Silber\Bouncer\BouncerFacade::class,
         'Date'      => Jenssegers\Date\Date::class,
 
