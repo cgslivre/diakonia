@@ -153,9 +153,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         /**
          * Bibliotecas externas
-         */
-        Silber\Bouncer\BouncerServiceProvider::class,
-        Jenssegers\Date\DateServiceProvider::class,
+         */        
         Laravel\Tinker\TinkerServiceProvider::class,
         OwenIt\Auditing\AuditingServiceProvider::class,
         Laracademy\Commands\MakeServiceProvider::class,
@@ -219,9 +217,7 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         /**
          * Bibliotecas externas
-         */
-        'Bouncer'   => Silber\Bouncer\BouncerFacade::class,
-        'Date'      => Jenssegers\Date\Date::class,
+         */        
 
     ],
 

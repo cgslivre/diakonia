@@ -11,7 +11,7 @@
         "doctrine/dbal": "~2.5",
         "intervention/image": "dev-master",
         "silber/bouncer": "v1.0.0-beta.4",
-        "jenssegers/date": "^3.2",
+        "jenssegers/date": "3.3.*",
         "laravel/tinker": "^1.0",
         "guzzlehttp/guzzle": "^6.2",
         "owen-it/laravel-auditing": "^4.1",
