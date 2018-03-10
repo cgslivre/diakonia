@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BouncerSeederUpdateTitle::class);
         $this->call(RelacionamentosSeeder::class);
         $this->call(RegioesSeeder::class);
-        $this->call(ConsultaMembrosSeeder::class);
+        //$this->call(ConsultaMembrosSeeder::class);
         $this->call(PublicoAlvoSeeder::class);
         $this->call(TipoEventoSeeder::class);
         $this->call(CategoriaEnsinoSeeder::class);

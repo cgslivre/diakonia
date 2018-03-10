@@ -13,11 +13,11 @@ class BouncerSeederUpdateTitle extends Seeder
     {
         // Usuários
         DB::table('roles')->where('name','role-user-users')
-            ->update(array('title'=>'Padrão','scope'=>'Usuário','nivel'=>1));
+            ->update(array('title'=>'Padrão','group'=>'Usuário','nivel'=>1));
         DB::table('roles')->where('name','role-user-manage')
-            ->update(array('title'=>'Gerente','scope'=>'Usuário','nivel'=>2));
+            ->update(array('title'=>'Gerente','group'=>'Usuário','nivel'=>2));
         DB::table('roles')->where('name','role-user-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Usuário','nivel'=>3));
+            ->update(array('title'=>'Administrador','group'=>'Usuário','nivel'=>3));
 
         DB::table('abilities')->where('name','user-list')->update(array('title'=>'Listar Usuários'));
         DB::table('abilities')->where('name','user-view')->update(array('title'=>'Ver Usuário'));
@@ -29,11 +29,11 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Membros
         DB::table('roles')->where('name','role-membro-user')
-            ->update(array('title'=>'Padrão','scope'=>'Membros','nivel'=>1));
+            ->update(array('title'=>'Padrão','group'=>'Membros','nivel'=>1));
         DB::table('roles')->where('name','role-membro-lider')
-            ->update(array('title'=>'Líder','scope'=>'Membros','nivel'=>2));
+            ->update(array('title'=>'Líder','group'=>'Membros','nivel'=>2));
         DB::table('roles')->where('name','role-membro-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Membros','nivel'=>3));
+            ->update(array('title'=>'Administrador','group'=>'Membros','nivel'=>3));
 
         DB::table('abilities')->where('name','membro-list')
             ->update(array('title'=>'Ver Membros'));
@@ -56,9 +56,9 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Eventos
         DB::table('roles')->where('name','role-evento-users')
-            ->update(array('title'=>'Padrão','scope'=>'Eventos','nivel'=>1));
+            ->update(array('title'=>'Padrão','group'=>'Eventos','nivel'=>1));
         DB::table('roles')->where('name','role-evento-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Eventos','nivel'=>3));
+            ->update(array('title'=>'Administrador','group'=>'Eventos','nivel'=>3));
 
         DB::table('abilities')->where('name','evento-view')
             ->update(array('title'=>'Ver Eventos'));
@@ -69,7 +69,7 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Geral
         DB::table('roles')->where('name','role-geral-admin')
-            ->update(array('title'=>'Administrador','scope'=>'Geral','nivel'=>3));
+            ->update(array('title'=>'Administrador','group'=>'Geral','nivel'=>3));
 
         DB::table('abilities')->where('name','geral-create-local')
             ->update(array('title'=>'Criar locais de eventos'));
@@ -80,9 +80,9 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Material
         DB::table('roles')->where('name','role-material-curiculo-user')
-        ->update(array('title'=>'Padrão','scope'=>'Material','nivel'=>1));
+        ->update(array('title'=>'Padrão','group'=>'Material','nivel'=>1));
         DB::table('roles')->where('name','role-material-curiculo-admin')
-        ->update(array('title'=>'Administrador','scope'=>'Material','nivel'=>3));
+        ->update(array('title'=>'Administrador','group'=>'Material','nivel'=>3));
 
         DB::table('abilities')->where('name','material-curriculo-view')
         ->update(array('title'=>'Ver materiais do currículo de ensino'));
@@ -91,9 +91,9 @@ class BouncerSeederUpdateTitle extends Seeder
 
         // Música
         DB::table('roles')->where('name','role-musica-user')
-        ->update(array('title'=>'Padrão','scope'=>'Música','nivel'=>1));
+        ->update(array('title'=>'Padrão','group'=>'Música','nivel'=>1));
         DB::table('roles')->where('name','role-musica-admin')
-        ->update(array('title'=>'Administrador','scope'=>'Música','nivel'=>3));
+        ->update(array('title'=>'Administrador','group'=>'Música','nivel'=>3));
 
         DB::table('abilities')->where('name','musica-colaborador-view')
         ->update(array('title'=>'Ver os colaboradores da música'));

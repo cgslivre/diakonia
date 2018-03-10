@@ -1,9 +1,11 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
 
 class ConsultaMembrosSeeder extends Seeder
 {
+    const USER_ROLE_ADMIN = 'role-user-admin';
     /**
      * Run the database seeds.
      *
@@ -11,6 +13,13 @@ class ConsultaMembrosSeeder extends Seeder
      */
     public function run()
     {
+        // TODO: Ajustar para pegar o primeiro administrador do sistema (se houver)        
+        $users = User:: whereIs(self::USER_ROLE_ADMIN)->get();
+        if( $users->count() == 0 ){
+            return;
+        }
+        $idUser = $users->first()->id;
+
         DB::table('consulta_membros')->insert([
         [
             'created_at' =>  \Carbon\Carbon::now(),
@@ -19,8 +28,8 @@ class ConsultaMembrosSeeder extends Seeder
             'titulo' => 'Todos os discipuladores',
             'tem_discipulos' => 'S',
             'consulta_publica' => true,
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $idUser,
+            'modified_by' => $idUser
         ]]);
         DB::table('consulta_membros')->insert([
         [
@@ -29,8 +38,8 @@ class ConsultaMembrosSeeder extends Seeder
             'slug' => 'todos',
             'titulo' => 'Todos os membros',            
             'consulta_publica' => true,
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $idUser,
+            'modified_by' => $idUser
         ]]);
         DB::table('consulta_membros')->insert([
         [
@@ -41,8 +50,8 @@ class ConsultaMembrosSeeder extends Seeder
             'tem_discipulador' => 'N',
             'consulta_publica' => true,
             'idade_minima' => 12,
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $idUser,
+            'modified_by' => $idUser
         ]]);
         DB::table('consulta_membros')->insert([
         [
@@ -53,8 +62,8 @@ class ConsultaMembrosSeeder extends Seeder
             'tem_discipulos' => 'N',
             'consulta_publica' => true,
             'idade_minima' => 12,
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $idUser,
+            'modified_by' => $idUser
         ]]);
         DB::table('consulta_membros')->insert([
         [
@@ -65,8 +74,8 @@ class ConsultaMembrosSeeder extends Seeder
             'idade_minima' => 3,
             'idade_maxima' => 11,
             'consulta_publica' => true,
-            'created_by' => 1,
-            'modified_by' => 1
+            'created_by' => $idUser,
+            'modified_by' => $idUser
         ]
       ]);
     }
