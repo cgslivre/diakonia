@@ -4,5 +4,6 @@
     "recommendations": [
         // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
         "mikestead.dotenv",
+        "alefragnani.project-manager",
     ]
 }
