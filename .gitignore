@@ -7,3 +7,4 @@ Homestead.yaml
 Homestead.json
 /public/.htaccess
 
+scripts/cron-queue-local.sh

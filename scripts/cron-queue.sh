@@ -1,3 +1,4 @@
+#!/bin/bash
 # Script executado pelo CRON que verifica se o daemon da fila está rodando
 # caso contrário, inicia o processo.
 PHP=/usr/bin/php
