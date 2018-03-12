@@ -22,7 +22,10 @@ cp cron-queue.sh cron-queue-local.sh
 ```
 
 ## Adicione uma entrada no `crontab`
-
+Exemplo:
+```
+*/5 * * * * 00448406160 /home/00448406160/dev/diakonia/scripts/cron-queue-local.sh
+```
 
 
 ## Processo de _listen_ das filas
