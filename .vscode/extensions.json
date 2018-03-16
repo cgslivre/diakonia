@@ -11,5 +11,6 @@
         "jprestidge.theme-material-theme",
         "felixfbecker.php-intellisense",
         "onecentlin.laravel-blade",
+        "HookyQR.beautify",
     ]
 }
