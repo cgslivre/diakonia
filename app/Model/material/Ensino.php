@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use OwenIt\Auditing\Auditable;
 use OwenIt\Auditing\Contracts\Auditable as AuditableContract;
 
-class Ensino extends Model implements AuditableContract {
+class Ensino extends Model implements AuditableContract
+{
     use Auditable;
     const STORAGE_PATH = 'curriculo-ensino';
 
@@ -17,15 +18,18 @@ class Ensino extends Model implements AuditableContract {
         'file_path'
     ];
 
-    public function getFilePathAttribute() {
+    public function getFilePathAttribute()
+    {
         return self::STORAGE_PATH . '/' . $this->slug . '.' . $this->extension;
     }
 
-    public function categoria() {
+    public function categoria()
+    {
         return $this->hasOne('App\Model\material\CategoriaEnsino', 'id', 'categoria_ensino_id');
     }
 
-    public function scopeSlug($query, $slug) {
+    public function scopeSlug($query, $slug)
+    {
         $query->where('slug', '=', $slug);
     }
 }

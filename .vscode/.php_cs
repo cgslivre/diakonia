@@ -17,8 +17,8 @@ return PhpCsFixer\Config::create()
         // 'blank_line_before_return' => true,
         'braces' => [
             'allow_single_line_closure' => true,
-            'position_after_control_structures' => 'same',
-            'position_after_functions_and_oop_constructs' => 'same'
+            // 'position_after_control_structures' => 'same',
+            // 'position_after_functions_and_oop_constructs' => 'same'
         ],
         // 'cast_spaces' => true,
         // 'class_definition' => array('singleLine' => true),
