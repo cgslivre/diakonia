@@ -9,6 +9,7 @@
         "mdickin.markdown-shortcuts",
         "robertohuertasm.vscode-icons",
         "jprestidge.theme-material-theme",
-        "bmewburn.vscode-intelephense-client",
+        "felixfbecker.php-intellisense",
+        "onecentlin.laravel-blade",
     ]
 }
