@@ -6,5 +6,7 @@
         "mikestead.dotenv",
         "alefragnani.project-manager",
         "eamodio.gitlens",
+        "mdickin.markdown-shortcuts",
+        "robertohuertasm.vscode-icons",
     ]
 }

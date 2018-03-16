@@ -1,0 +1,8 @@
+{
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Monokai Dark Soda",
+    "editor.fontSize": 13,
+    "editor.formatOnSave": true,
+}
