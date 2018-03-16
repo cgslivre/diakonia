@@ -16,8 +16,9 @@
         "vue-template-compiler": "^2.5.16"
     },
     "dependencies": {
-        "lodash": "^4.17.5",
         "axios": "^0.18.0",
+        "font-awesome": "^4.7.0",
+        "lodash": "^4.17.5",
         "materialize-css": "^1.0.0-alpha.4",
         "vue": "^2.5.16"
     },
