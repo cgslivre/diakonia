@@ -19,22 +19,25 @@ class LocalController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index()
+    {
         $locais = \App\Local::all();
         return view('local.local-index')->with('locais', $locais);
     }
 
-    public function show($slug){
+    public function show($slug)
+    {
         $local = \App\Local::slug($slug)->first();
 
-        if( !$local ){
+        if (!$local) {
             abort(404);
         }
         return view('local.local-show')->with('local', $local);
     }
 
-    public function edit( $id ){
-        if(Bouncer::denies('geral-edit-local')){
+    public function edit($id)
+    {
+        if (Bouncer::denies('geral-edit-local')) {
             abort(403);
         }
 
@@ -43,21 +46,23 @@ class LocalController extends Controller
         return view('local.local-edit')->with('local', $local);
     }
 
-    public function update( $id, LocalRequest $request ){
-        if(Bouncer::denies('geral-edit-local')){
+    public function update($id, LocalRequest $request)
+    {
+        if (Bouncer::denies('geral-edit-local')) {
             abort(403);
         }
 
         $local = \App\Local::findOrFail($id);
-        $local->update( $request->all());
+        $local->update($request->all());
 
         return Redirect::route('local.edit', $id)
             ->withInput()->with('message', 'Local atualizado!');
 
     }
 
-    public function create(){
-        if(Bouncer::denies('geral-create-local')){
+    public function create()
+    {
+        if (Bouncer::denies('geral-create-local')) {
             abort(403);
         }
 
@@ -66,8 +71,9 @@ class LocalController extends Controller
         return view('local.local-create')->with('local', $local);
     }
 
-    public function store( LocalRequest $request ){
-        if(Bouncer::denies('geral-create-local')){
+    public function store(LocalRequest $request)
+    {
+        if (Bouncer::denies('geral-create-local')) {
             abort(403);
         }
 
@@ -78,16 +84,19 @@ class LocalController extends Controller
 
     }
 
-    public function destroy($id){
-        if(Bouncer::denies('geral-remove-local')){
+    public function destroy($id)
+    {
+        if (Bouncer::denies('geral-remove-local')) {
             abort(403);
         }
 
         $local = \App\Local::findOrFail($id);
         $local->delete();
 
-        return Redirect::route('local.index')->with('message',
-            'Local: ' . $local->nome . ' removida!');
+        return Redirect::route('local.index')->with(
+            'message',
+            'Local: ' . $local->nome . ' removida!'
+        );
     }
 
 
