@@ -1,4 +1,4 @@
-@extends( 'template-guest')
+{{--  @extends( 'template-guest')
 
 @section('conteudo')
     <style>
@@ -26,3 +26,8 @@
         <a class="btn btn-registrar" href="{{URL::route('register')}}">Registrar novo usuário</a>
     </div>
 @endsection
+  --}}
+
+@extends('layouts.root')
+
+@section('app-scope','welcome')

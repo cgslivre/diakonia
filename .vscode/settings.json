@@ -3,6 +3,5 @@
     "git.autofetch": true,
     "workbench.iconTheme": "vscode-icons",
     "workbench.colorTheme": "Sublime Material Theme - Dark",
-    "editor.fontSize": 13,
     "editor.formatOnSave": true,
 }
