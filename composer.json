@@ -24,7 +24,8 @@
         "phpunit/phpunit": "~7.0",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
-        "laravel/homestead": "^7.0"
+        "laravel/homestead": "^7.0",
+        "friendsofphp/php-cs-fixer": "^2.10"
     },
     "autoload": {
         "classmap": [
