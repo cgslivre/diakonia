@@ -1,4 +1,4 @@
-{{--  @extends( 'template-guest')
+@extends('layouts.root-entrada')
 
 @section('conteudo')
     <style>
@@ -26,7 +26,3 @@
         <a class="btn btn-registrar" href="{{URL::route('register')}}">Registrar novo usuário</a>
     </div>
 @endsection
-  --}}
-
-@extends('layouts.root-welcome')
-

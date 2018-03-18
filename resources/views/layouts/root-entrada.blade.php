@@ -1,5 +1,5 @@
 @extends('layouts.root') 
-    @section('app-scope','welcome')
+    @section('app-scope','entrada')
 
 
 <div class="wrapper">
