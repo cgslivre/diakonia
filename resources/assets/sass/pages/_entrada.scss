@@ -19,9 +19,10 @@ body.entrada {
             width: 76%;
             margin: 0 auto; // display: inline-block;
             display: flex;
+            align-items: center;
+            justify-content: center;
             >div {
-                // width: 45%;
-                width: 100%;
+                width: 40%;
                 padding: 40px 10px;
             }
             .descricao {
