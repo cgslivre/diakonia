@@ -12543,9 +12543,25 @@ body.entrada {
   text-align: center;
 }
 
+body.entrada .wrapper {
+  margin-top: 60px;
+}
+
+body.entrada .wrapper .logo {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 25px 0;
+}
+
+body.entrada .wrapper .conteudo {
+  width: 76%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 body.entrada .wrapper .conteudo > div {
-  width: 45%;
-  display: inline-block;
+  width: 100%;
   padding: 40px 10px;
 }
 
@@ -12566,5 +12582,32 @@ body.entrada .wrapper .conteudo .descricao p {
 body.entrada .wrapper .conteudo .descricao strong {
   font-size: 1.9rem;
   color: #eb8c5d;
+}
+
+body.entrada .wrapper .conteudo .botoes {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+}
+
+body.entrada .wrapper .conteudo .botoes .btn,
+body.entrada .wrapper .conteudo .botoes .btn-large,
+body.entrada .wrapper .conteudo .botoes .btn-small {
+  font-size: 1.2rem;
+  width: 80%;
+  cursor: pointer;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  font-weight: 400;
+  text-decoration: none;
+  color: #fff;
 }
 

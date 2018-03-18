@@ -10,10 +10,18 @@ body.entrada {
     overflow: auto;
     text-align: center;
     .wrapper {
+        margin-top: 60px;
+        .logo {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 25px 0;
+        }
         .conteudo {
+            width: 76%;
+            margin: 0 auto; // display: inline-block;
+            display: flex;
             >div {
-                width: 45%;
-                display: inline-block;
+                // width: 45%;
+                width: 100%;
                 padding: 40px 10px;
             }
             .descricao {
@@ -30,6 +38,22 @@ body.entrada {
                 strong {
                     font-size: 1.9rem;
                     color: #eb8c5d;
+                }
+            }
+            .botoes {
+                text-align: center;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                .btn {
+                    font-size: 1.2rem;
+                    width: 80%;
+                    cursor: pointer;
+                    transition: all .25s ease;
+                    font-weight: 400;
+                    text-decoration: none;
+                    color: #fff;
                 }
             }
         }
