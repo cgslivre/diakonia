@@ -28,6 +28,5 @@
 @endsection
   --}}
 
-@extends('layouts.root')
+@extends('layouts.root-welcome')
 
-@section('app-scope','welcome')
