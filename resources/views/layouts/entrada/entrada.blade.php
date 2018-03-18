@@ -1,4 +1,4 @@
-@extends('layouts.root-entrada')
+@extends('layouts.entrada.root-entrada')
 
 @section('conteudo')
     <style>
