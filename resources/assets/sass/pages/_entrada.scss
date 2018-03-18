@@ -11,6 +11,9 @@ body.entrada {
     text-align: center;
     .wrapper {
         margin-top: 60px;
+        @media screen and (max-width: $break-large) {
+            margin-top: 0px;
+        }
         .logo {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 25px 0;
@@ -21,9 +24,15 @@ body.entrada {
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
             >div {
-                width: 40%;
+                flex: 50%;
                 padding: 40px 10px;
+            }
+            @media screen and (max-width: $break-large) {
+                >div {
+                    flex: 100%;
+                }
             }
             .descricao {
                 text-align: left;
@@ -31,8 +40,6 @@ body.entrada {
                 color: #ffffff;
                 margin-top: 30px;
                 background-color: rgba(0, 0, 0, 0.3);
-                border: 2px solid transparent;
-                border-radius: 2px;
                 p {
                     margin: 0;
                 }
@@ -47,13 +54,10 @@ body.entrada {
                 align-items: center;
                 justify-content: center;
                 margin: 0;
+                flex-direction: column;
                 .btn {
-                    font-size: 1.2rem;
                     width: 80%;
-                    cursor: pointer;
-                    transition: all .25s ease;
-                    font-weight: 400;
-                    text-decoration: none;
+                    transition: all .250s ease;
                     color: #fff;
                 }
             }

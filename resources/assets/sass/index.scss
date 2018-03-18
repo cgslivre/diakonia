@@ -2,7 +2,7 @@
 @import '~materialize-css/sass/materialize';
 @import '~font-awesome/scss/font-awesome';
 // Variaveis
-// Estrutura
+@import 'variables'; // Estrutura
 // Componentes
 // Páginas Específicas
-@import 'pages/entrada'
+@import 'pages/entrada';
