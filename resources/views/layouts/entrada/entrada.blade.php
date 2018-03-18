@@ -1,14 +1,6 @@
 @extends('layouts.entrada.root-entrada')
 
-@section('conteudo')
-    <style>
-    .conteudo-wrapper > div{
-        width: 45%;
-        display: inline-block;
-        float: left;
-        padding: 40px 10px;
-    }
-    </style>
+@section('conteudo')    
     <div class="descricao">
         <div class="grego">
             <p><strong>διακονία</strong></p>
