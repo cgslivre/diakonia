@@ -12632,5 +12632,35 @@ body.entrada .wrapper .conteudo .botoes .btn-small {
 body.auth {
   background: url("/img/background-auth.jpg") no-repeat center center fixed;
   background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body.auth .login-box {
+  background: transparent;
+}
+
+body.auth .login-box header {
+  font-size: 20px;
+  background-color: white;
+  padding: 20px;
+}
+
+body.auth .login-box .login-header {
+  font-weight: 100;
+  font-size: 3rem;
+}
+
+body.auth .login-box .login-conteudo {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 15px 15px 5px 15px;
+  color: #e8e9eb;
 }
 

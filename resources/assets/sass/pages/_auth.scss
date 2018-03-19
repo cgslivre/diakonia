@@ -4,4 +4,24 @@ body.auth {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .login-box {
+        background: transparent;
+        header {
+            font-size: 20px;
+            background-color: white;
+            padding: 20px;
+        }
+        .login-header {
+            font-weight: 100;
+            font-size: 3rem;
+        }
+        .login-conteudo {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px 15px 5px 15px;
+            color: #e8e9eb;
+        }
+    }
 }
