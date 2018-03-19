@@ -18,7 +18,9 @@
                     <input id="name" name="name" type="text"
                          class="validate white-text {{ $errors->has('name') ? 'invalid' : '' }}">
                     <label for="name">Nome</label>
-                    <span class="helper-text" data-error="{{ $errors->first('name') }}"></span>
+                    @if ($errors->has('email'))
+                        <span class="helper-text" data-error="{{ $errors->first('name') }}"></span>
+                    @endif
                 </div>
                 
                 
@@ -58,9 +60,11 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-registrar">
-                <i class="fa fa-btn fa-user"></i> Registrar
-            </button>
+            <div class="center-align">
+                <button type="submit" class="btn green darken-1">
+                    <i class="fa fa-btn fa-user-plus"></i> Registrar
+                </button>
+            </div>
         </form>
 
     </div>
