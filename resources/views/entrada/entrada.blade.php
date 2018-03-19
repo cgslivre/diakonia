@@ -1,4 +1,4 @@
-@extends('layouts.entrada.root-entrada')
+@extends('entrada.root-entrada')
 
 @section('conteudo')    
     <div class="descricao">

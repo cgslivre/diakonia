@@ -34,7 +34,7 @@ class HomeController extends Controller
     {
         if (Auth::guest())
         {
-            return view('layouts.entrada.entrada');
+            return view('entrada.entrada');
         }
         else
         {
