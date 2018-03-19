@@ -12647,12 +12647,17 @@ body.auth .login-box {
   background: transparent;
 }
 
+body.auth .login-box .row {
+  margin-bottom: 10px;
+}
+
 body.auth .login-box label {
   color: #e8e9eb;
 }
 
 body.auth .login-box header {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 100;
   background-color: #FFFFFF;
   padding: 20px;
 }

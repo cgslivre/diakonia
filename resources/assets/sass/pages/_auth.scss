@@ -9,12 +9,16 @@ body.auth {
     align-items: center;
     justify-content: center;
     .login-box {
+        .row {
+            margin-bottom: 10px;
+        }
         background: transparent;
         label {
             color: $colorLoginBox;
         }
         header {
-            font-size: 20px;
+            font-size: 18px;
+            font-weight: 100;
             background-color: #FFFFFF;
             padding: 20px;
         }
