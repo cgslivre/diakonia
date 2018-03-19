@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -32,12 +31,9 @@ class HomeController extends Controller
 
     public function welcome()
     {
-        if (Auth::guest())
-        {
+        if (Auth::guest()) {
             return view('entrada.entrada');
-        }
-        else
-        {
+        } else {
             return Redirect::route('home');
         }
     }
@@ -53,34 +49,27 @@ class HomeController extends Controller
         ];
 
         // Dashboards de Usuário
-        if (!isset($user->telefone) || trim($user->telefone) === '')
-        {
+        if (!isset($user->telefone) || trim($user->telefone) === '') {
             $dashboards['user'] = true;
             $data['usuario.sem-telefone'] = true;
         }
 
-        if ($user->isAn('role-membro-admin'))
-        {
+        if ($user->isAn('role-membro-admin')) {
             $dashboards['user'] = true;
-            $usuarios = User::whereNotIn('id', function ($query)
-            {
+            $usuarios = User::whereNotIn('id', function ($query) {
                 $query->select('entity_id')
                     ->from('assigned_roles')
                     ->where('entity_type', '=', 'App\User');
             })->get();
-            if ($usuarios->count() > 0)
-            {
+            if ($usuarios->count() > 0) {
                 $data['usuario.usuarios-sem-perfil'] = $usuarios;
             }
-        }
-        else if ($user->roles->count() == 0)
-        {
+        } elseif ($user->roles->count() == 0) {
             $data['usuario.sem-perfil'] = true;
         }
 
         // Dashboards de Evento
-        if ($user->can('evento-view'))
-        {
+        if ($user->can('evento-view')) {
             $dashboards['evento'] = true;
             $eventos = Evento::where('data_hora_inicio', '>=', Carbon::now())
                 ->orderBy('data_hora_inicio')->take(5)->get();
@@ -88,8 +77,7 @@ class HomeController extends Controller
         }
 
         // Dashboards de Evento
-        if ($user->can('musica-escala-view'))
-        {
+        if ($user->can('musica-escala-view')) {
             $dashboards['musica'] = true;
 
             $data['musica.proximas-escalas'] =
@@ -107,13 +95,11 @@ class HomeController extends Controller
                 'user1' => Auth::user()->id,
                 'user2' => Auth::user()->id,
             ]);
-            if ($user->can('musica-escala-edit'))
-            {
+            if ($user->can('musica-escala-edit')) {
                 $data['musica.eventos-sem-escala'] = Evento::proximos30dias()
                     ->whereNull('escala_musica_id')->take(5)->get()->sortBy('data_hora_inicio');
 
-                $data['musica.escalas-nao-publicadas'] = EscalaMusica::join('eventos', function ($join)
-                {
+                $data['musica.escalas-nao-publicadas'] = EscalaMusica::join('eventos', function ($join) {
                     $join->on('eventos.escala_musica_id', '=', 'escalas_musica.id');
                 })->select('escalas_musica.*')->where('data_hora_inicio', '>=', \Carbon\Carbon::now())
                     ->whereNull('publicado_em')->take(5)->get();
@@ -143,8 +129,7 @@ class HomeController extends Controller
         }
 
         // Dashboards de Materias
-        if ($user->can('material-curriculo-view'))
-        {
+        if ($user->can('material-curriculo-view')) {
             $dashboards['material'] = true;
             $ensinos = Ensino::orderBy('id', 'desc')->take(5)->get();
             $data['material.ultimos-ensinos'] = $ensinos;
@@ -152,5 +137,4 @@ class HomeController extends Controller
 
         return $dashboards;
     }
-
 }
