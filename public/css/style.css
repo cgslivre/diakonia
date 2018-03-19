@@ -12534,7 +12534,7 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 }
 
 body.entrada {
-  background: url("/img/welcome-background.jpg") no-repeat center center fixed;
+  background: url("/img/background-entrada.jpg") no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -12627,5 +12627,10 @@ body.entrada .wrapper .conteudo .botoes .btn-small {
   -webkit-transition: all .250s ease;
   transition: all .250s ease;
   color: #fff;
+}
+
+body.auth {
+  background: url("/img/background-auth.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 

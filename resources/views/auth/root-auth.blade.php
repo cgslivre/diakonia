@@ -1,3 +1,3 @@
 @extends('layouts.root') 
-@section('apps-scope','auth') 
+@section('app-scope','auth') 
 @yield('content')
