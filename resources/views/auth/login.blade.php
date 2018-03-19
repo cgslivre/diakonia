@@ -26,7 +26,8 @@
                     <input type="password" name="password" placeholder="senha" class="validate">
                             <label for="password">Senha</label>
                     @if ($errors->has('password'))
-                        <span class="help-block">
+                        <span class="help-block"> 
+                
                             {{ $errors->first('password') }}
                         </span>
                     @endif
