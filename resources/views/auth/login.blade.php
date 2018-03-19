@@ -11,28 +11,22 @@
             {!! csrf_field() !!}
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="fa fa-user prefix" aria-hidden="true"></i>
-                    
-                    <input id="email" type="email"  class="validate {{ $errors->has('email') ? ' has-error' : '' }}" 
+                    <i class="fa fa-user prefix" aria-hidden="true"></i>                    
+                    <input id="email" type="email"  class="validate {{ $errors->has('email') ? 'invalid' : '' }}" 
                     type="email" name="email" value="{{ old('email') }}" style="color:#e8e9eb">
                     <label for="email">Email</label>
-                    @if ($errors->has('email'))
-                    <span class="help-block">
-                        {{ $errors->first('email') }}
-                    </span>
-                    @endif
+                    <span class="helper-text" 
+                        data-error="{{ $errors->has('email') ? $errors->first('email') : 'Email inválido' }}"></span>                    
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                        <i class="fa fa-lock prefix" aria-hidden="true"></i>
-                    <input type="password" name="password" class="validate" style="color:#e8e9eb">
-                            <label for="password">Senha</label>
-                    @if ($errors->has('password'))
-                        <span class="help-block">                 
-                            {{ $errors->first('password') }}
-                        </span>
-                    @endif
+                    <i class="fa fa-lock prefix" aria-hidden="true"></i>
+                    <input type="password" name="password" class="validate  {{ $errors->has('password') ? 'invalid' : '' }}" style="color:#e8e9eb">
+                    <label for="password">Senha</label>
+                    <span class="helper-text" 
+                        data-error="{{ $errors->has('password') ? $errors->first('password') : 'Senha inválida' }}"></span>
+                    
                 </div>
             </div>          
 
