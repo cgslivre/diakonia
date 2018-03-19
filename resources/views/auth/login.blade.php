@@ -31,7 +31,7 @@
             </div>          
 
             <div class="center-align">
-                <button type="submit" class="btn btn-login">
+                <button type="submit" class="btn red darken-4">
                     entrar
                 </button>
             </div>
