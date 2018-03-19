@@ -13,8 +13,8 @@
 
     </div>
     <div class="botoes">
-        <a class="btn btn-entrar" href="{{URL::route('home')}}">Entrar</a>
+        <a class="btn red darken-4" href="{{URL::route('home')}}">Entrar</a>
         <br/>
-        <a class="btn btn-registrar" href="{{URL::route('register')}}">Registrar novo usuário</a>
+        <a class="btn green darken-1" href="{{URL::route('register')}}">Registrar novo usuário</a>
     </div>
 @endsection

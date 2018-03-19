@@ -1,11 +1,11 @@
 @extends('auth.root-auth') 
 @section('content')
 
-<div class="login-box hoverable">
+<div class="login-box">
     <header id="login" class="center-align">            
         <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
     </header>
-    <div class="login-conteudo">
+    <div class="login-conteudo hoverable">
         <div class="login-header center-align">Login</div>
         <form role="form" method="POST" action="{{ url('/login') }}" autocomplete="off">
             {!! csrf_field() !!}
@@ -50,7 +50,9 @@
             </div>
 
         </form>
+        <p class="right-align">
+            <a class="text-center esqueci-senha red-text text-lighten-3" href="{{ url('/password/reset') }}">Esqueceu sua senha?</a>
+        </p>
     </div>
-    <a class="text-center esqueci-senha" href="{{ url('/password/reset') }}">Esqueceu sua senha?</a>
 </div>
 @endsection
