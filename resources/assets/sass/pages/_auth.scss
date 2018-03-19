@@ -9,6 +9,9 @@ body.auth {
     justify-content: center;
     .login-box {
         background: transparent;
+        label {
+            color: #e8e9eb;
+        }
         header {
             font-size: 20px;
             background-color: white;
@@ -21,7 +24,23 @@ body.auth {
         .login-conteudo {
             background-color: rgba(0, 0, 0, 0.6);
             padding: 15px 15px 5px 15px;
-            color: #e8e9eb;
+            color: white;
+            input {
+                background: transparent !important;
+            }
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            color: white;
+            transition-delay: 9999s;
+            -webkit-transition-delay: 9999s;
+            transition: color 9999s ease-out, background-color 9999s ease-out;
+            -webkit-transition: color 9999s ease-out, background-color 9999s ease-out;
+        }
+        .remember-password {
+            padding-top: 30px;
         }
     }
 }
