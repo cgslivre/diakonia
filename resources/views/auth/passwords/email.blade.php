@@ -1,5 +1,5 @@
 @extends('auth.root-auth') 
-@section('auth-title','Trocar senha') 
+@section('auth-title','Solicitar trocar de senha') 
 
 @section('formulario')
 @if (session('status'))
@@ -19,7 +19,7 @@
         <div class="input-field col s12">
                 <i class="fa fa-envelope prefix" aria-hidden="true"></i>
                 <input id="email" name="email" type="email" value="{{ old('email') }}"
-                    class="validate white-text {{ $errors->has('email') ? 'invalid' : '' }}">
+                    class="validate white-text {{ $errors->has('email') ? 'invalid' : '' }}" autofocus>
                 <label for="email">Email</label>
                 @if ($errors->has('email'))
                 <span class="helper-text" data-error="{{ $errors->first('email') }}"></span>

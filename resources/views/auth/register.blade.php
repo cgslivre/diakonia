@@ -8,7 +8,7 @@
     <div class="row">
         <div class="input-field col m6 s12">
             <i class="fa fa-user prefix" aria-hidden="true"></i>
-            <input id="name" name="name" type="text"
+            <input id="name" name="name" type="text" autofocus
                     class="validate white-text {{ $errors->has('name') ? 'invalid' : '' }}">
             <label for="name">Nome</label>
             @if ($errors->has('email'))

@@ -9,7 +9,7 @@
             {{--  Fix: Cor do formulário auto-preenchido no Chrome persistia na cor PRETO, 
             precisei definir no estilo do elemento diretamente   --}}
             <input id="email" type="email"  class="validate {{ $errors->has('email') ? 'invalid' : '' }} text-white" 
-            type="email" name="email" value="{{ old('email') }}" style="color:white">
+            type="email" name="email" value="{{ old('email') }}" style="color:white" autofocus>
             <label for="email">Email</label>
             <span class="helper-text" 
                 data-error="{{ $errors->has('email') ? $errors->first('email') : 'Email inválido' }}"></span>                    
