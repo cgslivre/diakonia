@@ -1,7 +1,7 @@
 @extends('entrada.root-entrada')
 
 @section('conteudo')    
-    <div class="descricao">
+    <div class="descricao hoverable">
         <div class="grego">
             <p><strong>διακονία</strong></p>
             <p>(di-a-co-ni-a)</p>

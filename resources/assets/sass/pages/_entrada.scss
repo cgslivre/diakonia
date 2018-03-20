@@ -4,10 +4,14 @@ body.entrada {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    height: 100%;
+    min-height: 100%;
     .wrapper {
-        margin-top: 60px;
+        position: absolute;
+        width: 100%;
+        top: 60px;
         @media screen and (max-width: $break-large) {
-            margin-top: 0px;
+            top: 0px;
         }
         .logo {
             text-align: center;

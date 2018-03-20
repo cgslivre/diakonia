@@ -12536,15 +12536,19 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
 body.entrada {
   background: url("/img/background-entrada.jpg") no-repeat center center fixed;
   background-size: cover;
+  height: 100%;
+  min-height: 100%;
 }
 
 body.entrada .wrapper {
-  margin-top: 60px;
+  position: absolute;
+  width: 100%;
+  top: 60px;
 }
 
 @media screen and (max-width: 700px) {
   body.entrada .wrapper {
-    margin-top: 0px;
+    top: 0px;
   }
 }
 
