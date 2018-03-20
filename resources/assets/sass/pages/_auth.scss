@@ -60,4 +60,14 @@ body.auth {
             }
         }
     }
+    input:not([type]).invalid~.helper-text:after,
+    input:not([type]):focus.invalid~.helper-text:after,
+    input[type=text]:not(.browser-default).invalid~.helper-text:after,
+    input[type=text]:not(.browser-default):focus.invalid~.helper-text:after,
+    input[type=password]:not(.browser-default).invalid~.helper-text:after,
+    input[type=password]:not(.browser-default):focus.invalid~.helper-text:after,
+    input[type=email]:not(.browser-default).invalid~.helper-text:after,
+    input[type=email]:not(.browser-default):focus.invalid~.helper-text:after {
+        color: #f1746b;
+    }
 }

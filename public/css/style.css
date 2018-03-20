@@ -12710,3 +12710,14 @@ body.auth .login-box .remember-password [type="checkbox"]:not(.filled-in):not(:c
   border: 2px solid #e8e9eb;
 }
 
+body.auth input:not([type]).invalid ~ .helper-text:after,
+body.auth input:not([type]):focus.invalid ~ .helper-text:after,
+body.auth input[type=text]:not(.browser-default).invalid ~ .helper-text:after,
+body.auth input[type=text]:not(.browser-default):focus.invalid ~ .helper-text:after,
+body.auth input[type=password]:not(.browser-default).invalid ~ .helper-text:after,
+body.auth input[type=password]:not(.browser-default):focus.invalid ~ .helper-text:after,
+body.auth input[type=email]:not(.browser-default).invalid ~ .helper-text:after,
+body.auth input[type=email]:not(.browser-default):focus.invalid ~ .helper-text:after {
+  color: #f1746b;
+}
+
