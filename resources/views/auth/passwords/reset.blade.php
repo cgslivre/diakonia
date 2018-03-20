@@ -2,77 +2,54 @@
 @section('auth-title','Trocar senha') 
 
 @section('formulario')
-<div class="formulario">
-    <div class="row">
-        <div class="panel-heading">Trocar senha</div>
+@if (session('status'))
+    <div class="card-panel green lighten-4 green-text text-darken-4">                        
+        {{ session('status') }}
+    </div>
+    @endif        
+<form class="form-horizontal" role="form" method="POST"
+action="{{ route('password.request') }}">
+{{ csrf_field() }}
 
-        <div class="panel-body">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
+<input type="hidden" name="token" value="{{ $token }}">
 
-            <form class="form-horizontal" role="form" method="POST"
-                action="{{ route('password.request') }}">
-                {{ csrf_field() }}
-
-                <input type="hidden" name="token" value="{{ $token }}">
-
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="col-md-4 control-label">Email</label>
-
-                    <div class="col-campo">
-                        <input id="email" type="email" class="form-control"
-                            name="email"
-                            value="{{ $email or old('email') }}" required autofocus>
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="password" class="col-md-4 control-label">Nova Senha</label>
-
-                    <div class="col-campo">
-                        <input id="password" type="password"
-                            class="form-control" name="password" required>
-
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
-                    <label for="password-confirm" class="col-md-4 control-label">Confirmar Senha</label>
-                    <div class="col-campo">
-                        <input id="password-confirm" type="password" class="form-control"
-                            name="password_confirmation" required>
-
-                        @if ($errors->has('password_confirmation'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('password_confirmation') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-6 col-md-offset-4">
-                        <button type="submit" class="btn btn-registrar">
-                            Trocar senha
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fa fa-envelope prefix" aria-hidden="true"></i>
+        <input id="email" name="email" type="email" value="{{ $email or old('email') }}"
+            class="validate white-text {{ $errors->has('email') ? 'invalid' : '' }}" autofocus>
+        <label for="email">Email</label>
+        @if ($errors->has('email'))
+            <span class="helper-text" data-error="{{ $errors->first('email') }}"></span>
+        @endif
     </div>
 </div>
+<div class="row">
+    <div class="input-field col m6 s12">
+            <i class="fa fa-lock prefix" aria-hidden="true"></i>
+            <input name="password" id="password" type="password" 
+                class="validate white-text {{ $errors->has('password') ? 'invalid' : '' }}">
+            <label for="password">Senha</label>
+            @if ($errors->has('password'))
+                <span class="helper-text" data-error="{{ $errors->first('password') }}"></span>
+            @endif
+    </div>
+    <div class="input-field col m6 s12">
+        <i class="fa fa-lock prefix" aria-hidden="true"></i>
+        <input name="password_confirmation" type="password" 
+            class="validate white-text {{ $errors->has('password_confirmation') ? 'invalid' : '' }}">
+        <label for="password_confirmation">Confirmar senha</label>
+        @if ($errors->has('password_confirmation'))
+            <span class="helper-text" data-error="{{ $errors->first('password_confirmation') }}"></span>
+        @endif
+    </div> 
+</div>
+
+<div class="row center-align">
+    <button type="submit" class="btn red darken-4">
+        Trocar senha
+    </button>
+</div>
+
+</form>
 @endsection
