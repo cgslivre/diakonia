@@ -20,12 +20,13 @@ body.auth {
             color: $colorLoginBox;
         }
         header {
-            font-size: 18px;
-            font-weight: 100;
             background-color: #FFFFFF;
             padding: 20px;
         }
         .titulo {
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 100;
             background-color: rgba(31, 73, 114, 0.9);
         }
         .login-header {

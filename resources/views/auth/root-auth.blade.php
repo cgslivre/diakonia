@@ -5,7 +5,7 @@
     <header id="login" class="center-align">            
         <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
     </header>
-    <header class="titulo white-text center-align">@yield('auth-title')</header>
+    <div class="titulo white-text center-align">@yield('auth-title')</div>
     @yield('formulario')
 </div>
     <script type="text/javascript" src="{{ mix('js/manifest.js') }}"></script>

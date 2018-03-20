@@ -12663,13 +12663,14 @@ body.auth .login-box label {
 }
 
 body.auth .login-box header {
-  font-size: 18px;
-  font-weight: 100;
   background-color: #FFFFFF;
   padding: 20px;
 }
 
 body.auth .login-box .titulo {
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 100;
   background-color: rgba(31, 73, 114, 0.9);
 }
 
