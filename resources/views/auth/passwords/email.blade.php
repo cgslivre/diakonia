@@ -1,48 +1,37 @@
-@extends('template-guest')
-@include('auth.style')
+@extends('auth.root-auth') 
+@section('auth-title','Trocar senha') 
 
-@section('conteudo')
-<div class="formulario">
-    <div class="row">
-        <div class="panel-heading">Trocar a senha</div>
-        <div class="panel-body">
-            @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-            @endif
-
-            <form class="form-horizontal" role="form" method="POST"
-                action="{{ route('password.email') }}">
-                {{ csrf_field() }}
-                <p>
-                    Identifique-se para receber um e-mail com as instruções e o link
-                    para criar uma nova senha.
-                </p>
-                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                    <label for="email" class="col-md-4 control-label">Email</label>
-
-                    <div class="col-campo">
-                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-campo col-md-offset-4">
-                        <button type="submit" class="btn btn-registrar">
-                            <i class="fa fa-btn fa-envelope"></i>
-                            Enviar link para trocar a senha
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
+@section('formulario')
+@if (session('status'))
+    <div class="card-panel green lighten-4 green-text text-darken-4">                        
+        {{ session('status') }}
     </div>
-</div>
+@endif
+<form class="form-horizontal" role="form" method="POST"
+    action="{{ route('password.email') }}">
+    {{ csrf_field() }}
+    <p>
+        Identifique-se para receber um email com as instruções e o link
+        para criar uma nova senha.
+    </p>
+
+    <div class="row">
+        <div class="input-field col s12">
+                <i class="fa fa-envelope prefix" aria-hidden="true"></i>
+                <input id="email" name="email" type="email" value="{{ old('email') }}"
+                    class="validate white-text {{ $errors->has('email') ? 'invalid' : '' }}">
+                <label for="email">Email</label>
+                @if ($errors->has('email'))
+                <span class="helper-text" data-error="{{ $errors->first('email') }}"></span>
+                @endif
+            </div>
+    </div>    
+
+    <div class="row center-align">        
+        <button type="submit" class="btn red darken-4">
+            <i class="fa fa-btn fa-envelope"></i>
+            Enviar link para trocar a senha
+        </button>        
+    </div>
+</form>
 @endsection

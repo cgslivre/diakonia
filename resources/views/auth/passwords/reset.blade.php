@@ -1,7 +1,7 @@
-@extends('template-guest')
-@include('auth.style')
+@extends('auth.root-auth') 
+@section('auth-title','Trocar senha') 
 
-@section('conteudo')
+@section('formulario')
 <div class="formulario">
     <div class="row">
         <div class="panel-heading">Trocar senha</div>

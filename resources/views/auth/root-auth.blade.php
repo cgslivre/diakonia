@@ -6,7 +6,9 @@
         <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
     </header>
     <div class="titulo white-text center-align">@yield('auth-title')</div>
-    @yield('formulario')
+    <div class="login-conteudo hoverable">
+        @yield('formulario')
+    </div>
 </div>
     <script type="text/javascript" src="{{ mix('js/manifest.js') }}"></script>
     <script type="text/javascript" src="{{ mix('js/vendor.js') }}"></script>
