@@ -2,7 +2,9 @@
 @section('content-1')
 <div class="login-box">
     <header id="login" class="center-align">
-        <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
+    <a href="{{url("/")}}" title="Diakonia">
+            <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
+        </a>
     </header>
 
     <header class="titulo white-text center-align">Registrar novo usuário</header>

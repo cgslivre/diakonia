@@ -12631,6 +12631,7 @@ body.entrada .wrapper .conteudo .botoes .btn-small {
   -webkit-transition: all .250s ease;
   transition: all .250s ease;
   color: #fff;
+  margin-bottom: 30px;
 }
 
 html {
