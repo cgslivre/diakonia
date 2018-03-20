@@ -12633,6 +12633,10 @@ body.entrada .wrapper .conteudo .botoes .btn-small {
   color: #fff;
 }
 
+html {
+  height: 100%;
+}
+
 body.auth {
   background: url("/img/background-auth.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -12653,10 +12657,6 @@ body.auth .login-box {
   background: transparent;
 }
 
-body.auth .login-box .row {
-  margin-bottom: 10px;
-}
-
 body.auth .login-box label {
   color: #e8e9eb;
 }
@@ -12666,6 +12666,10 @@ body.auth .login-box header {
   font-weight: 100;
   background-color: #FFFFFF;
   padding: 20px;
+}
+
+body.auth .login-box .titulo {
+  background-color: rgba(31, 73, 114, 0.9);
 }
 
 body.auth .login-box .login-header {

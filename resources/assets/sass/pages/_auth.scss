@@ -1,4 +1,8 @@
 $colorLoginBox: #e8e9eb;
+html {
+    height: 100%;
+}
+
 body.auth {
     background: url('/img/background-auth.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -11,9 +15,6 @@ body.auth {
     align-items: center;
     justify-content: center;
     .login-box {
-        .row {
-            margin-bottom: 10px;
-        }
         background: transparent;
         label {
             color: $colorLoginBox;
@@ -23,6 +24,9 @@ body.auth {
             font-weight: 100;
             background-color: #FFFFFF;
             padding: 20px;
+        }
+        .titulo {
+            background-color: rgba(31, 73, 114, 0.9);
         }
         .login-header {
             font-weight: 100;

@@ -17,6 +17,7 @@
 
 <body class="@yield('app-scope')">
 
+    @yield('content')
 
 
 </body>
