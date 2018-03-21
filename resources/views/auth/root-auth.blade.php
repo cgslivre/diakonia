@@ -3,7 +3,7 @@
 @section('content')
 <div class="login-box">
     <header id="login" class="center-align">            
-        <img src="{{asset('img/logo_v2.png')}}" alt="Logo Diakonia">
+        <img src="{{asset('img/logotipo-h50px.png')}}" alt="Logo Diakonia">
     </header>
     <div class="titulo white-text center-align">@yield('auth-title')</div>
     <div class="login-conteudo hoverable">
