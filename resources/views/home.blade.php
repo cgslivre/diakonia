@@ -1,9 +1,9 @@
-@extends( 'master')
-@section('nivel1')
+@extends( 'layouts.app.root-app')
+{{--  @section('nivel1')
     <li><a href="/home">Início</a></li>
-@stop
+@stop  --}}
 
-@section('content')
+{{--  @section('content')
     @if( $dashboards["user"])
         @include('dashboard.dashboard-usuario')
     @endif
@@ -20,4 +20,7 @@
         @include('dashboard.dashboard-material')
     @endif
 
+@endsection  --}}
+@section('main')
+    Teste
 @endsection
