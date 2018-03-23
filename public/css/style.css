@@ -12533,6 +12533,63 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
   clip: auto;
 }
 
+body.app .gradient-blue {
+  background: #3369E6;
+  background: linear-gradient(45deg, #3369E6 0%, #26c6da 100%);
+}
+
+body.app .brand-sidebar .logo-wrapper {
+  font-size: 36px;
+  white-space: nowrap;
+  line-height: 17px !important;
+}
+
+body.app #left-sidebar-nav .brand-sidebar {
+  background: inherit;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body.app #main #left-sidebar-nav .brand-sidebar .logo-wrapper {
+  padding: 6px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+body.app .side-nav {
+  width: 240px;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+body.app #left-sidebar-nav {
+  position: fixed;
+  width: 100px;
+  left: 180px;
+  z-index: 999;
+  height: auto;
+}
+
+body.app .brand-sidebar {
+  position: fixed;
+  left: 0;
+  width: 240px;
+  top: 0px;
+  z-index: 9;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+body.app h1.logo-wrapper {
+  margin: 0;
+}
+
 body.entrada {
   background: url("/img/background-entrada.jpg") no-repeat center center fixed;
   background-size: cover;

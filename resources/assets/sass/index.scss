@@ -3,6 +3,9 @@
 @import '~font-awesome/scss/font-awesome';
 // Variaveis
 @import 'variables'; // Estrutura
+// Layout
+@import 'layout/top';
+@import 'layout/menu';
 // Componentes
 // Páginas Específicas
 @import 'pages/entrada';
