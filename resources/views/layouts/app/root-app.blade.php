@@ -16,9 +16,19 @@ root
 
     @include('layouts.app.top')
 
-    @include('layouts.app.menu.root-menu')
+    <div id="main">
+        <div class="wrapper">
+            @include('layouts.app.menu.root-menu')
 
-    @yield('main')
+            <section id="content">
+
+                <div class="container">
+                    @yield('main')
+                </div>
+            </section>
+        </div>
+    </div>
+
 
     @include('layouts.app.bottom')
     <script type="text/javascript" src="{{ mix('js/manifest.js') }}"></script>
