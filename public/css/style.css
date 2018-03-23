@@ -12546,6 +12546,10 @@ body.app #header nav {
   background: inherit;
 }
 
+body.app #header nav .brand-logo {
+  top: 5px;
+}
+
 body.app .brand-sidebar .logo-wrapper {
   font-size: 36px;
   white-space: nowrap;

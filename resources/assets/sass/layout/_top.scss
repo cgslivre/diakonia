@@ -5,6 +5,9 @@ body.app {
         background: linear-gradient(45deg, cor("diakonia-secondary", "darker-9") 0%, cor("diakonia-secondary", "base") 100%);
         nav {
             background: inherit;
+            .brand-logo {
+                top: 5px;
+            }
         }
     }
 }
