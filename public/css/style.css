@@ -12590,6 +12590,221 @@ body.app h1.logo-wrapper {
   margin: 0;
 }
 
+body.app .brand-sidebar {
+  max-height: 64px;
+  height: 64px;
+}
+
+body.app .brand-sidebar .logo-wrapper a.navbar-toggler {
+  position: absolute;
+  right: 20px;
+  top: 17px;
+}
+
+body.app .brand-sidebar .logo-wrapper a.navbar-toggler i {
+  font-size: 12px;
+  color: #fff;
+}
+
+body.app #main .side-nav {
+  background: linear-gradient(45deg, #00AEFF 50%, #3369E6 100%) !important;
+  margin: 0;
+}
+
+body.app ul.side-nav.leftside-navigation {
+  top: 64px;
+  overflow: hidden;
+  height: 100%;
+  left: 0;
+  position: fixed;
+}
+
+body.app ul.side-nav.leftside-navigation li:not(.no-padding) {
+  line-height: 44px;
+}
+
+body.app ul.side-nav.leftside-navigation li:not(.no-padding):hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+body.app ul.side-nav.leftside-navigation li:not(.no-padding).active {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+body.app ul.side-nav ul {
+  background: transparent !important;
+}
+
+body.app .side-nav .collapsible,
+body.app .side-nav.fixed .collapsible,
+body.app .side-nav .collapsible-body,
+body.app .side-nav.fixed .collapsible-body {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+body.app .side-nav .collapsible-body {
+  padding: 0;
+  background: transparent !important;
+}
+
+body.app .side-nav .collapsible li,
+body.app .side-nav.fixed .collapsible li {
+  padding: 0;
+}
+
+body.app .side-nav li > a {
+  padding: 0 16px !important;
+  display: block;
+}
+
+body.app .side-nav .collapsible-header,
+body.app .side-nav.fixed .collapsible-header {
+  background-color: transparent;
+  border: none;
+  line-height: inherit;
+  height: inherit;
+}
+
+body.app ul.side-nav .collapsible-header:after {
+  font-family: 'Material Icons';
+  content: "keyboard_arrow_right";
+  color: #f3f3f3;
+  font-size: 18px;
+  position: absolute;
+  right: 16px;
+}
+
+body.app ul.side-nav li.active > .collapsible-header:after {
+  content: "keyboard_arrow_down";
+}
+
+body.app #main .side-nav li > a,
+body.app #main .side-nav li .more-text {
+  color: #fff;
+}
+
+body.app #main .side-nav li > a > i,
+body.app #main .side-nav li .more-text > i {
+  color: #fff;
+}
+
+body.app ul.side-nav.leftside-navigation li:not(.no-padding) a {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  white-space: nowrap;
+}
+
+body.app ul.side-nav.leftside-navigation li:not(.no-padding) a:hover {
+  font-weight: 400;
+}
+
+body.app #slide-out li a i {
+  line-height: inherit;
+  width: 2rem;
+  font-size: 1.4rem;
+  display: block;
+  float: left;
+  text-align: center;
+  margin-right: 1rem;
+}
+
+body.app #slide-out li .collapsible-body a i {
+  font-size: 1.2rem;
+}
+
+body.app .nav-collapsed .brand-sidebar {
+  width: 64px;
+}
+
+body.app .nav-collapsed .brand-sidebar .navbar-toggler,
+body.app .nav-collapsed .brand-sidebar .brand-logo span {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s 2s, opacity 0.05s linear;
+  transition: visibility 0s 2s, opacity 0.05s linear;
+}
+
+body.app .nav-collapsed .side-nav {
+  width: 64px;
+}
+
+body.app .nav-collapsed .side-nav .user-options,
+body.app .nav-collapsed .side-nav .nav-text,
+body.app .nav-collapsed .side-nav .collapsible-body span,
+body.app .nav-collapsed .side-nav span.badge,
+body.app .nav-collapsed .side-nav .collapsible-header:after {
+  display: none;
+}
+
+body.app .nav-collapsed .side-nav .nav-text {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+body.app .nav-expanded .side-nav .nav-text {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+body.app .sidebar-collapse {
+  top: 5px;
+  left: 10px;
+  position: fixed;
+}
+
+body.app .side-nav li.status-mobile img {
+  height: 28px;
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+body.app {
+  /* Diminui padding quando menu estiver recolhido */
+}
+
+body.app #main {
+  min-height: calc(100% - 120px);
+  padding-left: 240px;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+body.app #main.main-full {
+  padding-left: 64px;
+}
+
+body.app .container {
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  max-width: 100% !important;
+  width: 98%;
+}
+
+@media only screen and (min-width: 993px) {
+  body.app .container {
+    width: 98%;
+  }
+}
+
+@media only screen and (max-width: 993px) {
+  body.app #main {
+    padding-left: 0;
+  }
+
+  body.app footer {
+    padding-left: 0;
+  }
+}
+
 body.entrada {
   background: url("/img/background-entrada.jpg") no-repeat center center fixed;
   background-size: cover;

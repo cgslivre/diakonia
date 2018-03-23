@@ -48,4 +48,145 @@ body.app {
     h1.logo-wrapper {
         margin: 0;
     }
+    .brand-sidebar {
+        max-height: 64px;
+        height: 64px;
+    }
+    .brand-sidebar .logo-wrapper a.navbar-toggler {
+        position: absolute;
+        right: 20px;
+        top: 17px;
+    }
+    .brand-sidebar .logo-wrapper a.navbar-toggler i {
+        font-size: 12px;
+        color: #fff;
+    }
+    #main .side-nav {
+        background: linear-gradient(45deg, #00AEFF 50%, #3369E6 100%) !important;
+        margin: 0;
+    }
+    ul.side-nav.leftside-navigation {
+        top: 64px;
+        overflow: hidden;
+        height: 100%;
+        left: 0;
+        position: fixed;
+    }
+    ul.side-nav.leftside-navigation li:not(.no-padding) {
+        line-height: 44px;
+    }
+    ul.side-nav.leftside-navigation li:not(.no-padding):hover {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+    ul.side-nav.leftside-navigation li:not(.no-padding).active {
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+    ul.side-nav ul {
+        background: transparent !important;
+    }
+    .side-nav .collapsible,
+    .side-nav.fixed .collapsible,
+    .side-nav .collapsible-body,
+    .side-nav.fixed .collapsible-body {
+        border: none;
+        box-shadow: none;
+    }
+    .side-nav .collapsible-body {
+        padding: 0;
+        background: transparent !important;
+    }
+    .side-nav .collapsible li,
+    .side-nav.fixed .collapsible li {
+        padding: 0;
+    }
+    .side-nav li>a {
+        padding: 0 16px !important;
+        display: block;
+    }
+    .side-nav .collapsible-header,
+    .side-nav.fixed .collapsible-header {
+        background-color: transparent;
+        border: none;
+        line-height: inherit;
+        height: inherit;
+    }
+    ul.side-nav .collapsible-header:after {
+        font-family: 'Material Icons';
+        content: "keyboard_arrow_right";
+        color: #f3f3f3;
+        font-size: 18px;
+        position: absolute;
+        right: 16px;
+    }
+    ul.side-nav li.active>.collapsible-header:after {
+        content: "keyboard_arrow_down";
+    }
+    #main .side-nav li>a,
+    #main .side-nav li .more-text {
+        color: #fff;
+    }
+    #main .side-nav li>a>i,
+    #main .side-nav li .more-text>i {
+        color: #fff;
+    }
+    ul.side-nav.leftside-navigation li:not(.no-padding) a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        font-weight: 300;
+        white-space: nowrap;
+    }
+    ul.side-nav.leftside-navigation li:not(.no-padding) a:hover {
+        font-weight: 400;
+    }
+    #slide-out li a i {
+        line-height: inherit;
+        width: 2rem;
+        font-size: 1.4rem;
+        display: block;
+        float: left;
+        text-align: center;
+        margin-right: 1rem;
+    }
+    #slide-out li .collapsible-body a i {
+        font-size: 1.2rem;
+    }
+    .nav-collapsed .brand-sidebar {
+        width: 64px;
+    }
+    .nav-collapsed .brand-sidebar .navbar-toggler,
+    .nav-collapsed .brand-sidebar .brand-logo span {
+        visibility: hidden;
+        opacity: 0;
+        transition: visibility 0s 2s, opacity 0.05s linear;
+    }
+    .nav-collapsed .side-nav {
+        width: 64px;
+    }
+    .nav-collapsed .side-nav .user-options,
+    .nav-collapsed .side-nav .nav-text,
+    .nav-collapsed .side-nav .collapsible-body span,
+    .nav-collapsed .side-nav span.badge,
+    .nav-collapsed .side-nav .collapsible-header:after {
+        display: none;
+    }
+    .nav-collapsed .side-nav .nav-text {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s linear;
+    }
+    .nav-expanded .side-nav .nav-text {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity 0.2s linear;
+    }
+    .sidebar-collapse {
+        top: 5px;
+        left: 10px;
+        position: fixed;
+    }
+    .side-nav li.status-mobile img {
+        height: 28px;
+        vertical-align: middle;
+        margin-right: 1rem;
+    }
 }
