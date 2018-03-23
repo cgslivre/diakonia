@@ -6,7 +6,7 @@
             </a>
             <div class="logo-wrapper">
                 <a href="index.html" class="brand-logo  center-align hide-on-med-and-down">
-                    <img src="../images/favicon-32px.png" alt="materialize logo">
+                    <img src="{{asset('img/logo-white-oppa.png')}}" alt="materialize logo">
                 </a>
                 <a href="#" class="navbar-toggler hide-on-med-and-down">
                     <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
