@@ -12533,9 +12533,17 @@ input[type=range].focused:focus:not(.active)::-ms-thumb {
   clip: auto;
 }
 
-body.app .gradient-blue {
-  background: #3369E6;
-  background: linear-gradient(45deg, #3369E6 0%, #26c6da 100%);
+/**
+ * Cores
+ **/
+
+body.app #header {
+  background: #2460A1;
+  background: linear-gradient(45deg, #0b1e32 0%, #2460A1 100%);
+}
+
+body.app #header nav {
+  background: inherit;
 }
 
 body.app .brand-sidebar .logo-wrapper {

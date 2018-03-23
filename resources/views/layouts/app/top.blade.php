@@ -3,9 +3,11 @@
         <nav class="gradient-blue">
             <div class="nav-wrapper">
                 <div>
-                    <a href="#" class="brand-logo center hide-on-med-and-down">Logo</a>
+                    <a href="#" class="brand-logo center hide-on-med-and-down">
+                        <img src="{{asset('img/logotipo-white-h50px.png')}}" alt="Diakonia Logo">
+                    </a>
                     <a href="#" class="brand-logo-mobile center show-on-medium-and-down hide-on-large-only">
-                        <img src="../images/logo-mobile.png" alt="">
+                        <img src="{{asset('img/logotipo-white-h50px.png')}}" alt="Diakonia Logo">
                     </a>
                 </div>
                 <ul id="status-menu" class="right hide-on-med-and-down">

@@ -1,7 +1,10 @@
 body.app {
-    .gradient-blue {
-        background: #3369E6;
-        background: -webkit-linear-gradient(45deg, #3369E6 0%, #26c6da 100%);
-        background: linear-gradient(45deg, #3369E6 0%, #26c6da 100%);
+    #header {
+        background: cor("diakonia-secondary", "base");
+        background: -webkit-linear-gradient(45deg, cor("diakonia-secondary", "darker-9") 0%, cor("diakonia-secondary", "base") 100%);
+        background: linear-gradient(45deg, cor("diakonia-secondary", "darker-9") 0%, cor("diakonia-secondary", "base") 100%);
+        nav {
+            background: inherit;
+        }
     }
 }

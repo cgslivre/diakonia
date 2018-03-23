@@ -1,1 +1,21 @@
 $break-large: 700px;
+
+/**
+ * Cores
+ **/
+
+$diakonia-primary: ( "base": #cc333f, "lighten-5": #dd777f, "lighten-4": #da6972, "lighten-3": #d65c65, "lighten-2": #d34e59, "lighten-1": #cf414c, "darken-1": #be303b, "darken-2": #b12c37, "darken-3": #a32932, "darken-4": #96252e, );
+$diakonia-secondary: ( "base": #2460A1, );
+// http://www.0to255.com/2460a1
+$diakonia-secondary: ( "base": #2460A1, "darker-9": #0b1e32);
+$cores: ( "diakonia-primary": $diakonia-primary, "diakonia-secondary": $diakonia-secondary) !default;
+@function cor( $cor, $tipo) {
+    @if map-has-key( $cores, $cor) {
+        $curr_color: map-get($cores, $cor);
+        @if map-has-key($curr_color, $tipo) {
+            @return map-get($curr_color, $tipo);
+        }
+    }
+    @warn "Unknown `#{$cor}` - `#{$tipo}` in $colors.";
+    @return null;
+}
